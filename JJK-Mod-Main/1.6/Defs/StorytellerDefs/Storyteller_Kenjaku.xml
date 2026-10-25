@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Kenjaku (Section 3): a calm, calculating storyteller running a world    -->
+  <!-- unrelentingly hostile to a stable colony. Built on the vanilla          -->
+  <!-- BaseStoryteller threat backbone, with denser quests, a flavor comp that -->
+  <!-- drops third-person plotting letters, and TWO signature mechanics:        -->
+  <!--  - Mood-driven escalation: Patch_KenjakuMoodEscalation scales every      -->
+  <!--    threat's points by colony mood (he strikes when you are comfortable). -->
+  <!--  - Cursed-spirit budgeting: StorytellerComp_KenjakuScheme spends his     -->
+  <!--    threat budget on cursed-spirit manifestations and curse-user raids.   -->
+  <!-- ===================================================================== -->
+
+  <StorytellerDef ParentName="BaseStoryteller">
+    <defName>JJK_Kenjaku</defName>
+    <label>Kenjaku</label>
+    <description>Kenjaku weaves a thousand-year scheme around your colony. Calm and patient, he applies relentless pressure: curses, curse users, and grim contracts, spaced to keep a sorcerer outpost forever on the edge. He spawns jujutsu-flavored quests far more often than other storytellers, and occasionally lets slip a note from his own plotting.</description>
+    <portraitLarge>UI/HeroArt/Storytellers/Kenjaku</portraitLarge>
+    <portraitTiny>UI/HeroArt/Storytellers/KenjakuTiny</portraitTiny>
+    <listOrder>520</listOrder>
+    <comps>
+      <li Class="StorytellerCompProperties_ClassicIntro"/>
+      <!-- Home threats -->
+      <li Class="StorytellerCompProperties_OnOffCycle">
+        <category>ThreatBig</category>
+        <minDaysPassed>9.0</minDaysPassed>
+        <onDays>4.6</onDays>
+        <!-- Slightly longer lulls: Kenjaku's scheme comp fills the budget with
+             curses and curse-user raids, so the generic cycle eases off. -->
+        <offDays>6.4</offDays>
+        <minSpacingDays>1.7</minSpacingDays>
+        <numIncidentsRange>1~2</numIncidentsRange>
+        <forceRaidEnemyBeforeDaysPassed>18</forceRaidEnemyBeforeDaysPassed>
+        <disallowedTargetTags>
+          <li>Map_RaidBeacon</li>
+        </disallowedTargetTags>
+      </li>
+      <li Class="StorytellerCompProperties_ThreatsGenerator">
+        <allowedTargetTags>
+          <li>Map_RaidBeacon</li>
+        </allowedTargetTags>
+        <parms>
+          <allowedThreats>Raids</allowedThreats>
+          <onDays>1.0</onDays>
+          <offDays>0.5</offDays>
+          <minSpacingDays>0.04</minSpacingDays>
+          <numIncidentsRange>1~2</numIncidentsRange>
+          <minThreatPoints>500</minThreatPoints>
+        </parms>
+      </li>
+      <li Class="StorytellerCompProperties_OnOffCycle">
+        <category>ThreatSmall</category>
+        <minDaysPassed>9.0</minDaysPassed>
+        <onDays>4.6</onDays>
+        <offDays>5.2</offDays>
+        <numIncidentsRange>0.2~1</numIncidentsRange>
+        <acceptPercentFactorPerThreatPointsCurve>
+          <points>
+            <li>(800, 1)</li>
+            <li>(2800, 0)</li>
+          </points>
+        </acceptPercentFactorPerThreatPointsCurve>
+      </li>
+      <!-- Home misc incidents -->
+      <li Class="StorytellerCompProperties_CategoryMTB">
+        <category>Misc</category>
+        <allowedTargetTags>
+          <li>Map_PlayerHome</li>
+        </allowedTargetTags>
+        <minDaysPassed>5</minDaysPassed>
+        <mtbDays>4.8</mtbDays>
+      </li>
+      <li Class="StorytellerCompProperties_ShipChunkDrop"/>
+      <li Class="StorytellerCompProperties_Disease">
+        <category>DiseaseHuman</category>
+        <minDaysPassed>9</minDaysPassed>
+      </li>
+      <li Class="StorytellerCompProperties_Disease">
+        <category>DiseaseAnimal</category>
+        <minDaysPassed>9</minDaysPassed>
+      </li>
+      <!-- Ally / neutral interaction -->
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>RaidFriendly</incident>
+        <baseIncidentsPerYear>15</baseIncidentsPerYear>
+        <minSpacingDays>0.4</minSpacingDays>
+        <fullAlliesOnly>true</fullAlliesOnly>
+        <minDanger>High</minDanger>
+      </li>
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>TraderCaravanArrival</incident>
+        <minDaysPassed>5</minDaysPassed>
+        <baseIncidentsPerYear>5</baseIncidentsPerYear>
+        <minSpacingDays>6</minSpacingDays>
+        <allowedTargetTags>
+          <li>Map_PlayerHome</li>
+        </allowedTargetTags>
+      </li>
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>VisitorGroup</incident>
+        <minDaysPassed>3</minDaysPassed>
+        <baseIncidentsPerYear>4</baseIncidentsPerYear>
+        <minSpacingDays>5</minSpacingDays>
+        <allowedTargetTags>
+          <li>Map_PlayerHome</li>
+        </allowedTargetTags>
+      </li>
+      <li Class="StorytellerCompProperties_FactionInteraction">
+        <incident>TravelerGroup</incident>
+        <minDaysPassed>1</minDaysPassed>
+        <baseIncidentsPerYear>6</baseIncidentsPerYear>
+        <minSpacingDays>1</minSpacingDays>
+        <allowedTargetTags>
+          <li>Map_PlayerHome</li>
+        </allowedTargetTags>
+      </li>
+      <!-- Caravan / temp map -->
+      <li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+        <category>Misc</category>
+        <allowedTargetTags>
+          <li>Caravan</li>
+          <li>Map_TempIncident</li>
+        </allowedTargetTags>
+      </li>
+      <li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+        <category>ThreatSmall</category>
+        <applyCaravanVisibility>true</applyCaravanVisibility>
+        <allowedTargetTags>
+          <li>Caravan</li>
+          <li>Map_TempIncident</li>
+        </allowedTargetTags>
+      </li>
+      <li Class="StorytellerCompProperties_CategoryIndividualMTBByBiome">
+        <category>ThreatBig</category>
+        <applyCaravanVisibility>true</applyCaravanVisibility>
+        <allowedTargetTags>
+          <li>Caravan</li>
+          <li>Map_TempIncident</li>
+        </allowedTargetTags>
+      </li>
+      <!-- Quests - denser than vanilla (Kenjaku's scheming, ~50% more) -->
+      <li Class="StorytellerCompProperties_RandomQuest">
+        <category>GiveQuest</category>
+        <allowedTargetTags>
+          <li>World</li>
+        </allowedTargetTags>
+        <onDays>7</onDays>
+        <numIncidentsRange>1~2</numIncidentsRange>
+        <acceptFractionByDaysPassedCurve>
+          <points>
+            <li>(8, 0)</li>
+            <li>(15, 1)</li>
+          </points>
+        </acceptFractionByDaysPassedCurve>
+        <minSpacingDays>2.5</minSpacingDays>
+      </li>
+      <!-- World misc incidents -->
+      <li Class="StorytellerCompProperties_CategoryMTB">
+        <category>Misc</category>
+        <allowedTargetTags>
+          <li>World</li>
+        </allowedTargetTags>
+        <minDaysPassed>15</minDaysPassed>
+        <mtbDays>15</mtbDays>
+      </li>
+      <!-- Orbital trader -->
+      <li Class="StorytellerCompProperties_OnOffCycle">
+        <incident>OrbitalTraderArrival</incident>
+        <onDays>7</onDays>
+        <offDays>8</offDays>
+        <numIncidentsRange>1</numIncidentsRange>
+      </li>
+      <!-- Kenjaku's scheme: budget his pressure toward curses and curse users. -->
+      <li Class="JJKMod.StorytellerCompProperties_KenjakuScheme">
+        <mtbDays>6.5</mtbDays>
+        <minDaysPassed>8</minDaysPassed>
+        <curseUserRaidChance>0.5</curseUserRaidChance>
+      </li>
+      <!-- Kenjaku flavor: periodic third-person plotting letters. -->
+      <li Class="JJKMod.StorytellerCompProperties_Kenjaku">
+        <mtbDays>6.0</mtbDays>
+        <minDaysPassed>4</minDaysPassed>
+      </li>
+    </comps>
+  </StorytellerDef>
+
+</Defs>

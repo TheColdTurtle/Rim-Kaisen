@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_PuppetMove>Move puppet</JJK_PuppetMove>
+  <JJK_PuppetMoveDesc>Order this active construct to a reachable cell, then guard there. Disables following. Its controller can remain elsewhere on this map.</JJK_PuppetMoveDesc>
+  <JJK_PuppetMoveFailed>The puppet is inactive or cannot reach that cell.</JJK_PuppetMoveFailed>
+  <JJK_PuppetNeedSorcerer>Requires a conscious sorcerer.</JJK_PuppetNeedSorcerer>
+  <JJK_PuppetNeedGene>Requires Puppet Manipulation.</JJK_PuppetNeedGene>
+  <JJK_PuppetLimit>This sorcerer already has the maximum {0} bound constructs.</JJK_PuppetLimit>
+  <JJK_PuppetOffline>Inactive</JJK_PuppetOffline>
+  <JJK_PuppetCooling>Puppet weapon is recharging.</JJK_PuppetCooling>
+  <JJK_PuppetNeedGrade>Requires a Grade 1 controller.</JJK_PuppetNeedGrade>
+  <JJK_PuppetLowCharge>Insufficient core charge.</JJK_PuppetLowCharge>
+  <JJK_PuppetTarget>Target must be a visible enemy within {0} tiles of the puppet.</JJK_PuppetTarget>
+  <JJK_PuppetStatus>Controller: {0}
+Core charge: {1} / 120
+Status: {2}</JJK_PuppetStatus>
+  <JJK_PuppetUnbound>unbound</JJK_PuppetUnbound>
+  <JJK_PuppetOnline>Active</JJK_PuppetOnline>
+  <JJK_PuppetBind>Bind this construct</JJK_PuppetBind>
+  <JJK_PuppetRecharge>Recharge core (30 CE → 60 charge)</JJK_PuppetRecharge>
+  <JJK_PuppetRepair>Repair cursed corpse (one repair kit)</JJK_PuppetRepair>
+  <JJK_PuppetStandby>Standby</JJK_PuppetStandby>
+  <JJK_PuppetStandbyDesc>Stop moving and attacking. Standby preserves core charge and existing injuries.</JJK_PuppetStandbyDesc>
+  <JJK_PuppetFollow>Follow controller</JJK_PuppetFollow>
+  <JJK_PuppetFollowDesc>Follow the controller when no enemy is nearby. Disable to guard this position.</JJK_PuppetFollowDesc>
+  <JJK_PuppetFindController>Select controller</JJK_PuppetFindController>
+  <JJK_PuppetAutoFire>Auto-fire</JJK_PuppetAutoFire>
+  <JJK_PuppetAutoFireDesc>Automatically fire Ultra Cannon at visible enemies within 26 tiles, spending core charge. Disable to conserve charge for other moves.</JJK_PuppetAutoFireDesc>
+  <JJK_PuppetNeedEnergy>Requires 30 cursed energy.</JJK_PuppetNeedEnergy>
+  <JJK_PuppetActivated>{0} is now bound to {1}.</JJK_PuppetActivated>
+  <JJK_PuppetNoSource>No eligible owned puppet: check its charge, range, line of sight, cooldown and control link.</JJK_PuppetNoSource>
+  <JJK_Puppet_UltraCannon>ultra cannon</JJK_Puppet_UltraCannon>
+  <JJK_Puppet_UltraCannonDesc>Order the nearest ready controlled Mechamaru to fire at an enemy within 26 tiles of the puppet. Costs 6 core charge; 24 burn damage, 180-tick puppet cooldown. The controller needs no line of sight.</JJK_Puppet_UltraCannonDesc>
+  <JJK_Puppet_UltraSpin>ultra spin</JJK_Puppet_UltraSpin>
+  <JJK_Puppet_UltraSpinDesc>Order a controlled Mechamaru adjacent to an enemy to drill into it. Range 1.9 from puppet, 40 stab damage, 15 core charge; shares the 180-tick Ultra Cannon cooldown.</JJK_Puppet_UltraSpinDesc>
+  <JJK_Puppet_UltraShield>ultra shield</JJK_Puppet_UltraShield>
+  <JJK_Puppet_UltraShieldDesc>Target your Mechamaru puppet to reduce its incoming damage by 45% for 600 ticks. Costs 20 core charge; shares a 900-tick cooldown with Boost On.</JJK_Puppet_UltraShieldDesc>
+  <JJK_Puppet_BoostOn>boost on</JJK_Puppet_BoostOn>
+  <JJK_Puppet_BoostOnDesc>Target your Mechamaru puppet to boost movement speed by 40% for 600 ticks. Costs 12 core charge; shares a 900-tick cooldown with Ultra Shield.</JJK_Puppet_BoostOnDesc>
+  <JJK_Puppet_UltimateCannon>ultimate cannon</JJK_Puppet_UltimateCannon>
+  <JJK_Puppet_UltimateCannonDesc>Order the nearest ready Mechamaru to fire its Mode: Albatross finisher at an enemy within 32 tiles of the puppet. Costs 60 core charge; 70 explosive damage in a 2.9-tile radius, with friendly fire. Requires a Grade 1 controller. 1,800-tick puppet cooldown.</JJK_Puppet_UltimateCannonDesc>
+  <JJK_Puppet_RemoteRecharge>remote recharge</JJK_Puppet_RemoteRecharge>
+  <JJK_Puppet_RemoteRechargeDesc>Target one of your bound constructs on this map to transfer 30 CE into 60 core charge. Core must hold 60 or less of its 120 maximum. Transfers energy without requiring the controller to walk to the puppet.</JJK_Puppet_RemoteRechargeDesc>
+</LanguageData>

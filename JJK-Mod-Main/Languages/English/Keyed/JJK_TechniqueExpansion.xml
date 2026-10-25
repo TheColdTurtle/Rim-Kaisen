@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_ExpansionUnavailable>Cannot use this technique while downed, sealed, amplified, or in burnout.</JJK_ExpansionUnavailable>
+  <JJK_ExpansionMastery>Requires {0} mastery XP in this technique.</JJK_ExpansionMastery>
+  <JJK_ConstructionRest>Already constructed a physical object within the last day.</JJK_ConstructionRest>
+  <JJK_NeedSupply>Requires {0} in inventory or an adjacent accessible stack.</JJK_NeedSupply>
+  <JJK_ReversalRequiresRCT>Learn Reverse Cursed Technique before using gravity reversal.</JJK_ReversalRequiresRCT>
+  <JJK_RikaRest>Rika is already manifested or her daily manifestation has not recovered.</JJK_RikaRest>
+  <JJK_RikaRequired>Rika must be manifested nearby.</JJK_RikaRequired>
+  <JJK_ExpansionTarget>Choose a valid target within range and line of sight.</JJK_ExpansionTarget>
+  <JJK_StarRequiresCE>Touch a pawn with cursed energy, or their bonded shikigami.</JJK_StarRequiresCE>
+  <JJK_NoBarrier>No hostile domain here that your mastery can dismantle.</JJK_NoBarrier>
+  <JJK_StarSelected>Selected star: {0}.</JJK_StarSelected>
+  <JJK_StarMarked>{0} bears the star {1}.</JJK_StarMarked>
+  <JJK_ExpansionBlast>{0} · {1} · can hit allies</JJK_ExpansionBlast>
+  <JJK_GambleSpin>{0}: Idle Death Gamble, spin {1}/6.</JJK_GambleSpin>
+  <JJK_JackpotWon>{0} hit the jackpot! 4 minutes 11 seconds of overflowing cursed energy and automatic healing.</JJK_JackpotWon>
+  <JJK_GambleActive>Cannot reopen Idle Death Gamble during a jackpot or another domain.</JJK_GambleActive>
+  <JJK_CopySampleInvalid>Requires a downed hostile human or non-allied corpse with an innate technique and a remaining arm or hand. The caster must be within eight tiles and Rika within five.</JJK_CopySampleInvalid>
+  <JJK_CopyFull>Rika already holds three imprints. Forget one before consuming another sample.</JJK_CopyFull>
+  <JJK_CopyConsumeHelp>Choose a technique to copy. This consumes an actual arm or hand from the target. Three casts per sample; a living donor regrowing that part invalidates it. Copy and techniques you already possess are excluded.</JJK_CopyConsumeHelp>
+  <JJK_CopyHelp>Rika stores up to three imprints. Select one while manifested to borrow its grade-eligible abilities. Three casts per imprint; domains cannot be borrowed. Forgetting an imprint does not restore its sample.</JJK_CopyHelp>
+  <JJK_CopyUses>{0} casts remaining</JJK_CopyUses>
+  <JJK_CopyInvalid>sample invalid or exhausted</JJK_CopyInvalid>
+  <JJK_CopySelect>Borrow {0}</JJK_CopySelect>
+  <JJK_CopyForget>Forget {0}</JJK_CopyForget>
+  <JJK_EndExpansionDefense>End technique defenses</JJK_EndExpansionDefense>
+  <JJK_EndExpansionDefenseDesc>End Folded Sky, Inverse, Gravity Field and the support ritual. Does not refund spent energy.</JJK_EndExpansionDefenseDesc>
+  <JJK_StarLabel>{0} → {1}</JJK_StarLabel>
+  <JJK_JackpotLabel>JACKPOT · {0}</JJK_JackpotLabel>
+  <JJK_RitualLabel>Ritual · {0}</JJK_RitualLabel>
+  <JJK_GambleLabel>Idle Death Gamble · spin {0}/6</JJK_GambleLabel>
+</LanguageData>

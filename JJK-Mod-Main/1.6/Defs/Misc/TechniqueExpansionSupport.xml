@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Name="JJK_ReceiptBase" ParentName="JJK_ScrollBase" Abstract="True">
+    <description>A physical contract consumed by Contractual Re-Creation. Keep it in the caster's inventory or beside them. Successful trades produce one random receipt per negotiator per day; also a rare quest reward.</description>
+    <graphicData><texPath>Things/Item/Scroll/NewShadowStyleScroll</texPath></graphicData>
+    <statBases><MarketValue>120</MarketValue></statBases><stackLimit>10</stackLimit>
+    <thingSetMakerTags Inherit="False"><li>RewardStandardLowFreq</li></thingSetMakerTags>
+  </ThingDef>
+  <ThingDef ParentName="JJK_ReceiptBase"><defName>JJK_ReceiptKnives</defName><label>receipt: kitchen knives</label></ThingDef>
+  <ThingDef ParentName="JJK_ReceiptBase"><defName>JJK_ReceiptWeight</defName><label>receipt: heavy goods</label></ThingDef>
+  <ThingDef ParentName="JJK_ReceiptBase"><defName>JJK_ReceiptRest</defName><label>receipt: recuperation</label></ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_ConstructedBullet</defName><label>constructed cursed bullet</label>
+    <description>A persistent bullet made through Construction. Fire Constructed Bullet consumes one from inventory or an adjacent stack to launch a powerful shot. Producing physical objects costs substantial cursed energy and is limited to one per day.</description>
+    <graphicData><texPath>Things/Projectile/Bullet_Small</texPath><graphicClass>Graphic_Single</graphicClass><drawSize>0.4</drawSize></graphicData>
+    <statBases><MarketValue>50</MarketValue><Mass>0.05</Mass><MaxHitPoints>30</MaxHitPoints></statBases><stackLimit>20</stackLimit>
+    <thingCategories><li>Items</li></thingCategories><tradeability>All</tradeability>
+  </ThingDef>
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>JJK_ConstructedBlade</defName><label>constructed blade</label>
+    <description>A physical steel blade created by Construction. It remains after the caster stops using the technique. This is an ordinary reinforced cutting weapon, not a special-grade cursed tool.</description>
+    <graphicData><texPath>Things/Item/Equipment/WeaponMelee/Knife</texPath><graphicClass>Graphic_Single</graphicClass></graphicData>
+    <statBases><MarketValue>180</MarketValue><Mass>1</Mass></statBases>
+    <stuffCategories><li>Metallic</li></stuffCategories><costStuffCount>20</costStuffCount>
+    <tools><li><label>blade</label><capacities><li>Cut</li></capacities><power>16</power><cooldownTime>1.7</cooldownTime></li></tools>
+    <recipeMaker IsNull="True" />
+  </ThingDef>
+  <ThingDef Name="JJK_ExpansionProjectile" ParentName="BaseBullet" Abstract="True">
+    <graphicData><texPath>Things/Projectile/Bullet_Small</texPath><graphicClass>Graphic_Single</graphicClass></graphicData>
+    <projectile><damageDef>Bullet</damageDef><speed>60</speed><armorPenetrationBase>0.5</armorPenetrationBase></projectile>
+  </ThingDef>
+  <ThingDef ParentName="JJK_ExpansionProjectile"><defName>JJK_Proj_ConstructedBullet</defName><label>constructed bullet</label><projectile><damageAmountBase>36</damageAmountBase></projectile></ThingDef>
+  <ThingDef ParentName="JJK_ExpansionProjectile"><defName>JJK_Proj_ReceiptKnife</defName><label>receipt knife</label><projectile><damageAmountBase>12</damageAmountBase><damageDef>Stab</damageDef></projectile></ThingDef>
+
+  <HediffDef Name="JJK_ExpansionTimed" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass><isBad>false</isBad>
+    <comps><li Class="HediffCompProperties_Disappears"><disappearsAfterTicks>60</disappearsAfterTicks></li></comps>
+  </HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_SkyGuard</defName><label>folded sky</label><description>Redirects hostile projectiles once. Costs CE for upkeep and each interception; does not block melee or domain sure-hits.</description></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_InverseGuard</defName><label>inverse</label><description>Strong external hits weaken, weak hits strengthen. Hits above 100 damage overwhelm this defense.</description></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_GravityGuard</defName><label>gravity field</label><description>Grounds nearby hostile projectiles while cursed energy remains.</description></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_InsectArmor</defName><description>A constructed shell improves armor and movement for twenty seconds.</description><label>constructed insect armor</label><stages><li><statOffsets><ArmorRating_Sharp>0.6</ArmorRating_Sharp><ArmorRating_Blunt>0.4</ArmorRating_Blunt><MoveSpeed>0.4</MoveSpeed></statOffsets></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_MetalBind</defName><description>Liquid metal restricts movement for two seconds.</description><label>liquid metal bind</label><isBad>true</isBad><stages><li><capMods><li><capacity>Moving</capacity><offset>-0.25</offset></li></capMods></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_SkyDistortion</defName><description>Distorted space reduces sight for six seconds.</description><label>distorted sky</label><isBad>true</isBad><stages><li><capMods><li><capacity>Sight</capacity><offset>-0.5</offset></li></capMods></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_RitualMinor</defName><description>A nearby ritual adds 20 maximum cursed energy and 20% technique output.</description><label>ritual amplification</label><stages><li><statOffsets><JJK_CTOutput>0.2</JJK_CTOutput><JJK_MaxCursedEnergy>20</JJK_MaxCursedEnergy></statOffsets></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_RitualFull</defName><description>An uninterrupted ritual adds 40 maximum cursed energy and 40% technique output.</description><label>complete ritual amplification</label><stages><li><statOffsets><JJK_CTOutput>0.4</JJK_CTOutput><JJK_MaxCursedEnergy>40</JJK_MaxCursedEnergy></statOffsets></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_Antigravity</defName><description>Reduced gravity improves movement and carrying capacity, and resists gravity crush.</description><label>antigravity</label><stages><li><statOffsets><MoveSpeed>0.6</MoveSpeed><CarryingCapacity>20</CarryingCapacity></statOffsets></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_GravityCrush</defName><description>Intense gravity greatly restricts movement for six seconds.</description><label>gravity crush</label><isBad>true</isBad><stages><li><capMods><li><capacity>Moving</capacity><offset>-0.6</offset></li></capMods></li></stages></HediffDef>
+  <HediffDef ParentName="JJK_ExpansionTimed"><defName>JJK_Jackpot</defName><label>jackpot</label><description>Automatic healing and an immense, continually replenished energy reserve. Does not resurrect the dead or prevent a lethal strike from destroying vital organs.</description><stages><li><statOffsets><JJK_MaxCursedEnergy>10000</JJK_MaxCursedEnergy></statOffsets></li></stages></HediffDef>
+  <HediffDef><defName>JJK_PachinkoActive</defName><label>idle death gamble</label><description>A non-damaging domain is running its saved gambling sequence. Survive until a jackpot or until all six attempts are exhausted.</description><isBad>false</isBad></HediffDef>
+
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>JJK_RikaRace</defName><label>rika manifestation</label><description>A temporary manifestation accompanying a Copy user. Fights nearby enemies and stores borrowed techniques. Uses temporary spirit artwork.</description>
+    <statBases><MoveSpeed>5.5</MoveSpeed><MarketValue>0</MarketValue><ComfyTemperatureMin>-60</ComfyTemperatureMin><ComfyTemperatureMax>60</ComfyTemperatureMax><ArmorRating_Sharp>0.4</ArmorRating_Sharp><ArmorRating_Blunt>0.35</ArmorRating_Blunt><Wildness>0</Wildness><FilthRate>0</FilthRate></statBases>
+    <tools><li><label>claws</label><capacities><li>Scratch</li></capacities><power>24</power><cooldownTime>1.5</cooldownTime><linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup></li></tools>
+    <race><body>QuadrupedAnimalWithPawsAndTail</body><baseBodySize>2</baseBodySize><baseHealthScale>3</baseHealthScale><baseHungerRate>0</baseHungerRate><foodType>CarnivoreAnimal</foodType><leatherDef>Leather_Dog</leatherDef><trainability>Advanced</trainability><petness>0</petness><manhunterOnDamageChance>0</manhunterOnDamageChance><manhunterOnTameFailChance>0</manhunterOnTameFailChance><lifeExpectancy>100</lifeExpectancy><intelligence>Animal</intelligence><lifeStageAges><li><def>AnimalAdult</def><minAge>0</minAge></li></lifeStageAges><soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn><soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding><soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss></race>
+  </ThingDef>
+  <PawnKindDef><defName>JJK_Rika_Kind</defName><label>rika manifestation</label><race>JJK_RikaRace</race><combatPower>350</combatPower><lifeStages><li><bodyGraphicData><texPath>Things/Pawn/TransfiguredSoul/TransfiguredSoul</texPath><drawSize>2</drawSize><color>(0.9,0.9,1)</color></bodyGraphicData></li></lifeStages></PawnKindDef>
+  <JJKMod.ShikigamiDef><defName>JJK_Shadow_Rika</defName><label>rika</label><pawnKind>JJK_Rika_Kind</pawnKind><needsTaming>false</needsTaming><losableOnDeath>false</losableOnDeath><summonDurationTicks>18000</summonDurationTicks></JJKMod.ShikigamiDef>
+</Defs>
+

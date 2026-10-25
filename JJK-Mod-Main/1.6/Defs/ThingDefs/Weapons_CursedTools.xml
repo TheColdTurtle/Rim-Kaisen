@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed Tools (Section 27). Only the three Standard tools (blade/spear/axe) -->
+  <!-- are craftable; every named tool is drop/quest-only and must explicitly say -->
+  <!-- <recipeMaker IsNull="True"/>, because vanilla's BaseMeleeWeapon chain      -->
+  <!-- otherwise hands it a working, COSTLESS Smithy recipe. They can be spawned  -->
+  <!-- for testing via the dev tools. All cursed tools carry Comp_CursedTool,    -->
+  <!-- which makes their hits scale with the wielder's CT Output (sorcerer       -->
+  <!-- grade) and deal bonus damage to cursed spirits (Patch_CursedTool).        -->
+  <!-- ===================================================================== -->
+
+  <ThingDef Name="JJK_CursedToolBase" ParentName="BaseMeleeWeapon_Sharp" Abstract="True">
+    <techLevel>Medieval</techLevel>
+    <smeltable>false</smeltable>
+    <burnableByRecipe>false</burnableByRecipe>
+    <thingCategories Inherit="False">
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <weaponTags>
+      <li>JJK_CursedTool</li>
+    </weaponTags>
+    <tradeTags>
+      <li>JJK_CursedTool</li>
+    </tradeTags>
+    <statBases>
+      <MarketValue>650</MarketValue>
+      <Mass>1.5</Mass>
+    </statBases>
+    <!-- Comp_CursedTool is declared per-weapon below (not here): def <comps>
+         lists APPEND across inheritance, so a shared base comp would stack a
+         duplicate onto every weapon that tunes its own values. -->
+  </ThingDef>
+
+  <!-- ===================== The one craftable cursed tool ================== -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_StandardCursedBlade</defName>
+    <label>standard cursed blade</label>
+    <description>A reliable, mass-producible cursed katana - the jujutsu world's safety net for spirit-fighting. Its cursed edge bites into spirits that shrug off ordinary steel, and it bites harder still channelling a sorcerer's cursed energy.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/StandardCursedBlade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>420</MarketValue>
+      <Mass>1.4</Mass>
+      <WorkToMake>1800</WorkToMake>
+    </statBases>
+    <costList>
+      <JJK_CursedSteel>30</JJK_CursedSteel>
+    </costList>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.0</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_CursedToolForging</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+      <displayPriority>500</displayPriority>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>20</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.35</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>18</power>
+        <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.32</armorPenetration>
+      </li>
+      <li>
+        <label>pommel</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- The cursed spear: craftable companion to the standard blade. Long reach,
+       stab-focused, for holding a line against curses. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_StandardCursedSpear</defName>
+    <label>cursed spear</label>
+    <description>A cursed-steel spear forged at the same bench as the standard cursed blade. Its long reach and piercing point make it a steady, reliable tool for keeping cursed spirits at arm's length.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/CursedSpear</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>1.8</Mass>
+      <WorkToMake>1700</WorkToMake>
+    </statBases>
+    <costList>
+      <JJK_CursedSteel>25</JJK_CursedSteel>
+    </costList>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.0</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_CursedToolForging</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+      <displayPriority>490</displayPriority>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>23</power>
+        <cooldownTime>2.3</cooldownTime>
+        <armorPenetration>0.36</armorPenetration>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>15</power>
+        <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.28</armorPenetration>
+      </li>
+      <li>
+        <label>shaft</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- The cursed axe: craftable, heavy cutting power and armor shred. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_StandardCursedAxe</defName>
+    <label>cursed axe</label>
+    <description>A heavy cursed-steel axe forged at the same bench as the standard cursed blade. It trades the katana's finesse for raw cutting power, hewing through a spirit's hide and whatever armor it wears.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/CursedAxe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>440</MarketValue>
+      <Mass>2.2</Mass>
+      <WorkToMake>1900</WorkToMake>
+    </statBases>
+    <costList>
+      <JJK_CursedSteel>35</JJK_CursedSteel>
+    </costList>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.0</ceOutputScaling>
+        <spiritBonusFactor>0.35</spiritBonusFactor>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_CursedToolForging</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+      <displayPriority>480</displayPriority>
+    </recipeMaker>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities><li>Cut</li></capacities>
+        <power>27</power>
+        <cooldownTime>2.6</cooldownTime>
+        <armorPenetration>0.34</armorPenetration>
+      </li>
+      <li>
+        <label>haft</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>11</power>
+        <cooldownTime>2.2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- ============================ Common tier ============================ -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_BlackSword</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>black sword</label>
+    <description>A mid-grade cursed blade of blackened steel. Favored by summoners: every kill it takes whips the wielder's summoned shikigami into renewed ferocity for a time.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/BlackSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>560</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.0</ceOutputScaling>
+        <spiritBonusFactor>0.4</spiritBonusFactor>
+        <!-- A kill sends the wielder's bonded shikigami into a frenzy. -->
+        <shikigamiFrenzyHediff>JJK_ShikigamiFrenzy</shikigamiFrenzyHediff>
+        <shikigamiFrenzyTicks>1800</shikigamiFrenzyTicks>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>23</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.38</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>19</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.34</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- ========================== Uncommon tier =========================== -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_SlaughterDemon</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>slaughter demon</label>
+    <description>A vicious cursed combat knife. Light and fast, it knocks a struck foe back a step with each cut - ideal for a skirmisher who fights at the edge of a melee.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/SlaughterDemon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>480</MarketValue>
+      <Mass>0.7</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.1</ceOutputScaling>
+        <spiritBonusFactor>0.35</spiritBonusFactor>
+        <!-- Each landed hit shoves the target back a step. -->
+        <knockbackCells>1</knockbackCells>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>17</power>
+        <cooldownTime>1.4</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>15</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.40</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- ============================= Rare tier ============================ -->
+  <!-- Playful Cloud: a Heian-era three-section staff. Blunt. Wielding any
+       Heian-era cursed tool boosts the user's CT Output. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_PlayfulCloud</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>playful cloud</label>
+    <description>A Heian-era three-section cursed staff that delivers crushing blunt force. As a relic of the golden age of jujutsu, it resonates with its wielder's cursed energy, sharpening their techniques. The harder a sorcerer's output, the harder it strikes.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/PlayfulCloud</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+      <Mass>3.0</Mass>
+    </statBases>
+    <equippedStatOffsets>
+      <JJK_CTOutput>0.10</JJK_CTOutput>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.6</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>end</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>32</power>
+        <cooldownTime>2.4</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+      <li>
+        <label>shaft</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>22</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Sword of Extermination: brutal anti-spirit blade that drains the wielder's
+       cursed energy while equipped (Positive Energy Drain). -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_SwordOfExtermination</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>sword of extermination</label>
+    <description>A cursed greatblade forged to annihilate spirits. It tears curses apart, but its hunger never sleeps - while equipped it slowly bleeds the wielder's cursed energy away.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/SwordOfExtermination</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1600</MarketValue>
+      <Mass>2.6</Mass>
+    </statBases>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>-0.5</JJK_CursedEnergyRegenRateMultiplier>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.0</ceOutputScaling>
+        <spiritBonusFactor>0.5</spiritBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>30</power>
+        <cooldownTime>2.4</cooldownTime>
+        <armorPenetration>0.50</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>24</power>
+        <cooldownTime>2.6</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Dragon-Bone: a cursed blade that stores its wielder's leaking cursed
+       energy and feeds it back, quickening regeneration. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_DragonBone</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>dragon-bone</label>
+    <description>A cursed tool shaped like a skeletal dragon's spine. It drinks the cursed energy its wielder leaks and returns it, so their reserves refill unusually fast - and it strikes harder the more energy the wielder can put behind it.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/DragonBone</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>1.8</Mass>
+    </statBases>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.35</JJK_CursedEnergyRegenRateMultiplier>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.4</ceOutputScaling>
+        <spiritBonusFactor>0.35</spiritBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>26</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.40</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>22</power>
+        <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.36</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Festering Blade: a curse-grown sawblade that leaves ragged, bleeding
+       wounds. Fast, cruel, and best against unarmored flesh. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_FesteringBlade</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>festering blade</label>
+    <description>A sawtoothed cursed blade grown, not forged - its edge is a row of hooked spurs of hardened cursed flesh. Wounds it leaves tear wide and bleed freely.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/FesteringBlade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>820</MarketValue>
+      <Mass>1.2</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.1</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>sawteeth</label>
+        <capacities><li>Cut</li></capacities>
+        <power>19</power>
+        <cooldownTime>1.3</cooldownTime>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+      <li>
+        <label>hooked point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>16</power>
+        <cooldownTime>1.4</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Nanami's blunt sword: the Ratio Technique's companion - it hunts the
+       forced 7:3 weak point. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_NanamiBluntSword</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>nanami's blunt sword</label>
+    <description>A bandaged, deliberately blunt blade in the style of Kento Nanami. Unremarkable against an ordinary foe - but against a target divided at the 7:3 ratio, every blow lands squarely on the forced weak point.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/NanamiBluntSword</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>900</MarketValue>
+      <Mass>1.6</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.0</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+        <!-- vs a 7:3-marked target (Line Segment), hits strike far harder. -->
+        <ratioMarkBonusFactor>0.8</ratioMarkBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>blunt edge</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>23</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+      <li>
+        <label>pommel</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>12</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Nobara's hammer: drives cursed nails with every blow - Straw Doll fuel. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_NobaraHammer</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>straw doll hammer</label>
+    <description>A cursed hammer in the style of Nobara Kugisaki's kit. Each blow drives a cursed nail into the target - and a Straw Doll sorcerer can detonate every embedded nail at once with Hairpin.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/NobaraHammer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>780</MarketValue>
+      <Mass>1.8</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>0.8</ceOutputScaling>
+        <spiritBonusFactor>0.25</spiritBonusFactor>
+        <!-- Every landed hit embeds a cursed nail (JJK_NailsEmbedded). -->
+        <nailsPerHit>1</nailsPerHit>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>19</power>
+        <cooldownTime>1.9</cooldownTime>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+      <li>
+        <label>claw</label>
+        <capacities><li>Stab</li></capacities>
+        <power>14</power>
+        <cooldownTime>1.8</cooldownTime>
+        <armorPenetration>0.28</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Kusakabe's katana: the technique-less swordsman's blade. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_KusakabeKatana</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>kusakabe's katana</label>
+    <description>A plain, immaculately maintained cursed katana in the style of Atsuya Kusakabe, master of the New Shadow Style. In the hands of a swordsman with no innate technique, discipline does what sorcery cannot - it cuts far harder.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/KusakabeKatana</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>720</MarketValue>
+      <Mass>1.3</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>0.5</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+        <!-- Bonus when the WIELDER has no cursed technique. -->
+        <noTechniqueBonusFactor>0.5</noTechniqueBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>21</power>
+        <cooldownTime>1.9</cooldownTime>
+        <armorPenetration>0.35</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>18</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.32</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Black Rope: Miguel's anti-technique lash. Disrupts, not seals. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_BlackRope</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>black rope</label>
+    <description>A cursed rope woven over decades by Miguel's homeland, each fiber disrupting the flow of cursed energy. Its strikes do little harm, but every lash scrambles the victim's technique - degrading their output and regeneration - and its interference passes even through Infinity.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/BlackRope</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1800</MarketValue>
+      <Mass>0.8</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>0.4</ceOutputScaling>
+        <spiritBonusFactor>0.2</spiritBonusFactor>
+        <!-- Degrades the target's technique rather than sealing it outright. -->
+        <disruptsTechnique>true</disruptsTechnique>
+        <disruptTicks>1800</disruptTicks>
+        <!-- Like the Inverted Spear, its interference reaches through Infinity. -->
+        <bypassesInfinity>true</bypassesInfinity>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>lash</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>13</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+      <li>
+        <label>coiled strike</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>16</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Mei Mei's battle-axe: heavy, honest, mercenary. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_MeiMeiAxe</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>mei mei's battle-axe</label>
+    <description>A heavy cursed battle-axe in the style of the mercenary sorcerer Mei Mei. No tricks - just weight, edge, and a price tag.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/MeiMeiAxe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>860</MarketValue>
+      <Mass>2.4</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.1</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>blade</label>
+        <capacities><li>Cut</li></capacities>
+        <power>29</power>
+        <cooldownTime>2.5</cooldownTime>
+        <armorPenetration>0.38</armorPenetration>
+      </li>
+      <li>
+        <label>haft</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>12</power>
+        <cooldownTime>2.0</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Nyoi Staff: Kashimo's lightning conduit. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_NyoiStaff</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>nyoi staff</label>
+    <description>Hajime Kashimo's cursed staff, a conduit for cursed electricity. It hums faintly in any hand, sharpening cursed technique output - loudest of all for a sorcerer whose energy already crackles.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/NyoiStaff</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+      <Mass>2.0</Mass>
+    </statBases>
+    <equippedStatOffsets>
+      <JJK_CTOutput>0.12</JJK_CTOutput>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.3</ceOutputScaling>
+        <spiritBonusFactor>0.3</spiritBonusFactor>
+        <stunOnHitTicks>30</stunOnHitTicks>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>staff end</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>24</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.28</armorPenetration>
+      </li>
+      <li>
+        <label>sweep</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>18</power>
+        <cooldownTime>1.9</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Okkotsu's katana: overloaded by raw reserves. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_OkkotsuKatana</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>okkotsu's katana</label>
+    <description>A katana in the style of Yuta Okkotsu, built to be flooded with cursed energy far past a blade's tolerance. Its cuts scale with the sheer size of the wielder's reserves - in the hands of a bottomless sorcerer it is monstrous.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/OkkotsuKatana</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1900</MarketValue>
+      <Mass>1.4</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>0.6</ceOutputScaling>
+        <spiritBonusFactor>0.35</spiritBonusFactor>
+        <!-- Bonus = dealt * (MaxCE / 200) * factor: reserves, not refinement. -->
+        <maxCEScalingFactor>0.5</maxCEScalingFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>24</power>
+        <cooldownTime>1.9</cooldownTime>
+        <armorPenetration>0.38</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>20</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.34</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- ========================== Legendary tier ========================== -->
+
+  <!-- Kamutoke: Sukuna's Heian-era lightning tool ("Supreme Martial Solution"
+       is only the translated reading - the tool's true name is Kamutoke). -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_Kamutoke</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>kamutoke</label>
+    <description>A legendary Heian-era cursed tool of Ryomen Sukuna, sometimes rendered "Supreme Martial Solution". It channels enormous cursed energy into lightning: every strike discharges through the victim, convulsing them where they stand.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/Kamutoke</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3100</MarketValue>
+      <Mass>1.7</Mass>
+    </statBases>
+    <equippedStatOffsets>
+      <JJK_CTOutput>0.1</JJK_CTOutput>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.5</ceOutputScaling>
+        <spiritBonusFactor>0.35</spiritBonusFactor>
+        <!-- Each landed hit discharges lightning: a brief convulsing stun. -->
+        <stunOnHitTicks>50</stunOnHitTicks>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>discharge point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>27</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+      <li>
+        <label>arcing edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>23</power>
+        <cooldownTime>2.1</cooldownTime>
+        <armorPenetration>0.40</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+  <!-- Inverted Spear of Heaven: the non-sorcerer's ultimate weapon. On hit it
+       seals the victim's technique; while WIELDED it suppresses the bearer's own
+       cursed energy (JJK_CursedEnergySuppressed via Comp_EquippedHediff). -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_InvertedSpearOfHeaven</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>inverted spear of heaven</label>
+    <description>A legendary cursed spear that nullifies cursed techniques on contact. The ultimate weapon of the non-sorcerer: it cuts through any technique, but a sorcerer who wields it finds their own cursed energy refusing to answer.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/InvertedSpearOfHeaven</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3200</MarketValue>
+      <Mass>2.2</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>0</ceOutputScaling>
+        <spiritBonusFactor>0.6</spiritBonusFactor>
+        <!-- On hit, nullify the target's cursed technique for a while (refreshed
+             by each strike). The anti-technique weapon. -->
+        <sealsTechnique>true</sealsTechnique>
+        <sealTicks>2500</sealTicks>
+        <!-- The only thing that can strike a Limitless user through Infinity. -->
+        <bypassesInfinity>true</bypassesInfinity>
+      </li>
+      <!-- The spear's nullification cuts both ways: while wielded, the bearer's
+           own cursed energy refuses to answer. -->
+      <li Class="JJKMod.CompProperties_EquippedHediff">
+        <hediff>JJK_CursedEnergySuppressed</hediff>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>34</power>
+        <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.85</armorPenetration>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>26</power>
+        <cooldownTime>2.4</cooldownTime>
+        <armorPenetration>0.60</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Split Soul Katana: cleaves the soul. Bypasses armor; best in the hands of
+       a Soul Observer. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_SplitSoulKatana</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>split soul katana</label>
+    <description>A legendary twin-bladed cursed katana said to cut not the body but the soul beneath it. In ordinary hands it is merely a fine blade - but wielded by a pawn under a heavenly restriction, whose own soul is laid bare, it carves the soul directly, ignoring all armor.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/SplitSoulKatana</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>1.5</Mass>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <!-- Ordinary weapon for most wielders; only a heavenly-restricted pawn
+             triggers the armor-ignoring soul cut. -->
+        <ceOutputScaling>0</ceOutputScaling>
+        <spiritBonusFactor>0</spiritBonusFactor>
+        <heavenlyRestrictionSoulFactor>1.0</heavenlyRestrictionSoulFactor>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>30</power>
+        <cooldownTime>1.9</cooldownTime>
+        <armorPenetration>0.30</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>26</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.28</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <!-- Hiten: the Heian era's echo. Highest raw cursed katana. -->
+  <ThingDef ParentName="JJK_CursedToolBase">
+    <defName>JJK_Hiten</defName>
+    <!-- Drop/quest-only: null out the recipeMaker inherited from vanilla's
+         BaseMeleeWeapon chain. Without this it inherits a working Smithy
+         recipe with no costList/costStuffCount, i.e. free unlimited copies. -->
+    <recipeMaker IsNull="True" />
+    <label>hiten</label>
+    <description>A legendary Heian-era cursed katana of unmatched raw power. It hums in resonance with a strong sorcerer's cursed energy, and a Grade 1 or higher wielder feels their reserves replenish with every kill it takes.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedTools/Hiten</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>3400</MarketValue>
+      <Mass>1.6</Mass>
+    </statBases>
+    <equippedStatOffsets>
+      <JJK_CTOutput>0.15</JJK_CTOutput>
+    </equippedStatOffsets>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedTool">
+        <ceOutputScaling>1.5</ceOutputScaling>
+        <spiritBonusFactor>0.4</spiritBonusFactor>
+        <!-- Grade 1+ wielders drink back cursed energy with every kill. -->
+        <energyOnKill>30</energyOnKill>
+        <energyOnKillMinGrade>Grade1</energyOnKillMinGrade>
+      </li>
+    </comps>
+    <tools>
+      <li>
+        <label>edge</label>
+        <capacities><li>Cut</li></capacities>
+        <power>36</power>
+        <cooldownTime>2.0</cooldownTime>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities><li>Stab</li></capacities>
+        <power>28</power>
+        <cooldownTime>2.2</cooldownTime>
+        <armorPenetration>0.40</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+</Defs>

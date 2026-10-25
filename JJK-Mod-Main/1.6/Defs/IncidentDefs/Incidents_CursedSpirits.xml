@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Cursed spirits manifest near the colony and attack as permanent manhunters,
+       drawn to the suffering of the world. A points-scaled threat fired by the
+       storyteller. Killing the curses exorcises them, dropping cursed residue. -->
+  <IncidentDef>
+    <defName>JJK_CursedSpiritManifestation</defName>
+    <label>cursed spirit manifestation</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>JJKMod.IncidentWorker_CursedSpiritManifestation</workerClass>
+    <pointsScaleable>true</pointsScaleable>
+    <minThreatPoints>200</minThreatPoints>
+    <letterLabel>Cursed spirit manifestation</letterLabel>
+    <letterText>Cursed spirits are coalescing out of the world's accumulated malice near your colony. {0} curses claw their way into reality and turn toward the living.\n\nExorcise them before they tear your people apart.</letterText>
+    <letterDef>ThreatBig</letterDef>
+    <baseChance>1.0</baseChance>
+  </IncidentDef>
+
+  <!-- A Disaster Curse walks: one named boss curse + escort. Rare, late-game;
+       exorcising the boss drops its technique remnant. -->
+  <IncidentDef>
+    <defName>JJK_DisasterCurseAssault</defName>
+    <label>disaster curse</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>JJKMod.IncidentWorker_DisasterCurse</workerClass>
+    <baseChance>0.35</baseChance>
+    <minThreatPoints>1600</minThreatPoints>
+    <earliestDay>40</earliestDay>
+    <minRefireDays>25</minRefireDays>
+    <letterLabel>Disaster curse: {0}</letterLabel>
+    <letterText>A Disaster Curse has manifested: {0}, a named special-grade cursed spirit, approaches with an escort of lesser curses.\n\nThis is no ordinary curse. It wields its innate cursed technique, and if your sorcerers close in it may expand its domain. Exorcise it, and its technique will remain behind as a remnant a colonist can absorb.</letterText>
+    <letterDef>ThreatBig</letterDef>
+  </IncidentDef>
+
+</Defs>

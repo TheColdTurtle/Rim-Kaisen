@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- THE ANTI-DOMAIN COUNTERS (beyond Simple Domain).                      -->
+  <!--                                                                       -->
+  <!-- A sure-hit Domain Expansion is otherwise unanswerable, so canon gives  -->
+  <!-- sorcerers three ways out. All three are scroll-taught craft rather     -->
+  <!-- than innate technique, so none of them is gene-gated or grade-gated -  -->
+  <!-- they are the skills that let a Grade 3 survive a special grade.        -->
+  <!--                                                                       -->
+  <!--   Simple Domain (Abilities_Domains.xml) - an AREA. Shelters the caster -->
+  <!--     and their allies, but a hostile domain grinds its integrity down.  -->
+  <!--   Domain Amplification (here)  - SELF only, never degrades, expensive  -->
+  <!--     to hold, and the only counter that reaches through Infinity.       -->
+  <!--   Falling Blossom Emotion (here) - SELF only, ONE parry then gone.     -->
+  <!--     Cheap and instant: the panic button when a domain drops on you.    -->
+  <!--                                                                       -->
+  <!-- Enforcement lives in MapComponent_DomainManager (IsShieldedFromSureHit -->
+  <!-- and TryConsumeFallingBlossom) and InfinityUtil.CanPierceInfinity.      -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================== Domain Amplification ========================= -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_AntiDomain_AmplificationTree</defName>
+    <label>domain amplification</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_DomainAmplification</defName>
+    <label>domain amplification</label>
+    <description>Toggle: wrap yourself in a thin layer of your own domain to counter hostile domain sure-hits and strike through Infinity.\n\nWhile it holds you are immune to the sure-hit of a hostile Domain Expansion - and your own blows land on a Limitless user, because the same nullification collapses the infinity holding them apart. It shields only you, and it bleeds cursed energy the whole time it is up. While active, innate technique abilities cannot be cast and existing innate toggles end. Reverse cursed technique and learned barrier skills remain available. An already expanded domain continues operating.</description>
+    <uiPosition>(0.5, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DomainAmplification</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_DomainAmplification</abilityClass>
+    <abilityTrees>
+      <li>JJK_AntiDomain_AmplificationTree</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_DomainAmplification_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_DomainAmplification_Tier1</defName>
+    <label>domain amplification</label>
+    <!-- Scroll-taught: no grade gate, no gene gate. -->
+    <autoGain>false</autoGain>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+    </acquireRequirement>
+    <energyCost>45</energyCost>
+    <castDurationTicks>30</castDurationTicks>
+    <cooldownTicks>300</cooldownTicks>
+    <!-- A sealed technique cannot hold a domain layer (also enforced in Tick). -->
+    <cannotBeActiveWithHediffs>
+      <li>JJK_TechniqueSealed</li>
+    </cannotBeActiveWithHediffs>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Falling Blossom Emotion ====================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_AntiDomain_FallingBlossomTree</defName>
+    <label>falling blossom emotion</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_FallingBlossomEmotion</defName>
+    <label>falling blossom emotion</label>
+    <description>Sheathe yourself in cursed energy set to burst outward the instant something touches it - a single perfect parry.\n\nThe next sure-hit from a hostile Domain Expansion is turned aside completely, and the technique shatters doing it. Unlike Simple Domain it wards nothing afterwards, but it costs little, snaps up instantly, and needs no grade at all. Raise it as the domain closes.</description>
+    <uiPosition>(0.5, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/FallingBlossomEmotion</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SelfBuff</abilityClass>
+    <abilityTrees>
+      <li>JJK_AntiDomain_FallingBlossomTree</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.SelfHediffExtension">
+        <hediff>JJK_FallingBlossomEmotion</hediff>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_FallingBlossomEmotion_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_FallingBlossomEmotion_Tier1</defName>
+    <label>falling blossom emotion</label>
+    <autoGain>false</autoGain>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+    </acquireRequirement>
+    <!-- Cheap and near-instant: it has to be raisable in the moment a domain lands. -->
+    <energyCost>20</energyCost>
+    <castDurationTicks>15</castDurationTicks>
+    <cooldownTicks>420</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

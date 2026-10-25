@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed technique genes (basic test set). Each grants one cursed         -->
+  <!-- technique tree via the TMF AbilityExtension. A pawn also needs a cursed  -->
+  <!-- energy reserve gene (which supplies the meter and the JJK_Sorcerer       -->
+  <!-- trait / JJK_CursedTechniques class) for the technique to be castable.    -->
+  <!-- ===================================================================== -->
+
+  <GeneCategoryDef>
+    <defName>JJK_CursedTechnique</defName>
+    <label>cursed technique</label>
+    <displayPriorityInXenotype>890</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneDef Name="JJK_CTGeneBase" Abstract="True">
+    <displayCategory>JJK_CursedTechnique</displayCategory>
+    <!-- Custom gene class re-checks TMF abilities on add/remove so the technique
+         tree (and its gizmos) registers immediately, even when the gene is added
+         at runtime via the dev tool or gene implantation. -->
+    <geneClass>JJKMod.Gene_CursedTechnique</geneClass>
+    <biostatCpx>3</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <!-- The innate-slot rule and 3-CT cap are a later system; for now CT genes
+         can be combined freely for testing. -->
+    <selectionWeight>0.05</selectionWeight>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_DisasterFlames</defName>
+    <label>disaster flames</label>
+    <description>An innate cursed technique that conjures and hurls cursed flame. Grants the Disaster Flames technique to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_DisasterFlames</iconPath>
+    <displayOrderInCategory>10</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DisasterFlames</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_BloodManipulation</defName>
+    <label>blood manipulation</label>
+    <description>An innate cursed technique that weaponizes the user's own blood. Grants the Blood Manipulation technique (Piercing Blood) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_BloodManipulation</iconPath>
+    <displayOrderInCategory>20</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_BloodManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Shrine</defName>
+    <label>shrine</label>
+    <description>The fearsome innate technique of the King of Curses. Grants the Shrine technique (Dismantle, Cleave, Dismantle: Spiderweb, and at high grade Divine Flame) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_Shrine</iconPath>
+    <displayOrderInCategory>30</displayOrderInCategory>
+    <biostatCpx>5</biostatCpx>
+    <selectionWeight>0.005</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Shrine</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_DisasterTides</defName>
+    <label>disaster tides</label>
+    <description>An innate cursed technique that conjures and weaponizes cursed water. Grants the Disaster Tides technique (Disaster Tides, Death Swarm) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_DisasterTides</iconPath>
+    <displayOrderInCategory>40</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DisasterTides</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_DisasterPlants</defName>
+    <label>disaster plants</label>
+    <description>An innate cursed technique that grows and commands cursed flora. Grants the Disaster Plants technique (Roots, Huge Roots) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_DisasterPlants</iconPath>
+    <displayOrderInCategory>50</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DisasterPlants</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Limitless</defName>
+    <label>limitless</label>
+    <description>The inherited cursed technique of the Gojo clan: manipulation of space at the atomic level. Grants the Limitless technique - Infinity, Lapse: Blue, Reversal: Red, Hollow Purple and a spatial teleport - to a pawn with a cursed energy reserve. Red and Purple also require Reverse Cursed Technique mastery. A bearer who also possesses the Six Eyes wields it almost for free.</description>
+    <iconPath>UI/Icons/Genes/CT_Limitless</iconPath>
+    <displayOrderInCategory>70</displayOrderInCategory>
+    <biostatCpx>6</biostatCpx>
+    <selectionWeight>0.004</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Limitless</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_CursedSpeech</defName>
+    <label>cursed speech</label>
+    <description>An innate cursed technique passed down by the Inumaki family: words spoken with cursed energy become commands the listener's body is forced to obey. Grants the Cursed Speech technique (Don't Move, Blast Away, Crush, and at high grade Explode) to a pawn with a cursed energy reserve. Every word cuts at the speaker's tongue - heavier words worse.</description>
+    <iconPath>UI/Icons/Genes/CT_CursedSpeech</iconPath>
+    <displayOrderInCategory>80</displayOrderInCategory>
+    <biostatCpx>4</biostatCpx>
+    <selectionWeight>0.008</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_CursedSpeech</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_StrawDoll</defName>
+    <label>straw doll technique</label>
+    <description>An innate cursed technique that embeds cursed nails in a target and later detonates them through a linked effigy. Grants the Straw Doll Technique (Nail Volley, Nail Scatter, Hairpin, and at high grade Hairpin: Resonance - every nailed pawn on the map at once) to a pawn with a cursed energy reserve. Stack nails on the enemy, then trigger Hairpin to detonate them for damage that scales with the count.</description>
+    <iconPath>UI/Icons/Genes/CT_StrawDoll</iconPath>
+    <displayOrderInCategory>90</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_StrawDoll</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Ratio</defName>
+    <label>ratio technique</label>
+    <description>An innate cursed technique that forces open a weak point on any target by dividing it at a 7:3 ratio. Grants the Ratio Technique (Line Segment, Ratio Technique, Collapse) to a pawn with a cursed energy reserve - mark the weak point, then strike it with precise, armor-cleaving blows.</description>
+    <iconPath>UI/Icons/Genes/CT_Ratio</iconPath>
+    <displayOrderInCategory>100</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Ratio</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_BoogieWoogie</defName>
+    <label>boogie woogie</label>
+    <description>An innate cursed technique that swaps the positions of two things bearing cursed energy at the snap of a signal. Grants the Boogie Woogie technique to a pawn with a cursed energy reserve - swap places with any pawn, ally or enemy.</description>
+    <iconPath>UI/Icons/Genes/CT_BoogieWoogie</iconPath>
+    <displayOrderInCategory>110</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_BoogieWoogie</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_IdleTransfiguration</defName>
+    <label>idle transfiguration</label>
+    <description>A horrifying innate cursed technique that reshapes the soul on touch. Grants Idle Transfiguration (Soul Distortion, Consume Soul, Unleash Soul, Body Reconstruction) to a pawn with a cursed energy reserve. Soul Distortion transfigures a hostile human into a monstrous servant - souls that resist take armor-ignoring damage instead - and the resulting souls can be stored, redeployed, or hurled as living projectiles. Turned inward, the technique reshapes the user's own body to heal.</description>
+    <iconPath>UI/Icons/Genes/CT_IdleTransfiguration</iconPath>
+    <displayOrderInCategory>120</displayOrderInCategory>
+    <biostatCpx>5</biostatCpx>
+    <selectionWeight>0.006</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_IdleTransfiguration</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Projection</defName>
+    <label>projection sorcery</label>
+    <description>An inherited cursed technique of the Zenin clan that divides each second into 24 frames, letting the user move between them at blinding speed. Grants Projection Sorcery (a toggled speed state) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_Projection</iconPath>
+    <displayOrderInCategory>130</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Projection</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_StarRage</defName>
+    <label>star rage</label>
+    <description>An innate cursed technique that grants virtual mass to the user's blows, letting an ordinary strike land with meteoric weight. Grants the Star Rage technique (Virtual Mass Blow, Star Impact) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_StarRage</iconPath>
+    <displayOrderInCategory>140</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_StarRage</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_SpiritManipulation</defName>
+    <label>cursed spirit manipulation</label>
+    <description>A fearsome innate cursed technique that absorbs cursed spirits and releases them to fight as servants. Grants Cursed Spirit Manipulation (Absorb Cursed Spirit, Release Cursed Spirit, and the trump card Maximum: Uzumaki) to a pawn with a cursed energy reserve. Downed curses - or those at least two grades beneath the manipulator - can be swallowed into a roster of up to twenty-five and released as loyal fighters, or compressed all at once into the devastating Uzumaki blast.</description>
+    <iconPath>UI/Icons/Genes/CT_SpiritManipulation</iconPath>
+    <displayOrderInCategory>150</displayOrderInCategory>
+    <biostatCpx>5</biostatCpx>
+    <selectionWeight>0.006</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_SpiritManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_IceFormation</defName>
+    <label>ice formation</label>
+    <description>An innate cursed technique that creates and commands super-cooled cursed energy. Grants the Ice Formation technique (Ice Spear, Frozen, Ice Fall) to a pawn with a cursed energy reserve. A Special-grade master can manifest the frozen domain Glacial Hoarfrost.</description>
+    <iconPath>UI/Icons/Genes/CT_IceFormation</iconPath>
+    <displayOrderInCategory>160</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_IceFormation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Amber</defName>
+    <label>mythical beast amber</label>
+    <description>An innate cursed technique that converts cursed energy into electricity. Grants the Mythical Beast Amber technique (Lightning Discharge, Energy Wave, Turn Up the Volume) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_Amber</iconPath>
+    <displayOrderInCategory>170</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Amber</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_AuspiciousBeasts</defName>
+    <label>auspicious beasts</label>
+    <description>An innate cursed technique that channels four auspicious beasts through a medium. Grants the Auspicious Beasts technique (Kaichi, Reiki, Kirin, Ryu) to a pawn with a cursed energy reserve - a hunter summon, a water veil, a fleeting blessing, and a dragon.</description>
+    <iconPath>UI/Icons/Genes/CT_AuspiciousBeasts</iconPath>
+    <displayOrderInCategory>180</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_AuspiciousBeasts</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_BlackBird</defName>
+    <label>black bird manipulation</label>
+    <description>An innate cursed technique that infuses and commands crows. Grants Black Bird Manipulation (Bird Strike, Command Crows) to a pawn with a cursed energy reserve.</description>
+    <iconPath>UI/Icons/Genes/CT_BlackBird</iconPath>
+    <displayOrderInCategory>190</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_BlackBird</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_DeadlySentencing</defName>
+    <label>deadly sentencing</label>
+    <description>An innate judicial cursed technique that convenes court on the battlefield. Grants Deadly Sentencing (Judgement, Executioner's Sword) to a pawn with a cursed energy reserve: confiscate an armed enemy's weapon, condemn the unarmed to death, and carry out the sentence in a single stroke.</description>
+    <iconPath>UI/Icons/Genes/CT_DeadlySentencing</iconPath>
+    <displayOrderInCategory>200</displayOrderInCategory>
+    <biostatCpx>4</biostatCpx>
+    <selectionWeight>0.01</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DeadlySentencing</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_TenShadows</defName>
+    <label>ten shadows</label>
+    <description>An inherited cursed technique that summons shikigami from the user's shadow. Grants the Ten Shadows technique to a pawn with a cursed energy reserve: the Divine Dogs answer at once, and the rest of the ten - Nue, Toad, Great Serpent, Max Elephant, Rabbit Escape, Round Deer, Tiger Funeral, Piercing Ox, and Mahoraga - must each be subjugated in a hostile first summon before they serve. A tamed shadow that dies in service is lost forever.</description>
+    <iconPath>UI/Icons/Genes/CT_TenShadows</iconPath>
+    <displayOrderInCategory>60</displayOrderInCategory>
+    <biostatCpx>5</biostatCpx>
+    <selectionWeight>0.01</selectionWeight>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_TenShadows</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+</Defs>

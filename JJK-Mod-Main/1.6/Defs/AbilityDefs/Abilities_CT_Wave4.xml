@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Fourth wave of cursed techniques:                                       -->
+  <!--   Auspicious Beasts (Ino)      - the four named beast mediums.           -->
+  <!--   Black Bird Manipulation (Mei Mei) - crow strikes and crow summons.     -->
+  <!--   Deadly Sentencing (Higuruma) - verdicts: Forfeiture / Death Penalty,   -->
+  <!--                                  carried out by the Executioner's Sword. -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================================================================== -->
+  <!-- AUSPICIOUS BEASTS (Ino)                                                 -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_AuspiciousBeasts</defName>
+    <label>auspicious beasts</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <!-- Number 1: Kaichi - a horned beast that hunts the summoner's enemies. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_SummonKaichi</defName>
+    <label>number 1: kaichi</label>
+    <description>Channel the first auspicious beast through the medium: Kaichi, a one-horned beast that hunts the summoner's enemies. It always answers - no taming is needed.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Kaichi</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SummonShadow</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_AuspiciousBeasts</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_Kaichi</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonKaichi_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonKaichi_Tier1</defName>
+    <label>number 1: kaichi</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_AuspiciousBeasts</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Number 2: Reiki - cursed water veils the body. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_ReikiVeil</defName>
+    <label>number 2: reiki</label>
+    <description>Toggle: channel the second auspicious beast, Reiki, sheathing the body in flowing cursed water. Blows are softened and movement quickens while the veil holds. Reserves cursed energy while active.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Reiki</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ToggleHediff</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_AuspiciousBeasts</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ToggleHediffExtension">
+        <hediff>JJK_ReikiVeil</hediff>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_ReikiVeil_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ReikiVeil_Tier1</defName>
+    <label>number 2: reiki</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_AuspiciousBeasts</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <maxEnergyOffset>-20</maxEnergyOffset>
+    <cooldownTicks>60</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Number 3: Kirin - a fleeting blessing of clarity. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_KirinBlessing</defName>
+    <label>number 3: kirin</label>
+    <description>Channel the third auspicious beast, Kirin, for a fleeting blessing: pain dulls and the body slips aside from blows. The blessing fades on its own; recasting refreshes it.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Kirin</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SelfBuff</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_AuspiciousBeasts</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.SelfHediffExtension">
+        <hediff>JJK_KirinBlessing</hediff>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_KirinBlessing_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_KirinBlessing_Tier1</defName>
+    <label>number 3: kirin</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_AuspiciousBeasts</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Number 4: Ryu - the strongest beast, a relentless attacker. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_SummonRyu</defName>
+    <label>number 4: ryu</label>
+    <description>Channel the fourth and strongest auspicious beast: Ryu, a dragon that attacks relentlessly until it falls or is dismissed. It always answers - no taming is needed.</description>
+    <uiPosition>(0.5, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Ryu</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SummonShadow</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_AuspiciousBeasts</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_Ryu</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonRyu_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonRyu_Tier1</defName>
+    <label>number 4: ryu</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_AuspiciousBeasts</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>70</energyCost>
+    <cooldownTicks>1800</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- BLACK BIRD MANIPULATION (Mei Mei)                                       -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_BlackBird</defName>
+    <label>black bird manipulation</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <!-- Bird Strike: a diving flurry of cursed crows. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_BirdStrike</defName>
+    <label>bird strike</label>
+    <description>Command a flurry of cursed-energy-infused crows to dive at a target, raking it in quick succession. The innate technique of the mercenary sorcerer Mei Mei.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BirdStrike</uiSkillIcon>
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_BlackBird</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_BirdStrike_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_BirdStrike_Tier1</defName>
+    <label>bird strike</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BlackBird</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>240</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_BirdStrike</defaultProjectile>
+        <range>24</range>
+        <warmupTime>0.4</warmupTime>
+        <burstShotCount>4</burstShotCount>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>false</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Command Crows: manifest a flock that fights alongside you. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_CommandCrows</defName>
+    <label>command crows</label>
+    <description>Manifest a flock of cursed crows that harry your enemies. Individually fragile, but they screen, distract, and peck a downed foe apart. The flock always answers - no taming is needed.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/CommandCrows</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SummonShadow</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_BlackBird</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_CrowFlock</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_CommandCrows_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_CommandCrows_Tier1</defName>
+    <label>command crows</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BlackBird</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>1200</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- DEADLY SENTENCING (Higuruma)                                            -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_DeadlySentencing</defName>
+    <label>deadly sentencing</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <!-- Judgement: pass a verdict on a target. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_Judgement</defName>
+    <label>judgement</label>
+    <description>Convene court on a target and let Judgeman pass verdict. An armed defendant suffers Forfeiture - their weapon is confiscated on the spot. An unarmed one is condemned to the Death Penalty, a sentence the Executioner's Sword can carry out. The innate technique of the lawyer-turned-sorcerer Hiromi Higuruma.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Judgement</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_Judgement</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_DeadlySentencing</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_Judgement_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Judgement_Tier1</defName>
+    <label>judgement</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DeadlySentencing</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>20</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Executioner's Sword: carry out the death sentence. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_ExecutionersSword</defName>
+    <label>executioner's sword</label>
+    <description>Manifest the Executioner's Sword and carry out the sentence. Against a target condemned to the Death Penalty it strikes with overwhelming, armor-ignoring force; against anyone else the blade refuses to fall. Melee range.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ExecutionersSword</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ExecutionersSword</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_DeadlySentencing</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_ExecutionersSword_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ExecutionersSword_Tier1</defName>
+    <label>executioner's sword</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DeadlySentencing</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>15</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ======================= Wave-4 hediffs =============================== -->
+
+  <HediffDef>
+    <defName>JJK_ReikiVeil</defName>
+    <label>reiki's veil</label>
+    <description>Cursed water sheathes this body, softening blows and quickening every step.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>0.8</IncomingDamageFactor>
+          <MoveSpeed>1.15</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_KirinBlessing</defName>
+    <label>kirin's blessing</label>
+    <description>The third auspicious beast's fleeting blessing: pain dulls and the body slips aside from blows.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1200</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <painFactor>0.5</painFactor>
+        <statOffsets>
+          <MeleeDodgeChance>8</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_Convicted</defName>
+    <label>forfeiture</label>
+    <description>Judged and found wanting: this pawn's weapon has been confiscated by judicial sorcery. A further judgement while unarmed brings the Death Penalty.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_DeathPenalty</defName>
+    <label>death penalty</label>
+    <description>Condemned by judicial sorcery. While the sentence stands, every wound cuts deeper - and the Executioner's Sword can carry it out in a single overwhelming stroke.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>7500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>1.5</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

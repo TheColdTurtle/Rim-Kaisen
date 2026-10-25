@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Cursed Materials Bench: refines cursed residue + vanilla/Anomaly stock
+       into the stuffable cursed materials. -->
+  <ThingDef ParentName="BenchBase">
+    <defName>JJK_CursedMaterialsBench</defName>
+    <label>cursed materials bench</label>
+    <description>A reinforced workbench fitted with cursed-energy conduits, used to refine cursed residue into cursed steel, cursed cloth, and cursed bio-ferrite.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/CursedMaterialsBench</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5, 1.5)</drawSize>
+      <damageData>
+        <rect>(0,0,3,1)</rect>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>2600</WorkToBuild>
+      <Mass>30</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <designationCategory>Production</designationCategory>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>JJK_CursedMaterialsRefinement</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+  </ThingDef>
+
+  <!-- Cursed Apparel Bench: hand-crafts the mod-exclusive sorcerer apparel
+       (Section 28), which carries deeper cursed-energy enchantment than vanilla
+       apparel merely stuffed with cursed materials. -->
+  <ThingDef ParentName="BenchBase">
+    <defName>JJK_CursedApparelBench</defName>
+    <label>cursed apparel bench</label>
+    <description>A tailoring station strung with cursed-energy looms, used to craft sorcerer uniforms and enchanted combat apparel from cursed materials.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/CursedApparelBench</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5, 1.5)</drawSize>
+      <damageData>
+        <rect>(0,0,3,1)</rect>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>220</MaxHitPoints>
+      <WorkToBuild>2600</WorkToBuild>
+      <Mass>30</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <JJK_CursedCloth>15</JJK_CursedCloth>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>120</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <designationCategory>Production</designationCategory>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>JJK_CursedToolForging</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+  </ThingDef>
+
+</Defs>

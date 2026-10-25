@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed materials (Section 26). Cursed Residue is the universal          -->
+  <!-- substrate, dropped by killed spirits and harvested from contained ones.-->
+  <!-- It is refined with vanilla materials into stuffable cursed materials,   -->
+  <!-- one of which - Cursed Bio-Ferrite - bridges into Anomaly's bioferrite   -->
+  <!-- economy.                                                               -->
+  <!-- ===================================================================== -->
+
+  <ThingCategoryDef>
+    <defName>JJK_CursedMaterials</defName>
+    <label>cursed materials</label>
+    <parent>ResourcesRaw</parent>
+    <iconPath>UI/Icons/ThingCategories/CursedMaterials</iconPath>
+  </ThingCategoryDef>
+
+  <!-- Universal cursed substrate. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedResidue</defName>
+    <label>cursed residue</label>
+    <description>A tarry, faintly writhing residue left behind by cursed spirits. The raw substance of cursed energy given form. Refined into cursed materials, or fed back into the cursed economy.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/CursedResidue</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Standard_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>200</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MarketValue>3.5</MarketValue>
+      <Mass>0.2</Mass>
+      <Flammability>0.4</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>JJK_CursedMaterials</li>
+    </thingCategories>
+    <tradeTags>
+      <li>JJK_Cursed</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- Cursed Bio-Ferrite: standard cursed material built on Anomaly bioferrite.
+       Stuffable metallic, top-tier weapon stuffing below the legendary tools. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedBioFerrite</defName>
+    <label>cursed bio-ferrite</label>
+    <description>Anomaly bioferrite saturated with cursed residue until it hums with malice. A dense, metal-like cursed material prized for forging cursed tools and reinforced sorcerer apparel.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/CursedBioFerrite</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <stackLimit>75</stackLimit>
+    <useHitPoints>false</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MarketValue>9</MarketValue>
+      <Mass>0.4</Mass>
+      <!-- Must stay 0: this def sets useHitPoints=false, and a flammable thing with
+           no hit points can never be consumed by the fire it catches, so any nonzero
+           flammability makes a burning stack burn forever (engine config error). -->
+      <Flammability>0</Flammability>
+      <StuffPower_Armor_Sharp>1.4</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.7</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>2.0</StuffPower_Insulation_Cold>
+      <SharpDamageMultiplier>1.45</SharpDamageMultiplier>
+      <BluntDamageMultiplier>1.0</BluntDamageMultiplier>
+    </statBases>
+    <stuffProps>
+      <categories>
+        <li>Metallic</li>
+      </categories>
+      <color>(86, 48, 110)</color>
+      <appearance>Smooth</appearance>
+      <commonality>0</commonality>
+      <statOffsets>
+        <MeleeWeapon_CooldownMultiplier>-0.05</MeleeWeapon_CooldownMultiplier>
+      </statOffsets>
+      <statFactors>
+        <MarketValue>2.2</MarketValue>
+        <MaxHitPoints>1.3</MaxHitPoints>
+      </statFactors>
+    </stuffProps>
+    <thingCategories>
+      <li>JJK_CursedMaterials</li>
+    </thingCategories>
+    <tradeTags>
+      <li>JJK_Cursed</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- Cursed Steel: stuffable metallic, mid-tier cursed material. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedSteel</defName>
+    <label>cursed steel</label>
+    <description>Steel tempered in cursed residue. Holds a wicked edge and carries enough cursed charge to wound spirits that shrug off ordinary metal.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/CursedSteel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <MarketValue>5</MarketValue>
+      <Mass>0.5</Mass>
+      <Flammability>0.2</Flammability>
+      <StuffPower_Armor_Sharp>1.0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.45</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>0.5</StuffPower_Armor_Heat>
+      <SharpDamageMultiplier>1.25</SharpDamageMultiplier>
+      <BluntDamageMultiplier>0.95</BluntDamageMultiplier>
+    </statBases>
+    <stuffProps>
+      <categories>
+        <li>Metallic</li>
+      </categories>
+      <color>(70, 70, 92)</color>
+      <appearance>Smooth</appearance>
+      <commonality>0</commonality>
+      <statFactors>
+        <MarketValue>1.5</MarketValue>
+      </statFactors>
+    </stuffProps>
+    <thingCategories>
+      <li>JJK_CursedMaterials</li>
+    </thingCategories>
+    <tradeTags>
+      <li>JJK_Cursed</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- Cursed Cloth: stuffable fabric for sorcerer apparel. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedCloth</defName>
+    <label>cursed cloth</label>
+    <description>Cloth woven through with threads of cursed energy. Light, resilient, and faintly resistant to cursed techniques. The standard fabric of sorcerer uniforms.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/CursedCloth</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Standard_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>100</stackLimit>
+    <statBases>
+      <MarketValue>4</MarketValue>
+      <Mass>0.04</Mass>
+      <Flammability>0.7</Flammability>
+      <StuffPower_Armor_Sharp>0.9</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.3</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>1.2</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0.6</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <categories>
+        <li>Fabric</li>
+      </categories>
+      <color>(58, 46, 74)</color>
+      <appearance>Smooth</appearance>
+      <commonality>0</commonality>
+      <statFactors>
+        <MarketValue>1.6</MarketValue>
+        <ArmorRating_Sharp>1.2</ArmorRating_Sharp>
+      </statFactors>
+    </stuffProps>
+    <thingCategories>
+      <li>JJK_CursedMaterials</li>
+    </thingCategories>
+    <tradeTags>
+      <li>JJK_Cursed</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- Cursed Leather: stuffable leathery, for light sorcerer armor. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedLeather</defName>
+    <label>cursed leather</label>
+    <description>Hide cured in cursed residue until it turns supple and dark. Light and quietly resistant to cursed techniques - the standard leather of sorcerer combat vests.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/CursedLeather</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Standard_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>100</stackLimit>
+    <statBases>
+      <MarketValue>4.5</MarketValue>
+      <Mass>0.03</Mass>
+      <Flammability>0.6</Flammability>
+      <StuffPower_Armor_Sharp>1.0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.4</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>1.4</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>0.7</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <categories>
+        <li>Leathery</li>
+      </categories>
+      <color>(64, 50, 60)</color>
+      <appearance>Smooth</appearance>
+      <commonality>0</commonality>
+      <statFactors>
+        <MarketValue>1.6</MarketValue>
+        <ArmorRating_Sharp>1.25</ArmorRating_Sharp>
+      </statFactors>
+    </stuffProps>
+    <thingCategories>
+      <li>JJK_CursedMaterials</li>
+    </thingCategories>
+    <tradeTags>
+      <li>JJK_Cursed</li>
+    </tradeTags>
+  </ThingDef>
+
+  <!-- Cursed Devilstrand: top-tier stuffable fabric for endgame sorcerer apparel. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedDevilstrand</defName>
+    <label>cursed devilstrand</label>
+    <description>Devilstrand mycelium grown through with cursed energy. Combines devilstrand's famed toughness with a strong conductivity for cursed energy, making it the premier material for high-end sorcerer apparel.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/CursedDevilstrand</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Standard_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>100</stackLimit>
+    <statBases>
+      <MarketValue>9</MarketValue>
+      <Mass>0.04</Mass>
+      <Flammability>0.4</Flammability>
+      <StuffPower_Armor_Sharp>1.6</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.7</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>1.6</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>1.2</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <categories>
+        <li>Fabric</li>
+      </categories>
+      <color>(96, 36, 48)</color>
+      <appearance>Smooth</appearance>
+      <commonality>0</commonality>
+      <statFactors>
+        <MarketValue>2.0</MarketValue>
+        <ArmorRating_Sharp>1.5</ArmorRating_Sharp>
+        <ArmorRating_Blunt>1.2</ArmorRating_Blunt>
+      </statFactors>
+    </stuffProps>
+    <thingCategories>
+      <li>JJK_CursedMaterials</li>
+    </thingCategories>
+    <tradeTags>
+      <li>JJK_Cursed</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>

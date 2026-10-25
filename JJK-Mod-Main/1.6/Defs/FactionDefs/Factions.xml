@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <!-- ===================================================================== -->
+  <!-- Factions (Section 4). Initial faction relations default to neutral in   -->
+  <!-- RimWorld; Tokyo High becomes an ally and Kyoto High a rival through      -->
+  <!-- gameplay and quests. Curse Users are a permanent enemy.                 -->
+  <!-- ===================================================================== -->
+  <FactionDef ParentName="FactionBase">
+    <defName>JJK_TokyoHigh</defName>
+    <label>Tokyo Jujutsu High</label>
+    <description>The premier jujutsu sorcerer school. Trains sorcerers, exorcises curses under contract, and grades the realm's strongest fighters. A natural ally to any colony that walks the sorcerer's path.</description>
+    <pawnSingular>sorcerer</pawnSingular>
+    <pawnsPlural>sorcerers</pawnsPlural>
+    <categoryTag>JJK_JujutsuSchool</categoryTag>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <settlementGenerationWeight>1</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>70</configurationListOrderPriority>
+    <factionNameMaker>NamerFactionOutlander</factionNameMaker>
+    <settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+    <factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <canSiege>false</canSiege>
+    <canStageAttacks>false</canStageAttacks>
+    <leaderTitle>principal</leaderTitle>
+    <techLevel>Industrial</techLevel>
+    <classicIdeo>true</classicIdeo>
+    <colorSpectrum>
+      <li>(0.30, 0.45, 0.85)</li>
+      <li>(0.15, 0.25, 0.6)</li>
+    </colorSpectrum>
+    <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0, 100000)</li>
+        <li>(100000, 100000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <JJK_SorcererApprentice>10</JJK_SorcererApprentice>
+          <JJK_Grade3Sorcerer>8</JJK_Grade3Sorcerer>
+          <JJK_Grade1Sorcerer>2</JJK_Grade1Sorcerer>
+          <JJK_SchoolPuppetOperator>1</JJK_SchoolPuppetOperator>
+        </options>
+      </li>
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <JJK_SorcererApprentice>10</JJK_SorcererApprentice>
+          <JJK_Grade3Sorcerer>6</JJK_Grade3Sorcerer>
+        </options>
+      </li>
+      <li>
+        <kindDef>Trader</kindDef>
+        <traders>
+          <JJK_SchoolTrader>1</JJK_SchoolTrader>
+        </traders>
+        <carriers>
+          <Muffalo>5</Muffalo>
+          <Dromedary>4</Dromedary>
+        </carriers>
+        <guards>
+          <JJK_Grade3Sorcerer>4</JJK_Grade3Sorcerer>
+          <JJK_SorcererApprentice>4</JJK_SorcererApprentice>
+        </guards>
+      </li>
+      <!-- Required for leader generation (and for populating the school's own
+           settlement map): the leader is drawn from factionLeader kinds listed in
+           the Settlement group. -->
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <JJK_SorcererApprentice>10</JJK_SorcererApprentice>
+          <JJK_Grade3Sorcerer>8</JJK_Grade3Sorcerer>
+          <JJK_Grade1Sorcerer>2</JJK_Grade1Sorcerer>
+          <JJK_SchoolPuppetOperator>1</JJK_SchoolPuppetOperator>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+  <FactionDef ParentName="FactionBase">
+    <defName>JJK_KyotoHigh</defName>
+    <label>Kyoto Jujutsu High</label>
+    <description>The traditionalist sister school to Tokyo High. Proud, conservative, and quick to take offense. Allies or enemies depending on how your sorcerers carry themselves.</description>
+    <pawnSingular>sorcerer</pawnSingular>
+    <pawnsPlural>sorcerers</pawnsPlural>
+    <categoryTag>JJK_JujutsuSchool</categoryTag>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <settlementGenerationWeight>1</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>80</configurationListOrderPriority>
+    <factionNameMaker>NamerFactionOutlander</factionNameMaker>
+    <settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+    <factionIconPath>World/WorldObjects/Expanding/TownRough</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <canSiege>true</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+    <leaderTitle>principal</leaderTitle>
+    <techLevel>Industrial</techLevel>
+    <classicIdeo>true</classicIdeo>
+    <colorSpectrum>
+      <li>(0.65, 0.20, 0.20)</li>
+      <li>(0.45, 0.10, 0.10)</li>
+    </colorSpectrum>
+    <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0, 100000)</li>
+        <li>(100000, 100000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <JJK_SorcererApprentice>10</JJK_SorcererApprentice>
+          <JJK_Grade3Sorcerer>8</JJK_Grade3Sorcerer>
+          <JJK_Grade1Sorcerer>2</JJK_Grade1Sorcerer>
+          <JJK_SchoolPuppetOperator>1</JJK_SchoolPuppetOperator>
+        </options>
+      </li>
+      <li>
+        <kindDef>Peaceful</kindDef>
+        <options>
+          <JJK_SorcererApprentice>8</JJK_SorcererApprentice>
+          <JJK_Grade3Sorcerer>6</JJK_Grade3Sorcerer>
+        </options>
+      </li>
+      <!-- Required for leader generation - see the Tokyo High note above. -->
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <JJK_SorcererApprentice>10</JJK_SorcererApprentice>
+          <JJK_Grade3Sorcerer>8</JJK_Grade3Sorcerer>
+          <JJK_Grade1Sorcerer>2</JJK_Grade1Sorcerer>
+          <JJK_SchoolPuppetOperator>1</JJK_SchoolPuppetOperator>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+  <FactionDef ParentName="FactionBase">
+    <defName>JJK_CurseUsers</defName>
+    <label>curse users</label>
+    <description>Sorcerers who have turned against humanity, siding with the curses they were meant to exorcise. They raid from fortified world bases and cannot be reasoned with.</description>
+    <pawnSingular>curse user</pawnSingular>
+    <pawnsPlural>curse users</pawnsPlural>
+    <categoryTag>JJK_CurseUser</categoryTag>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <permanentEnemy>true</permanentEnemy>
+    <settlementGenerationWeight>1.4</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+    <configurationListOrderPriority>90</configurationListOrderPriority>
+    <factionNameMaker>NamerFactionPirate</factionNameMaker>
+    <settlementNameMaker>NamerSettlementPirate</settlementNameMaker>
+    <factionIconPath>World/WorldObjects/Expanding/PirateOutpost</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
+    <canSiege>true</canSiege>
+    <canStageAttacks>true</canStageAttacks>
+    <leaderTitle>cult leader</leaderTitle>
+    <techLevel>Industrial</techLevel>
+    <classicIdeo>true</classicIdeo>
+    <colorSpectrum>
+      <li>(0.34, 0.19, 0.43)</li>
+      <li>(0.18, 0.08, 0.26)</li>
+    </colorSpectrum>
+    <allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+    <raidLootMaker>OutlanderRaidLootMaker</raidLootMaker>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(0, 100000)</li>
+        <li>(100000, 100000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers>
+      <li>
+        <kindDef>Combat</kindDef>
+        <options>
+          <JJK_CurseUserGrunt>12</JJK_CurseUserGrunt>
+          <JJK_CurseUserElite>3</JJK_CurseUserElite>
+          <!-- Curse users bring exorcised-turned curses to heel as attack beasts. -->
+          <JJK_Curse_Grade4_Kind>6</JJK_Curse_Grade4_Kind>
+          <JJK_Curse_Grade3_Kind>4</JJK_Curse_Grade3_Kind>
+          <JJK_Curse_Winged_Kind>3</JJK_Curse_Winged_Kind>
+          <JJK_Curse_Grade2_Kind>2</JJK_Curse_Grade2_Kind>
+          <JJK_Curse_Carapace_Kind>1</JJK_Curse_Carapace_Kind>
+          <JJK_Curse_Grade1_Kind>1</JJK_Curse_Grade1_Kind>
+          <JJK_CursePuppetOperator>1</JJK_CursePuppetOperator>
+        </options>
+      </li>
+      <!-- Required for leader generation - see the Tokyo High note above. -->
+      <li>
+        <kindDef>Settlement</kindDef>
+        <options>
+          <JJK_CurseUserGrunt>12</JJK_CurseUserGrunt>
+          <JJK_CurseUserElite>3</JJK_CurseUserElite>
+          <JJK_CursePuppetOperator>1</JJK_CursePuppetOperator>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+</Defs>

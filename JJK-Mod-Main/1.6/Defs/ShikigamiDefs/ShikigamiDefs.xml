@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Ten Shadows roster. Dogs need no taming and start usable; if one dog is   -->
+  <!-- permanently lost, summoning the survivor produces the Totality form.      -->
+  <!-- Every other shadow starts Untamed: its first summon is hostile to all     -->
+  <!-- and must be defeated once to be tamed. A tamed shadow that dies is lost.  -->
+  <!-- ===================================================================== -->
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_DivineDogWhite</defName>
+    <label>divine dog: white</label>
+    <pawnKind>JJK_DivineDog_White</pawnKind>
+    <needsTaming>false</needsTaming>
+    <siblingDog>JJK_Shadow_DivineDogBlack</siblingDog>
+    <totalityPawnKind>JJK_DivineDogTotality</totalityPawnKind>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_DivineDogBlack</defName>
+    <label>divine dog: black</label>
+    <pawnKind>JJK_DivineDog_Black</pawnKind>
+    <needsTaming>false</needsTaming>
+    <siblingDog>JJK_Shadow_DivineDogWhite</siblingDog>
+    <totalityPawnKind>JJK_DivineDogTotality</totalityPawnKind>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_Nue</defName>
+    <label>nue</label>
+    <pawnKind>JJK_Nue</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_Toad</defName>
+    <label>toad</label>
+    <pawnKind>JJK_Toad</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_GreatSerpent</defName>
+    <label>great serpent</label>
+    <pawnKind>JJK_GreatSerpent</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_MaxElephant</defName>
+    <label>max elephant</label>
+    <pawnKind>JJK_MaxElephant</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <!-- Rabbit Escape: a swarm of weak, expendable rabbits. Losing one in combat
+       does NOT lose the technique. Short-lived. -->
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_RabbitEscape</defName>
+    <label>rabbit escape</label>
+    <pawnKind>JJK_Rabbit</pawnKind>
+    <needsTaming>true</needsTaming>
+    <summonCount>6</summonCount>
+    <losableOnDeath>false</losableOnDeath>
+    <summonDurationTicks>20000</summonDurationTicks>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_RoundDeer</defName>
+    <label>round deer</label>
+    <pawnKind>JJK_RoundDeer</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_TigerFuneral</defName>
+    <label>tiger funeral</label>
+    <pawnKind>JJK_TigerFuneral</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_PiercingOx</defName>
+    <label>piercing ox</label>
+    <pawnKind>JJK_PiercingOx</pawnKind>
+    <needsTaming>true</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <!-- Garuda belongs to Star Rage, not the Ten Shadows: it needs no taming and
+       always answers its summoner. -->
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_Garuda</defName>
+    <label>garuda</label>
+    <pawnKind>JJK_Garuda</pawnKind>
+    <needsTaming>false</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <!-- Auspicious beasts (Ino): mediums, not shadows - they always answer. -->
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_Kaichi</defName>
+    <label>kaichi</label>
+    <pawnKind>JJK_Kaichi</pawnKind>
+    <needsTaming>false</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_Ryu</defName>
+    <label>ryu</label>
+    <pawnKind>JJK_RyuBeast</pawnKind>
+    <needsTaming>false</needsTaming>
+  </JJKMod.ShikigamiDef>
+
+  <!-- Mei Mei's crows: a fragile, expendable flock. -->
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_CrowFlock</defName>
+    <label>cursed crows</label>
+    <pawnKind>JJK_CursedCrow</pawnKind>
+    <needsTaming>false</needsTaming>
+    <summonCount>4</summonCount>
+    <losableOnDeath>false</losableOnDeath>
+    <summonDurationTicks>20000</summonDurationTicks>
+  </JJKMod.ShikigamiDef>
+
+  <!-- Mahoraga: extremely hard to tame (must be destroyed in one hit) and a
+       very long taming window since it can roam adapting. -->
+  <JJKMod.ShikigamiDef>
+    <defName>JJK_Shadow_Mahoraga</defName>
+    <label>mahoraga</label>
+    <pawnKind>JJK_Mahoraga</pawnKind>
+    <needsTaming>true</needsTaming>
+    <tamingDurationTicks>90000</tamingDurationTicks>
+    <summonDurationTicks>90000</summonDurationTicks>
+  </JJKMod.ShikigamiDef>
+
+</Defs>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_SealingAnchor</defName>
+    <label>sealing anchor</label>
+    <description>Charge all three anchors for 20 CE each. Then hold the living enemy within 8 cells and line of sight of a charged anchor, with two conscious sorcerers nearby. A sorcerer must complete an uninterrupted 15-second ritual for 40 CE. Taking damage or breaking the conditions interrupts the ritual. Killing the enemy fails the assignment.</description>
+    <thingClass>JJKMod.Building_SealingAnchor</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Misc/DropBeacon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.45,0.25,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <selectable>true</selectable>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_SealedEnemy</defName>
+    <label>sealed enemy prison</label>
+    <description>The original enemy is suspended inside this portable prison. Choose defense or transport in Jujutsu headquarters. Defend it at the operation site for one day, or carry it home and defend it for half a day. Defeat all three waves, then return a participant home and claim the contract to hand it over. Destroying the prison before the defense is complete releases the enemy on its current map.</description>
+    <thingClass>JJKMod.SealedEnemyObject</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentSpacer</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.6,0.25,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Mass>12</Mass>
+      <MarketValue>0</MarketValue>
+      <Flammability>0</Flammability>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <tradeability>None</tradeability>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+  </ThingDef>
+  <HediffDef>
+    <defName>JJK_SealOverwhelming</defName>
+    <label>overwhelming incarnation</label>
+    <description>This enemy takes 85% less damage. Use the three sealing anchors to capture it alive.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>0.15</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <JobDef>
+    <defName>JJK_ActivateSeal</defName>
+    <driverClass>JJKMod.JobDriver_ActivateSeal</driverClass>
+    <reportString>charging sealing anchor.</reportString>
+  </JobDef>
+  <JobDef>
+    <defName>JJK_SealEnemy</defName>
+    <driverClass>JJKMod.JobDriver_SealEnemy</driverClass>
+    <reportString>binding the enemy into a prison.</reportString>
+  </JobDef>
+</Defs>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <JobDef>
+    <defName>JJK_ReadScroll</defName>
+    <driverClass>JJKMod.JobDriver_ReadScroll</driverClass>
+    <reportString>reading TargetA.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+    <casualInterruptible>true</casualInterruptible>
+  </JobDef>
+
+  <JobDef>
+    <defName>JJK_SwearBindingVow</defName>
+    <driverClass>JJKMod.JobDriver_SwearBindingVow</driverClass>
+    <reportString>swearing a binding vow.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

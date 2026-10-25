@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="JJK_ScrollBase">
+    <defName>JJK_GradeTrainingManual</defName>
+    <label>grade training manual</label>
+    <description>A rare school manual for developing cursed-energy control. An undrafted sorcerer can study it for 30 seconds to gain grade experience: 75 at Grade 4, 100 at Grade 3, 150 at Grade 2, or 200 at Grade 1, before the grade XP setting. Consumed on completion. Each pawn can use one per grade, and must wait three days between any training manuals. Special Grade and Calamity sorcerers cannot benefit. Does not grant or change an innate technique, and does not guarantee promotion.</description>
+    <graphicData><texPath>Things/Item/Scroll/NewShadowStyleScroll</texPath><color>(0.75,0.9,1)</color></graphicData>
+    <statBases><MarketValue>1500</MarketValue></statBases>
+    <thingSetMakerTags Inherit="False"><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    <comps><li Class="JJKMod.CompProperties_StudyManual" /></comps>
+  </ThingDef>
+  <ThingDef ParentName="JJK_ScrollBase">
+    <defName>JJK_TechniqueMasteryManual</defName>
+    <label>technique mastery manual</label>
+    <description>A rare collection of advanced exercises. An undrafted sorcerer chooses one of their active, unlocked innate techniques and studies for 30 seconds. Grants 250 mastery XP on the first use for that technique, 125 on the second, and 60 on the third; no further uses benefit that technique. Consumed on completion. Three days must pass between any training manuals. Cannot grant, choose, or reroll an innate technique. Cancelled study does not consume the manual.</description>
+    <graphicData><texPath>Things/Item/Scroll/NewShadowStyleScroll</texPath><color>(0.9,0.65,1)</color></graphicData>
+    <statBases><MarketValue>2200</MarketValue></statBases>
+    <thingSetMakerTags Inherit="False"><li>RewardStandardLowFreq</li></thingSetMakerTags>
+    <comps><li Class="JJKMod.CompProperties_StudyManual"><mastery>true</mastery></li></comps>
+  </ThingDef>
+  <JobDef><defName>JJK_StudyManual</defName><driverClass>JJKMod.JobDriver_StudyManual</driverClass><reportString>Studying TargetA.</reportString></JobDef>
+</Defs>

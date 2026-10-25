@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed Energy (CE) stats. Structurally analogous to the Naruto mod's  -->
+  <!-- chakra stats, consumed by the Taran Magic Framework AbilityResourceDef -->
+  <!-- and AbilityClassDef defined in Abilities_Base.xml.                     -->
+  <!-- ===================================================================== -->
+
+  <StatCategoryDef>
+    <defName>JJK_CursedEnergy</defName>
+    <label>cursed energy</label>
+    <displayOrder>475</displayOrder>
+  </StatCategoryDef>
+
+  <!-- Maximum cursed energy reserve. Set by the pawn's reserve gene (statBase),
+       scaled by sorcerer grade (hediff statFactors). The TMF resource reads this. -->
+  <StatDef>
+    <defName>JJK_MaxCursedEnergy</defName>
+    <label>maximum cursed energy</label>
+    <description>The size of this pawn's cursed energy reserve. Determined by their cursed energy reserve gene and multiplied by their sorcerer grade. A pawn with no reserve gene has no cursed energy and cannot use cursed techniques.</description>
+    <category>JJK_CursedEnergy</category>
+    <minValue>0</minValue>
+    <defaultBaseValue>0</defaultBaseValue>
+    <toStringStyle>FloatMaxTwo</toStringStyle>
+    <showOnDefaultValue>false</showOnDefaultValue>
+    <displayPriorityInCategory>100</displayPriorityInCategory>
+  </StatDef>
+
+  <!-- Multiplier on natural cursed energy regeneration. Boosted by low mood
+       ("curses are born of negative emotion") via StatPart_MoodCEBonus. -->
+  <StatDef>
+    <defName>JJK_CursedEnergyRegenRateMultiplier</defName>
+    <label>cursed energy regeneration</label>
+    <description>A multiplier on natural cursed energy recovery (96 CE per day before multipliers). Deep and bottomless innate reserves recover faster with diminishing returns. Sorcerer grade, equipment and this pawn's low mood can increase recovery further.</description>
+    <category>JJK_CursedEnergy</category>
+    <minValue>0</minValue>
+    <defaultBaseValue>1</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <hideAtValue>1</hideAtValue>
+    <displayPriorityInCategory>90</displayPriorityInCategory>
+    <parts>
+      <li Class="JJKMod.StatPart_MoodCEBonus" />
+      <li Class="JJKMod.StatPart_ReserveRecovery" />
+    </parts>
+  </StatDef>
+
+  <!-- Multiplier on cursed energy cost of techniques. Lowered by Efficiency. -->
+  <StatDef>
+    <defName>JJK_CursedEnergyUsageMultiplier</defName>
+    <label>cursed energy cost</label>
+    <description>A multiplier on the cursed energy cost of this pawn's cursed techniques. Lower is better. Reduced as the pawn refines their techniques (Efficiency).</description>
+    <category>JJK_CursedEnergy</category>
+    <!-- Floor lowered to 0.01 so Six Eyes can reach 99% efficiency (costs 1%). -->
+    <minValue>0.01</minValue>
+    <defaultBaseValue>1</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <hideAtValue>1</hideAtValue>
+    <displayPriorityInCategory>80</displayPriorityInCategory>
+  </StatDef>
+
+  <!-- CT Output: multiplies technique damage, debuff durations, summon HP, and
+       healing. Set by sorcerer grade (hediff statFactors). Does NOT affect cost. -->
+  <StatDef>
+    <defName>JJK_CTOutput</defName>
+    <label>cursed technique output</label>
+    <description>A multiplier on the damage, debuff durations, summon strength and healing of this pawn's cursed techniques. Determined primarily by sorcerer grade.</description>
+    <category>JJK_CursedEnergy</category>
+    <minValue>0</minValue>
+    <defaultBaseValue>1</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <displayPriorityInCategory>70</displayPriorityInCategory>
+    <parts><li Class="JJKMod.StatPart_SorceryDevelopment" /></parts>
+  </StatDef>
+
+  <!-- Multiplier on cursed technique cast time. Lower is faster. -->
+  <StatDef>
+    <defName>JJK_CTCastTimeMultiplier</defName>
+    <label>cursed technique cast time</label>
+    <description>A multiplier on the time this pawn takes to cast cursed techniques. Lower is faster.</description>
+    <category>JJK_CursedEnergy</category>
+    <minValue>0.1</minValue>
+    <defaultBaseValue>1</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <hideAtValue>1</hideAtValue>
+    <displayPriorityInCategory>60</displayPriorityInCategory>
+  </StatDef>
+
+  <!-- Resistance to the sure-hit of a hostile Domain Expansion: reduces the
+       damage and stun of the domain's pulse by this fraction. Granted by warded
+       gear (e.g. the cursed helmet). -->
+  <StatDef>
+    <defName>JJK_DomainSureHitResist</defName>
+    <label>domain sure-hit resistance</label>
+    <description>Reduces the damage and disorientation this pawn suffers from a hostile Domain Expansion's sure-hit by this fraction. Granted by warded equipment.</description>
+    <category>JJK_CursedEnergy</category>
+    <minValue>0</minValue>
+    <maxValue>0.9</maxValue>
+    <defaultBaseValue>0</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <showOnDefaultValue>false</showOnDefaultValue>
+    <displayPriorityInCategory>40</displayPriorityInCategory>
+  </StatDef>
+
+  <!-- Multiplier on cursed technique cooldowns. Lower is better. -->
+  <StatDef>
+    <defName>JJK_CTCooldownMultiplier</defName>
+    <label>cursed technique cooldown</label>
+    <description>A multiplier on the cooldown of this pawn's cursed techniques. Lower is better.</description>
+    <category>JJK_CursedEnergy</category>
+    <minValue>0.1</minValue>
+    <defaultBaseValue>1</defaultBaseValue>
+    <toStringStyle>PercentZero</toStringStyle>
+    <hideAtValue>1</hideAtValue>
+    <displayPriorityInCategory>50</displayPriorityInCategory>
+  </StatDef>
+
+</Defs>

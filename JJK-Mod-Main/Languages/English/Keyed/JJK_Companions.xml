@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_CompanionOpen>Independent companion</JJK_CompanionOpen>
+  <JJK_CompanionDescription>Mature three-core cursed corpses develop their own relationships and routines. Choose a role and a preferred friend. Companion follows and visits; Hauler carries allowed items to storage; Rescuer takes downed colonists to available beds; Guard stays nearby. They repair themselves with real repair kits, preserving permanent core losses.\n\nVisits last five seconds, occur at most twice a day and build trust. Company gives +3 mood for a day (+5 with trust 60 or above). Cheerful companions give more social recreation; Gentle companions bond faster; Steadfast companions recover from grief sooner. Loss of a friend or core causes grief and a preference for company. Losing the construct gives its friend a three-day mourning thought.\n\nManual move/hold orders and standby take priority. Selecting a role releases a manual hold. These routines are gameplay adaptations; companions retain their existing construct bodies and self-sustaining cores.</JJK_CompanionDescription>
+  <JJK_CompanionImmature>Independent routines unlock when the three cores mature.</JJK_CompanionImmature>
+  <JJK_CompanionStatus>Role: {0}\nTemperament: {1}\nPreferred friend: {2} — trust {3}/100\nFeeling: {4}</JJK_CompanionStatus>
+  <JJK_CompanionRoleCompanion>Companion — follow and visit</JJK_CompanionRoleCompanion>
+  <JJK_CompanionRoleHauler>Hauler — carry items to storage</JJK_CompanionRoleHauler>
+  <JJK_CompanionRoleRescuer>Rescuer — bring colonists to beds</JJK_CompanionRoleRescuer>
+  <JJK_CompanionRoleGuard>Guard — watch and repair</JJK_CompanionRoleGuard>
+  <JJK_CompanionTemperamentCheerful>Cheerful</JJK_CompanionTemperamentCheerful>
+  <JJK_CompanionTemperamentSteadfast>Steadfast</JJK_CompanionTemperamentSteadfast>
+  <JJK_CompanionTemperamentGentle>Gentle</JJK_CompanionTemperamentGentle>
+  <JJK_CompanionNoFriend>none</JJK_CompanionNoFriend>
+  <JJK_CompanionGrieving>grieving; company helps</JJK_CompanionGrieving>
+  <JJK_CompanionContent>content</JJK_CompanionContent>
+  <JJK_CompanionMourning>{0} is mourning {1}. Their cores remain self-sustaining, and they can form a new friendship.</JJK_CompanionMourning>
+  <JJK_CompanionRename>Save companion name</JJK_CompanionRename>
+  <JJK_CompanionChooseFriend>Choose a preferred friend. This starts a new bond at 20 trust and does not erase grief.</JJK_CompanionChooseFriend>
+</LanguageData>

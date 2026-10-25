@@ -1,0 +1,873 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <IdeoPresetCategoryDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_JujutsuPaths</defName>
+    <label>Jujutsu paths</label>
+    <description>Colony philosophies inspired by Jujutsu Kaisen. Choose one path, then customize compatible memes, roles and rituals. Innate techniques remain rare and random.</description>
+    <groupLabel>Jujutsu presets</groupLabel>
+  </IdeoPresetCategoryDef>
+  <MemeGroupDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_JujutsuPhilosophy</defName>
+    <maxRows>2</maxRows>
+  </MemeGroupDef>
+  <IssueDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_JujutsuEthic</defName>
+    <label>jujutsu philosophy</label>
+    <iconPath>UI/Issues/Research</iconPath>
+  </IssueDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Charity_Indifferent</defName>
+    <label>no obligation</label>
+    <issue>Charity</issue>
+    <impact>Low</impact>
+    <description>Helping strangers is a personal choice. This precept adds no mood reward or penalty for charity.</description>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>0</defaultSelectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Supremacy</li>
+      <li>JJK_Meme_Sovereign</li>
+      <li>JJK_Meme_Evolution</li>
+    </requiredMemes>
+  </PreceptDef>
+  <HistoryEventDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ideo_Service</defName>
+    <label>service</label>
+  </HistoryEventDef>
+  <HistoryEventDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ideo_Exorcism</defName>
+    <label>exorcism</label>
+  </HistoryEventDef>
+  <HistoryEventDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ideo_Mentorship</defName>
+    <label>mentorship</label>
+  </HistoryEventDef>
+  <HistoryEventDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ideo_Victory</defName>
+    <label>victory</label>
+  </HistoryEventDef>
+  <HistoryEventDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ideo_Discovery</defName>
+    <label>discovery</label>
+  </HistoryEventDef>
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Meme_Guardian</defName>
+    <label>Guardians of Humanity</label>
+    <description>Sorcerers shoulder the danger so ordinary people can live. Inspired by Nanami, Yuji and the protective ideal of jujutsu, this path values rescue, exorcism and service rather than inherited privilege.
+
+Protection is a duty. Completing a school contract grants +4 mood for 3 days; personally exorcising a hostile curse grants +3 for 2 days. Living with another non-sorcerer colonist grants +2 mood. Charity matters and harming innocent prisoners is condemned.</description>
+    <iconPath>UI/Memes/Loyalist</iconPath>
+    <impact>2</impact>
+    <groupDef>JJK_JujutsuPhilosophy</groupDef>
+    <exclusionTags>
+      <li>JJK_JujutsuPhilosophy</li>
+    </exclusionTags>
+    <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Guardian</ethic>
+      </li>
+    </modExtensions>
+    <requireOne>
+      <li>
+        <li>JJK_Ethic_Guardian</li>
+      </li>
+      <li>
+        <li>Charity_Important</li>
+      </li>
+      <li>
+        <li>Execution_HorribleIfInnocent</li>
+      </li>
+      <li>
+        <li>Slavery_Abhorrent</li>
+      </li>
+      <li>
+        <li>OrganUse_HorribleSellOK</li>
+      </li>
+    </requireOne>
+    <requiredRituals>
+      <li>
+        <precept>JJK_Gathering_Guardian</precept>
+        <pattern>CelebrationPartyChat</pattern>
+      </li>
+    </requiredRituals>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective-&gt;protective</li>
+        <li>memeCreed-&gt;guardianship</li>
+        <li>memeConcept-&gt;guardians of humanity</li>
+        <li>memeLeaderNoun-&gt;guide</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>setup(uses=1,tag=meme_JJK_Meme_Guardian)-&gt;[founderName] taught that sorcerers must protect ordinary people.</li>
+          <li>story(uses=1,tag=meme_JJK_Meme_Guardian)-&gt;Followers took dangerous exorcism work so others could live in peace.</li>
+          <li>lesson(uses=1,tag=meme_JJK_Meme_Guardian)-&gt;sorcerers must protect ordinary people</li>
+          <li>lessonReinforcement(uses=1,tag=meme_JJK_Meme_Guardian)-&gt;Followers took dangerous exorcism work so others could live in peace.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+  </MemeDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ethic_Guardian</defName>
+    <label>guardians of humanity</label>
+    <issue>JJK_JujutsuEthic</issue>
+    <description>Protection is a duty. Completing a school contract grants +4 mood for 3 days; personally exorcising a hostile curse grants +3 for 2 days. Living with another non-sorcerer colonist grants +2 mood. Charity matters and harming innocent prisoners is condemned.</description>
+    <impact>Medium</impact>
+    <requiredMemes>
+      <li>JJK_Meme_Guardian</li>
+    </requiredMemes>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Service</eventDef>
+        <thought>JJK_IdeoMemory_Guardian_Service</thought>
+      </li>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Exorcism</eventDef>
+        <thought>JJK_IdeoMemory_Guardian_Exorcism</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>JJK_IdeoMood_Guardian</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Guardian_Service</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>duty fulfilled</label>
+        <description>Sorcerers shoulder the danger so ordinary people can live. Inspired by Nanami, Yuji and the protective ideal of jujutsu, this path values rescue, exorcism and service rather than inherited privilege.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Guardian_Exorcism</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>another life protected</label>
+        <description>Sorcerers shoulder the danger so ordinary people can live. Inspired by Nanami, Yuji and the protective ideal of jujutsu, this path values rescue, exorcism and service rather than inherited privilege.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMood_Guardian</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>JJKMod.ThoughtWorker_JujutsuEthic</workerClass>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Guardian</ethic>
+      </li>
+    </modExtensions>
+    <stages>
+      <li>
+        <label>people to protect</label>
+        <description>Ordinary people live among us. Our work has a purpose.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="FestivalBase">
+    <defName>JJK_Gathering_Guardian</defName>
+    <label>Vigil for the living</label>
+    <description>Vigil for the living: a gathering with a leader speech and social time, using the normal festival quality and cooldown rules. This is a RimWorld ritual inspired by the philosophy; it grants no cursed powers.</description>
+    <allowDuplicates>false</allowDuplicates>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Guardian</li>
+    </requiredMemes>
+  </PreceptDef>
+  <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Preset_Guardian</defName>
+    <label>Guardians of Humanity</label>
+    <description>Sorcerers shoulder the danger so ordinary people can live. Inspired by Nanami, Yuji and the protective ideal of jujutsu, this path values rescue, exorcism and service rather than inherited privilege.
+
+Protection is a duty. Completing a school contract grants +4 mood for 3 days; personally exorcising a hostile curse grants +3 for 2 days. Living with another non-sorcerer colonist grants +2 mood. Charity matters and harming innocent prisoners is condemned.</description>
+    <categoryDef>JJK_JujutsuPaths</categoryDef>
+    <iconPath>UI/Memes/Loyalist</iconPath>
+    <memes>
+      <li>Structure_Ideological</li>
+      <li>JJK_Meme_Guardian</li>
+    </memes>
+  </IdeoPresetDef>
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Meme_Reform</defName>
+    <label>The New Generation</label>
+    <description>Build a future that does not sacrifice the young to the old order. Inspired by Gojo as a teacher, this path prizes mentorship, humane treatment and learning over clan pedigree. Belief does not create innate techniques.
+
+Completing an actual mentored jujutsu practice session grants both participating believers +4 mood for 3 days. Training without a mentor grants no memory. Ordinary colonists and heavenly-restricted fighters face no additional JJK prejudice.</description>
+    <iconPath>UI/Memes/Individualist</iconPath>
+    <impact>2</impact>
+    <groupDef>JJK_JujutsuPhilosophy</groupDef>
+    <exclusionTags>
+      <li>JJK_JujutsuPhilosophy</li>
+    </exclusionTags>
+    <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Reform</ethic>
+      </li>
+    </modExtensions>
+    <requireOne>
+      <li>
+        <li>JJK_Ethic_Reform</li>
+      </li>
+      <li>
+        <li>Charity_Worthwhile</li>
+      </li>
+      <li>
+        <li>Execution_HorribleIfInnocent</li>
+      </li>
+      <li>
+        <li>Slavery_Abhorrent</li>
+      </li>
+      <li>
+        <li>Research_Normal</li>
+      </li>
+    </requireOne>
+    <requiredRituals>
+      <li>
+        <precept>JJK_Gathering_Reform</precept>
+        <pattern>CelebrationPartyChat</pattern>
+      </li>
+    </requiredRituals>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective-&gt;reformist</li>
+        <li>memeCreed-&gt;school</li>
+        <li>memeConcept-&gt;the new generation</li>
+        <li>memeLeaderNoun-&gt;guide</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>setup(uses=1,tag=meme_JJK_Meme_Reform)-&gt;[founderName] taught that the next generation deserves teachers instead of executioners.</li>
+          <li>story(uses=1,tag=meme_JJK_Meme_Reform)-&gt;Students learned together, regardless of clan pedigree.</li>
+          <li>lesson(uses=1,tag=meme_JJK_Meme_Reform)-&gt;the next generation deserves teachers instead of executioners</li>
+          <li>lessonReinforcement(uses=1,tag=meme_JJK_Meme_Reform)-&gt;Students learned together, regardless of clan pedigree.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+  </MemeDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ethic_Reform</defName>
+    <label>the new generation</label>
+    <issue>JJK_JujutsuEthic</issue>
+    <description>Completing an actual mentored jujutsu practice session grants both participating believers +4 mood for 3 days. Training without a mentor grants no memory. Ordinary colonists and heavenly-restricted fighters face no additional JJK prejudice.</description>
+    <impact>Medium</impact>
+    <requiredMemes>
+      <li>JJK_Meme_Reform</li>
+    </requiredMemes>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Mentorship</eventDef>
+        <thought>JJK_IdeoMemory_Reform_Mentorship</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Reform_Mentorship</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>building the next generation</label>
+        <description>Build a future that does not sacrifice the young to the old order. Inspired by Gojo as a teacher, this path prizes mentorship, humane treatment and learning over clan pedigree. Belief does not create innate techniques.</description>
+        <baseMoodEffect>4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="FestivalBase">
+    <defName>JJK_Gathering_Reform</defName>
+    <label>Exchange of lessons</label>
+    <description>Exchange of lessons: a gathering with a leader speech and social time, using the normal festival quality and cooldown rules. This is a RimWorld ritual inspired by the philosophy; it grants no cursed powers.</description>
+    <allowDuplicates>false</allowDuplicates>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Reform</li>
+    </requiredMemes>
+  </PreceptDef>
+  <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Preset_Reform</defName>
+    <label>The New Generation</label>
+    <description>Build a future that does not sacrifice the young to the old order. Inspired by Gojo as a teacher, this path prizes mentorship, humane treatment and learning over clan pedigree. Belief does not create innate techniques.
+
+Completing an actual mentored jujutsu practice session grants both participating believers +4 mood for 3 days. Training without a mentor grants no memory. Ordinary colonists and heavenly-restricted fighters face no additional JJK prejudice.</description>
+    <categoryDef>JJK_JujutsuPaths</categoryDef>
+    <iconPath>UI/Memes/Individualist</iconPath>
+    <memes>
+      <li>Structure_Ideological</li>
+      <li>JJK_Meme_Reform</li>
+    </memes>
+  </IdeoPresetDef>
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Meme_Clan</defName>
+    <label>Clan Orthodoxy</label>
+    <description>Order, pedigree and rank preserve jujutsu society. Inspired by conservative clans and higher-ups, this path honors innate talent and qualified leadership. Its hierarchy can stabilize a school or alienate those it undervalues.
+
+A living Grade 1 or higher sorcerer in the ideology leader role grants +3 mood; a lower-ranked or non-sorcerer leader causes -3. No leader adds no extra JJK penalty. Innate technique users receive +8 opinion, others -4. Completing a school contract grants +3 mood for 3 days. Leadership remains assignable regardless of grade.</description>
+    <iconPath>UI/Memes/Collectivist</iconPath>
+    <impact>2</impact>
+    <groupDef>JJK_JujutsuPhilosophy</groupDef>
+    <exclusionTags>
+      <li>JJK_JujutsuPhilosophy</li>
+    </exclusionTags>
+    <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Clan</ethic>
+      </li>
+    </modExtensions>
+    <requireOne>
+      <li>
+        <li>JJK_Ethic_Clan</li>
+      </li>
+      <li>
+        <li>Execution_RespectedIfGuilty</li>
+      </li>
+      <li>
+        <li>Research_Normal</li>
+      </li>
+    </requireOne>
+    <requiredRituals>
+      <li>
+        <precept>JJK_Gathering_Clan</precept>
+        <pattern>CelebrationPartyChat</pattern>
+      </li>
+    </requiredRituals>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective-&gt;orthodox</li>
+        <li>memeCreed-&gt;clan</li>
+        <li>memeConcept-&gt;clan orthodoxy</li>
+        <li>memeLeaderNoun-&gt;guide</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>setup(uses=1,tag=meme_JJK_Meme_Clan)-&gt;[founderName] taught that rank and inherited talent must guide jujutsu society.</li>
+          <li>story(uses=1,tag=meme_JJK_Meme_Clan)-&gt;The clans entrusted authority to their senior sorcerers.</li>
+          <li>lesson(uses=1,tag=meme_JJK_Meme_Clan)-&gt;rank and inherited talent must guide jujutsu society</li>
+          <li>lessonReinforcement(uses=1,tag=meme_JJK_Meme_Clan)-&gt;The clans entrusted authority to their senior sorcerers.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+  </MemeDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ethic_Clan</defName>
+    <label>clan orthodoxy</label>
+    <issue>JJK_JujutsuEthic</issue>
+    <description>A living Grade 1 or higher sorcerer in the ideology leader role grants +3 mood; a lower-ranked or non-sorcerer leader causes -3. No leader adds no extra JJK penalty. Innate technique users receive +8 opinion, others -4. Completing a school contract grants +3 mood for 3 days. Leadership remains assignable regardless of grade.</description>
+    <impact>Medium</impact>
+    <requiredMemes>
+      <li>JJK_Meme_Clan</li>
+    </requiredMemes>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Service</eventDef>
+        <thought>JJK_IdeoMemory_Clan_Service</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>JJK_IdeoMood_Clan</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>JJK_IdeoRespect_Clan</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Clan_Service</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>clan duty honored</label>
+        <description>Order, pedigree and rank preserve jujutsu society. Inspired by conservative clans and higher-ups, this path honors innate talent and qualified leadership. Its hierarchy can stabilize a school or alienate those it undervalues.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMood_Clan</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>JJKMod.ThoughtWorker_JujutsuEthic</workerClass>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Clan</ethic>
+      </li>
+    </modExtensions>
+    <stages>
+      <li>
+        <label>unworthy leadership</label>
+        <description>Our leader lacks the sorcerer rank this office deserves.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>ranked leadership</label>
+        <description>A proven senior sorcerer leads us.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoRespect_Clan</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>JJKMod.ThoughtWorker_JujutsuRespect</workerClass>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Clan</ethic>
+      </li>
+    </modExtensions>
+    <stages>
+      <li>
+        <label>without innate distinction</label>
+        <baseOpinionOffset>-4</baseOpinionOffset>
+      </li>
+      <li>
+        <label>recognized innate talent</label>
+        <baseOpinionOffset>8</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="FestivalBase">
+    <defName>JJK_Gathering_Clan</defName>
+    <label>Council of the clans</label>
+    <description>Council of the clans: a gathering with a leader speech and social time, using the normal festival quality and cooldown rules. This is a RimWorld ritual inspired by the philosophy; it grants no cursed powers.</description>
+    <allowDuplicates>false</allowDuplicates>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Clan</li>
+    </requiredMemes>
+  </PreceptDef>
+  <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Preset_Clan</defName>
+    <label>Clan Orthodoxy</label>
+    <description>Order, pedigree and rank preserve jujutsu society. Inspired by conservative clans and higher-ups, this path honors innate talent and qualified leadership. Its hierarchy can stabilize a school or alienate those it undervalues.
+
+A living Grade 1 or higher sorcerer in the ideology leader role grants +3 mood; a lower-ranked or non-sorcerer leader causes -3. No leader adds no extra JJK penalty. Innate technique users receive +8 opinion, others -4. Completing a school contract grants +3 mood for 3 days. Leadership remains assignable regardless of grade.</description>
+    <categoryDef>JJK_JujutsuPaths</categoryDef>
+    <iconPath>UI/Memes/Collectivist</iconPath>
+    <memes>
+      <li>Structure_Ideological</li>
+      <li>JJK_Meme_Clan</li>
+    </memes>
+  </IdeoPresetDef>
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Meme_Supremacy</defName>
+    <label>Sorcerer Supremacy</label>
+    <description>A world for sorcerers alone. Inspired by Geto after his defection, this exclusionary creed blames non-sorcerers for the world of curses. It is distinct from the protective ideal he held as a student.
+
+With at least two free colonists present, any non-sorcerer colonist causes -5 mood; an entirely sorcerer community grants +3. Known sorcerers receive +10 opinion and non-sorcerers -15, including zero-energy heavenly-restricted people. Hostile curse exorcism grants +3 mood for 2 days. Temporary borrowed energy does not confer membership. No execution or conversion is automatic.</description>
+    <iconPath>UI/Memes/Supremacist</iconPath>
+    <impact>3</impact>
+    <groupDef>JJK_JujutsuPhilosophy</groupDef>
+    <exclusionTags>
+      <li>JJK_JujutsuPhilosophy</li>
+    </exclusionTags>
+    <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Supremacy</ethic>
+      </li>
+    </modExtensions>
+    <requireOne>
+      <li>
+        <li>JJK_Ethic_Supremacy</li>
+      </li>
+      <li>
+        <li>Execution_DontCare</li>
+      </li>
+      <li>
+        <li>JJK_Charity_Indifferent</li>
+      </li>
+    </requireOne>
+    <requiredRituals>
+      <li>
+        <precept>JJK_Gathering_Supremacy</precept>
+        <pattern>CelebrationPartyChat</pattern>
+      </li>
+    </requiredRituals>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective-&gt;sorcerous</li>
+        <li>memeCreed-&gt;brotherhood</li>
+        <li>memeConcept-&gt;sorcerer supremacy</li>
+        <li>memeLeaderNoun-&gt;guide</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>setup(uses=1,tag=meme_JJK_Meme_Supremacy)-&gt;[founderName] taught that the world should belong to sorcerers alone.</li>
+          <li>story(uses=1,tag=meme_JJK_Meme_Supremacy)-&gt;The faithful rejected non-sorcerers and gathered a community of their own.</li>
+          <li>lesson(uses=1,tag=meme_JJK_Meme_Supremacy)-&gt;the world should belong to sorcerers alone</li>
+          <li>lessonReinforcement(uses=1,tag=meme_JJK_Meme_Supremacy)-&gt;The faithful rejected non-sorcerers and gathered a community of their own.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+  </MemeDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ethic_Supremacy</defName>
+    <label>sorcerer supremacy</label>
+    <issue>JJK_JujutsuEthic</issue>
+    <description>With at least two free colonists present, any non-sorcerer colonist causes -5 mood; an entirely sorcerer community grants +3. Known sorcerers receive +10 opinion and non-sorcerers -15, including zero-energy heavenly-restricted people. Hostile curse exorcism grants +3 mood for 2 days. Temporary borrowed energy does not confer membership. No execution or conversion is automatic.</description>
+    <impact>High</impact>
+    <requiredMemes>
+      <li>JJK_Meme_Supremacy</li>
+    </requiredMemes>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Exorcism</eventDef>
+        <thought>JJK_IdeoMemory_Supremacy_Exorcism</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>JJK_IdeoMood_Supremacy</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>JJK_IdeoRespect_Supremacy</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Supremacy_Exorcism</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>2</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>purging the curse of the old world</label>
+        <description>A world for sorcerers alone. Inspired by Geto after his defection, this exclusionary creed blames non-sorcerers for the world of curses. It is distinct from the protective ideal he held as a student.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMood_Supremacy</defName>
+    <thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>JJKMod.ThoughtWorker_JujutsuEthic</workerClass>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Supremacy</ethic>
+      </li>
+    </modExtensions>
+    <stages>
+      <li>
+        <label>non-sorcerers among us</label>
+        <description>This community still makes room for non-sorcerers.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+      <li>
+        <label>a sorcerer community</label>
+        <description>Our community belongs to sorcerers.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoRespect_Supremacy</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>JJKMod.ThoughtWorker_JujutsuRespect</workerClass>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Supremacy</ethic>
+      </li>
+    </modExtensions>
+    <stages>
+      <li>
+        <label>non-sorcerer</label>
+        <baseOpinionOffset>-15</baseOpinionOffset>
+      </li>
+      <li>
+        <label>fellow sorcerer</label>
+        <baseOpinionOffset>10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="FestivalBase">
+    <defName>JJK_Gathering_Supremacy</defName>
+    <label>Assembly of sorcerers</label>
+    <description>Assembly of sorcerers: a gathering with a leader speech and social time, using the normal festival quality and cooldown rules. This is a RimWorld ritual inspired by the philosophy; it grants no cursed powers.</description>
+    <allowDuplicates>false</allowDuplicates>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Supremacy</li>
+    </requiredMemes>
+  </PreceptDef>
+  <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Preset_Supremacy</defName>
+    <label>Sorcerer Supremacy</label>
+    <description>A world for sorcerers alone. Inspired by Geto after his defection, this exclusionary creed blames non-sorcerers for the world of curses. It is distinct from the protective ideal he held as a student.
+
+With at least two free colonists present, any non-sorcerer colonist causes -5 mood; an entirely sorcerer community grants +3. Known sorcerers receive +10 opinion and non-sorcerers -15, including zero-energy heavenly-restricted people. Hostile curse exorcism grants +3 mood for 2 days. Temporary borrowed energy does not confer membership. No execution or conversion is automatic.</description>
+    <categoryDef>JJK_JujutsuPaths</categoryDef>
+    <iconPath>UI/Memes/Supremacist</iconPath>
+    <memes>
+      <li>Structure_Ideological</li>
+      <li>JJK_Meme_Supremacy</li>
+    </memes>
+  </IdeoPresetDef>
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Meme_Sovereign</defName>
+    <label>The Sovereign Self</label>
+    <description>Live according to your own appetite and acknowledge strength wherever it appears. Inspired by Sukuna, this creed rejects obligations of protection and clan pedigree. It respects formidable opponents rather than granting power through worship.
+
+Personally killing a standing hostile with combat power at least 100 and at least your pawnkind combat power grants +5 mood for 3 days. Downed victims and prisoners do not qualify. Grade 1+ sorcerers, zero-energy heavenly-restricted fighters, or people with Melee 12+ receive +10 opinion. Human meat is accepted, not required.</description>
+    <iconPath>UI/Memes/Raider</iconPath>
+    <impact>3</impact>
+    <groupDef>JJK_JujutsuPhilosophy</groupDef>
+    <exclusionTags>
+      <li>JJK_JujutsuPhilosophy</li>
+    </exclusionTags>
+    <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Sovereign</ethic>
+      </li>
+    </modExtensions>
+    <requireOne>
+      <li>
+        <li>JJK_Ethic_Sovereign</li>
+      </li>
+      <li>
+        <li>JJK_Charity_Indifferent</li>
+      </li>
+      <li>
+        <li>Execution_DontCare</li>
+      </li>
+      <li>
+        <li>Cannibalism_Acceptable</li>
+      </li>
+    </requireOne>
+    <requiredRituals>
+      <li>
+        <precept>JJK_Gathering_Sovereign</precept>
+        <pattern>CelebrationPartyChat</pattern>
+      </li>
+    </requiredRituals>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective-&gt;sovereign</li>
+        <li>memeCreed-&gt;dominion</li>
+        <li>memeConcept-&gt;the sovereign self</li>
+        <li>memeLeaderNoun-&gt;guide</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>setup(uses=1,tag=meme_JJK_Meme_Sovereign)-&gt;[founderName] taught that strength needs neither permission nor pedigree.</li>
+          <li>story(uses=1,tag=meme_JJK_Meme_Sovereign)-&gt;They pursued their own desires and acknowledged those strong enough to stand against them.</li>
+          <li>lesson(uses=1,tag=meme_JJK_Meme_Sovereign)-&gt;strength needs neither permission nor pedigree</li>
+          <li>lessonReinforcement(uses=1,tag=meme_JJK_Meme_Sovereign)-&gt;They pursued their own desires and acknowledged those strong enough to stand against them.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+  </MemeDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ethic_Sovereign</defName>
+    <label>the sovereign self</label>
+    <issue>JJK_JujutsuEthic</issue>
+    <description>Personally killing a standing hostile with combat power at least 100 and at least your pawnkind combat power grants +5 mood for 3 days. Downed victims and prisoners do not qualify. Grade 1+ sorcerers, zero-energy heavenly-restricted fighters, or people with Melee 12+ receive +10 opinion. Human meat is accepted, not required.</description>
+    <impact>High</impact>
+    <requiredMemes>
+      <li>JJK_Meme_Sovereign</li>
+    </requiredMemes>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Victory</eventDef>
+        <thought>JJK_IdeoMemory_Sovereign_Victory</thought>
+      </li>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>JJK_IdeoRespect_Sovereign</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Sovereign_Victory</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>a worthy victory</label>
+        <description>Live according to your own appetite and acknowledge strength wherever it appears. Inspired by Sukuna, this creed rejects obligations of protection and clan pedigree. It respects formidable opponents rather than granting power through worship.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoRespect_Sovereign</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>JJKMod.ThoughtWorker_JujutsuRespect</workerClass>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Sovereign</ethic>
+      </li>
+    </modExtensions>
+    <stages>
+      <li>
+        <label>strength acknowledged</label>
+        <baseOpinionOffset>10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="FestivalBase">
+    <defName>JJK_Gathering_Sovereign</defName>
+    <label>Feast of the self</label>
+    <description>Feast of the self: a gathering with a leader speech and social time, using the normal festival quality and cooldown rules. This is a RimWorld ritual inspired by the philosophy; it grants no cursed powers.</description>
+    <allowDuplicates>false</allowDuplicates>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Sovereign</li>
+    </requiredMemes>
+  </PreceptDef>
+  <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Preset_Sovereign</defName>
+    <label>The Sovereign Self</label>
+    <description>Live according to your own appetite and acknowledge strength wherever it appears. Inspired by Sukuna, this creed rejects obligations of protection and clan pedigree. It respects formidable opponents rather than granting power through worship.
+
+Personally killing a standing hostile with combat power at least 100 and at least your pawnkind combat power grants +5 mood for 3 days. Downed victims and prisoners do not qualify. Grade 1+ sorcerers, zero-energy heavenly-restricted fighters, or people with Melee 12+ receive +10 opinion. Human meat is accepted, not required.</description>
+    <categoryDef>JJK_JujutsuPaths</categoryDef>
+    <iconPath>UI/Memes/Raider</iconPath>
+    <memes>
+      <li>Structure_Ideological</li>
+      <li>JJK_Meme_Sovereign</li>
+    </memes>
+  </IdeoPresetDef>
+  <MemeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Meme_Evolution</defName>
+    <label>Cursed Evolution</label>
+    <description>Push cursed energy beyond its present limits. Inspired by Kenjaku, this experimental philosophy values discovery and treats conventional moral limits as obstacles. Unlike Geto, it seeks new possibilities for cursed energy rather than a world without curses.
+
+Finishing a Jujutsu research project grants believers on player home maps +5 mood for 4 days. The required fast-research precept increases research speed by 25%. Organ use is accepted and charity is not required. Belief grants no technique, reserve gene or guaranteed awakening.</description>
+    <iconPath>UI/Memes/Transhumanist</iconPath>
+    <impact>3</impact>
+    <groupDef>JJK_JujutsuPhilosophy</groupDef>
+    <exclusionTags>
+      <li>JJK_JujutsuPhilosophy</li>
+    </exclusionTags>
+    <randomizationSelectionWeightFactor>0</randomizationSelectionWeightFactor>
+    <modExtensions>
+      <li Class="JJKMod.JujutsuEthicExtension">
+        <ethic>Evolution</ethic>
+      </li>
+    </modExtensions>
+    <requireOne>
+      <li>
+        <li>JJK_Ethic_Evolution</li>
+      </li>
+      <li>
+        <li>Research_Fast</li>
+      </li>
+      <li>
+        <li>OrganUse_Acceptable</li>
+      </li>
+      <li>
+        <li>Execution_DontCare</li>
+      </li>
+      <li>
+        <li>JJK_Charity_Indifferent</li>
+      </li>
+    </requireOne>
+    <requiredRituals>
+      <li>
+        <precept>JJK_Gathering_Evolution</precept>
+        <pattern>CelebrationPartyChat</pattern>
+      </li>
+    </requiredRituals>
+    <generalRules>
+      <rulesStrings>
+        <li>memeAdjective-&gt;experimental</li>
+        <li>memeCreed-&gt;convergence</li>
+        <li>memeConcept-&gt;cursed evolution</li>
+        <li>memeLeaderNoun-&gt;guide</li>
+      </rulesStrings>
+    </generalRules>
+    <descriptionMaker>
+      <rules>
+        <rulesStrings>
+          <li>setup(uses=1,tag=meme_JJK_Meme_Evolution)-&gt;[founderName] taught that cursed energy holds possibilities that humanity has yet to discover.</li>
+          <li>story(uses=1,tag=meme_JJK_Meme_Evolution)-&gt;They pursued experiments that more cautious scholars refused to attempt.</li>
+          <li>lesson(uses=1,tag=meme_JJK_Meme_Evolution)-&gt;cursed energy holds possibilities that humanity has yet to discover</li>
+          <li>lessonReinforcement(uses=1,tag=meme_JJK_Meme_Evolution)-&gt;They pursued experiments that more cautious scholars refused to attempt.</li>
+        </rulesStrings>
+      </rules>
+    </descriptionMaker>
+  </MemeDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Ethic_Evolution</defName>
+    <label>cursed evolution</label>
+    <issue>JJK_JujutsuEthic</issue>
+    <description>Finishing a Jujutsu research project grants believers on player home maps +5 mood for 4 days. The required fast-research precept increases research speed by 25%. Organ use is accepted and charity is not required. Belief grants no technique, reserve gene or guaranteed awakening.</description>
+    <impact>High</impact>
+    <requiredMemes>
+      <li>JJK_Meme_Evolution</li>
+    </requiredMemes>
+    <selectionWeight>1</selectionWeight>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+    <comps>
+      <li Class="PreceptComp_SelfTookMemoryThought">
+        <eventDef>JJK_Ideo_Discovery</eventDef>
+        <thought>JJK_IdeoMemory_Evolution_Discovery</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  <ThoughtDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_IdeoMemory_Evolution_Discovery</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>4</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>new possibilities for cursed energy</label>
+        <description>Push cursed energy beyond its present limits. Inspired by Kenjaku, this experimental philosophy values discovery and treats conventional moral limits as obstacles. Unlike Geto, it seeks new possibilities for cursed energy rather than a world without curses.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <PreceptDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="FestivalBase">
+    <defName>JJK_Gathering_Evolution</defName>
+    <label>Symposium of possibilities</label>
+    <description>Symposium of possibilities: a gathering with a leader speech and social time, using the normal festival quality and cooldown rules. This is a RimWorld ritual inspired by the philosophy; it grants no cursed powers.</description>
+    <allowDuplicates>false</allowDuplicates>
+    <selectionWeight>0</selectionWeight>
+    <requiredMemes>
+      <li>JJK_Meme_Evolution</li>
+    </requiredMemes>
+  </PreceptDef>
+  <IdeoPresetDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>JJK_Preset_Evolution</defName>
+    <label>Cursed Evolution</label>
+    <description>Push cursed energy beyond its present limits. Inspired by Kenjaku, this experimental philosophy values discovery and treats conventional moral limits as obstacles. Unlike Geto, it seeks new possibilities for cursed energy rather than a world without curses.
+
+Finishing a Jujutsu research project grants believers on player home maps +5 mood for 4 days. The required fast-research precept increases research speed by 25%. Organ use is accepted and charity is not required. Belief grants no technique, reserve gene or guaranteed awakening.</description>
+    <categoryDef>JJK_JujutsuPaths</categoryDef>
+    <iconPath>UI/Memes/Transhumanist</iconPath>
+    <memes>
+      <li>Structure_Ideological</li>
+      <li>JJK_Meme_Evolution</li>
+    </memes>
+  </IdeoPresetDef>
+</Defs>

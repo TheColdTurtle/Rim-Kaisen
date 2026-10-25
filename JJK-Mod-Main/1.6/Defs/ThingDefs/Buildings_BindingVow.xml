@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Binding Vow Altar: a ritual station where a sorcerer swears a single binding
+       vow (CompBindingVowStation). Right-click it with a sorcerer to choose a vow;
+       they perform the ritual and the vow's hediff is sealed onto them. -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_BindingVowAltar</defName>
+    <label>binding vow altar</label>
+    <description>A ritual altar inscribed with cursed-energy bindings. Here a sorcerer can swear a binding vow - sacrificing something of themselves in exchange for greater cursed power. Once sworn, the terms are absolute.</description>
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/BindingVowAltar</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.4</fillPercent>
+    <useHitPoints>true</useHitPoints>
+    <rotatable>true</rotatable>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.4</Flammability>
+      <Beauty>6</Beauty>
+    </statBases>
+    <size>(2,2)</size>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <costList>
+      <Steel>60</Steel>
+      <JJK_CursedSteel>20</JJK_CursedSteel>
+      <JJK_CursedResidue>30</JJK_CursedResidue>
+    </costList>
+    <comps>
+      <li Class="JJKMod.CompProperties_BindingVowStation">
+        <ritualDurationTicks>600</ritualDurationTicks>
+      </li>
+    </comps>
+    <designationCategory>Production</designationCategory>
+    <researchPrerequisites>
+      <li>JJK_CursedMaterialsRefinement</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+  </ThingDef>
+
+</Defs>

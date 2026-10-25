@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Extended cursed technique library.                                        -->
+  <!--                                                                          -->
+  <!--   Cursed Speech (Inumaki) - instant spoken commands (custom abilities, no  -->
+  <!--     projectile, cannot miss). Effects scale with the Talking stat; every   -->
+  <!--     word cuts at the speaker's tongue (voiceStrain), heavier words worse.  -->
+  <!--     Heavy hits: "Crush" here, "Explode" in Abilities_CT_Moves2.            -->
+  <!--   Straw Doll Technique (Nobara) - nail-stacking loop: Volley/Scatter embed -->
+  <!--     cursed nails, Hairpin detonates one target's nails, and Hairpin:       -->
+  <!--     Resonance detonates every nailed pawn on the map at once.              -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================================================================== -->
+  <!-- CURSED SPEECH (Inumaki)                                                 -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_CursedSpeech</defName>
+    <label>cursed speech</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_CursedSpeechBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_CursedSpeech</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Don't Move: a binding word that locks a target in place. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_CursedSpeechBase">
+    <defName>JJK_Speech_DontMove</defName>
+    <label>cursed speech: don't move</label>
+    <description>Speak a cursed word that roots a target where it stands, stunning it briefly. The lightest of the cursed speech words - it barely strains the throat. The innate technique of the Inumaki family.\n\nAll cursed speech grows stronger the better the speaker can talk - and every word spoken cuts at the speaker's tongue a little. A wounded tongue speaks worse, weakening every word after it. The heavier the word, the worse the strain.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DontMove</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SpeechDontMove</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpeechExtension">
+        <voiceStrain>0.5</voiceStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Speech_DontMove_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Speech_DontMove_Tier1</defName>
+    <label>cursed speech: don't move</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_CursedSpeech</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>20</energyCost>
+    <cooldownTicks>180</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>22</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Blast Away: a shout that hurls a cluster of enemies back. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_CursedSpeechBase">
+    <defName>JJK_Speech_BlastAway</defName>
+    <label>cursed speech: blast away</label>
+    <description>Shout a word of force that slams into everything in an area, battering and staggering a cluster of enemies.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BlastAway</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SpeechBlastAway</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpeechExtension">
+        <voiceStrain>1</voiceStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Speech_BlastAway_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Speech_BlastAway_Tier1</defName>
+    <label>cursed speech: blast away</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_CursedSpeech</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>15</castDurationTicks>
+    <effectRadius>20</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>true</canTargetLocations>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Crush: the heaviest word. Devastating, but it tears at the user's throat. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_CursedSpeechBase">
+    <defName>JJK_Speech_Crush</defName>
+    <label>cursed speech: crush</label>
+    <description>Force out the cursed word "crush" with everything you have. A single target is broken by the command itself - but a word this heavy savages the user's own throat, and cannot be spoken again for some time.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Crush</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SpeechCrush</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpeechExtension">
+        <voiceStrain>2</voiceStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Speech_Crush_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Speech_Crush_Tier1</defName>
+    <label>cursed speech: crush</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_CursedSpeech</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>55</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>18</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- STRAW DOLL TECHNIQUE (Nobara)                                           -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_StrawDoll</defName>
+    <label>straw doll technique</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_StrawDollBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_StrawDoll</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Nail Volley: hammer three cursed nails into a single target. Little damage,
+       but it stacks the nail counter quickly. (burstShotCount fires three nails.) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_StrawDollBase">
+    <defName>JJK_StrawDoll_NailVolley</defName>
+    <label>nail volley</label>
+    <description>Hammer three cursed nails into a single target. The nails barely wound on their own - but they stay embedded, and the Straw Doll Technique's Hairpin can detonate them later for damage that scales with how many are stuck in.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/NailVolley</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_StrawDoll_NailVolley_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_StrawDoll_NailVolley_Tier1</defName>
+    <label>nail volley</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StrawDoll</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>240</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_StrawNail</defaultProjectile>
+        <range>22</range>
+        <warmupTime>0.3</warmupTime>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>false</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Nail Scatter: scatter cursed nails across an area, embedding one in every
+       enemy caught in the burst. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_StrawDollBase">
+    <defName>JJK_StrawDoll_NailScatter</defName>
+    <label>nail scatter</label>
+    <description>Scatter a burst of cursed nails across an area, embedding a nail in everything caught in it. Each does little, but they set up a devastating Hairpin against a crowd.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/NailScatter</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_StrawDoll_NailScatter_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_StrawDoll_NailScatter_Tier1</defName>
+    <label>nail scatter</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StrawDoll</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>360</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_NailBurst</defaultProjectile>
+        <range>20</range>
+        <warmupTime>0.5</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Hairpin: detonate every cursed nail in a single target. Damage scales with
+       the number of nails embedded. Custom ability (Ability_Hairpin), single pawn. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_StrawDollBase">
+    <defName>JJK_StrawDoll_Hairpin</defName>
+    <label>hairpin</label>
+    <description>Detonate every cursed nail embedded in a single target at once. The more nails stuck in, the more devastating the blast - against a heavily nailed enemy it is lethal. Useless against a target with no nails. Can only strike one pawn at a time.</description>
+    <uiPosition>(0.4, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Hairpin</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_Hairpin</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.HairpinExtension">
+        <damagePerNail>13</damagePerNail>
+        <mapWide>false</mapWide>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_StrawDoll_Hairpin_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_StrawDoll_Hairpin_Tier1</defName>
+    <label>hairpin</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StrawDoll</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>45</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <effectRadius>24</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Hairpin: Resonance - the advanced Hairpin. Detonates the embedded nails in
+       EVERY pawn on the map at once. Self-cast; no single target. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_StrawDollBase">
+    <defName>JJK_StrawDoll_HairpinResonance</defName>
+    <label>hairpin: resonance</label>
+    <description>The perfected Hairpin. Rather than one effigy, resonate through all of them at once - every cursed nail embedded in every body across the entire area detonates simultaneously. Devastating after blanketing a battlefield in Nail Scatter.</description>
+    <uiPosition>(0.6, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/HairpinResonance</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_Hairpin</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.HairpinExtension">
+        <damagePerNail>11</damagePerNail>
+        <mapWide>true</mapWide>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_StrawDoll_HairpinResonance_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_StrawDoll_HairpinResonance_Tier1</defName>
+    <label>hairpin: resonance</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StrawDoll</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

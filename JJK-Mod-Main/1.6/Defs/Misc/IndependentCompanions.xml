@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef><defName>JJK_CompanionVisit</defName><driverClass>JJKMod.JobDriver_CompanionVisit</driverClass><reportString>Spending time with TargetA.</reportString></JobDef>
+  <JobDef><defName>JJK_CompanionSelfRepair</defName><driverClass>JJKMod.JobDriver_CompanionSelfRepair</driverClass><reportString>Repairing my frame.</reportString></JobDef>
+  <ThoughtDef><defName>JJK_CompanionCompany</defName><thoughtClass>Thought_Memory</thoughtClass><durationDays>1</durationDays><stackLimit>1</stackLimit><stages><li><label>cursed corpse company</label><description>I spent some time with an independent cursed corpse. There is a real personality behind that face.</description><baseMoodEffect>3</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>JJK_CompanionTrustedCompany</defName><thoughtClass>Thought_Memory</thoughtClass><durationDays>1</durationDays><stackLimit>1</stackLimit><stages><li><label>trusted companion</label><description>My cursed corpse companion came to see me. We have grown close.</description><baseMoodEffect>5</baseMoodEffect></li></stages></ThoughtDef>
+  <ThoughtDef><defName>JJK_CompanionLost</defName><thoughtClass>Thought_Memory</thoughtClass><durationDays>3</durationDays><stackLimit>1</stackLimit><stages><li><label>lost my companion</label><description>My independent cursed corpse companion died. A constructed body did not make our friendship any less real.</description><baseMoodEffect>-5</baseMoodEffect></li></stages></ThoughtDef>
+</Defs>

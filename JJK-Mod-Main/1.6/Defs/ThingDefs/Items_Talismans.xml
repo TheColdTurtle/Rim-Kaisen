@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <!-- ===================================================================== -->
+  <!-- Cursed talismans: consumable jujutsu items. Craftable at the Cursed     -->
+  <!-- Materials Bench from cursed residue.                                     -->
+  <!-- ===================================================================== -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CursedEnergyTalisman</defName>
+    <label>cursed energy talisman</label>
+    <description>A paper talisman dense with compressed cursed residue. A sorcerer who crushes it releases the stored energy into their own reserve, instantly restoring a large amount of cursed energy. Single use.</description>
+    <graphicData>
+      <texPath>Things/Item/Talisman/CursedEnergyTalisman</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>20</MaxHitPoints>
+      <MarketValue>320</MarketValue>
+      <Mass>0.1</Mass>
+      <DeteriorationRate>2</DeteriorationRate>
+      <Flammability>1.0</Flammability>
+      <WorkToMake>1200</WorkToMake>
+    </statBases>
+    <stackLimit>10</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>All</tradeability>
+    <tradeTags>
+      <li>JJK_CursedTool</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+    <costList>
+      <JJK_CursedResidue>15</JJK_CursedResidue>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_CursedMaterialsRefinement</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>400</displayPriority>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Crush {0_label}</useLabel>
+        <useDuration>120</useDuration>
+      </li>
+      <li Class="JJKMod.CompProperties_RestoreCursedEnergy">
+        <amount>120</amount>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+  <!-- Sukuna's Finger: a special-grade cursed object. Twenty exist; eating one
+       grants a surge of power and deepens Sukuna's influence - with the risk
+       that the King of Curses briefly seizes the eater. -->
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_SukunaFinger</defName>
+    <label>sukuna's finger</label>
+    <description>A mummified finger of Ryomen Sukuna. Consumption grants 400 grade XP and adds 5 percentage points of Sukuna's influence, with an immediate 25% berserk risk. At 25% influence, spontaneous seizures become possible. High influence can bring temporary Shrine attacks and Malevolent Shrine during possession. Suppression talismans buy time; bargains grant power in exchange for deeper influence and a future seizure.</description>
+    <graphicData>
+      <texPath>Things/Item/Talisman/SukunaFinger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>4200</MarketValue>
+      <Mass>0.05</Mass>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Flammability>0</Flammability>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags>
+      <li>RewardStandardLowFreq</li>
+    </thingSetMakerTags>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Consume {0_label}</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="JJKMod.CompProperties_SukunaFinger">
+        <gradeXp>400</gradeXp>
+        <influencePerFinger>0.05</influencePerFinger>
+        <berserkChance>0.25</berserkChance>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+</Defs>

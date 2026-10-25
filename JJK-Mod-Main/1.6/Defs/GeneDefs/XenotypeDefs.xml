@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Sorcerers are NOT a xenotype/"race": every pawn generates as a baseliner
+       and only rarely rolls a cursed energy reserve gene at pawn generation
+       (JJK_Utils.TryRollCursedGenes). The only sorcerer xenotype that remains is
+       the dev test one below, which never auto-generates - spawn it by hand. -->
+
+  <!-- Convenience xenotype for testing the basic cursed techniques: a sorcerer
+       who arrives already holding all three test techniques and a deep reserve.
+       Spawn one via the dev "spawn pawn" / scenario editor to try the gizmos. -->
+  <XenotypeDef>
+    <defName>JJK_TestSorcerer</defName>
+    <label>test sorcerer (dev)</label>
+    <description>A debug xenotype bundling a bottomless cursed reserve with all five test cursed techniques (Disaster Flames, Blood Manipulation, Shrine, Disaster Tides, Disaster Plants) and every one of their moves.</description>
+    <iconPath>UI/Icons/Xenotypes/EliteSorcerer</iconPath>
+    <combatPowerFactor>1.4</combatPowerFactor>
+    <genes>
+      <li>JJK_BottomlessReserves</li>
+      <li>JJK_CT_Gene_DisasterFlames</li>
+      <li>JJK_CT_Gene_BloodManipulation</li>
+      <li>JJK_CT_Gene_Shrine</li>
+      <li>JJK_CT_Gene_DisasterTides</li>
+      <li>JJK_CT_Gene_DisasterPlants</li>
+      <li>JJK_CT_Gene_TenShadows</li>
+      <li>JJK_CT_Gene_Limitless</li>
+      <!-- Six Eyes so the full Limitless kit (Infinity, Red, Hollow Purple) is
+           testable on this one pawn, not just Lapse: Blue. -->
+      <li>JJK_SixEyes</li>
+    </genes>
+  </XenotypeDef>
+
+
+</Defs>

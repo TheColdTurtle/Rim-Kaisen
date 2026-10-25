@@ -1,0 +1,1352 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Construction</defName>
+    <label>construction</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Construction</defName>
+    <label>construction</label>
+    <description>Mai and Yorozu’s inefficient matter creation. Creates a physical bullet or blade once per day; advanced users shape liquid metal, wear insect armor and form a delayed Perfect Sphere. Created objects persist. Sphere damage is bounded for gameplay.</description>
+    <iconPath>UI/Icons/Genes/CT_StarRage</iconPath>
+    <displayOrderInCategory>220</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Construction</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.6</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_SkyManipulation</defName>
+    <label>sky manipulation</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_SkyManipulation</defName>
+    <label>sky manipulation</label>
+    <description>Uro’s manipulation of the sky as a surface. Redirect hostile projectiles, distort an enemy’s aim and strike with Thin Ice Breaker. Guarding costs additional cursed energy per interception.</description>
+    <iconPath>UI/Icons/Genes/CT_Limitless</iconPath>
+    <displayOrderInCategory>230</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_SkyManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.65</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_SoloForbiddenArea</defName>
+    <label>solo forbidden area</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_SoloForbiddenArea</defName>
+    <label>solo forbidden area</label>
+    <description>Utahime’s support ritual. Stand still to amplify nearby allied sorcerers. Five uninterrupted seconds strengthens the bonus. Moving, damage, stun, suppression or exhausted energy ends the channel.</description>
+    <iconPath>UI/Icons/Genes/CT_CursedSpeech</iconPath>
+    <displayOrderInCategory>240</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_SoloForbiddenArea</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.7</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_ContractualRecreation</defName>
+    <label>contractual re-creation</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_ContractualRecreation</defName>
+    <label>contractual re-creation</label>
+    <description>Reggie’s contract technique. Burn physical receipts for flying knives, a falling weight or restored stamina. Receipts come from completed trades on a colony map, limited to one per negotiator per day, and rare quest rewards.</description>
+    <iconPath>UI/Icons/Genes/CT_SpiritManipulation</iconPath>
+    <displayOrderInCategory>250</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_ContractualRecreation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.7</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Inverse</defName>
+    <label>inverse</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Inverse</defName>
+    <label>inverse</label>
+    <description>Awasaka’s bounded reversal of attack strength: heavy blows weaken, light blows become dangerous. Hits above 100 damage overwhelm this adaptation; disease and self-inflicted damage are unaffected.</description>
+    <iconPath>UI/Icons/Genes/CT_Ratio</iconPath>
+    <displayOrderInCategory>260</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Inverse</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.7</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_LoveRendezvous</defName>
+    <label>love rendezvous</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_LoveRendezvous</defName>
+    <label>love rendezvous</label>
+    <description>Kirara’s star marks. Touch a cursed-energy user to assign the selected Southern Cross star. Marked targets must visit successive stars before approaching higher stars; matching marks attract. The pathing rules are a five-star RimWorld adaptation.</description>
+    <iconPath>UI/Icons/Genes/CT_BoogieWoogie</iconPath>
+    <displayOrderInCategory>270</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_LoveRendezvous</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.65</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Antigravity</defName>
+    <label>antigravity system</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Antigravity</defName>
+    <label>antigravity system</label>
+    <description>Kaori’s technique, later used by Kenjaku. Its base application improves mobility and resists this technique’s gravity crush. Learning Reverse Cursed Technique permits the short-range gravity reversal that pins enemies and grounds projectiles.</description>
+    <iconPath>UI/Icons/Genes/CT_StarRage</iconPath>
+    <displayOrderInCategory>280</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Antigravity</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.5</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Pachinko</defName>
+    <label>pachinko: private pure love train</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Pachinko</defName>
+    <label>pachinko: private pure love train</label>
+    <description>Hakari’s train-themed technique. Sliding doors restrain enemies. Idle Death Gamble uses six saved spins at 20% each, an adaptation of the more complicated canon machine. A jackpot grants 4 minutes 11 seconds of exceptional energy and automatic healing; destruction of vital organs can still kill.</description>
+    <iconPath>UI/Icons/Genes/CT_Projection</iconPath>
+    <displayOrderInCategory>290</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Pachinko</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.25</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Copy</defName>
+    <label>copy</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Copy</defName>
+    <label>copy</label>
+    <description>Yuta’s rare technique. Manifest Rika for five minutes, once per day. Rika consumes an arm or hand from a downed hostile sorcerer or non-allied corpse to store one of their innate techniques. Three stored imprints, three casts each, one borrowed tree active. Regrowing a living donor’s consumed part invalidates that imprint. Borrowed domains and recursive Copy are excluded. Original innate genes are never transferred permanently.</description>
+    <iconPath>UI/Icons/Genes/CT_TenShadows</iconPath>
+    <displayOrderInCategory>300</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Copy</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.12</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Extinguishment</defName>
+    <label>technique extinguishment</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CT_Gene_Extinguishment</defName>
+    <label>technique extinguishment</label>
+    <description>Angel’s rare nullification technique. Temporarily seal hostile techniques, dismantle a sufficiently weaker hostile domain, or unleash Jacob’s Ladder. This adaptation suppresses vessels’ techniques without deleting their genes or forcibly removing an incarnated being.</description>
+    <iconPath>UI/Icons/Genes/CT_Limitless</iconPath>
+    <displayOrderInCategory>310</displayOrderInCategory>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Extinguishment</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+      <li Class="JJKMod.TechniqueRarity">
+        <weight>0.12</weight>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Bullet</defName>
+    <label>construct bullet</label>
+    <description>Create one physical cursed bullet. Shares a one-day production limit with Construct Blade. Fire Constructed Bullet consumes it. The item can be carried or traded.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Bullet_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Bullet</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Bullet_Tier</defName>
+    <label>construct bullet</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>100</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Blade</defName>
+    <label>construct blade</label>
+    <description>Create a persistent steel blade. Shares a one-day production limit with Construct Bullet. A physical weapon, not a temporary buff.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Blade_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Blade</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Blade_Tier</defName>
+    <label>construct blade</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>160</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>120</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_FireBullet</defName>
+    <label>fire constructed bullet</label>
+    <description>Consume one constructed bullet from inventory or an adjacent accessible stack and fire a 36-damage projectile at a hostile pawn.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.8, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_FireBullet_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>FireBullet</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_FireBullet_Tier</defName>
+    <label>fire constructed bullet</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>5</energyCost>
+    <cooldownTicks>180</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>25</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Metal</defName>
+    <label>liquid metal</label>
+    <description>Cut one hostile pawn for 45 base damage scaled by output and slow them for two seconds.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.2, 0.5)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Metal_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Metal</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Metal_Tier</defName>
+    <label>liquid metal</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>20</castDurationTicks>
+    <effectRadius>15</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Armor</defName>
+    <label>insect armor</label>
+    <description>Create a twenty-second armor shell that improves sharp/blunt protection and movement. Requires 500 Construction mastery.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.5, 0.5)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Armor_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Armor</move>
+        <mastery>500</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Armor_Tier</defName>
+    <label>insect armor</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>60</energyCost>
+    <cooldownTicks>1800</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Sphere</defName>
+    <label>perfect sphere</label>
+    <description>Form a three-tile sphere at the selected location. After a three-second warning it deals 220 base armor-piercing damage, scaled by output, to every pawn in sight inside, including allies and the caster. Bounded damage replaces canon’s infinite pressure. Requires 2000 mastery.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.8, 0.5)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Sphere_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Sphere</move>
+        <mastery>2000</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Sphere_Tier</defName>
+    <label>perfect sphere</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>180</energyCost>
+    <cooldownTicks>6000</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_SkyGuard</defName>
+    <label>fold the sky</label>
+    <description>For twelve seconds, redirect hostile projectiles within three tiles back toward their launcher. Costs 2 CE per second plus 5 per interception. Each projectile may be redirected once. Melee and domain sure-hits are not stopped.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Limitless</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_SkyManipulation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_SkyGuard_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>SkyGuard</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_SkyGuard_Tier</defName>
+    <label>fold the sky</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SkyManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>20</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>8</castDurationTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_SkyDistort</defName>
+    <label>sky distortion</label>
+    <description>Distort one hostile pawn’s view, reducing sight for six seconds and impairing aimed attacks.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Limitless</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_SkyManipulation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_SkyDistort_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>SkyDistort</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_SkyDistort_Tier</defName>
+    <label>sky distortion</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SkyManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>360</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>14</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_ThinIce</defName>
+    <label>thin ice breaker</label>
+    <description>Shatter the sky against one close hostile pawn for 55 base blunt damage scaled by output, with high armor penetration and a short push.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Limitless</uiSkillIcon>
+    <uiPosition>(0.8, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_SkyManipulation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_ThinIce_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>ThinIce</move>
+        <mastery>500</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_ThinIce_Tier</defName>
+    <label>thin ice breaker</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SkyManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>8</castDurationTicks>
+    <effectRadius>3</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Ritual</defName>
+    <label>solo forbidden area</label>
+    <description>Channel for up to thirty seconds while stationary. Same-faction sorcerers within eight tiles and line of sight gain +20% technique output and +20 maximum CE. After five uninterrupted seconds this becomes +40% output and +40 maximum CE. Costs 4 CE per second. Damage, movement, stun or suppression ends it. Bonuses do not multiply with additional ritual casters.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_CursedSpeech</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_SoloForbiddenArea</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Ritual_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Ritual</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Ritual_Tier</defName>
+    <label>solo forbidden area</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SoloForbiddenArea</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_ReceiptKnives</defName>
+    <label>receipt: flying knives</label>
+    <description>Burn one knife receipt from inventory or an adjacent stack to launch three 12-damage knives. The receipt is consumed; no resellable knives are created.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_SpiritManipulation</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_ContractualRecreation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_ReceiptKnives_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>ReceiptKnives</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_ReceiptKnives_Tier</defName>
+    <label>receipt: flying knives</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_ContractualRecreation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>180</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>22</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_ReceiptWeight</defName>
+    <label>receipt: falling weight</label>
+    <description>Burn a heavy-goods receipt to drop a crushing load after a two-second warning. Three-tile explosion deals 50 base damage scaled by output. Can hit allies and damage buildings.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_SpiritManipulation</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_ContractualRecreation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_ReceiptWeight_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>ReceiptWeight</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_ReceiptWeight_Tier</defName>
+    <label>receipt: falling weight</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_ContractualRecreation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>20</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_ReceiptRest</defName>
+    <label>receipt: recuperation</label>
+    <description>Burn a recuperation receipt to restore 60% rest. Does not heal wounds or refill cursed energy.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_SpiritManipulation</uiSkillIcon>
+    <uiPosition>(0.8, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_ContractualRecreation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_ReceiptRest_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>ReceiptRest</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_ReceiptRest_Tier</defName>
+    <label>receipt: recuperation</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_ContractualRecreation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>20</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Inverse</defName>
+    <label>inverse</label>
+    <description>For fifteen seconds external hits up to 100 damage are transformed by 60 divided by incoming damage, bounded between 2 and 25. Weak hits become dangerous. Larger hits bypass the reversal. Costs 2 CE per second.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Ratio</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Inverse</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Inverse_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Inverse</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Inverse_Tier</defName>
+    <label>inverse</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Inverse</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>20</energyCost>
+    <cooldownTicks>960</cooldownTicks>
+    <castDurationTicks>8</castDurationTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_StarCycle</defName>
+    <label>choose next star</label>
+    <description>Cycle Imai, Acrux, Mimosa, Ginan and Gacrux. The selected star is shown in the status message. Assign Star applies it on touch.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_BoogieWoogie</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_LoveRendezvous</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_StarCycle_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>StarCycle</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_StarCycle_Tier</defName>
+    <label>choose next star</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_LoveRendezvous</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>0</energyCost>
+    <cooldownTicks>1</cooldownTicks>
+    <castDurationTicks>1</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_StarMark</defName>
+    <label>assign star</label>
+    <description>Touch a pawn with cursed energy to assign the selected star for thirty seconds. Their bonded shikigami share the mark for approach restrictions. Visit the next star within three tiles to advance your route. Unvisited higher stars prevent approaching within six tiles. Equal stars pull the lower-reserve pawn within twelve tiles. Walls and domain barriers prevent the pull.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_BoogieWoogie</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_LoveRendezvous</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_StarMark_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>StarMark</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_StarMark_Tier</defName>
+    <label>assign star</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_LoveRendezvous</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>10</energyCost>
+    <cooldownTicks>30</cooldownTicks>
+    <castDurationTicks>5</castDurationTicks>
+    <effectRadius>3</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_StarClear</defName>
+    <label>release star marks</label>
+    <description>Remove all of your current star marks immediately.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_BoogieWoogie</uiSkillIcon>
+    <uiPosition>(0.8, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_LoveRendezvous</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_StarClear_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>StarClear</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_StarClear_Tier</defName>
+    <label>release star marks</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_LoveRendezvous</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>0</energyCost>
+    <cooldownTicks>1</cooldownTicks>
+    <castDurationTicks>1</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Antigravity</defName>
+    <label>antigravity</label>
+    <description>For fifteen seconds gain +0.6 movement speed and +20 carrying capacity. Clears and resists gravity crush from this technique. This movement bonus adapts the less fully described base application.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Antigravity</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Antigravity_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Antigravity</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Antigravity_Tier</defName>
+    <label>antigravity</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Antigravity</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>1200</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Gravity</defName>
+    <label>reversal: gravity</label>
+    <description>Requires the normal RCT trait and 500 mastery. Slam hostile pawns within four tiles and line of sight for 25 base blunt damage; briefly stun them and greatly slow them for six seconds. Antigravity protects against this crush. During those six seconds, ground hostile projectiles within four tiles for 5 CE each plus 4 CE per second upkeep.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Antigravity</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Gravity_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Gravity</move>
+        <mastery>500</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Gravity_Tier</defName>
+    <label>reversal: gravity</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Antigravity</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>60</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>15</castDurationTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Doors</defName>
+    <label>train doors</label>
+    <description>Conjure sliding train doors around one hostile pawn: 18 base blunt damage scaled by output and a 1.5-second stun.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Projection</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Pachinko</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Doors_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Doors</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Doors_Tier</defName>
+    <label>train doors</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Pachinko</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>180</cooldownTicks>
+    <castDurationTicks>8</castDurationTicks>
+    <effectRadius>12</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Rika</defName>
+    <label>manifest rika</label>
+    <description>Manifest an allied Rika for five minutes, once per day. She fights nearby hostiles and follows when idle. Stored techniques can be selected while she is active. Death, suppression, burnout or separation ends manifestation and revokes borrowed powers.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_TenShadows</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Copy</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Rika_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Rika</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Rika_Tier</defName>
+    <label>manifest rika</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Copy</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_DismissRika</defName>
+    <label>dismiss rika</label>
+    <description>Dismiss Rika and revoke the borrowed technique. Does not reset the daily manifestation cooldown.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_TenShadows</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Copy</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_DismissRika_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>DismissRika</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_DismissRika_Tier</defName>
+    <label>dismiss rika</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Copy</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>0</energyCost>
+    <cooldownTicks>1</cooldownTicks>
+    <castDurationTicks>1</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_ConsumeCopy</defName>
+    <label>rika: consume sample</label>
+    <description>Choose an innate technique from a downed hostile human or non-allied human corpse. Rika must be within five tiles. Consumes an actual arm or hand. Stores up to three different techniques with three casts each; excludes Copy. A living donor regrowing that part invalidates the sample. A selection window confirms the technique before consumption.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_TenShadows</uiSkillIcon>
+    <uiPosition>(0.8, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Copy</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_ConsumeCopy_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>ConsumeCopy</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_ConsumeCopy_Tier</defName>
+    <label>rika: consume sample</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Copy</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>120</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>8</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>true</canTargetItems>
+      <canTargetCorpses>true</canTargetCorpses>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_ChooseCopy</defName>
+    <label>rika: stored techniques</label>
+    <description>Select one stored technique or forget an imprint. Its grade-eligible abilities are available only during Rika’s manifestation, with their normal costs, cooldowns and mastery requirements. Borrowed domains are blocked. Three casts exhaust each imprint.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_TenShadows</uiSkillIcon>
+    <uiPosition>(0.2, 0.5)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Copy</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_ChooseCopy_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>ChooseCopy</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_ChooseCopy_Tier</defName>
+    <label>rika: stored techniques</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Copy</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>0</energyCost>
+    <cooldownTicks>1</cooldownTicks>
+    <castDurationTicks>1</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Extinguish</defName>
+    <label>extinguish technique</label>
+    <description>Seal one hostile pawn’s cursed techniques for ten seconds, end their innate toggles. Their active domain requires the separate Extinguish Barrier ability. Does not delete genes.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Limitless</uiSkillIcon>
+    <uiPosition>(0.2, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Extinguishment</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Extinguish_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Extinguish</move>
+        <mastery>0</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Extinguish_Tier</defName>
+    <label>extinguish technique</label>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Extinguishment</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>15</castDurationTicks>
+    <effectRadius>12</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_Ladder</defName>
+    <label>maximum output: jacob’s ladder</label>
+    <description>A four-tile area of purifying light seals hostile techniques for fifteen seconds and deals 100 base burn damage to cursed spirits or 35 to other enemies, scaled by output. Allies are spared. Requires 1200 mastery. Does not forcibly extract incarnated beings.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Limitless</uiSkillIcon>
+    <uiPosition>(0.5, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Extinguishment</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_Ladder_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>Ladder</move>
+        <mastery>1200</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_Ladder_Tier</defName>
+    <label>maximum output: jacob’s ladder</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Extinguishment</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>120</energyCost>
+    <cooldownTicks>2400</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+    <effectRadius>20</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_X_BreakBarrier</defName>
+    <label>extinguish barrier</label>
+    <description>Target inside a hostile domain to collapse it. Requires 800 mastery and at least 75% of its caster’s effective mastery. Only hostile jujutsu domains are affected; ordinary buildings are untouched.</description>
+    <abilityClass>JJKMod.Ability_ExpansionMove</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Limitless</uiSkillIcon>
+    <uiPosition>(0.8, 0.2)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Extinguishment</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_X_BreakBarrier_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.ExpansionMoveExtension">
+        <move>BreakBarrier</move>
+        <mastery>800</mastery>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_X_BreakBarrier_Tier</defName>
+    <label>extinguish barrier</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Extinguishment</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>1200</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetBuildings>false</canTargetBuildings>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetItems>false</canTargetItems>
+      <canTargetCorpses>false</canTargetCorpses>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_Domain_IdleDeathGamble</defName>
+    <label>idle death gamble</label>
+    <description>A closed gambling domain. Six spins at 20% chance each, one every three seconds. The saved sequence cannot reroll on reload. Winning ends the domain and grants 251 seconds of enormous cursed-energy reserves and automatic healing. Losing all six spins collapses it with burnout. Cannot reopen during a jackpot. Probabilities are a gameplay adaptation.</description>
+    <abilityClass>JJKMod.Ability_GambleDomain</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_Projection</uiSkillIcon>
+    <uiPosition>(0.8, 0.9)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Pachinko</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_Domain_IdleDeathGamble_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <gambling>true</gambling>
+        <radius>12</radius>
+        <closed>true</closed>
+        <upkeepPerTick>0.015</upkeepPerTick>
+        <masteryToOpen>500</masteryToOpen>
+        <minMaxCE>160</minMaxCE>
+        <activeHediff>JJK_PachinkoActive</activeHediff>
+        <burnoutTicksVoluntary>0</burnoutTicksVoluntary>
+        <burnoutTicksInvoluntary>3600</burnoutTicksInvoluntary>
+        <pulseAmount>0</pulseAmount>
+        <sureHitStrain>0</sureHitStrain>
+        <barrierColor>(0.9,0.3,0.6)</barrierColor>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Domain_IdleDeathGamble_Tier</defName>
+    <label>idle death gamble</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Pachinko</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>100</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <cannotBeActiveWithHediffs>
+      <li>JJK_DomainActive</li>
+      <li>JJK_PachinkoActive</li>
+      <li>JJK_DomainBurnout</li>
+      <li>JJK_Jackpot</li>
+    </cannotBeActiveWithHediffs>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_Domain_ThreefoldAffliction</defName>
+    <label>threefold affliction</label>
+    <description>Yorozu’s closed domain. Constructed matter strikes hostile occupants for 18 base cutting damage every 90 ticks, scaled by output and mastery. Requires Special Grade and 2000 Construction mastery. Perfect Sphere remains a separate delayed attack; its damage is bounded for gameplay.</description>
+    <abilityClass>JJKMod.Ability_DomainExpansion</abilityClass>
+    <uiSkillIcon>UI/Icons/Genes/CT_StarRage</uiSkillIcon>
+    <uiPosition>(0.8, 0.9)</uiPosition>
+    <abilityTrees>
+      <li>JJK_CT_Construction</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_Domain_ThreefoldAffliction_Tier</li>
+    </abilityTiers>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <gambling>false</gambling>
+        <radius>12</radius>
+        <closed>true</closed>
+        <upkeepPerTick>0.06</upkeepPerTick>
+        <masteryToOpen>2000</masteryToOpen>
+        <minMaxCE>160</minMaxCE>
+        <activeHediff>JJK_DomainActive</activeHediff>
+        <burnoutTicksVoluntary>15000</burnoutTicksVoluntary>
+        <burnoutTicksInvoluntary>60000</burnoutTicksInvoluntary>
+        <pulseAmount>18</pulseAmount>
+        <sureHitStrain>12</sureHitStrain>
+        <barrierColor>(0.9,0.3,0.6)</barrierColor>
+        <pulseDamage>Cut</pulseDamage>
+      </li>
+    </modExtensions>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Domain_ThreefoldAffliction_Tier</defName>
+    <label>threefold affliction</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Construction</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>180</energyCost>
+    <cooldownTicks>6000</cooldownTicks>
+    <castDurationTicks>90</castDurationTicks>
+    <cannotBeActiveWithHediffs>
+      <li>JJK_DomainActive</li>
+      <li>JJK_PachinkoActive</li>
+      <li>JJK_DomainBurnout</li>
+    </cannotBeActiveWithHediffs>
+  </TaranMagicFramework.AbilityTierDef>
+</Defs>

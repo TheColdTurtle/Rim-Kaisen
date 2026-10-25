@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <!-- ===================================================================== -->
+  <!-- The Disaster Curses: named special-grade boss curses (Jogo, Hanami,      -->
+  <!-- Dagon, Mahito). Jogo, Hanami and Dagon cast their techniques through     -->
+  <!-- CompBossCurse (scripted projectiles + a true Domain Expansion when       -->
+  <!-- surrounded); the Cursed Womb and Mahito instead use CompPhaseShift (the  -->
+  <!-- Womb matures into Dagon at 60% HP; Mahito refines his soul at 35%).      -->
+  <!-- Each FINAL form drops a technique remnant when exorcised - the only way  -->
+  <!-- for a colonist to learn a Disaster Curse's technique - so killing the    -->
+  <!-- Womb before it matures forfeits the Tides remnant (risk vs reward).      -->
+  <!-- They arrive via JJK_DisasterCurseAssault with an escort of lesser curses.-->
+  <!-- ===================================================================== -->
+  <!-- ============================== Jogo ================================ -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Boss_Jogo</defName>
+    <label>Jogo</label>
+    <description>A special-grade cursed spirit born of humanity's fear of the earth's fire - volcanoes, eruptions, the ground that burns. A one-eyed horror with a volcano for a skull, proud and short-tempered, wielding heat that turns sorcerers to ash.
+
+Marks an eruption before it strikes. Leave the circle, then exploit the brief recovery opening.</description>
+    <statBases>
+      <MoveSpeed>4.8</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.4</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+      <ArmorRating_Heat>2.0</ArmorRating_Heat>
+      <ComfyTemperatureMax>1000</ComfyTemperatureMax>
+    </statBases>
+    <tools>
+      <li>
+        <label>burning fists</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>24</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.3</chanceFactor>
+        <armorPenetration>0.35</armorPenetration>
+      </li>
+      <li>
+        <label>volcanic skull</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.6</baseBodySize>
+      <baseHealthScale>4.5</baseHealthScale>
+    </race>
+    <comps>
+      <li Class="JJKMod.CompProperties_BossCurse">
+        <attacks>
+          <li>
+            <projectile>JJK_Proj_DisasterFlames</projectile>
+            <range>22</range>
+            <cooldownTicks>220</cooldownTicks>
+          </li>
+          <li>
+            <projectile>JJK_Proj_EmberBurst</projectile>
+            <range>20</range>
+            <cooldownTicks>560</cooldownTicks>
+          </li>
+        </attacks>
+        <domain>JJK_Domain_DisasterFlames</domain>
+        <domainTriggerCount>2</domainTriggerCount>
+      </li>
+      <li Class="JJKMod.CompProperties_BossPattern">
+        <pattern>Eruption</pattern>
+        <windup>120</windup>
+        <recovery>120</recovery>
+        <interval>900</interval>
+        <range>18</range>
+        <radius>3</radius>
+        <damage>35</damage>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Special</grade>
+        <uniqueBoss>true</uniqueBoss>
+        <residueOnExorcise>80</residueOnExorcise>
+        <bossDrop>JJK_Remnant_DisasterFlames</bossDrop>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- ============================== Hanami ============================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Boss_Hanami</defName>
+    <label>Hanami</label>
+    <description>A special-grade cursed spirit born of the fear of the land's disasters. Serene and sorrowful, it despises what humanity has done to the earth. Its hide is hardened wood; cursed flora erupts wherever it walks.
+
+Marks a patch of roots before it erupts. The roots stun victims; leaving the marked patch avoids the strike.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.5</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>branch limb</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>22</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.3</chanceFactor>
+        <armorPenetration>0.3</armorPenetration>
+      </li>
+      <li>
+        <label>wooden skull</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.7</baseBodySize>
+      <baseHealthScale>5.0</baseHealthScale>
+    </race>
+    <comps>
+      <li Class="JJKMod.CompProperties_BossCurse">
+        <attacks>
+          <li>
+            <projectile>JJK_Proj_Roots</projectile>
+            <range>18</range>
+            <cooldownTicks>220</cooldownTicks>
+          </li>
+          <li>
+            <projectile>JJK_Proj_HugeRoots</projectile>
+            <range>16</range>
+            <cooldownTicks>520</cooldownTicks>
+          </li>
+        </attacks>
+        <domain>JJK_Domain_DisasterPlants</domain>
+        <domainTriggerCount>2</domainTriggerCount>
+      </li>
+      <li Class="JJKMod.CompProperties_BossPattern">
+        <pattern>Roots</pattern>
+        <windup>120</windup>
+        <recovery>150</recovery>
+        <interval>900</interval>
+        <range>18</range>
+        <radius>3</radius>
+        <damage>18</damage>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Special</grade>
+        <uniqueBoss>true</uniqueBoss>
+        <residueOnExorcise>70</residueOnExorcise>
+        <bossDrop>JJK_Remnant_DisasterPlants</bossDrop>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- ========================= Cursed Womb (Dagon) ======================= -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Boss_CursedWomb</defName>
+    <label>cursed womb</label>
+    <description>A docile, half-formed mass of cursed flesh - a special-grade spirit that has not yet matured. It seems weak. Wound it, and it will finish maturing at the worst possible moment.</description>
+    <statBases>
+      <MoveSpeed>3.0</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.3</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>flailing mass</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.2</baseBodySize>
+      <baseHealthScale>1.8</baseHealthScale>
+    </race>
+    <comps>
+      <li Class="JJKMod.CompProperties_PhaseShift">
+        <hpFraction>0.6</hpFraction>
+        <becomesKind>JJK_Boss_Dagon_Kind</becomesKind>
+        <transitionKey>JJK_PhaseDagon</transitionKey>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade1</grade>
+        <uniqueBoss>true</uniqueBoss>
+        <residueOnExorcise>25</residueOnExorcise>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- ============================== Dagon =============================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Boss_Dagon</defName>
+    <label>Dagon</label>
+    <description>A special-grade cursed spirit born of humanity's fear of the sea, matured from its cursed womb. A bloated leviathan trailing cursed brine, it drowns battlefields in tides and man-eating fish shikigami.
+
+Telegraphs a broad tidal lane. Move sideways out of the lane, then attack during its recovery.</description>
+    <statBases>
+      <MoveSpeed>4.6</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>crushing tentacles</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>26</power>
+        <cooldownTime>1.9</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.3</chanceFactor>
+        <armorPenetration>0.4</armorPenetration>
+      </li>
+      <li>
+        <label>maw</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <armorPenetration>0.35</armorPenetration>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>2.2</baseBodySize>
+      <baseHealthScale>5.5</baseHealthScale>
+    </race>
+    <comps>
+      <li Class="JJKMod.CompProperties_BossCurse">
+        <attacks>
+          <li>
+            <projectile>JJK_Proj_Tides</projectile>
+            <range>18</range>
+            <cooldownTicks>200</cooldownTicks>
+          </li>
+          <li>
+            <projectile>JJK_Proj_DeathSwarm</projectile>
+            <range>18</range>
+            <cooldownTicks>480</cooldownTicks>
+          </li>
+        </attacks>
+        <domain>JJK_Domain_DisasterTides</domain>
+        <domainTriggerCount>2</domainTriggerCount>
+      </li>
+      <li Class="JJKMod.CompProperties_BossPattern">
+        <pattern>Tide</pattern>
+        <windup>150</windup>
+        <recovery>150</recovery>
+        <interval>1000</interval>
+        <range>14</range>
+        <radius>2</radius>
+        <damage>28</damage>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Special</grade>
+        <uniqueBoss>true</uniqueBoss>
+        <residueOnExorcise>90</residueOnExorcise>
+        <bossDrop>JJK_Remnant_DisasterTides</bossDrop>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- ============================== Mahito ============================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Boss_Mahito</defName>
+    <label>Mahito</label>
+    <description>A special-grade cursed spirit born of humanity's hatred and fear of one another. A patchwork figure with a stitched face and a child's cruelty, it reshapes any soul it touches. When truly cornered, it refines its own soul into a purer killing shape.
+
+Winds up a soul touch at melee range. Break away to avoid transfiguration; soul observers resist it. A missed touch leaves a recovery opening.</description>
+    <statBases>
+      <MoveSpeed>5.4</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>transfiguring touch</label>
+        <capacities>
+          <li>Scratch</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>1.5</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.4</chanceFactor>
+        <armorPenetration>0.5</armorPenetration>
+      </li>
+      <li>
+        <label>arm blade</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>21</power>
+        <cooldownTime>1.7</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <armorPenetration>0.45</armorPenetration>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.1</baseBodySize>
+      <baseHealthScale>4.0</baseHealthScale>
+    </race>
+    <comps>
+      <li Class="JJKMod.CompProperties_PhaseShift">
+        <hpFraction>0.35</hpFraction>
+        <gainHediff>JJK_InstantSpiritBody</gainHediff>
+        <transitionKey>JJK_PhaseMahito</transitionKey>
+      </li>
+      <li Class="JJKMod.CompProperties_BossPattern">
+        <pattern>SoulTouch</pattern>
+        <windup>150</windup>
+        <recovery>180</recovery>
+        <interval>900</interval>
+        <range>2</range>
+        <radius>1.9</radius>
+        <damage>10</damage>
+      </li>
+      <li Class="JJKMod.CompProperties_BossCurse">
+        <domain>JJK_Domain_IdleTransfiguration</domain>
+        <domainTriggerCount>2</domainTriggerCount>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Special</grade>
+        <uniqueBoss>true</uniqueBoss>
+        <residueOnExorcise>80</residueOnExorcise>
+        <bossDrop>JJK_Remnant_IdleTransfiguration</bossDrop>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- Instant Spirit Body of Distorted Killing: Mahito's low-health phase. -->
+  <HediffDef>
+    <defName>JJK_InstantSpiritBody</defName>
+    <label>instant spirit body of distorted killing</label>
+    <description>This cursed spirit has refined its own soul into its purest killing shape - faster, harder-hitting, and shrugging off blows that would fell its former form.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.35</MoveSpeed>
+          <MeleeDamageFactor>1.5</MeleeDamageFactor>
+          <IncomingDamageFactor>0.8</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <!-- ============================ Pawnkinds ============================== -->
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Boss_Jogo_Kind</defName>
+    <label>Jogo</label>
+    <race>JJK_Boss_Jogo</race>
+    <combatPower>700</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Jogo</texPath>
+          <drawSize>2.4</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData>
+            <volume>(0.4, 0.4, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Boss_Hanami_Kind</defName>
+    <label>Hanami</label>
+    <race>JJK_Boss_Hanami</race>
+    <combatPower>600</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Hanami</texPath>
+          <drawSize>2.5</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData>
+            <volume>(0.4, 0.4, 0.4)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Boss_CursedWomb_Kind</defName>
+    <label>cursed womb</label>
+    <race>JJK_Boss_CursedWomb</race>
+    <combatPower>200</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/CursedWomb</texPath>
+          <drawSize>1.8</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData>
+            <volume>(0.35, 0.35, 0.35)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Boss_Dagon_Kind</defName>
+    <label>Dagon</label>
+    <race>JJK_Boss_Dagon</race>
+    <combatPower>750</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Dagon</texPath>
+          <drawSize>3.0</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData>
+            <volume>(0.5, 0.5, 0.5)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Boss_Mahito_Kind</defName>
+    <label>Mahito</label>
+    <race>JJK_Boss_Mahito</race>
+    <combatPower>650</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Mahito</texPath>
+          <drawSize>1.9</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData>
+            <volume>(0.35, 0.35, 0.35)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+</Defs>

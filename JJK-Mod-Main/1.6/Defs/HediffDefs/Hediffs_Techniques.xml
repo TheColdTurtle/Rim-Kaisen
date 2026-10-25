@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Embedded cursed nails (Straw Doll Technique). Severity = the number of nails
+       embedded. Nail Volley / Nail Scatter stack it; Hairpin detonates it for damage
+       scaled by the count. Decays slowly (severityPerDay) so nails fall away if the
+       sorcerer never follows up. -->
+  <HediffDef>
+    <defName>JJK_NailsEmbedded</defName>
+    <label>cursed nails</label>
+    <description>Cursed nails are embedded in this body. They do little on their own, but the Straw Doll Technique's Hairpin can detonate them all at once - the more nails, the more devastating the blast.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>20</maxSeverity>
+    <initialSeverity>1</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_NailStack" />
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-8</severityPerDay>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Black Rope disruption: the target's cursed technique is degraded (not
+       sealed) - output and regeneration both suffer while the disruption holds.
+       Refreshed by each Black Rope strike. -->
+  <HediffDef>
+    <defName>JJK_TechniqueDisrupted</defName>
+    <label>technique disrupted</label>
+    <description>The Black Rope's interference is scrambling this pawn's cursed energy. Their technique output and cursed energy regeneration are sharply degraded until the disruption fades.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1800</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <JJK_CTOutput>-0.4</JJK_CTOutput>
+          <JJK_CursedEnergyRegenRateMultiplier>-0.5</JJK_CursedEnergyRegenRateMultiplier>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Sukuna's influence: grows with each finger consumed. Power at a price. -->
+  <HediffDef>
+    <defName>JJK_SukunaInfluence</defName>
+    <label>sukuna's influence</label>
+    <description>Fragments of the King of Curses' soul lodge in this body. Each consumed finger deepens both power and malice. At 25% influence, spontaneous possessions become possible, increasingly likely as influence rises. At 60%, a seizure in a crowded battlefield may open Malevolent Shrine. Use the sorcerer dossier to consider bargains, or craft a suppression talisman to delay possession for one day.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>0.05</initialSeverity>
+    <comps><li Class="JJKMod.HediffCompProperties_SukunaVessel" /></comps>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <label>faint</label>
+        <statOffsets>
+          <JJK_CTOutput>0.1</JJK_CTOutput>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.3</minSeverity>
+        <label>growing</label>
+        <statOffsets>
+          <JJK_CTOutput>0.25</JJK_CTOutput>
+          <JJK_MaxCursedEnergy>30</JJK_MaxCursedEnergy>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.6</minSeverity>
+        <label>overwhelming</label>
+        <statOffsets>
+          <JJK_CTOutput>0.45</JJK_CTOutput>
+          <JJK_MaxCursedEnergy>80</JJK_MaxCursedEnergy>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Projection Sorcery frames: active while the toggle runs. 24 frames per
+       second - blinding movement and attack speed. -->
+  <HediffDef>
+    <defName>JJK_ProjectionFrames</defName>
+    <label>projection sorcery</label>
+    <description>This sorcerer is tracing their motion through 24 frames per second, moving between the world's moments at blinding speed.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.8</MoveSpeed>
+          <MeleeCooldownFactor>0.6</MeleeCooldownFactor>
+        </statFactors>
+        <statOffsets>
+          <MeleeDodgeChance>10</MeleeDodgeChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Flowing Red Scale: self-buff applied while the toggle ability is active. -->
+  <HediffDef>
+    <defName>JJK_FlowingRedScale</defName>
+    <label>flowing red scale</label>
+    <description>Cursed blood flows through this sorcerer's body at full pressure, sharpening their strikes and quickening their movement.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.25</MoveSpeed>
+          <MeleeDamageFactor>1.3</MeleeDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Bonds a summoned shikigami to its summoner. The disappears comp returns it
+       to the shadows on expiry via Hediff_ShikigamiBond.PostRemoved;
+       ticksToDisappear is set in code per summon. Death (vs. expiry) is handled
+       in the Pawn.Kill patch to drive taming / permanent loss. -->
+  <HediffDef>
+    <defName>JJK_ShikigamiBond</defName>
+    <label>shikigami</label>
+    <description>This creature is a shikigami bound by the Ten Shadows technique. It will return to the shadows when its time expires.</description>
+    <hediffClass>JJKMod.Hediff_ShikigamiBond</hediffClass>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!-- Technique Sealed: while present, this pawn cannot use any cursed technique
+       (Patch_TechniqueSeal hides the ability gizmos and blocks casting). Applied
+       by the Inverted Spear of Heaven on hit; refreshed by each strike. -->
+  <HediffDef>
+    <defName>JJK_TechniqueSealed</defName>
+    <label>technique sealed</label>
+    <description>This pawn's cursed technique has been forcibly nullified. While the seal holds, they cannot manifest any cursed technique.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2500</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <painOffset>0.05</painOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Infinity: marker for an active Limitless Infinity. All damage nullification
+       is handled in Patch_Infinity. Removed when the toggle ends. -->
+  <HediffDef>
+    <defName>JJK_Infinity</defName>
+    <label>infinity</label>
+    <description>The Limitless made manifest. An unbridgeable space separates this pawn from the world: incoming attacks never arrive. Only the Inverted Spear of Heaven can reach through it.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+  </HediffDef>
+
+  <!-- The Six Eyes ocular organ. Installed on each eye by Gene_SixEyes when the
+       Six Eyes gene is present; massively amplifies sight. -->
+  <HediffDef>
+    <defName>JJK_SixEyesOrgan</defName>
+    <label>six eyes</label>
+    <labelNoun>a six eyes</labelNoun>
+    <description>The legendary Six Eyes - an ocular kekkei genkai that perceives cursed energy in perfect, exhaustive detail. The bearer's sight extends far beyond any ordinary human's.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>1.5</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Blindfolded: worn six eyes cover. Removes 100% of ordinary eyesight - a
+       normal pawn is blind, while a Six Eyes bearer (+150% sight per eye organ)
+       still sees the world in cursed-energy detail. -->
+  <HediffDef>
+    <defName>JJK_Blindfolded</defName>
+    <label>blindfolded</label>
+    <description>A cursed-cloth blindfold covers this pawn's eyes, cutting out all ordinary sight. A pawn who relies on their eyes is blind while it is worn - but a Six Eyes bearer perceives through cursed energy and barely notices the difference.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Sight</capacity>
+            <offset>-1.0</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Wielding the Inverted Spear of Heaven: the anti-technique weapon silences
+       its own bearer's cursed energy. Casting is blocked by Patch_TechniqueSeal
+       while this holds; removed the moment the spear is put down. -->
+  <HediffDef>
+    <defName>JJK_CursedEnergySuppressed</defName>
+    <label>cursed energy suppressed</label>
+    <description>The Inverted Spear of Heaven in this pawn's hands nullifies their own cursed energy along with everyone else's. While they wield it, no cursed technique will answer.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+  </HediffDef>
+
+  <!-- Renewed ferocity: applied to a wielder's bonded shikigami when the Black
+       Sword takes a kill. Refreshed by further kills. -->
+  <HediffDef>
+    <defName>JJK_ShikigamiFrenzy</defName>
+    <label>renewed ferocity</label>
+    <description>Its summoner's black sword has drawn blood, and this shikigami fights with renewed ferocity - faster and harder-hitting until the fervor fades.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>1800</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.15</MoveSpeed>
+          <MeleeDamageFactor>1.3</MeleeDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Black Flash surge: temporary output + regen boost after a Black Flash. -->
+  <HediffDef>
+    <defName>JJK_BlackFlashSurge</defName>
+    <label>black flash surge</label>
+    <description>The afterglow of a Black Flash. For a while, this sorcerer's cursed technique output and cursed energy flow are heightened.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statOffsets>
+          <JJK_CTOutput>0.2</JJK_CTOutput>
+          <JJK_CursedEnergyRegenRateMultiplier>0.5</JJK_CursedEnergyRegenRateMultiplier>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Signature moves added to EXISTING techniques (canon movesets):           -->
+  <!--   Disaster Flames  - Maximum: Meteor (Jogo's grade-1 nuke)               -->
+  <!--   Shrine           - Divine Flame (Sukuna's fire arrow)                  -->
+  <!--   Blood Manip.     - Supernova (blood burst)                             -->
+  <!--   Cursed Speech    - "Explode" (the heaviest word)                       -->
+  <!--   Projection       - Frame Freeze, Top Speed Punch                       -->
+  <!--   Ratio            - Line Segment (7:3 mark)                             -->
+  <!--   Ten Shadows      - Piercing Ox summon                                  -->
+  <!--   Star Rage        - Garuda summon                                       -->
+  <!-- ===================================================================== -->
+
+  <!-- ====================== Maximum: Meteor (Flames) ===================== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterFlamesBase">
+    <defName>JJK_MaximumMeteor</defName>
+    <label>maximum: meteor</label>
+    <description>Call down Jogo's Maximum: Meteor. A marked 4.8-cell blast zone gives everyone four seconds to escape before impact deals 90 base explosive damage. The meteor can damage allies, the caster and structures, and remains armed if the caster falls.</description>
+    <uiPosition>(0.5, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/MaximumMeteor</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>Meteor</move><radius>4.8</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_MaximumMeteor_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_MaximumMeteor_Tier1</defName>
+    <label>maximum: meteor</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterFlames</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>150</energyCost>
+    <cooldownTicks>2500</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>90</castDurationTicks>
+    <effectRadius>26</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ======================= Divine Flame (Shrine) ======================= -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_ShrineBase">
+    <defName>JJK_DivineFlame</defName>
+    <label>divine flame: open</label>
+    <description>Mold cursed flame into an arrow and loose it - the fire element of Shrine, revealed with the word "open". The arrow burns through armor and sets the impact site ablaze.</description>
+    <uiPosition>(0.5, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DivineFlame</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_DivineFlame_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_DivineFlame_Tier1</defName>
+    <label>divine flame: open</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Shrine</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_DivineFlame</defaultProjectile>
+        <range>24</range>
+        <warmupTime>0.8</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ========================= Supernova (Blood) ========================= -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_BloodManipulationBase">
+    <defName>JJK_Supernova</defName>
+    <label>supernova</label>
+    <description>Detonate compressed blood after a 1.5-second warning, dealing 36 base cutting damage in a 3-cell radius. Consumes Convergence, if prepared, to raise base damage to 50 and radius to 4 cells. Droplets can hit allies and the caster. This advanced application was developed by Choso.</description>
+    <uiPosition>(0.3, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Supernova</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>Supernova</move><radius>3</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Supernova_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Supernova_Tier1</defName>
+    <label>supernova</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>75</energyCost>
+    <cooldownTicks>800</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>42</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ====================== "Explode" (Cursed Speech) ==================== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_CursedSpeechBase">
+    <defName>JJK_Speech_Explode</defName>
+    <label>cursed speech: explode</label>
+    <description>Scream the heaviest of the cursed words. The listener's own body detonates from within, tearing them apart and battering everything beside them. A word this monstrous savages the speaker's tongue.</description>
+    <uiPosition>(0.5, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Explode</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SpeechExplode</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpeechExtension">
+        <voiceStrain>3</voiceStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Speech_Explode_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Speech_Explode_Tier1</defName>
+    <label>cursed speech: explode</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_CursedSpeech</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>75</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>20</castDurationTicks>
+    <effectRadius>16</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Frame Freeze (Projection) ===================== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_FrameFreeze</defName>
+    <label>frame freeze</label>
+    <description>Trap a target between the frames: anyone who breaks Projection Sorcery's 24-frame rule is frozen stiff for a moment. Instant, but short-lived.</description>
+    <uiPosition>(0.3, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/FrameFreeze</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_StunTarget</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_Projection</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.StunAbilityExtension">
+        <stunTicks>90</stunTicks>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_FrameFreeze_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_FrameFreeze_Tier1</defName>
+    <label>frame freeze</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Projection</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>240</cooldownTicks>
+    <castDurationTicks>8</castDurationTicks>
+    <effectRadius>10</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- =================== Top Speed Punch (Projection) ==================== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_TopSpeedPunch</defName>
+    <label>top speed punch</label>
+    <description>Accelerate through the frames and arrive already mid-swing - blink to the target and drive a single devastating blow into it before it can react.</description>
+    <uiPosition>(0.7, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/TopSpeedPunch</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_TopSpeedPunch</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_Projection</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_TopSpeedPunch_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_TopSpeedPunch_Tier1</defName>
+    <label>top speed punch</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Projection</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>16</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ======================== Line Segment (Ratio) ======================= -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_RatioBase">
+    <defName>JJK_LineSegment</defName>
+    <label>line segment</label>
+    <description>Divide the target with lines and force a weak point open at the 7:3 ratio. While the mark lasts, everything the target takes strikes deeper. Recast to refresh the mark.</description>
+    <uiPosition>(0.2, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/LineSegment</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LineSegment</abilityClass>
+    <abilityTiers>
+      <li>JJK_LineSegment_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_LineSegment_Tier1</defName>
+    <label>line segment</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Ratio</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>10</energyCost>
+    <cooldownTicks>120</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>12</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- The 7:3 mark: everything hits the forced weak point. -->
+  <HediffDef>
+    <defName>JJK_RatioMark</defName>
+    <label>7:3 ratio mark</label>
+    <description>A weak point has been forced open on this body at the 7:3 ratio point. Until the mark fades, every blow strikes deeper.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>600</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>1.3</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- =================== Piercing Ox (Ten Shadows) ======================= -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonPiercingOx</defName>
+    <label>piercing ox</label>
+    <description>Summon the Piercing Ox - a shikigami that builds momentum as it charges, driving its horns through anything in its path. First summon is hostile until defeated. A tamed Piercing Ox that dies is lost forever.</description>
+    <uiPosition>(0.3, 0.9)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/PiercingOx</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_PiercingOx</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonPiercingOx_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonPiercingOx_Tier1</defName>
+    <label>piercing ox</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>55</energyCost>
+    <cooldownTicks>1500</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ======================== Garuda (Star Rage) ========================= -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_SummonGaruda</defName>
+    <label>garuda</label>
+    <description>Manifest Garuda, the shikigami bound to the Star Rage technique. It fights at your side, its strikes carrying the same virtual mass as its master's. Unlike the Ten Shadows, Garuda always answers - it needs no taming.</description>
+    <uiPosition>(0.5, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Garuda</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SummonShadow</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_StarRage</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_Garuda</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonGaruda_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonGaruda_Tier1</defName>
+    <label>garuda</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StarRage</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>1200</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

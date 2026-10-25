@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Third wave of cursed techniques:                                        -->
+  <!--   Ice Formation (Uraume)        - freezing projectiles + stun; has the   -->
+  <!--                                   canon domain Glacial Hoarfrost (in     -->
+  <!--                                   Abilities_Domains.xml).                -->
+  <!--   New Shadow Style (Kusakabe)   - GENE-FREE swordsmanship learned from   -->
+  <!--                                   a scroll; scales with Melee skill.     -->
+  <!--   Mythical Beast Amber (Kashimo) - cursed electricity.                   -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================================================================== -->
+  <!-- ICE FORMATION (Uraume)                                                  -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_IceFormation</defName>
+    <label>ice formation</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_IceFormationBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_IceFormation</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Ice Spear: form and fire a spear of ice. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IceFormationBase">
+    <defName>JJK_IceSpear</defName>
+    <label>ice spear</label>
+    <description>Form a spear of super-cooled cursed energy and hurl it. The innate technique of Uraume, Sukuna's confidant.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/IceSpear</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_IceSpear_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_IceSpear_Tier1</defName>
+    <label>ice spear</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IceFormation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>200</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_IceSpear</defaultProjectile>
+        <range>22</range>
+        <warmupTime>0.4</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>false</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Frozen: flash-freeze a target where it stands. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IceFormationBase">
+    <defName>JJK_Frozen</defName>
+    <label>frozen</label>
+    <description>Loose a wave of super-cooled cursed energy that flash-freezes a target where it stands, locking it in ice for a moment.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Frozen</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_StunTarget</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.StunAbilityExtension">
+        <stunTicks>180</stunTicks>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Frozen_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Frozen_Tier1</defName>
+    <label>frozen</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IceFormation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>420</cooldownTicks>
+    <castDurationTicks>12</castDurationTicks>
+    <effectRadius>16</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Ice Fall: rain ice spikes across an area. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IceFormationBase">
+    <defName>JJK_IceFall</defName>
+    <label>ice fall</label>
+    <description>Freeze the air above a target area and bring it down as a hail of piercing ice spikes.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/IceFall</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_IceFall_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_IceFall_Tier1</defName>
+    <label>ice fall</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IceFormation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>55</energyCost>
+    <cooldownTicks>500</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_IceFall</defaultProjectile>
+        <range>18</range>
+        <warmupTime>0.7</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- NEW SHADOW STYLE (Kusakabe) - no gene, no innate technique.             -->
+  <!-- Learned from a scroll; its power comes from swordsmanship (Melee skill). -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_NewShadowStyle</defName>
+    <label>new shadow style</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <!-- Evening Moon Sword Drawing: the quick-draw. Learned from the scroll. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_EveningMoon</defName>
+    <label>evening moon sword drawing</label>
+    <description>The New Shadow Style quick-draw: a single cut delivered faster than the eye follows. No innate technique is needed - only discipline. Its power grows with the swordsman's melee skill.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/EveningMoon</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_StrikeTarget</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_NewShadowStyle</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.StrikeAbilityExtension">
+        <damage>38</damage>
+        <armorPen>0.6</armorPen>
+        <damageDef>Cut</damageDef>
+        <scaleWithMeleeSkill>true</scaleWithMeleeSkill>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_EveningMoon_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_EveningMoon_Tier1</defName>
+    <label>evening moon sword drawing</label>
+    <!-- Scroll-learned, never auto-gained. Low reserve floor: this is a
+         swordsman's art, not a reserve-hungry technique. -->
+    <autoGain>false</autoGain>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>240</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Batto Stance: the style's ready posture. Auto-gained once the tree is
+       learned and the sorcerer reaches Grade 3. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_BattoStance</defName>
+    <label>batto stance</label>
+    <description>Toggle: settle into the New Shadow Style's ready stance - hand on the hilt, breath still. While held, the swordsman strikes faster and reads incoming blows, at the cost of reserved cursed energy.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BattoStance</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ToggleHediff</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_NewShadowStyle</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ToggleHediffExtension">
+        <hediff>JJK_BattoStance</hediff>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_BattoStance_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_BattoStance_Tier1</defName>
+    <label>batto stance</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+    </acquireRequirement>
+    <maxEnergyOffset>-15</maxEnergyOffset>
+    <cooldownTicks>60</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- MYTHICAL BEAST AMBER (Kashimo)                                          -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Amber</defName>
+    <label>mythical beast amber</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_AmberBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_Amber</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Lightning Discharge: a bolt of cursed electricity. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AmberBase">
+    <defName>JJK_LightningDischarge</defName>
+    <label>lightning discharge</label>
+    <description>Convert cursed energy to electricity and discharge it as a searing bolt. The innate technique of Hajime Kashimo, the sorcerer who waited four hundred years for a worthy fight.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/LightningDischarge</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_LightningDischarge_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_LightningDischarge_Tier1</defName>
+    <label>lightning discharge</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Amber</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>200</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_Lightning</defaultProjectile>
+        <range>26</range>
+        <warmupTime>0.3</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>false</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Energy Wave: a crackling sphere that stuns everything it bursts over. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AmberBase">
+    <defName>JJK_EnergyWave</defName>
+    <label>energy wave</label>
+    <description>Launch a slow sphere of crackling electricity that bursts over an area, convulsing and stunning everything caught in the discharge.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/EnergyWave</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_EnergyWave_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_EnergyWave_Tier1</defName>
+    <label>energy wave</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Amber</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>45</energyCost>
+    <cooldownTicks>420</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_EnergyWave</defaultProjectile>
+        <range>20</range>
+        <warmupTime>0.6</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- The Zone: Kashimo's battle trance. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AmberBase">
+    <defName>JJK_TheZone</defName>
+    <label>turn up the volume</label>
+    <description>Toggle: enter the Zone - a battle trance in which electricity sings through every nerve. Cursed technique output and speed rise sharply while it holds. Reserves cursed energy while active.</description>
+    <uiPosition>(0.5, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/TheZone</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ToggleHediff</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.ToggleHediffExtension">
+        <hediff>JJK_TheZone</hediff>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_TheZone_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_TheZone_Tier1</defName>
+    <label>turn up the volume</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Amber</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <maxEnergyOffset>-30</maxEnergyOffset>
+    <cooldownTicks>60</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ======================= Stance / trance hediffs ===================== -->
+
+  <HediffDef>
+    <defName>JJK_BattoStance</defName>
+    <label>batto stance</label>
+    <description>Settled into the New Shadow Style's ready stance: strikes come faster, and incoming blows are read before they land.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeCooldownFactor>0.75</MeleeCooldownFactor>
+        </statFactors>
+        <statOffsets>
+          <MeleeDodgeChance>12</MeleeDodgeChance>
+          <MeleeHitChance>4</MeleeHitChance>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_TheZone</defName>
+    <label>the zone</label>
+    <description>A battle trance: electricity sings through every nerve. Cursed output and movement are sharply heightened.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.25</MoveSpeed>
+        </statFactors>
+        <statOffsets>
+          <JJK_CTOutput>0.3</JJK_CTOutput>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

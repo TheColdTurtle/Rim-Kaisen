@@ -1,0 +1,483 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_DisasterFlames</defName>
+    <label>borrowed: disaster flames</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_DisasterFlames</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DisasterFlames</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_BloodManipulation</defName>
+    <label>borrowed: blood manipulation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_BloodManipulation</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_BloodManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Shrine</defName>
+    <label>borrowed: shrine</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Shrine</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Shrine</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_DisasterTides</defName>
+    <label>borrowed: disaster tides</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_DisasterTides</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DisasterTides</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_DisasterPlants</defName>
+    <label>borrowed: disaster plants</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_DisasterPlants</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DisasterPlants</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Limitless</defName>
+    <label>borrowed: limitless</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Limitless</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Limitless</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_CursedSpeech</defName>
+    <label>borrowed: cursed speech</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_CursedSpeech</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_CursedSpeech</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_StrawDoll</defName>
+    <label>borrowed: straw doll technique</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_StrawDoll</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_StrawDoll</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Ratio</defName>
+    <label>borrowed: ratio technique</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Ratio</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Ratio</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_BoogieWoogie</defName>
+    <label>borrowed: boogie woogie</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_BoogieWoogie</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_BoogieWoogie</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_IdleTransfiguration</defName>
+    <label>borrowed: idle transfiguration</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_IdleTransfiguration</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_IdleTransfiguration</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Projection</defName>
+    <label>borrowed: projection sorcery</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Projection</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Projection</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_StarRage</defName>
+    <label>borrowed: star rage</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_StarRage</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_StarRage</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_SpiritManipulation</defName>
+    <label>borrowed: cursed spirit manipulation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_SpiritManipulation</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_SpiritManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_IceFormation</defName>
+    <label>borrowed: ice formation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_IceFormation</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_IceFormation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Amber</defName>
+    <label>borrowed: mythical beast amber</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Amber</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Amber</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_AuspiciousBeasts</defName>
+    <label>borrowed: auspicious beasts</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_AuspiciousBeasts</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_AuspiciousBeasts</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_BlackBird</defName>
+    <label>borrowed: black bird manipulation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_BlackBird</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_BlackBird</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_DeadlySentencing</defName>
+    <label>borrowed: deadly sentencing</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_DeadlySentencing</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_DeadlySentencing</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_TenShadows</defName>
+    <label>borrowed: ten shadows</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_TenShadows</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_TenShadows</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_PuppetManipulation</defName>
+    <label>borrowed: puppet manipulation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_SpiritManipulation</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_PuppetManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Construction</defName>
+    <label>borrowed: construction</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_StarRage</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Construction</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_SkyManipulation</defName>
+    <label>borrowed: sky manipulation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Limitless</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_SkyManipulation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_SoloForbiddenArea</defName>
+    <label>borrowed: solo forbidden area</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_CursedSpeech</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_SoloForbiddenArea</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_ContractualRecreation</defName>
+    <label>borrowed: contractual re-creation</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_SpiritManipulation</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_ContractualRecreation</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Inverse</defName>
+    <label>borrowed: inverse</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Ratio</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Inverse</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_LoveRendezvous</defName>
+    <label>borrowed: love rendezvous</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_BoogieWoogie</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_LoveRendezvous</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Antigravity</defName>
+    <label>borrowed: antigravity system</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_StarRage</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Antigravity</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Pachinko</defName>
+    <label>borrowed: pachinko: private pure love train</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Projection</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Pachinko</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+  <GeneDef ParentName="JJK_CTGeneBase">
+    <defName>JJK_CopyLoan_JJK_CT_Gene_Extinguishment</defName>
+    <label>borrowed: technique extinguishment</label>
+    <description>Temporary Copy manifestation. Removed when Rika departs or the imprint is exhausted. Cannot be acquired through random technique rolls.</description>
+    <geneClass>JJKMod.Gene_CopiedTechnique</geneClass>
+    <iconPath>UI/Icons/Genes/CT_Limitless</iconPath>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_Extinguishment</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </GeneDef>
+</Defs>

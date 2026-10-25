@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_ExpeditionNoTile>No reachable expedition location was found near this colony. No contract was accepted.</JJK_ExpeditionNoTile>
+  <JJK_ExpeditionAccept>Expedition: {0} — tier {1}</JJK_ExpeditionAccept>
+  <JJK_ExpeditionConfirm>Accept a caravan expedition to a haunted settlement 2–8 tiles from this colony? You have 20 days to complete the objective and return to {2}. Clear the assigned spirits; rescue missions also require bringing the survivor home, and recovery missions require returning the specific sealed object. Rescued sorcerers join your colony. Reward: {1} × {0}, plus school reputation. Shares the school's active-contract limit and cooldown with local assignments.</JJK_ExpeditionConfirm>
+  <JJK_ExpeditionAccepted>The school has marked a haunted settlement on the world map. Form a caravan and visit it. Complete the objective, then return to {0} and claim the reward in Jujutsu headquarters. The 20-day deadline includes the return trip. Bring food and medicine. Retreating does not reset enemies or loot.</JJK_ExpeditionAccepted>
+  <JJK_ExpeditionUnvisited>Travel to the marked world site. The encounter has not been visited yet.</JJK_ExpeditionUnvisited>
+  <JJK_ExpeditionThreats>Assigned cursed spirits remaining: {0}. Downing alone does not count as exorcism.</JJK_ExpeditionThreats>
+  <JJK_ExpeditionCleared>The assigned spirits have been defeated. Secure any survivor or sealed object and bring the expedition home.</JJK_ExpeditionCleared>
+  <JJK_ExpeditionReturn>Return at least one expedition colonist alive to {0}, then claim the reward.</JJK_ExpeditionReturn>
+  <JJK_ExpeditionRescueReturn>Release the survivor after securing the site, then bring them and an expedition colonist alive to {0}. Use Reform caravan for the return trip.</JJK_ExpeditionRescueReturn>
+  <JJK_ExpeditionArtifactReturn>Load the marked sealed cursed object into your caravan and return with an expedition colonist to {0}. The object is handed over when you claim the reward.</JJK_ExpeditionArtifactReturn>
+  <JJK_ExpeditionTime>Deadline: {0}</JJK_ExpeditionTime>
+  <JJK_ExpeditionRecruit>Release rescued sorcerer</JJK_ExpeditionRecruit>
+  <JJK_ExpeditionRecruitDesc>Once the assigned spirits are defeated, release the survivor. They join your colony and can travel in your caravan. Return them home alive to finish the assignment.</JJK_ExpeditionRecruitDesc>
+  <JJK_ExpeditionSecureFirst>Clear the assigned spirits and keep a colonist at the site first.</JJK_ExpeditionSecureFirst>
+  <JJK_ExpeditionRescued>{0} joins the expedition. Bring them home alive.</JJK_ExpeditionRescued>
+</LanguageData>

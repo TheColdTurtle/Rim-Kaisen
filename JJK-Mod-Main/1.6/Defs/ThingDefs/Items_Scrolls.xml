@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Technique scrolls. A sorcerer reads one to LEARN a cursed-technique     -->
+  <!-- ability (CompLearnAbilityScroll). This is how Simple Domain and the      -->
+  <!-- other anti-domain techniques are acquired - never automatically, only    -->
+  <!-- by studying an item. New technique scrolls just add another concrete def -->
+  <!-- with a different abilityToLearn.                                         -->
+  <!-- ===================================================================== -->
+
+  <ThingDef ParentName="ResourceBase" Name="JJK_ScrollBase" Abstract="True">
+    <statBases>
+      <MaxHitPoints>10</MaxHitPoints>
+      <Mass>0.05</Mass>
+      <Beauty>0</Beauty>
+      <DeteriorationRate>2</DeteriorationRate>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>All</tradeability>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ScrollBase">
+    <defName>JJK_SimpleDomainScroll</defName>
+    <label>scroll: simple domain</label>
+    <description>A scroll detailing the fundamentals of Simple Domain - a small, open defensive territory that neutralizes the sure-hit of a hostile Domain Expansion. A sorcerer who studies it learns to manifest one. The first of the anti-domain techniques recorded in jujutsu scrolls.</description>
+    <graphicData>
+      <texPath>Things/Item/Scroll/SimpleDomainScroll</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_LearnAbilityScroll">
+        <abilityClass>JJK_CursedTechniques</abilityClass>
+        <tree>JJK_Domain_SimpleTree</tree>
+        <abilityToLearn>JJK_Domain_Simple</abilityToLearn>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ScrollBase">
+    <defName>JJK_DomainAmplificationScroll</defName>
+    <label>scroll: domain amplification</label>
+    <description>A closely guarded scroll on wearing your own domain as a skin rather than casting it as a place. A sorcerer who studies it learns to nullify cursed techniques on contact - shrugging off a hostile domain's sure-hit, and reaching through the infinity of a Limitless user. The rarest of the anti-domain techniques, and the most expensive to hold.</description>
+    <graphicData>
+      <texPath>Things/Item/Scroll/DomainAmplificationScroll</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>2200</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_LearnAbilityScroll">
+        <abilityClass>JJK_CursedTechniques</abilityClass>
+        <tree>JJK_AntiDomain_AmplificationTree</tree>
+        <abilityToLearn>JJK_DomainAmplification</abilityToLearn>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ScrollBase">
+    <defName>JJK_FallingBlossomEmotionScroll</defName>
+    <label>scroll: falling blossom emotion</label>
+    <description>A short scroll on a single perfect parry: cursed energy laid over the skin and set to burst outward the moment a technique touches it. A sorcerer who studies it can turn aside one Domain Expansion sure-hit - once. Cheap, instant, and gone the moment it works.</description>
+    <graphicData>
+      <texPath>Things/Item/Scroll/FallingBlossomEmotionScroll</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>900</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_LearnAbilityScroll">
+        <abilityClass>JJK_CursedTechniques</abilityClass>
+        <tree>JJK_AntiDomain_FallingBlossomTree</tree>
+        <abilityToLearn>JJK_FallingBlossomEmotion</abilityToLearn>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ScrollBase">
+    <defName>JJK_NewShadowStyleScroll</defName>
+    <label>scroll: new shadow style</label>
+    <description>A training manual of the New Shadow Style - the sword school for sorcerers born without an innate technique. A sorcerer who studies it learns Evening Moon Sword Drawing, the school's quick-draw; discipline and grade unlock the ready stance in time. Its power grows with the swordsman's melee skill, not their technique.</description>
+    <graphicData>
+      <texPath>Things/Item/Scroll/NewShadowStyleScroll</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>950</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="JJKMod.CompProperties_LearnAbilityScroll">
+        <abilityClass>JJK_CursedTechniques</abilityClass>
+        <tree>JJK_CT_NewShadowStyle</tree>
+        <abilityToLearn>JJK_EveningMoon</abilityToLearn>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef ParentName="InjuryBase">
+    <defName>JJK_CursedSpeechCut</defName>
+    <label>cut (cursed speech)</label>
+    <labelNoun>a vocal strain cut</labelNoun>
+    <description>A small bleeding cut caused by forcing cursed energy through the voice. Further strain damages Talking. Can be tended or healed with reverse cursed technique.</description>
+    <hediffClass>JJKMod.Hediff_CursedSpeechCut</hediffClass>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration"><labelTendedWell>tended</labelTendedWell></li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.0125</painPerSeverity>
+      <bleedRate>0.02</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Cut off</destroyedLabel>
+      <destroyedOutLabel>Cut out</destroyedOutLabel>
+    </injuryProps>
+  </HediffDef>
+</Defs>

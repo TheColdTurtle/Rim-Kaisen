@@ -1,0 +1,623 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <!-- Canon names with explicit gameplay adaptations: finite stockpiles replace years of CE, and sister-core attacks are unknown in canon. -->
+  <ResearchProjectDef>
+    <defName>JJK_IndependentCores</defName>
+    <label>independent cursed corpse cores</label>
+    <description>Construct three compatible soul-information cores and a Panda-type cursed corpse. The cores mature over three RimWorld quadrums (45 days), then replenish their own energy. Does not resurrect the people whose information the core patterns represent.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_CursedCorpseConstruction</li>
+      <li>JJK_ReverseCursedTechnique</li>
+    </prerequisites>
+    <baseCost>6000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <researchViewX>4</researchViewX>
+    <researchViewY>3.6</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>JJK_PuppetEngineering</defName>
+    <label>advanced puppet engineering</label>
+    <description>Construct Mode: Absolute frames and communication puppets. Giant frames require a Grade 1 Puppet Manipulation pilot and a stored-energy supply; their year-named attacks spend numerical energy reserves in this adaptation.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_CursedCorpseConstruction</li>
+      <li>JJK_AdvancedCursedMaterials</li>
+    </prerequisites>
+    <baseCost>5000</baseCost>
+    <techLevel>Spacer</techLevel>
+    <researchViewX>4</researchViewX>
+    <researchViewY>2.4</researchViewY>
+  </ResearchProjectDef>
+  <BodyPartDef>
+    <defName>JJK_ThreeCoreFrame</defName>
+    <label>three-core frame</label>
+    <hitPoints>80</hitPoints>
+    <solid>true</solid>
+    <alive>false</alive>
+    <bleedRate>0</bleedRate>
+    <skinCovered>false</skinCovered>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+    <tags>
+      <li>ConsciousnessSource</li>
+    </tags>
+  </BodyPartDef>
+  <BodyPartDef>
+    <defName>JJK_SoulCore_Panda</defName>
+    <label>panda core</label>
+    <hitPoints>20</hitPoints>
+    <solid>true</solid>
+    <alive>false</alive>
+    <bleedRate>0</bleedRate>
+    <skinCovered>false</skinCovered>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+  </BodyPartDef>
+  <BodyPartDef>
+    <defName>JJK_SoulCore_Gorilla</defName>
+    <label>gorilla core</label>
+    <hitPoints>20</hitPoints>
+    <solid>true</solid>
+    <alive>false</alive>
+    <bleedRate>0</bleedRate>
+    <skinCovered>false</skinCovered>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+  </BodyPartDef>
+  <BodyPartDef>
+    <defName>JJK_SoulCore_Sister</defName>
+    <label>sister core</label>
+    <hitPoints>20</hitPoints>
+    <solid>true</solid>
+    <alive>false</alive>
+    <bleedRate>0</bleedRate>
+    <skinCovered>false</skinCovered>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+  </BodyPartDef>
+  <BodyDef>
+    <defName>JJK_ThreeCoreBody</defName>
+    <label>three-core cursed corpse</label>
+    <corePart>
+      <def>JJK_ThreeCoreFrame</def>
+      <height>Middle</height>
+      <depth>Outside</depth>
+      <groups>
+        <li>HeadAttackTool</li>
+      </groups>
+      <parts>
+        <li>
+          <def>JJK_SoulCore_Panda</def>
+          <coverage>0.08</coverage>
+          <depth>Inside</depth>
+        </li>
+        <li>
+          <def>JJK_SoulCore_Gorilla</def>
+          <coverage>0.08</coverage>
+          <depth>Inside</depth>
+        </li>
+        <li>
+          <def>JJK_SoulCore_Sister</def>
+          <coverage>0.08</coverage>
+          <depth>Inside</depth>
+        </li>
+        <li>
+          <def>SightSensor</def>
+          <coverage>0.04</coverage>
+        </li>
+        <li>
+          <def>HearingSensor</def>
+          <coverage>0.04</coverage>
+        </li>
+        <li>
+          <def>MechanicalArm</def>
+          <customLabel>left arm</customLabel>
+          <coverage>0.12</coverage>
+        </li>
+        <li>
+          <def>MechanicalArm</def>
+          <customLabel>right arm</customLabel>
+          <coverage>0.12</coverage>
+        </li>
+        <li>
+          <def>MechanicalLeg</def>
+          <customLabel>left leg</customLabel>
+          <coverage>0.12</coverage>
+        </li>
+        <li>
+          <def>MechanicalLeg</def>
+          <customLabel>right leg</customLabel>
+          <coverage>0.12</coverage>
+        </li>
+      </parts>
+    </corePart>
+  </BodyDef>
+  <ThingDef ParentName="JJK_PuppetRaceBase">
+    <defName>JJK_PandaConstruct</defName>
+    <label>panda-type cursed corpse</label>
+    <description>An independent-type cursed corpse with three compatible soul cores. At 45 days it replenishes its own energy and no longer occupies its creator's control limit. Its Independent companion panel enables friendships, naming, social visits and hauling, rescue or guard routines. Visits build trust and comfort colonists. Losing a friend or core causes grief; company helps it recover. It can use physical repair kits and keeps operating after its creator dies. Balanced Panda form conserves energy; Gorilla form strikes harder and faster, draining energy for armor-ignoring Drumming Beat hits. Sister form uses a defensive role as a gameplay adaptation: its canon attacks remain unknown. Damaged cores temporarily disable their forms below 25% health. Destroyed cores permanently remove those forms; losing all three kills the construct. Changing form never heals it. Uses distinct vanilla silhouettes.</description>
+    <race>
+      <body>JJK_ThreeCoreBody</body>
+      <baseHealthScale>2</baseHealthScale>
+    </race>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedCorpse" />
+      <li Class="JJKMod.CompProperties_ThreeCores" />
+      <li Class="JJKMod.CompProperties_IndependentCompanion" />
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="JJK_PuppetRaceBase">
+    <defName>JJK_AbsolutePuppet</defName>
+    <label>ultimate mechamaru — mode: absolute</label>
+    <description>A giant piloted cursed corpse. Its bound Grade 1 Puppet Manipulation controller must physically enter the cockpit. Stores up to 2400 energy, transferred from sorcerers in 50-CE deposits. One-year charge costs 120; Miracle Cannon 240; Pigeon Viola 600. These are gameplay costs, not literal years. Load up to four crafted Simple Domain cartridges for cockpit sure-hit protection or a close-range domain injection. Damage to the frame persists; destruction or incapacitation ejects the actual pilot.</description>
+    <race>
+      <baseBodySize>4</baseBodySize>
+      <baseHealthScale>8</baseHealthScale>
+    </race>
+    <statBases>
+      <MoveSpeed>3.8</MoveSpeed>
+      <ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+    </statBases>
+    <tools Inherit="false">
+      <li>
+        <label>giant fist</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>45</power>
+        <cooldownTime>3</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <armorPenetration>0.7</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedCorpse">
+        <mech>true</mech>
+      </li>
+      <li Class="JJKMod.CompProperties_AbsolutePuppet" />
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="JJK_PuppetRaceBase">
+    <defName>JJK_CommunicationPuppet</defName>
+    <label>mini-mechamaru communicator</label>
+    <description>A small noncombat communication puppet with a finite core. Warns of hostile pawns within 30 tiles and line of sight, and lets you jump to a detected contact. Record a message for a one-time transmission after the creator's death. It keeps operating on remaining energy without the creator, then shuts down. Up to three relays per creator, separate from combat slots. Standby stops scanning and conserves charge.</description>
+    <race>
+      <baseBodySize>0.2</baseBodySize>
+      <baseHealthScale>0.5</baseHealthScale>
+    </race>
+    <statBases>
+      <MoveSpeed>3</MoveSpeed>
+    </statBases>
+    <tools Inherit="false" />
+    <comps>
+      <li Class="JJKMod.CompProperties_CursedCorpse" />
+      <li Class="JJKMod.CompProperties_CommunicationPuppet" />
+    </comps>
+  </ThingDef>
+  <PawnKindDef>
+    <defName>JJK_PandaConstruct_Kind</defName>
+    <label>panda-type cursed corpse</label>
+    <race>JJK_PandaConstruct</race>
+    <combatPower>320</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Bear/Bear</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>1.6</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <PawnKindDef>
+    <defName>JJK_AbsolutePuppet_Kind</defName>
+    <label>mode: absolute</label>
+    <race>JJK_AbsolutePuppet</race>
+    <combatPower>1500</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>JJK/Presentation/Absolute</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>4</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <PawnKindDef>
+    <defName>JJK_CommunicationPuppet_Kind</defName>
+    <label>communication puppet</label>
+    <race>JJK_CommunicationPuppet</race>
+    <combatPower>10</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>JJK/Presentation/Communication</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>0.7</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+  <HediffDef>
+    <defName>JJK_PandaForm_Panda</defName>
+    <label>panda core active</label>
+    <description>Balanced form; normal movement and energy consumption.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_PandaForm_Gorilla</defName>
+    <label>gorilla core active</label>
+    <description>Power form: 40% more melee damage and 20% more movement speed. Successful hits spend 3 charge for a 12-damage armor-ignoring Drumming Beat. Also drains 3 extra charge every 250 active ticks.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <statFactors>
+          <MoveSpeed>1.2</MoveSpeed>
+          <MeleeDamageFactor>1.4</MeleeDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_PandaForm_Sister</defName>
+    <label>sister core active</label>
+    <description>Defensive adaptation: 35% less incoming damage and 15% less movement speed. The canon sister core's combat abilities are unknown.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <statFactors>
+          <IncomingDamageFactor>0.65</IncomingDamageFactor>
+          <MoveSpeed>0.85</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CompatibleCore</defName>
+    <label>compatible soul-information core</label>
+    <description>An engineered compatible soul-information pattern. Three cores can observe one another within a cursed corpse. This is not a human soul harvested from a victim.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.6,0.5,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>250</MarketValue>
+      <Mass>2</Mass>
+      <WorkToMake>2500</WorkToMake>
+    </statBases>
+    <stackLimit>10</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <costList>
+      <JJK_CursedResidue>40</JJK_CursedResidue>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Cloth>10</Cloth>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_IndependentCores</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_PandaShell</defName>
+    <label>three-core cursed corpse shell</label>
+    <description>A Panda-type three-core body. Activate for 30 CE. Matures over 45 days into a self-sustaining companion. Until then its core needs external energy for movement/combat. Standby preserves charge and does not halt maturation.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.6,0.5,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>2500</MarketValue>
+      <Mass>2</Mass>
+      <WorkToMake>8000</WorkToMake>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <costList>
+      <JJK_CompatibleCore>3</JJK_CompatibleCore>
+      <Cloth>100</Cloth>
+      <JJK_CursedSteel>40</JJK_CursedSteel>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_IndependentCores</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>12</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Animate {0_label}</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="JJKMod.CompProperties_ActivatePuppet">
+        <kind>JJK_PandaConstruct_Kind</kind>
+        <mech>false</mech>
+        <communication>false</communication>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_AbsoluteShell</defName>
+    <label>mode: absolute frame</label>
+    <description>A giant Mechamaru frame. Animate for 30 CE, then store cursed energy and have its bound Grade 1 controller enter the cockpit. The creator requires Puppet Manipulation. A separate reservoir powers the giant weapons; the pilot is physically present and must exit to return to colony work.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.6,0.5,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>9000</MarketValue>
+      <Mass>100</Mass>
+      <WorkToMake>24000</WorkToMake>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <costList>
+      <Steel>600</Steel>
+      <Plasteel>160</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+      <JJK_CursedSteel>150</JJK_CursedSteel>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_PuppetEngineering</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>14</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Animate {0_label}</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="JJKMod.CompProperties_ActivatePuppet">
+        <kind>JJK_AbsolutePuppet_Kind</kind>
+        <mech>true</mech>
+        <communication>false</communication>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_CommunicationShell</defName>
+    <label>communication puppet shell</label>
+    <description>A finite-energy mini-Mechamaru. A Puppet Manipulation sorcerer can activate it for 30 CE. Up to three communication units per creator, independent of the combat limit.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.6,0.5,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>400</MarketValue>
+      <Mass>2</Mass>
+      <WorkToMake>2000</WorkToMake>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <JJK_CursedResidue>15</JJK_CursedResidue>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_PuppetEngineering</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Animate {0_label}</useLabel>
+        <useDuration>300</useDuration>
+      </li>
+      <li Class="JJKMod.CompProperties_ActivatePuppet">
+        <kind>JJK_CommunicationPuppet_Kind</kind>
+        <mech>false</mech>
+        <communication>true</communication>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_DomainCartridge</defName>
+    <label>simple domain cartridge</label>
+    <description>A single-use Simple Domain technique charge for Mode: Absolute. Load at most four into a giant frame. Each charge can protect the occupied cockpit/frame from sure-hits for 600 ticks, or inject a 65-damage armor-ignoring stab into an adjacent enemy. Ordinary damage still applies.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.6,0.5,0.8)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <MarketValue>250</MarketValue>
+      <Mass>2</Mass>
+      <WorkToMake>2500</WorkToMake>
+    </statBases>
+    <stackLimit>10</stackLimit>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <costList>
+      <JJK_CursedResidue>25</JJK_CursedResidue>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>JJK_CursedMaterialsBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_SimpleDomain</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>10</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+  </ThingDef>
+  <JobDef>
+    <defName>JJK_AbsoluteBoard</defName>
+    <driverClass>JJKMod.JobDriver_AbsoluteService</driverClass>
+    <reportString>Entering the cockpit.</reportString>
+  </JobDef>
+  <JobDef>
+    <defName>JJK_AbsoluteDeposit</defName>
+    <driverClass>JJKMod.JobDriver_AbsoluteService</driverClass>
+    <reportString>Storing cursed energy.</reportString>
+  </JobDef>
+  <JobDef>
+    <defName>JJK_AbsoluteLoad</defName>
+    <driverClass>JJKMod.JobDriver_AbsoluteService</driverClass>
+    <reportString>Loading a technique cartridge.</reportString>
+  </JobDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_AbsoluteOneYear</defName>
+    <label>one-year charge</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.4,0.75,1)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>110</damageAmountBase>
+      <armorPenetrationBase>1</armorPenetrationBase>
+      <speed>70</speed>
+      <explosionRadius>3</explosionRadius>
+      <screenShakeFactor>0</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_MiracleCannon</defName>
+    <label>miracle cannon</label>
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.4,0.75,1)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>190</damageAmountBase>
+      <armorPenetrationBase>1</armorPenetrationBase>
+      <speed>70</speed>
+      <explosionRadius>4.5</explosionRadius>
+      <screenShakeFactor>0</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_PigeonViola</defName>
+    <label>pigeon viola</label>
+    <thingClass>JJKMod.Projectile_PigeonViola</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.4,0.75,1)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>65</damageAmountBase>
+      <armorPenetrationBase>1</armorPenetrationBase>
+      <speed>45</speed>
+    </projectile>
+  </ThingDef>
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_SchoolPuppetOperator</defName>
+    <label>school puppet operator</label>
+    <defaultFactionType>JJK_KyotoHigh</defaultFactionType>
+    <combatPower>740</combatPower>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_DeepReserves</reserve>
+        <sorcererChance>1</sorcererChance>
+        <grade>Grade1</grade>
+        <techniqueCount>0</techniqueCount>
+        <guaranteedTechniques>
+          <li>JJK_CT_Gene_PuppetManipulation</li>
+        </guaranteedTechniques>
+      </li>
+      <li Class="JJKMod.PuppetSquadExtension">
+        <count>2</count>
+      </li>
+    </modExtensions>
+    <apparelMoney>800~1400</apparelMoney>
+    <weaponMoney>200~500</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_CursePuppetOperator</defName>
+    <label>curse-user puppet operator</label>
+    <defaultFactionType>JJK_CurseUsers</defaultFactionType>
+    <combatPower>740</combatPower>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_DeepReserves</reserve>
+        <sorcererChance>1</sorcererChance>
+        <grade>Grade1</grade>
+        <techniqueCount>0</techniqueCount>
+        <guaranteedTechniques>
+          <li>JJK_CT_Gene_PuppetManipulation</li>
+        </guaranteedTechniques>
+      </li>
+      <li Class="JJKMod.PuppetSquadExtension">
+        <count>2</count>
+      </li>
+    </modExtensions>
+    <apparelMoney>800~1400</apparelMoney>
+    <weaponMoney>200~500</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+</Defs>

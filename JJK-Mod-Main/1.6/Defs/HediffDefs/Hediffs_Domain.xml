@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Domain Expansion (Section 20). Two hediffs carry the system's state:    -->
+  <!--  - JJK_DomainActive: on the caster while their domain is open. Its two   -->
+  <!--    stages encode "domain open but I'm outside it" vs "standing inside my -->
+  <!--    own domain" (the +30% buff + 25% cost cut). MapComponent_DomainManager-->
+  <!--    toggles the severity by proximity.                                    -->
+  <!--  - JJK_DomainBurnout: the post-domain lock (Section 20.5). Its duration  -->
+  <!--    is set in code (6h voluntary / 24h involuntary). While present it      -->
+  <!--    blocks re-casting any domain (tier cannotBeActiveWithHediffs).        -->
+  <!-- ===================================================================== -->
+
+  <HediffDef>
+    <defName>JJK_DomainActive</defName>
+    <label>domain expansion</label>
+    <description>This sorcerer has manifested their innate domain. While standing within it, their cursed technique is sure-hit and amplified, and their body is bolstered by the space they command.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_DomainActive" />
+    </comps>
+    <stages>
+      <!-- Holding the domain open from outside its radius: no personal buff. -->
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>domain open</label>
+      </li>
+      <!-- Standing inside their own domain (Section 20.3): +30% to the caster's
+           stats and a 25% cut to all cursed-energy costs. -->
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>within domain</label>
+        <statFactors>
+          <JJK_CTOutput>1.30</JJK_CTOutput>
+          <MoveSpeed>1.30</MoveSpeed>
+          <MeleeDamageFactor>1.30</MeleeDamageFactor>
+          <IncomingDamageFactor>0.70</IncomingDamageFactor>
+          <JJK_CursedEnergyRegenRateMultiplier>1.30</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CursedEnergyUsageMultiplier>0.75</JJK_CursedEnergyUsageMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Carried by a Simple Domain caster while it is open. Simple Domain is a
+       small, open, purely defensive domain: it grants a light defensive bolster
+       and the same "Collapse Domain" gizmo, but no offensive amplification. Its
+       real effect (sure-hit immunity for those sheltering inside) is enforced by
+       MapComponent_DomainManager, not by this hediff. -->
+  <HediffDef>
+    <defName>JJK_SimpleDomainActive</defName>
+    <label>simple domain</label>
+    <description>This sorcerer has manifested a Simple Domain - a small, open defensive territory. While it holds, they and their allies within it are shielded from the sure-hit of a hostile Domain Expansion.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_DomainActive" />
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>holding simple domain</label>
+        <statFactors>
+          <IncomingDamageFactor>0.85</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_DomainBurnout</defName>
+    <label>domain burnout</label>
+    <description>The aftermath of a Domain Expansion. The strain of manifesting an innate domain leaves the cursed technique unusable for a time. The lock is shorter when the domain was dismissed willingly than when it collapsed on its own.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <!-- Overridden in code (MapComponent_DomainManager.ApplyBurnout) to the
+             voluntary/involuntary value from the technique's DomainExtension. -->
+        <disappearsAfterTicks>60000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+      <!-- Records which technique tree is locked; Patch_DomainBurnout blocks it. -->
+      <li Class="JJKMod.HediffCompProperties_DomainBurnout" />
+    </comps>
+    <stages>
+      <li>
+        <label>burnt out</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_CorpseAppearance>Animal appearance</JJK_CorpseAppearance>
+  <JJK_CorpseAppearanceDesc>Choose a vanilla animal appearance for this cursed corpse shell. Appearance only: its core, injuries, combat stats and behavior do not change.</JJK_CorpseAppearanceDesc>
+  <JJK_CorpseAnimalShell>Shell appearance: {0}</JJK_CorpseAnimalShell>
+  <JJK_Settings_CombatSounds>Combat sound cues</JJK_Settings_CombatSounds>
+  <JJK_Settings_CombatOverlays>Combat boundaries and warning labels</JJK_Settings_CombatOverlays>
+  <JJK_OverlayShelter>{0} — shelter · {1} integrity</JJK_OverlayShelter>
+  <JJK_OverlayClosed>{0} — sealed barrier</JJK_OverlayClosed>
+  <JJK_OverlayOpen>{0} — open boundary</JJK_OverlayOpen>
+  <JJK_OverlayBlast>BLAST — {0} · hits allies too</JJK_OverlayBlast>
+  <JJK_OverlayBoss>{0} — {1}</JJK_OverlayBoss>
+  <JJK_OverlayRecovery>OPENING — {0}</JJK_OverlayRecovery>
+  <JJK_PatternEruption>Eruption</JJK_PatternEruption>
+  <JJK_PatternRoots>Entangling roots</JJK_PatternRoots>
+  <JJK_PatternTide>Tidal surge</JJK_PatternTide>
+  <JJK_PatternSoulTouch>Soul touch — target only</JJK_PatternSoulTouch>
+</LanguageData>

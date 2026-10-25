@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Technique remnants: crystallized fragments of an exorcised boss curse's -->
+  <!-- innate technique. Using one implants the technique's gene (as a          -->
+  <!-- xenogene) into a humanlike pawn - plus a modest cursed energy reserve    -->
+  <!-- if they have none. Dropped only by the Disaster Curse bosses; this is    -->
+  <!-- the in-game way for a colonist to LEARN a cursed technique.              -->
+  <!-- ===================================================================== -->
+
+  <ThingDef ParentName="ResourceBase" Name="JJK_RemnantBase" Abstract="True">
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <Mass>0.3</Mass>
+      <MarketValue>2800</MarketValue>
+      <DeteriorationRate>0.5</DeteriorationRate>
+      <Flammability>0</Flammability>
+    </statBases>
+    <stackLimit>1</stackLimit>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Absorb {0_label}</useLabel>
+        <useDuration>600</useDuration>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_RemnantBase">
+    <defName>JJK_Remnant_DisasterFlames</defName>
+    <label>technique remnant: disaster flames</label>
+    <description>A smoldering ember of cursed energy, all that remains of the exorcised Disaster Curse Jogo. A humanlike pawn who absorbs it gains the Disaster Flames cursed technique (and a cursed energy reserve, if they lack one).</description>
+    <graphicData>
+      <texPath>Things/Item/Remnant/DisasterFlames</texPath>
+      <color>(1.0, 0.5, 0.2)</color>
+    </graphicData>
+    <comps>
+      <li Class="JJKMod.CompProperties_ImplantGene">
+        <gene>JJK_CT_Gene_DisasterFlames</gene>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_RemnantBase">
+    <defName>JJK_Remnant_DisasterPlants</defName>
+    <label>technique remnant: disaster plants</label>
+    <description>A seed of dense cursed wood, all that remains of the exorcised Disaster Curse Hanami. A humanlike pawn who absorbs it gains the Disaster Plants cursed technique (and a cursed energy reserve, if they lack one).</description>
+    <graphicData>
+      <texPath>Things/Item/Remnant/DisasterPlants</texPath>
+      <color>(0.35, 0.65, 0.3)</color>
+    </graphicData>
+    <comps>
+      <li Class="JJKMod.CompProperties_ImplantGene">
+        <gene>JJK_CT_Gene_DisasterPlants</gene>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_RemnantBase">
+    <defName>JJK_Remnant_DisasterTides</defName>
+    <label>technique remnant: disaster tides</label>
+    <description>A sphere of black brine that never stops swirling, all that remains of the exorcised Disaster Curse Dagon. A humanlike pawn who absorbs it gains the Disaster Tides cursed technique (and a cursed energy reserve, if they lack one).</description>
+    <graphicData>
+      <texPath>Things/Item/Remnant/DisasterTides</texPath>
+      <color>(0.25, 0.5, 0.85)</color>
+    </graphicData>
+    <comps>
+      <li Class="JJKMod.CompProperties_ImplantGene">
+        <gene>JJK_CT_Gene_DisasterTides</gene>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_RemnantBase">
+    <defName>JJK_Remnant_IdleTransfiguration</defName>
+    <label>technique remnant: idle transfiguration</label>
+    <description>A knot of pale, warped soul-stuff, all that remains of the exorcised Disaster Curse Mahito. A humanlike pawn who absorbs it gains the Idle Transfiguration cursed technique (and a cursed energy reserve, if they lack one).</description>
+    <graphicData>
+      <texPath>Things/Item/Remnant/IdleTransfiguration</texPath>
+      <color>(0.7, 0.6, 0.8)</color>
+    </graphicData>
+    <comps>
+      <li Class="JJKMod.CompProperties_ImplantGene">
+        <gene>JJK_CT_Gene_IdleTransfiguration</gene>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Sorcerer Grade (Section 6). Modelled as a permanent, non-harmful       -->
+  <!-- hediff whose severity (0.0 - 1.0) encodes the grade tier in steps of   -->
+  <!-- 0.2. Each stage applies the Max CE multiplier and CT Output of its     -->
+  <!-- grade as statFactors. Severity is driven by grade XP, which is tracked  -->
+  <!-- by GameComponent_JJK and applied through HediffComp_SorcererGrade.     -->
+  <!--                                                                        -->
+  <!-- Higher-grade sorcerers are also physically superior: a body reinforced -->
+  <!-- by cursed energy grows stronger (MeleeDamageFactor), faster            -->
+  <!-- (MoveSpeed) and tougher (IncomingDamageFactor) as the grade climbs.    -->
+  <!-- A physical-perfection Heavenly Restriction body sits just above special -->
+  <!-- grade on these same stats (see GeneDefs_Special.xml).                  -->
+  <!--                                                                        -->
+  <!-- Grade tier index:  0 Grade4 / 1 Grade3 / 2 Grade2 / 3 Grade1 /          -->
+  <!--                    4 Special / 5 Calamity                              -->
+  <!-- ===================================================================== -->
+
+  <HediffDef>
+    <defName>JJK_SorcererGrade</defName>
+    <label>sorcerer grade</label>
+    <description>This pawn's standing in the jujutsu sorcerer grading system. Higher grades command a larger cursed energy reserve and stronger cursed techniques, and their cursed-energy-reinforced body grows physically stronger, faster and tougher with every grade.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_SorcererGrade" />
+    </comps>
+    <stages>
+      <!-- Grade 4 (tier 0) - apprentice -->
+      <li>
+        <minSeverity>0.0</minSeverity>
+        <label>grade 4</label>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.00</JJK_MaxCursedEnergy>
+          <JJK_CursedEnergyRegenRateMultiplier>1.00</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CTOutput>0.50</JJK_CTOutput>
+          <MoveSpeed>1.00</MoveSpeed>
+          <MeleeDamageFactor>1.00</MeleeDamageFactor>
+          <IncomingDamageFactor>1.00</IncomingDamageFactor>
+        </statFactors>
+      </li>
+      <!-- Grade 3 (tier 1) -->
+      <li>
+        <minSeverity>0.2</minSeverity>
+        <label>grade 3</label>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.15</JJK_MaxCursedEnergy>
+          <JJK_CursedEnergyRegenRateMultiplier>1.10</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CTOutput>0.75</JJK_CTOutput>
+          <MoveSpeed>1.05</MoveSpeed>
+          <MeleeDamageFactor>1.12</MeleeDamageFactor>
+          <IncomingDamageFactor>0.94</IncomingDamageFactor>
+        </statFactors>
+      </li>
+      <!-- Grade 2 (tier 2) -->
+      <li>
+        <minSeverity>0.4</minSeverity>
+        <label>grade 2</label>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.30</JJK_MaxCursedEnergy>
+          <JJK_CursedEnergyRegenRateMultiplier>1.20</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CTOutput>1.00</JJK_CTOutput>
+          <MoveSpeed>1.12</MoveSpeed>
+          <MeleeDamageFactor>1.28</MeleeDamageFactor>
+          <IncomingDamageFactor>0.88</IncomingDamageFactor>
+        </statFactors>
+      </li>
+      <!-- Grade 1 (tier 3) - domain expansion possible -->
+      <li>
+        <minSeverity>0.6</minSeverity>
+        <label>grade 1</label>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.45</JJK_MaxCursedEnergy>
+          <JJK_CursedEnergyRegenRateMultiplier>1.35</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CTOutput>1.30</JJK_CTOutput>
+          <MoveSpeed>1.22</MoveSpeed>
+          <MeleeDamageFactor>1.48</MeleeDamageFactor>
+          <IncomingDamageFactor>0.80</IncomingDamageFactor>
+        </statFactors>
+      </li>
+      <!-- Special Grade (tier 4) -->
+      <li>
+        <minSeverity>0.8</minSeverity>
+        <label>special grade</label>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.60</JJK_MaxCursedEnergy>
+          <JJK_CursedEnergyRegenRateMultiplier>1.50</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CTOutput>1.60</JJK_CTOutput>
+          <MoveSpeed>1.32</MoveSpeed>
+          <MeleeDamageFactor>1.70</MeleeDamageFactor>
+          <IncomingDamageFactor>0.72</IncomingDamageFactor>
+        </statFactors>
+      </li>
+      <!-- Calamity (tier 5) - Gojo / Sukuna tier, quest-locked -->
+      <li>
+        <minSeverity>1.0</minSeverity>
+        <label>calamity grade</label>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.75</JJK_MaxCursedEnergy>
+          <JJK_CursedEnergyRegenRateMultiplier>1.75</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_CTOutput>2.50</JJK_CTOutput>
+          <MoveSpeed>1.60</MoveSpeed>
+          <MeleeDamageFactor>2.30</MeleeDamageFactor>
+          <IncomingDamageFactor>0.55</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

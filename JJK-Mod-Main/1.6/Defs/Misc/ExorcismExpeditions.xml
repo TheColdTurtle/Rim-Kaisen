@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef ParentName="Site">
+    <defName>JJK_ExorcismSite</defName>
+    <label>exorcism assignment</label>
+    <description>A school assignment at a haunted settlement. Travel here by caravan, complete the objective and return to the commissioning colony before the deadline.</description>
+    <worldObjectClass>JJKMod.ExorcismSite</worldObjectClass>
+  </WorldObjectDef>
+  <SitePartDef>
+    <defName>JJK_HauntedSettlement</defName>
+    <label>haunted settlement</label>
+    <description>Cursed spirits haunt the ruined dwellings. Bring sorcerers, supplies and a way to protect against curses. Retreating does not reset this encounter.</description>
+    <workerClass>JJKMod.SitePartWorker_HauntedSettlement</workerClass>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/ItemStash</expandingIconTexture>
+    <requiresFaction>false</requiresFaction>
+    <wantsThreatPoints>false</wantsThreatPoints>
+    <handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
+    <approachOrderString>Visit haunted settlement</approachOrderString>
+    <approachingReportString>Visiting haunted settlement.</approachingReportString>
+    <minMapSize>(100, 1, 100)</minMapSize>
+  </SitePartDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_SealedMissionObject</defName>
+    <label>sealed cursed object</label>
+    <description>A dangerous cursed object sealed for transport. Return this specific object to the commissioning colony and claim the school contract to hand it over. It cannot be used to learn a technique.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ComponentIndustrial</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <color>(0.55,0.25,0.65)</color>
+    </graphicData>
+    <statBases><MaxHitPoints>150</MaxHitPoints><MarketValue>0</MarketValue><Mass>5</Mass></statBases>
+    <stackLimit>1</stackLimit>
+    <tradeability>None</tradeability>
+    <thingCategories><li>Items</li></thingCategories>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_SealedRefuge</defName>
+    <label>sealed refuge</label>
+    <description>A protective refuge around a stranded sorcerer. Clear the assignment's cursed spirits, then release the survivor through Jujutsu headquarters or open this refuge. The survivor will join your colony; bring them home alive.</description>
+    <thingClass>JJKMod.Building_SealedRefuge</thingClass>
+    <graphicData><texPath>Things/Building/Ship/ShipCryptosleepCasket</texPath><graphicClass>Graphic_Multi</graphicClass><drawSize>(1,2)</drawSize><color>(0.6,0.4,0.8)</color></graphicData>
+    <size>(1,2)</size>
+    <statBases><MaxHitPoints>600</MaxHitPoints><Flammability>0</Flammability><Mass>100</Mass></statBases>
+    <altitudeLayer>Building</altitudeLayer><passability>Impassable</passability><fillPercent>1</fillPercent>
+    <building><isEdifice>true</isEdifice><isInert>true</isInert></building>
+    <selectable>true</selectable><canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+</Defs>

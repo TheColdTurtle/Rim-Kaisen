@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Taran Magic Framework spine for cursed energy.                         -->
+  <!--                                                                        -->
+  <!-- AbilityResourceDef  = the Cursed Energy pool (analogous to WN_Chakra). -->
+  <!-- AbilityClassDef      = the Cursed Technique discipline. Each individual -->
+  <!--                        cursed technique (Disaster Flames, Limitless,    -->
+  <!--                        Ten Shadows, ...) is registered later as an      -->
+  <!--                        AbilityTreeDef in this class's abilityTrees.     -->
+  <!-- AbilityDef/TierDef   = abstract bases that per-technique moves inherit. -->
+  <!--                                                                        -->
+  <!-- Genes (GeneDefs_*) grant a tree to a pawn via a                         -->
+  <!-- TaranMagicFramework.AbilityExtension modExtension.                      -->
+  <!-- ===================================================================== -->
+
+  <TaranMagicFramework.AbilityResourceDef>
+    <defName>JJK_CursedEnergy</defName>
+    <!-- TMF appends "energy" to this label on the resource bar, so the label is
+         just "cursed" to read "cursed energy" (not "cursed energy energy"). -->
+    <label>cursed</label>
+    <!-- 96 CE per game day before grade, reserve, equipment and mood multipliers.
+         Sleep/meditation do not apply a separate regeneration multiplier. -->
+    <baseEnergyGainPerTick>0.0016</baseEnergyGainPerTick>
+    <maxEnergyStat>JJK_MaxCursedEnergy</maxEnergyStat>
+    <energyRegenMultiplierStat>JJK_CursedEnergyRegenRateMultiplier</energyRegenMultiplierStat>
+    <energyUsageMultiplierStat>JJK_CursedEnergyUsageMultiplier</energyUsageMultiplierStat>
+  </TaranMagicFramework.AbilityResourceDef>
+
+  <TaranMagicFramework.AbilityModGroupDef>
+    <defName>JJK_RimKaisen</defName>
+  </TaranMagicFramework.AbilityModGroupDef>
+
+  <!-- The cursed technique discipline. Grades are modelled separately as a
+       hediff (Hediffs_Grade.xml); this class uses the framework level/XP
+       system to drive per-technique Mastery and Efficiency once techniques
+       are added. -->
+  <TaranMagicFramework.AbilityClassDef Name="JJK_CursedTechniqueClassBase" Abstract="True">
+    <abilityResource>JJK_CursedEnergy</abilityResource>
+    <unlockedByDefault>false</unlockedByDefault>
+    <maxLevel>20</maxLevel>
+    <castTimeMultiplierStat>JJK_CTCastTimeMultiplier</castTimeMultiplierStat>
+    <damageMultiplierStat>JJK_CTOutput</damageMultiplierStat>
+    <cooldownTicksMultiplierStat>JJK_CTCooldownMultiplier</cooldownTicksMultiplierStat>
+  </TaranMagicFramework.AbilityClassDef>
+
+  <TaranMagicFramework.AbilityClassDef ParentName="JJK_CursedTechniqueClassBase">
+    <defName>JJK_CursedTechniques</defName>
+    <label>cursed technique</label>
+    <!-- Grade-driven model (mirrors the Naruto Taijutsu class, whose level is
+         bound to the Melee skill). This class's LEVEL is bound to the pawn's
+         sorcerer grade (0 = Grade 4 ... 5 = Calamity) by Patch_AbilityClass_Init
+         / GameComponent_JJK. Higher-grade moves gate on acquireRequirement >
+         minLevel. The TMF XP system is disabled because grade XP is tracked by
+         GameComponent_JJK instead; stat scaling (reserves, output, regen) comes
+         from the JJK_SorcererGrade hediff. -->
+    <usesXPSystem>false</usesXPSystem>
+    <maxLevel>6</maxLevel>
+    <!-- Per-technique trees are registered here as the CT library grows. -->
+    <abilityTrees>
+      <li>JJK_CT_DisasterFlames</li>
+      <li>JJK_CT_BloodManipulation</li>
+      <li>JJK_CT_Shrine</li>
+      <li>JJK_CT_DisasterTides</li>
+      <li>JJK_CT_DisasterPlants</li>
+      <li>JJK_CT_TenShadows</li>
+      <li>JJK_CT_RCT</li>
+      <li>JJK_CT_Limitless</li>
+      <li>JJK_CT_CursedSpeech</li>
+      <li>JJK_CT_StrawDoll</li>
+      <li>JJK_CT_Ratio</li>
+      <li>JJK_CT_BoogieWoogie</li>
+      <li>JJK_CT_IdleTransfiguration</li>
+      <li>JJK_CT_Projection</li>
+      <li>JJK_CT_StarRage</li>
+      <li>JJK_CT_SpiritManipulation</li>
+      <li>JJK_CT_IceFormation</li>
+      <li>JJK_CT_NewShadowStyle</li>
+      <li>JJK_CT_Amber</li>
+      <li>JJK_CT_AuspiciousBeasts</li>
+      <li>JJK_CT_BlackBird</li>
+      <li>JJK_CT_DeadlySentencing</li>
+      <li>JJK_CT_PuppetManipulation</li>
+      <li>JJK_CT_Extinguishment</li>
+      <li>JJK_CT_Copy</li>
+      <li>JJK_CT_Pachinko</li>
+      <li>JJK_CT_Antigravity</li>
+      <li>JJK_CT_LoveRendezvous</li>
+      <li>JJK_CT_Inverse</li>
+      <li>JJK_CT_ContractualRecreation</li>
+      <li>JJK_CT_SoloForbiddenArea</li>
+      <li>JJK_CT_SkyManipulation</li>
+      <li>JJK_CT_Construction</li>
+      <li>JJK_Domain_SimpleTree</li>
+      <!-- The other two anti-domain counters (Abilities_AntiDomain.xml). -->
+      <li>JJK_AntiDomain_AmplificationTree</li>
+      <li>JJK_AntiDomain_FallingBlossomTree</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityClassDef>
+
+  <!-- Abstract bases for individual technique moves / tiers. -->
+  <TaranMagicFramework.AbilityDef Name="JJK_AbilityBase" Abstract="True">
+    <abilityModGroup>JJK_RimKaisen</abilityModGroup>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef Name="JJK_AbilityTierBase" Abstract="True">
+    <castDurationTicks>120</castDurationTicks>
+    <autoGain>true</autoGain>
+    <jobDef>TMF_CastAbility</jobDef>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

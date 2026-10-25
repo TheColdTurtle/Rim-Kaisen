@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Mod-exclusive sorcerer apparel (Section 28). Crafted at the Cursed       -->
+  <!-- Apparel Bench from cursed materials, these carry deeper enchantment than  -->
+  <!-- vanilla apparel merely stuffed with the same materials: their buffs are   -->
+  <!-- expressed as equippedStatOffsets on the cursed-energy stats (reserve,     -->
+  <!-- regeneration, CT output).                                                 -->
+  <!-- ===================================================================== -->
+
+  <ThingDef Name="JJK_CursedApparelBase" ParentName="ApparelBase" Abstract="True">
+    <techLevel>Industrial</techLevel>
+    <tradeTags>
+      <li>JJK_CursedApparel</li>
+    </tradeTags>
+    <thingCategories>
+      <li>Apparel</li>
+    </thingCategories>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Tailor</effectWorking>
+      <soundWorking>Recipe_Tailor</soundWorking>
+      <recipeUsers>
+        <li>JJK_CursedApparelBench</li>
+      </recipeUsers>
+      <researchPrerequisite>JJK_CursedToolForging</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+      <displayPriority>500</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- ======================= School uniforms =========================== -->
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_TokyoUniform</defName>
+    <label>Tokyo High uniform</label>
+    <description>The dark uniform of Tokyo Jujutsu High. Woven from cursed cloth, it quickens the wearer's cursed energy recovery and broadens their reserve.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/TokyoUniform</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>420</MarketValue>
+      <Mass>1.2</Mass>
+      <WorkToMake>1800</WorkToMake>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
+      <Insulation_Cold>16</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedCloth>35</JJK_CursedCloth>
+      <Cloth>20</Cloth>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.15</JJK_CursedEnergyRegenRateMultiplier>
+      <JJK_MaxCursedEnergy>20</JJK_MaxCursedEnergy>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/TokyoUniform_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_KyotoUniform</defName>
+    <label>Kyoto High uniform</label>
+    <description>The uniform of Kyoto Jujutsu High. Functionally the twin of its Tokyo rival's - cursed-cloth weave that speeds cursed energy recovery and deepens the reserve.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/KyotoUniform</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>420</MarketValue>
+      <Mass>1.2</Mass>
+      <WorkToMake>1800</WorkToMake>
+      <ArmorRating_Sharp>0.10</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.06</ArmorRating_Blunt>
+      <Insulation_Cold>16</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedCloth>35</JJK_CursedCloth>
+      <Cloth>20</Cloth>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.15</JJK_CursedEnergyRegenRateMultiplier>
+      <JJK_MaxCursedEnergy>20</JJK_MaxCursedEnergy>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/KyotoUniform_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_SorcererCap</defName>
+    <label>sorcerer cap</label>
+    <description>A light cursed-cloth cap that focuses the wearer's cursed energy, marginally sharpening their cursed technique output.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/SorcererCap</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>160</MarketValue>
+      <Mass>0.3</Mass>
+      <WorkToMake>600</WorkToMake>
+      <Insulation_Cold>4</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedCloth>10</JJK_CursedCloth>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CTOutput>0.05</JJK_CTOutput>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/SorcererCap_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <!-- ========================= Combat apparel ========================== -->
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_CursedRobe</defName>
+    <label>cursed robe</label>
+    <description>A flowing caster's robe woven entirely from cursed cloth. It greatly accelerates cursed energy recovery and broadens the reserve - the preferred garment of a back-line technique user.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/CursedRobe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>700</MarketValue>
+      <Mass>1.6</Mass>
+      <WorkToMake>2400</WorkToMake>
+      <ArmorRating_Sharp>0.14</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.08</ArmorRating_Blunt>
+      <Insulation_Cold>22</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedCloth>50</JJK_CursedCloth>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.25</JJK_CursedEnergyRegenRateMultiplier>
+      <JJK_MaxCursedEnergy>40</JJK_MaxCursedEnergy>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/CursedRobe_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_CursedVest</defName>
+    <label>cursed vest</label>
+    <description>A light cursed-leather combat vest. Standard mid-game sorcerer kit: solid protection that still leaves the cursed energy flowing freely.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/CursedVest</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>620</MarketValue>
+      <Mass>2.2</Mass>
+      <WorkToMake>2200</WorkToMake>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+      <Insulation_Cold>10</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedLeather>35</JJK_CursedLeather>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.10</JJK_CursedEnergyRegenRateMultiplier>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Shoulders</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Middle</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/CursedVest_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_CursedCoat</defName>
+    <label>cursed coat</label>
+    <description>A heavy cursed-ferrite-reinforced coat for frontline sorcerers. Heavy protection that still permits steady cursed energy recovery.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/CursedCoat</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1300</MarketValue>
+      <Mass>5.0</Mass>
+      <WorkToMake>4000</WorkToMake>
+      <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+      <Insulation_Cold>26</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedBioFerrite>20</JJK_CursedBioFerrite>
+      <JJK_CursedCloth>30</JJK_CursedCloth>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.10</JJK_CursedEnergyRegenRateMultiplier>
+    </equippedStatOffsets>
+    <recipeMaker>
+      <researchPrerequisite>JJK_AdvancedCursedMaterials</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <apparel>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Shell</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/CursedCoat_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_CursedHelmet</defName>
+    <label>cursed helmet</label>
+    <description>A cursed-steel helmet. Solid head protection, faintly warded against the disorienting pressure of a domain's sure-hit.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/CursedHelmet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>360</MarketValue>
+      <Mass>1.4</Mass>
+      <WorkToMake>1800</WorkToMake>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <Insulation_Cold>4</Insulation_Cold>
+    </statBases>
+    <costList>
+      <JJK_CursedSteel>15</JJK_CursedSteel>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_DomainSureHitResist>0.15</JJK_DomainSureHitResist>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/CursedHelmet_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_SixEyesCover</defName>
+    <label>six eyes cover</label>
+    <description>A blindfold of cursed cloth worn over the eyes. It blocks all ordinary sight - an ordinary pawn who wears it is simply blind. A Six Eyes bearer, whose perception flows from cursed energy rather than light, loses almost nothing.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/SixEyesCover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <Mass>0.2</Mass>
+      <WorkToMake>600</WorkToMake>
+    </statBases>
+    <costList>
+      <JJK_CursedCloth>8</JJK_CursedCloth>
+    </costList>
+    <comps>
+      <!-- Removes 100% of ordinary eyesight while worn (JJK_Blindfolded). The
+           Six Eyes ocular organs (+150% sight each) more than cover the loss. -->
+      <li Class="JJKMod.CompProperties_EquippedHediff">
+        <hediff>JJK_Blindfolded</hediff>
+      </li>
+    </comps>
+    <apparel>
+      <bodyPartGroups>
+        <li>Eyes</li>
+      </bodyPartGroups>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/SixEyesCover_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+  <!-- Top-tier endgame caster belt. -->
+  <ThingDef ParentName="JJK_CursedApparelBase">
+    <defName>JJK_SorcerersSash</defName>
+    <label>sorcerer's sash</label>
+    <description>A master-crafted cursed-devilstrand sash worn at the waist, saturated with refined cursed energy. The premier endgame caster item: it pours cursed energy back into the wearer and markedly amplifies their cursed technique output.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/CursedApparel/SorcerersSash</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1900</MarketValue>
+      <Mass>0.6</Mass>
+      <WorkToMake>12000</WorkToMake>
+    </statBases>
+    <costList>
+      <JJK_CursedDevilstrand>75</JJK_CursedDevilstrand>
+      <JJK_CursedResidue>30</JJK_CursedResidue>
+    </costList>
+    <equippedStatOffsets>
+      <JJK_CursedEnergyRegenRateMultiplier>0.40</JJK_CursedEnergyRegenRateMultiplier>
+      <JJK_CTOutput>0.25</JJK_CTOutput>
+      <JJK_MaxCursedEnergy>50</JJK_MaxCursedEnergy>
+    </equippedStatOffsets>
+    <recipeMaker>
+      <researchPrerequisite>JJK_AdvancedCursedMaterials</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <apparel>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>JJK_SorcererApparel</li>
+      </tags>
+      <wornGraphicPath>Things/Item/Equipment/CursedApparel/SorcerersSash_Worn</wornGraphicPath>
+    </apparel>
+  </ThingDef>
+
+</Defs>

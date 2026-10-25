@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Base humanlike pawnkind. Pawns generate as baseliners (no sorcerer
+       xenotype). The jujutsu-school and curse-user kinds below carry a
+       PawnKindSorcererExtension so they reliably become sorcerers (baseliner +
+       reserve gene + technique) at their grade tier; ordinary wild pawns only
+       rarely roll a reserve (JJK_Utils.TryRollCursedGenes). -->
+  <PawnKindDef Abstract="True" Name="JJK_HumanlikeBase">
+    <race>Human</race>
+    <isFighter>true</isFighter>
+    <combatEnhancingDrugsChance>0</combatEnhancingDrugsChance>
+    <initialResistanceRange>12~22</initialResistanceRange>
+    <initialWillRange>2~5</initialWillRange>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+  </PawnKindDef>
+
+  <!-- ===================== Tokyo / Kyoto High ===================== -->
+
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_SorcererApprentice</defName>
+    <label>sorcerer apprentice</label>
+    <defaultFactionType>JJK_TokyoHigh</defaultFactionType>
+    <combatPower>70</combatPower>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_ShallowReserves</reserve>
+        <sorcererChance>0.9</sorcererChance>
+        <grade>Grade4</grade>
+      </li>
+    </modExtensions>
+    <apparelMoney>500~900</apparelMoney>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <!-- Floor must cover the cheapest MedievalMeleeAdvanced weapon (164.25) or the
+         apprentice can roll a budget it cannot spend and spawn weaponless. -->
+    <weaponMoney>170~400</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_Grade3Sorcerer</defName>
+    <label>grade 3 sorcerer</label>
+    <defaultFactionType>JJK_TokyoHigh</defaultFactionType>
+    <combatPower>120</combatPower>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_AverageReserves</reserve>
+        <sorcererChance>1.0</sorcererChance>
+        <grade>Grade3</grade>
+      </li>
+    </modExtensions>
+    <apparelMoney>800~1400</apparelMoney>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <weaponMoney>200~600</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_Grade1Sorcerer</defName>
+    <label>grade 1 sorcerer</label>
+    <defaultFactionType>JJK_TokyoHigh</defaultFactionType>
+    <combatPower>240</combatPower>
+    <!-- Faction.TryGenerateNewLeader only considers kinds flagged factionLeader that
+         appear in a Settlement pawnGroupMaker; without both, the school factions
+         generate no leader at all and the game logs "Faction leader ... is null". -->
+    <factionLeader>true</factionLeader>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_DeepReserves</reserve>
+        <sorcererChance>1.0</sorcererChance>
+        <grade>Grade1</grade>
+        <techniqueCount>2</techniqueCount>
+        <allowFlagshipTechniques>true</allowFlagshipTechniques>
+      </li>
+    </modExtensions>
+    <apparelMoney>1400~2400</apparelMoney>
+    <apparelTags>
+      <li>IndustrialAdvanced</li>
+    </apparelTags>
+    <weaponMoney>400~1000</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_SchoolTrader</defName>
+    <label>jujutsu quartermaster</label>
+    <defaultFactionType>JJK_TokyoHigh</defaultFactionType>
+    <combatPower>90</combatPower>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_AverageReserves</reserve>
+        <sorcererChance>0.85</sorcererChance>
+        <grade>Grade3</grade>
+      </li>
+    </modExtensions>
+    <trader>true</trader>
+    <apparelMoney>700~1200</apparelMoney>
+  </PawnKindDef>
+
+  <!-- ===================== Curse Users ===================== -->
+
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_CurseUserGrunt</defName>
+    <label>curse user</label>
+    <defaultFactionType>JJK_CurseUsers</defaultFactionType>
+    <combatPower>80</combatPower>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_AverageReserves</reserve>
+        <sorcererChance>0.85</sorcererChance>
+        <grade>Grade3</grade>
+      </li>
+    </modExtensions>
+    <apparelMoney>400~900</apparelMoney>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <weaponMoney>200~500</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_CurseUserElite</defName>
+    <label>elite curse user</label>
+    <defaultFactionType>JJK_CurseUsers</defaultFactionType>
+    <combatPower>260</combatPower>
+    <!-- Supplies the Curse Users' "cult leader" (see JJK_Grade1Sorcerer note). -->
+    <factionLeader>true</factionLeader>
+    <modExtensions>
+      <li Class="JJKMod.PawnKindSorcererExtension">
+        <reserve>JJK_DeepReserves</reserve>
+        <sorcererChance>1.0</sorcererChance>
+        <grade>Special</grade>
+        <techniqueCount>3</techniqueCount>
+        <allowFlagshipTechniques>true</allowFlagshipTechniques>
+      </li>
+    </modExtensions>
+    <apparelMoney>1400~2600</apparelMoney>
+    <apparelTags>
+      <li>IndustrialAdvanced</li>
+    </apparelTags>
+    <weaponMoney>400~1200</weaponMoney>
+    <weaponTags>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+  </PawnKindDef>
+
+</Defs>

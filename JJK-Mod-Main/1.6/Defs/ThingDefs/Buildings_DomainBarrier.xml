@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- The wall of a CLOSED Domain Expansion. Raised in a ring (molded around    -->
+  <!-- existing structures) by MapComponent_DomainManager when a closed domain    -->
+  <!-- opens, and destroyed when it collapses. It is a DOOR (thingClass           -->
+  <!-- DomainBarrierDoor) so the engine can make it passable for some pawns and   -->
+  <!-- not others natively: it only opens for a heavenly-restriction, no-cursed-  -->
+  <!-- energy sorcerer. For everyone else it is a sealed, sight- and projectile-  -->
+  <!-- blocking wall (fillPercent 1, closed). Indestructible (no hit points), not -->
+  <!-- deconstructable, and NOT player-buildable (no designationCategory) - it    -->
+  <!-- exists only while the domain holds. Defined from BuildingBase rather than  -->
+  <!-- DoorBase to avoid inheriting the buildable/stuffable door economy. Per-    -->
+  <!-- instance tint (CompColorable) is set to the technique's colour in code.    -->
+  <!-- ===================================================================== -->
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_DomainBarrier</defName>
+    <thingClass>JJKMod.DomainBarrierDoor</thingClass>
+    <label>domain barrier</label>
+    <description>A wall of manifested innate domain. Nothing crosses it - not bodies, not bullets, not sight - save a sorcerer bound by a heavenly restriction.</description>
+    <category>Building</category>
+    <altitudeLayer>DoorMoveable</altitudeLayer>
+    <fillPercent>1.0</fillPercent>
+    <useHitPoints>false</useHitPoints>
+    <selectable>false</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+    <rotatable>false</rotatable>
+    <blockWind>true</blockWind>
+    <blockLight>true</blockLight>
+    <holdsRoof>false</holdsRoof>
+    <statBases>
+      <DoorOpenSpeed>100</DoorOpenSpeed>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Building/DomainBarrier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <building>
+      <isInert>true</isInert>
+      <isEdifice>true</isEdifice>
+      <deconstructible>false</deconstructible>
+      <claimable>false</claimable>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <comps>
+      <li>
+        <compClass>CompColorable</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

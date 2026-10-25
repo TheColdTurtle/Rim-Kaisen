@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Flavor-only incident: a third-person plotting note from Kenjaku. Fired
+       on an MTB basis by StorytellerComp_Kenjaku. No mechanical effect. -->
+  <IncidentDef>
+    <defName>JJK_KenjakuFlavor</defName>
+    <label>a note from the dark</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>World</li>
+    </targetTags>
+    <workerClass>JJKMod.IncidentWorker_KenjakuFlavor</workerClass>
+    <pointsScaleable>false</pointsScaleable>
+  </IncidentDef>
+
+</Defs>

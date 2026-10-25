@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed Energy Reserve genes. Each sorcerer-capable pawn has exactly    -->
+  <!-- one. The gene sets JJK_MaxCursedEnergy (additive offset from 0) and    -->
+  <!-- forces the JJK_Sorcerer trait, which grants the JJK_CursedTechniques   -->
+  <!-- ability class (and thus the cursed energy meter) through TMF.          -->
+  <!--                                                                        -->
+  <!-- Final Max CE = (reserve base) x (1 + 0.15 * grade tier), where the     -->
+  <!-- grade multiplier is applied by the JJK_SorcererGrade hediff.           -->
+  <!-- ===================================================================== -->
+
+  <GeneCategoryDef>
+    <defName>JJK_Sorcery</defName>
+    <label>jujutsu sorcery</label>
+    <displayPriorityInXenotype>900</displayPriorityInXenotype>
+  </GeneCategoryDef>
+
+  <GeneDef Name="JJK_ReserveGeneBase" Abstract="True">
+    <displayCategory>JJK_Sorcery</displayCategory>
+    <geneClass>JJKMod.Gene_CursedEnergyReserve</geneClass>
+    <exclusionTags>
+      <li>JJK_CursedEnergyReserve</li>
+    </exclusionTags>
+    <forcedTraits>
+      <li>
+        <def>JJK_Sorcerer</def>
+      </li>
+    </forcedTraits>
+    <selectionWeight>1</selectionWeight>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_ReserveGeneBase">
+    <defName>JJK_ShallowReserves</defName>
+    <label>shallow cursed reserves</label>
+    <description>This pawn possesses a small cursed energy reserve. Enough to manifest a cursed technique, but the well runs dry quickly. Rarer than an average reserve - the mark of a weaker-born sorcerer.</description>
+    <iconPath>UI/Icons/Genes/Reserve_Shallow</iconPath>
+    <displayOrderInCategory>10</displayOrderInCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <selectionWeight>0.25</selectionWeight>
+    <statOffsets>
+      <JJK_MaxCursedEnergy>60</JJK_MaxCursedEnergy>
+    </statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_ReserveGeneBase">
+    <defName>JJK_AverageReserves</defName>
+    <label>average cursed reserves</label>
+    <description>A solid cursed energy reserve typical of a trained sorcerer. Enough for sustained technique use in a fight. The most common reserve a sorcerer is born with.</description>
+    <iconPath>UI/Icons/Genes/Reserve_Average</iconPath>
+    <displayOrderInCategory>20</displayOrderInCategory>
+    <biostatCpx>3</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <selectionWeight>0.6</selectionWeight>
+    <statOffsets>
+      <JJK_MaxCursedEnergy>140</JJK_MaxCursedEnergy>
+    </statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_ReserveGeneBase">
+    <defName>JJK_DeepReserves</defName>
+    <label>deep cursed reserves</label>
+    <description>An uncommonly large cursed energy reserve. At Grade 1 or above, deep reserves are sufficient to sustain a Domain Expansion.</description>
+    <iconPath>UI/Icons/Genes/Reserve_Deep</iconPath>
+    <displayOrderInCategory>30</displayOrderInCategory>
+    <biostatCpx>4</biostatCpx>
+    <biostatMet>-3</biostatMet>
+    <selectionWeight>0.12</selectionWeight>
+    <statOffsets>
+      <JJK_MaxCursedEnergy>260</JJK_MaxCursedEnergy>
+    </statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_ReserveGeneBase">
+    <defName>JJK_BottomlessReserves</defName>
+    <label>bottomless cursed reserves</label>
+    <description>A cavernous cursed energy reserve. The mark of a special-grade-caliber sorcerer, able to throw out high-cost techniques and serial domains.</description>
+    <iconPath>UI/Icons/Genes/Reserve_Bottomless</iconPath>
+    <displayOrderInCategory>40</displayOrderInCategory>
+    <biostatCpx>6</biostatCpx>
+    <biostatMet>-4</biostatMet>
+    <selectionWeight>0.03</selectionWeight>
+    <statOffsets>
+      <JJK_MaxCursedEnergy>450</JJK_MaxCursedEnergy>
+    </statOffsets>
+  </GeneDef>
+
+  <GeneDef ParentName="JJK_ReserveGeneBase">
+    <defName>JJK_AbyssalReserves</defName>
+    <label>abyssal cursed reserves</label>
+    <description>A near-infinite well of cursed energy, paired only with the Six Eyes. Archite-tier. Cannot occur naturally; obtained only through quest paths.</description>
+    <iconPath>UI/Icons/Genes/Reserve_Abyssal</iconPath>
+    <displayOrderInCategory>50</displayOrderInCategory>
+    <biostatCpx>8</biostatCpx>
+    <biostatMet>-5</biostatMet>
+    <biostatArc>1</biostatArc>
+    <selectionWeight>0</selectionWeight>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <statOffsets>
+      <JJK_MaxCursedEnergy>700</JJK_MaxCursedEnergy>
+    </statOffsets>
+  </GeneDef>
+
+</Defs>

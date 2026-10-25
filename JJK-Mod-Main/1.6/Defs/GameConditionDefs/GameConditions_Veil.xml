@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- The Veil (帳). A curtain dropped over the area: the sky darkens, and for as
+       long as it stands cursed spirits keep pushing in. Driven by
+       JJKMod.GameCondition_Veil, which spawns one modest wave per in-game hour. -->
+  <GameConditionDef>
+    <defName>JJK_VeilCondition</defName>
+    <conditionClass>JJKMod.GameCondition_Veil</conditionClass>
+    <label>veil</label>
+    <description>A curtain has been drawn over this place. The sky above has gone the colour of a bruise, the world outside cannot see in - and cursed spirits, sensing somewhere sealed off from help, keep pressing through. It will lift on its own, eventually.</description>
+    <endMessage>The veil lifts. The sky returns to its normal colour.</endMessage>
+    <preventRain>true</preventRain>
+    <canBePermanent>false</canBePermanent>
+  </GameConditionDef>
+
+</Defs>

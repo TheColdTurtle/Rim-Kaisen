@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_ManualReader>Requires an undrafted, conscious player sorcerer who is not in a mental state.</JJK_ManualReader>
+  <JJK_ManualRest>More study will be useful in {0}.</JJK_ManualRest>
+  <JJK_ManualGradeCap>Grade manuals cannot help Special Grade or Calamity sorcerers.</JJK_ManualGradeCap>
+  <JJK_ManualGradeUsed>Already studied a grade manual at this grade.</JJK_ManualGradeUsed>
+  <JJK_ManualNoTechnique>No eligible owned innate technique. Each technique benefits from at most three mastery manuals.</JJK_ManualNoTechnique>
+  <JJK_ManualStudied>{0} finished studying the manual.</JJK_ManualStudied>
+  <JJK_ManualCannot>Cannot study: {0}</JJK_ManualCannot>
+  <JJK_ManualStudy>Study {0}</JJK_ManualStudy>
+  <JJK_ManualChoose>Choose an innate technique you already possess. The number shown is the mastery XP gained. Studying takes 30 seconds and consumes the manual on completion.</JJK_ManualChoose>
+  <JJK_TrialOpen>Promotion trials</JJK_TrialOpen>
+  <JJK_TrialTitle>Promotion trial: {0}</JJK_TrialTitle>
+  <JJK_TrialCandidateInvalid>Requires a conscious free colonist sorcerer on a home map, outside a mental state.</JJK_TrialCandidateInvalid>
+  <JJK_TrialGradeCap>School trials are available from Grade 4 through Grade 1.</JJK_TrialGradeCap>
+  <JJK_TrialAlreadyPassed>Already passed a trial at this grade.</JJK_TrialAlreadyPassed>
+  <JJK_TrialCooldown>May attempt another trial in {0}.</JJK_TrialCooldown>
+  <JJK_TrialActive>This sorcerer already has an unfinished trial.</JJK_TrialActive>
+  <JJK_TrialSchoolUnavailable>School unavailable: requires friendly relations, sufficient standing, no unfinished school assignment, and no school cooldown. Grade 2 requires 20 standing; Grade 1 requires 50.</JJK_TrialSchoolUnavailable>
+  <JJK_TrialDescription>School promotion trials test one candidate against a grade-scaled curse pack. Allies may help, but the candidate must damage at least two assigned enemies (or every enemy if fewer spawn). Their bonded shikigami count. Defeat the whole pack, then claim the reward at headquarters. The candidate must remain alive, standing, on the trial map, and in your faction until claiming. Three-day time limit. One successful trial per starting grade, shared across schools; five days between attempts. Rewards develop the candidate but do not guarantee promotion or grant innate techniques.</JJK_TrialDescription>
+  <JJK_TrialReward>Reward: {0} base grade XP to this candidate, one {1}, +{2} school standing, and +5 goodwill. Threat strength increases with the candidate's grade.</JJK_TrialReward>
+  <JJK_TrialBegin>Begin promotion trial</JJK_TrialBegin>
+  <JJK_TrialConfirm>Begin a promotion trial for {0}? A hostile curse pack will enter this map immediately. The candidate must participate and remain standing here through reward collection. Failure costs five school standing and starts the five-day attempt cooldown.</JJK_TrialConfirm>
+  <JJK_TrialProgress>Candidate: {0}. Personally engaged: {1}/{2} distinct assigned enemies.</JJK_TrialProgress>
+  <JJK_EncounterAmbush>Curse ambush forming</JJK_EncounterAmbush>
+  <JJK_EncounterAmbushDesc>Cursed energy is gathering near {0}, outside the colony's home area. Hostile spirits will manifest at the marked location in ten seconds. Move away or prepare an interception.</JJK_EncounterAmbushDesc>
+  <JJK_EncounterStalker>A curse is stalking someone</JJK_EncounterStalker>
+  <JJK_EncounterStalkerDesc>A curse has selected {0}. It approaches before attacking after thirty seconds, when wounded, or when within six tiles. Bring two other conscious, calm colonists within six tiles of the target before it commits to drive it away. Once it attacks, escorts will no longer deter it.</JJK_EncounterStalkerDesc>
+  <JJK_EncounterMiasma>Cursed miasma forming</JJK_EncounterMiasma>
+  <JJK_EncounterMiasmaDesc>A cursed nexus is forming near {0}. In ten seconds it will manifest with a small guard. Its six-tile field causes pain and slows living creatures in line of sight. Destroy the source, take cover, or avoid the field until it dissipates after one day. Cursed spirits and constructed cursed corpses are immune.</JJK_EncounterMiasmaDesc>
+  <JJK_StalkerRetreat>The stalking curse withdraws.</JJK_StalkerRetreat>
+  <JJK_StalkerLabel>Stalking · {0}</JJK_StalkerLabel>
+  <JJK_MiasmaLabel>Cursed miasma · destroy source</JJK_MiasmaLabel>
+  <JJK_EncounterForming>{0} · {1}</JJK_EncounterForming>
+</LanguageData>

@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Projectiles for the cursed techniques. Single-target projectiles use     -->
+  <!-- TMF's ability-bullet base (TMF_BulletAbility_Base). Area-of-effect       -->
+  <!-- projectiles use vanilla Projectile_Explosive with an explosionRadius.     -->
+  <!-- Textures reuse vanilla projectile art (tinted) so everything is visible   -->
+  <!-- without custom assets.                                                    -->
+  <!-- ===================================================================== -->
+
+  <!-- Shared abstract for AoE cursed projectiles. -->
+  <ThingDef ParentName="BaseBullet" Name="JJK_ExplosiveProjectileBase" Abstract="True">
+    <thingClass>Projectile_Explosive</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <!-- Cursed technique AoE attacks are not grenade-style explosions; suppress
+         the camera shake. Merged into each concrete projectile's properties. -->
+    <projectile>
+      <screenShakeFactor>0</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================ Disaster Flames ======================== -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_DisasterFlames</defName>
+    <label>disaster flames</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1.0, 0.47, 0.12)</color>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>34</damageAmountBase>
+      <speed>55</speed>
+      <arcHeightFactor>0.2</arcHeightFactor>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_LavaLaser</defName>
+    <label>lava laser</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1.0, 0.30, 0.05)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>28</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <speed>110</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_EmberBurst</defName>
+    <label>ember burst</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1.0, 0.40, 0.10)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>32</damageAmountBase>
+      <explosionRadius>3.4</explosionRadius>
+      <speed>48</speed>
+      <arcHeightFactor>0.3</arcHeightFactor>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================ Blood Manipulation ===================== -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_PiercingBlood</defName>
+    <label>piercing blood</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.55, 0.04, 0.08)</color>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>42</damageAmountBase>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <speed>120</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_SlicingExorcism</defName>
+    <label>slicing exorcism</label>
+    <graphicData>
+      <texPath>Things/Projectile/Spark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.70, 0.05, 0.12)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>26</damageAmountBase>
+      <armorPenetrationBase>0.20</armorPenetrationBase>
+      <explosionRadius>2.6</explosionRadius>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_BloodEdge</defName>
+    <label>blood edge</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.60, 0.03, 0.10)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>32</damageAmountBase>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <explosionRadius>3.0</explosionRadius>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================== Shrine =============================== -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_Dismantle</defName>
+    <label>dismantle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Spark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.86, 0.16, 0.16)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <armorPenetrationBase>0.45</armorPenetrationBase>
+      <speed>85</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_Cleave</defName>
+    <label>cleave</label>
+    <graphicData>
+      <texPath>Things/Projectile/Spark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.95, 0.20, 0.20)</color>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>58</damageAmountBase>
+      <armorPenetrationBase>0.60</armorPenetrationBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_DismantleAOE</defName>
+    <label>dismantle</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.86, 0.16, 0.16)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>28</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <explosionRadius>3.0</explosionRadius>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================ Disaster Tides ========================= -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_Tides</defName>
+    <label>disaster tides</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.20, 0.45, 0.85)</color>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>34</damageAmountBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_DeathSwarm</defName>
+    <label>death swarm</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.15, 0.40, 0.80)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <explosionRadius>3.2</explosionRadius>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================ Disaster Plants ======================== -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_Roots</defName>
+    <label>roots</label>
+    <graphicData>
+      <texPath>Things/Projectile/Spark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.30, 0.55, 0.18)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stab</damageDef>
+      <damageAmountBase>38</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ===================== Shikigami natural ranged attacks ============= -->
+
+  <!-- Nue: a bolt of cursed lightning. -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_NueLightning</defName>
+    <label>cursed lightning</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.55, 0.75, 1.0)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <speed>130</speed>
+      <stoppingPower>0.5</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <!-- Toad: a long, lashing tongue. -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_ToadTongue</defName>
+    <label>tongue</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.75, 0.45, 0.5)</color>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <speed>45</speed>
+      <stoppingPower>1.5</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_HugeRoots</defName>
+    <label>huge roots</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.28, 0.50, 0.16)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stab</damageDef>
+      <damageAmountBase>36</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <explosionRadius>2.6</explosionRadius>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Cursed Speech has no projectiles: the words land instantly via custom
+       abilities (Ability_SpeechDontMove / BlastAway / Crush) so a moving target
+       cannot dodge a spoken command. -->
+
+  <!-- ========================= Straw Doll Technique ====================== -->
+
+  <!-- A single cursed nail: little damage, but embeds a nail (Projectile_Nail).
+       Nail Volley fires three of these per cast. -->
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_StrawNail</defName>
+    <thingClass>JJKMod.Projectile_Nail</thingClass>
+    <label>cursed nail</label>
+    <modExtensions>
+      <li Class="JJKMod.NailProjectileExtension">
+        <nails>1</nails>
+      </li>
+    </modExtensions>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.80, 0.55, 0.20)</color>
+      <drawSize>0.9</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stab</damageDef>
+      <damageAmountBase>4</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Scattering nail burst: small explosion that embeds nails in all caught
+       (Projectile_NailBurst applies nails to pawns in the blast). -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_NailBurst</defName>
+    <thingClass>JJKMod.Projectile_NailBurst</thingClass>
+    <label>nail scatter</label>
+    <modExtensions>
+      <li Class="JJKMod.NailProjectileExtension">
+        <nails>1</nails>
+      </li>
+    </modExtensions>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.80, 0.55, 0.20)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stab</damageDef>
+      <damageAmountBase>4</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <explosionRadius>2.8</explosionRadius>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Maximum: Meteor - Jogo's ultimate. A slow, arcing meteor with a huge blast. -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_MaximumMeteor</defName>
+    <label>maximum: meteor</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1.0, 0.35, 0.05)</color>
+      <drawSize>2.2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>60</damageAmountBase>
+      <explosionRadius>4.8</explosionRadius>
+      <speed>32</speed>
+      <arcHeightFactor>0.8</arcHeightFactor>
+      <!-- A meteor SHOULD shake the screen. -->
+      <screenShakeFactor>1</screenShakeFactor>
+    </projectile>
+  </ThingDef>
+
+  <!-- Divine Flame (Shrine): Sukuna's fire arrow. -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_DivineFlame</defName>
+    <label>divine flame</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1.0, 0.25, 0.10)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+      <damageAmountBase>45</damageAmountBase>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <explosionRadius>2.2</explosionRadius>
+      <speed>95</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Supernova (Blood Manipulation): detonating blood sphere. -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_Supernova</defName>
+    <label>supernova</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.65, 0.05, 0.12)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Cut</damageDef>
+      <damageAmountBase>35</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <explosionRadius>3.2</explosionRadius>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================= Star Rage ============================= -->
+
+  <!-- Virtual Mass Blow: short-range single strike with meteoric weight. -->
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_StarRage</defName>
+    <label>virtual mass blow</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.95, 0.90, 0.60)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>55</damageAmountBase>
+      <armorPenetrationBase>0.70</armorPenetrationBase>
+      <stoppingPower>3.0</stoppingPower>
+      <speed>110</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Star Impact: meteoric area slam. -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_StarImpact</defName>
+    <label>star impact</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(1.0, 0.85, 0.50)</color>
+      <drawSize>1.6</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>45</damageAmountBase>
+      <armorPenetrationBase>0.50</armorPenetrationBase>
+      <explosionRadius>3.6</explosionRadius>
+      <stoppingPower>3.0</stoppingPower>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ======================= Black Bird Manipulation ===================== -->
+
+  <!-- Bird Strike: one diving crow per burst shot. -->
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_BirdStrike</defName>
+    <label>diving crow</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.2, 0.2, 0.28)</color>
+      <drawSize>1.0</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Scratch</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <speed>85</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ============================ Ice Formation ========================== -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_IceSpear</defName>
+    <label>ice spear</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.6, 0.85, 1.0)</color>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stab</damageDef>
+      <damageAmountBase>36</damageAmountBase>
+      <armorPenetrationBase>0.35</armorPenetrationBase>
+      <speed>95</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_IceFall</defName>
+    <label>ice fall</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.5, 0.8, 1.0)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stab</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <armorPenetrationBase>0.30</armorPenetrationBase>
+      <explosionRadius>3.2</explosionRadius>
+      <speed>55</speed>
+      <arcHeightFactor>0.5</arcHeightFactor>
+    </projectile>
+  </ThingDef>
+
+  <!-- ========================= Mythical Beast Amber ====================== -->
+
+  <ThingDef ParentName="TMF_BulletAbility_Base">
+    <defName>JJK_Proj_Lightning</defName>
+    <label>lightning discharge</label>
+    <graphicData>
+      <texPath>Things/Projectile/Spark</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.65, 0.8, 1.0)</color>
+      <drawSize>1.3</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>36</damageAmountBase>
+      <armorPenetrationBase>0.40</armorPenetrationBase>
+      <speed>140</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- Energy Wave: an AoE Stun burst (Stun damage = stun ticks, not HP). -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_EnergyWave</defName>
+    <label>energy wave</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.7, 0.85, 1.0)</color>
+      <drawSize>1.4</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Stun</damageDef>
+      <damageAmountBase>40</damageAmountBase>
+      <explosionRadius>3.0</explosionRadius>
+      <speed>45</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- ======================== Idle Transfiguration ======================= -->
+
+  <!-- Soul Hurl: a stored transfigured soul launched as a heavy projectile. -->
+  <ThingDef ParentName="JJK_ExplosiveProjectileBase">
+    <defName>JJK_Proj_SoulHurl</defName>
+    <label>hurled soul</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Big</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <color>(0.6, 0.3, 0.55)</color>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>Blunt</damageDef>
+      <damageAmountBase>55</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
+      <explosionRadius>2.4</explosionRadius>
+      <speed>48</speed>
+      <arcHeightFactor>0.25</arcHeightFactor>
+    </projectile>
+  </ThingDef>
+
+</Defs>

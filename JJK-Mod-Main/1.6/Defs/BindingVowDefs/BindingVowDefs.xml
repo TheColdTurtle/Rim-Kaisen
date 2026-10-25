@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Binding vows offered at the binding-vow altar. Each grants its hediff(s),
+       which carry both the boon and the price. More archetypes (conditional
+       buffs, technique sacrifices, Overtime bursts) can be added as new entries. -->
+
+  <!-- Permanent stat-trade vows -->
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_SacrificialOath</defName>
+    <label>sacrificial oath</label>
+    <description>Bind away a quarter of your maximum cursed energy and your bodily defenses (taking 20% more damage), in exchange for +40% cursed technique output and +30% cursed energy regeneration. Permanent and absolute.</description>
+    <grantHediffs>
+      <li>JJK_Vow_SacrificialOath</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_UnbreakableBody</defName>
+    <label>unbreakable body</label>
+    <description>Forsake the sharpness of your cursed technique (-35% output, -30% regeneration) to forge your body into a weapon: +55% melee damage, +20% move speed, and 28% less incoming damage. For sorcerers who would rather hit than channel.</description>
+    <grantHediffs>
+      <li>JJK_Vow_UnbreakableBody</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_Overflow</defName>
+    <label>overflow</label>
+    <description>Hold a vast reserve at the cost of all restraint: +55% maximum cursed energy and +25% output, but your techniques cost 45% more energy to use. A bottomless tank that drains fast.</description>
+    <grantHediffs>
+      <li>JJK_Vow_Overflow</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+
+  <!-- Conditional vows: power only while the condition holds -->
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_Desperation</defName>
+    <label>desperation</label>
+    <description>Swear that your full power awakens only at death's door. While below 40% health: +70% cursed technique output, +30% move speed, +40% regeneration. While healthy, no effect.</description>
+    <grantHediffs>
+      <li>JJK_Vow_Desperation</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_LoneSorcerer</defName>
+    <label>lone sorcerer</label>
+    <description>Swear to fight alone. While no ally stands within 12 tiles: +45% output, +20% move speed, 12% less incoming damage. The moment you are reinforced, the power fades.</description>
+    <grantHediffs>
+      <li>JJK_Vow_LoneSorcerer</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_Nightstalker</defName>
+    <label>nightstalker</label>
+    <description>Swear to hunt only by night. Between dusk and dawn: +40% output, +20% move speed, +25% regeneration. By day, no effect.</description>
+    <grantHediffs>
+      <li>JJK_Vow_Nightstalker</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+
+</Defs>

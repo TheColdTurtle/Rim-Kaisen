@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_Dossier>Sorcerer dossier</JJK_Dossier>
+  <JJK_DossierDesc>Inspect grades, technique mastery, healing progress, training plans, vows, vessel status and captured curses.</JJK_DossierDesc>
+  <JJK_Headquarters>Jujutsu headquarters</JJK_Headquarters>
+  <JJK_HeadquartersDesc>Manage sorcerers and accept school assignments. Local contracts bring threats to the current home map. Expedition contracts mark nearby world sites: travel by caravan, complete the objective and return home. Higher school reputation unlocks harder assignments.</JJK_HeadquartersDesc>
+  <JJK_Contracts>School contracts</JJK_Contracts>
+  <JJK_Reputation>Reputation {0}/100 — assignment tier {1}</JJK_Reputation>
+  <JJK_SchoolHostile>This school will not offer contracts while hostile.</JJK_SchoolHostile>
+  <JJK_OffersReturn>New assignments in {0}.</JJK_OffersReturn>
+  <JJK_ContractInfestation>Clear an infestation</JJK_ContractInfestation>
+  <JJK_ContractRescue>Rescue a sorcerer</JJK_ContractRescue>
+  <JJK_ContractRecovery>Recover a cursed object</JJK_ContractRecovery>
+  <JJK_ContractBoss>Defeat a Disaster Curse</JJK_ContractBoss>
+  <JJK_AcceptContract>Accept: {0} — tier {1}</JJK_AcceptContract>
+  <JJK_ContractConfirm>Accept this tier {0} assignment? Curses will appear near the edge of this home map immediately. You have three days to finish and claim payment. Payment: {2} × {1}. Successful contracts grant reputation and grade XP. Failure or abandonment costs 5 reputation. New assignments become available two days after settlement.</JJK_ContractConfirm>
+  <JJK_ContractAccepted>The school has identified cursed activity near your colony. Clear the marked threats and any additional objective within three days, then claim payment from the Jujutsu screen. Capturing a curse also counts as neutralizing it.</JJK_ContractAccepted>
+  <JJK_ContractStateActive>In progress</JJK_ContractStateActive>
+  <JJK_ContractStateReady>Ready to claim</JJK_ContractStateReady>
+  <JJK_ContractStateCompleted>Completed</JJK_ContractStateCompleted>
+  <JJK_ContractStateFailed>Failed</JJK_ContractStateFailed>
+  <JJK_ContractProgress>Threats remaining: {0}. Time to finish and claim: {1}.</JJK_ContractProgress>
+  <JJK_RescueObjective>Rescue the school sorcerer and allow them to recover from being downed inside your home area. They remain with their school.</JJK_RescueObjective>
+  <JJK_RecoveryObjective>Haul the marked talisman into your home area. Do not consume it before claiming the contract.</JJK_RecoveryObjective>
+  <JJK_LocateContract>Locate assignment</JJK_LocateContract>
+  <JJK_ClaimContract>Claim payment</JJK_ClaimContract>
+  <JJK_AbandonContract>Abandon assignment</JJK_AbandonContract>
+  <JJK_AbandonContractConfirm>Abandon this assignment for a loss of 5 school reputation? Existing threats remain on the map.</JJK_AbandonContractConfirm>
+  <JJK_ContractReady>Assignment complete: {0}. Claim payment in Jujutsu before the deadline.</JJK_ContractReady>
+  <JJK_ContractPaid>{0} paid {1}. School reputation and your sorcerers' grade experience increased.</JJK_ContractPaid>
+  <JJK_ContractFailed>A school assignment failed or was abandoned. Reputation decreased; surviving threats remain.</JJK_ContractFailed>
+  <JJK_GradeProgress>Grade: {0}. Grade XP: {1}. XP to next grade: {2}.</JJK_GradeProgress>
+  <JJK_GradeCap>XP ceiling reached; Calamity requires a separate unlock</JJK_GradeCap>
+  <JJK_EnergyProgress>Cursed energy: {0} / {1}</JJK_EnergyProgress>
+  <JJK_MasteryHeading>Technique mastery and domain requirements</JJK_MasteryHeading>
+  <JJK_MasteryProgress>{0} raw XP; {1} effective mastery</JJK_MasteryProgress>
+  <JJK_DomainProgress>requires {0}, {1} raw mastery XP and {2} maximum CE. Ability energy, cooldown and burnout restrictions still apply.</JJK_DomainProgress>
+  <JJK_HealingProgress>Soul-mender insight: {0}/{1}. Ordinary RCT and Medicine 8+ are required to earn insight by tending others.</JJK_HealingProgress>
+  <JJK_RCTProgress>RCT aptitude: {0}</JJK_RCTProgress>
+  <JJK_RCTKnown>known</JJK_RCTKnown>
+  <JJK_RCTUnknown>not yet awakened; rare qualifying combat recovery can reveal it</JJK_RCTUnknown>
+  <JJK_OpenRoster>Manage captured curses</JJK_OpenRoster>
+  <JJK_TrainingHeading>Practice and mentorship</JJK_TrainingHeading>
+  <JJK_TrainingDesc>Scheduled practice uses Research work at a training post during the selected two-hour window. Each completed session takes 1,800 ticks and costs 10 CE. At most 80 progress per day; mastery gains diminish with experience. An available assigned mentor attends the session. Mentors with 200 more mastery grant a bonus; known scroll-based skills can be taught at 100 lesson progress. Innate genes cannot be taught.</JJK_TrainingDesc>
+  <JJK_TrainingEnabled>Enable practice</JJK_TrainingEnabled>
+  <JJK_TrainingTime>Daily practice: {0}:00–{1}:00</JJK_TrainingTime>
+  <JJK_MentorChoice>Mentor: {0}</JJK_MentorChoice>
+  <JJK_NoMentor>solo practice</JJK_NoMentor>
+  <JJK_PracticeChoice>Practice or lesson: {0}</JJK_PracticeChoice>
+  <JJK_ChooseTechnique>choose a technique</JJK_ChooseTechnique>
+  <JJK_LearnFromMentor>Learn from mentor: {0}</JJK_LearnFromMentor>
+  <JJK_TrainingProgress>Today's progress: {0}/80. Current lesson: {1}/100.</JJK_TrainingProgress>
+  <JJK_PracticeNow>Start a practice session now</JJK_PracticeNow>
+  <JJK_NoTrainingPost>No reachable, unreserved training post.</JJK_NoTrainingPost>
+  <JJK_LessonComplete>{0} learned {1} through supervised practice.</JJK_LessonComplete>
+  <JJK_RosterCount>Captured curses: {0}/{1}</JJK_RosterCount>
+  <JJK_RosterDesc>Stored curses retain their identity, injuries and abilities. Time is suspended in storage. Choose the next release and which curses Uzumaki will permanently consume. Use the normal abilities to release, recapture or attack; selections spend nothing. If the owner dies, stored curses escape.</JJK_RosterDesc>
+  <JJK_UzumakiSelection>Uzumaki: {0} selected; estimated damage {1} before target defenses.</JJK_UzumakiSelection>
+  <JJK_SelectAllCurses>Include every stored curse in Uzumaki</JJK_SelectAllCurses>
+  <JJK_CurseMelee>Uses its natural melee attacks.</JJK_CurseMelee>
+  <JJK_CurseAbilities>Scripted attacks: {0}. Domain: {1}.</JJK_CurseAbilities>
+  <JJK_SacrificeThisCurse>Include in the next Uzumaki sacrifice</JJK_SacrificeThisCurse>
+  <JJK_ReleaseThisNext>Release this curse next</JJK_ReleaseThisNext>
+  <JJK_VesselStatus>Vessel state: {0}</JJK_VesselStatus>
+  <JJK_VesselPossessed>Sukuna is in control</JJK_VesselPossessed>
+  <JJK_VesselLoan>borrowed power — possession debt will follow</JJK_VesselLoan>
+  <JJK_VesselContained>suppressed for now</JJK_VesselContained>
+  <JJK_VesselDebt>possession debt waiting to be collected</JJK_VesselDebt>
+  <JJK_VesselDormant>dormant influence</JJK_VesselDormant>
+  <JJK_VesselOptions>Suppression talismans delay possession for one day but do not erase fingers or unpaid bargain debt. At 25% influence, spontaneous seizures become possible; their chance rises with influence.</JJK_VesselOptions>
+  <JJK_VesselBargain>Bargain for borrowed power</JJK_VesselBargain>
+  <JJK_VesselBargainConfirm>Accept 6,000 ticks of temporary Shrine access, a full CE reserve and 25% extra CT output? Influence permanently rises by 10 percentage points, and Sukuna demands a possession afterward. Suppression only postpones that debt. Once per day. Existing Shrine genes are retained.</JJK_VesselBargainConfirm>
+  <JJK_VesselBargainMade>Sukuna lends his power. His claim on the vessel has deepened.</JJK_VesselBargainMade>
+  <JJK_VesselSeized>Sukuna seizes the vessel</JJK_VesselSeized>
+  <JJK_VesselSeizedText>Sukuna has seized {0}. The vessel attacks indiscriminately until subdued or the seizure expires. At overwhelming influence, a crowded battlefield can provoke Malevolent Shrine.</JJK_VesselSeizedText>
+  <JJK_NoVessel>This pawn does not carry Sukuna's influence.</JJK_NoVessel>
+  <JJK_BossWarnEruption>{0} is preparing an eruption! Leave the marked circle.</JJK_BossWarnEruption>
+  <JJK_BossWarnRoots>{0} is raising roots! Leave the marked ground.</JJK_BossWarnRoots>
+  <JJK_BossWarnTide>{0} is drawing back a tide! Move sideways out of the marked lane.</JJK_BossWarnTide>
+  <JJK_BossWarnSoulTouch>{0} is reaching for a soul! Break away before the touch lands.</JJK_BossWarnSoulTouch>
+  <JJK_BossCharging>Committed attack in {0}. Leave the marked area; downing the caster interrupts it.</JJK_BossCharging>
+  <JJK_BossOpening>Recovery opening: stunned and taking 35% more damage.</JJK_BossOpening>
+  <JJK_ContractTier>Assignment tier: {0}</JJK_ContractTier>
+  <JJK_InspectCurse>Inspect this curse</JJK_InspectCurse>
+  <JJK_MenderAwakened>Soul mender awakened: outward healing and positive-energy exorcism are available.</JJK_MenderAwakened>
+  <JJK_InsightExpires>This recovery opportunity and its retry restriction expire in {0}.</JJK_InsightExpires>
+</LanguageData>

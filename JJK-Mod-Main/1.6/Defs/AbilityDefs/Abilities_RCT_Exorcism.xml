@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_PositiveEnergyOutput</defName>
+    <label>reverse cursed technique: exorcise</label>
+    <description>Discharge positive energy directly into a hostile cursed spirit at touch range. Deals 60 armor-ignoring burn damage before cursed technique output scaling. Costs 80 cursed energy. Only soul menders can project positive energy outside their own bodies. Cannot target humans, friendly curses, or ordinary animals.</description>
+    <uiPosition>(0.9, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ReverseCursedTechniqueOther</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_PositiveEnergyOutput</abilityClass>
+    <abilityTrees><li>JJK_CT_RCT</li></abilityTrees>
+    <abilityTiers><li>JJK_PositiveEnergyOutput_Tier1</li></abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_PositiveEnergyOutput_Tier1</defName>
+    <label>reverse cursed technique: exorcise</label>
+    <acquireRequirement><requiredTraits><li>JJK_SoulMender</li></requiredTraits></acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+      <canTargetAnimals>true</canTargetAnimals>
+    </targetingParameters>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+  </TaranMagicFramework.AbilityTierDef>
+</Defs>

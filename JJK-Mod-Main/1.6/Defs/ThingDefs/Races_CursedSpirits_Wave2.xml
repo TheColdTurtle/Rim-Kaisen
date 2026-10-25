@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Second wave of cursed spirits: specialist curses that vary the threat    -->
+  <!-- profile beyond the graded baseline. All inherit JJK_CursedSpiritRaceBase  -->
+  <!-- and enter the manifestation / corpse-spawn pools automatically via the    -->
+  <!-- CursedSpiritExtension marker.                                             -->
+  <!--   Winged Curse  - very fast, fragile skirmisher (grade 3 tier).           -->
+  <!--   Carapace Curse - slow, heavily armored siege-breaker (grade 2 tier).    -->
+  <!--   Finger Bearer  - special-grade mini-boss; rich residue when exorcised.  -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================== Winged Curse (fast skirmisher) ================ -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_Winged</defName>
+    <label>winged curse</label>
+    <description>A shrieking curse of stretched skin and wingbones that skims low over the ground. Fragile, but far too fast to outrun - it harries stragglers and the wounded.</description>
+    <statBases>
+      <MoveSpeed>7.8</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>talons</label>
+        <capacities><li>Scratch</li></capacities>
+        <power>11</power>
+        <cooldownTime>1.2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.3</chanceFactor>
+        <armorPenetration>0.1</armorPenetration>
+      </li>
+      <li>
+        <label>beak</label>
+        <capacities><li>Bite</li></capacities>
+        <power>9</power>
+        <cooldownTime>1.5</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>0.6</baseBodySize>
+      <baseHealthScale>0.7</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade3</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Carapace Curse (armored tank) ================= -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_Carapace</defName>
+    <label>carapace curse</label>
+    <description>A curse grown a shell of hardened cursed energy, plated like a beetle the size of a cow. Slow and relentless - ordinary gunfire barely marks the carapace.</description>
+    <statBases>
+      <MoveSpeed>3.2</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>mandibles</label>
+        <capacities><li>Bite</li></capacities>
+        <power>20</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.3</armorPenetration>
+      </li>
+      <li>
+        <label>carapace ram</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>16</power>
+        <cooldownTime>2.4</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.6</baseBodySize>
+      <baseHealthScale>2.4</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade2</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Finger Bearer (mini-boss) ===================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_FingerBearer</defName>
+    <label>finger bearer</label>
+    <description>A special-grade curse swollen with power from the relic it has swallowed - one of Sukuna's mummified fingers. Towering, tireless, and murderously strong: exorcising one demands a squad of sorcerers, but the finger it guarded is left behind along with a treasure of cursed residue.</description>
+    <statBases>
+      <MoveSpeed>4.4</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>crushing jaws</label>
+        <capacities><li>Bite</li></capacities>
+        <power>32</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.3</chanceFactor>
+        <armorPenetration>0.5</armorPenetration>
+      </li>
+      <li>
+        <label>massive limb</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>26</power>
+        <cooldownTime>2.3</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <armorPenetration>0.4</armorPenetration>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>2.4</baseBodySize>
+      <baseHealthScale>3.6</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Special</grade>
+        <residueOnExorcise>60</residueOnExorcise>
+        <!-- The relic it swallowed: exorcism frees the finger. -->
+        <bossDrop>JJK_SukunaFinger</bossDrop>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ============================ Pawnkinds ============================== -->
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Winged_Kind</defName>
+    <label>winged curse</label>
+    <race>JJK_Curse_Winged</race>
+    <combatPower>70</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Winged</texPath>
+          <drawSize>1.2</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.25, 0.25, 0.25)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Carapace_Kind</defName>
+    <label>carapace curse</label>
+    <race>JJK_Curse_Carapace</race>
+    <combatPower>200</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Carapace</texPath>
+          <drawSize>2.2</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.4, 0.4, 0.4)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_FingerBearer_Kind</defName>
+    <label>finger bearer</label>
+    <race>JJK_Curse_FingerBearer</race>
+    <combatPower>420</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/FingerBearer</texPath>
+          <drawSize>2.8</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.5, 0.5, 0.5)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

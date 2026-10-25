@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- JJK_Sorcerer is the keystone trait. It is force-added by every cursed  -->
+  <!-- energy reserve gene, and grants the JJK_CursedTechniques ability class  -->
+  <!-- (which gives the pawn a cursed energy meter) via TMF's AbilityExtension.-->
+  <!-- It is hidden from the normal trait UI / random generation.             -->
+  <!-- ===================================================================== -->
+
+  <TraitDef>
+    <defName>JJK_Sorcerer</defName>
+    <!-- commonality 0 is what actually keeps this out of random trait rolls; it is
+         force-added by the cursed energy reserve genes instead. (There is no
+         canGenerateOnPawnGeneration field on TraitDef - it was silently ignored.) -->
+    <commonality>0</commonality>
+    <degreeDatas>
+      <li>
+        <label>jujutsu sorcerer</label>
+        <description>{PAWN_nameDef} can perceive and manipulate cursed energy, the foundation of all jujutsu.</description>
+      </li>
+    </degreeDatas>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityClasses>
+          <li>JJK_CursedTechniques</li>
+        </abilityClasses>
+      </li>
+    </modExtensions>
+  </TraitDef>
+
+  <!-- Reverse Cursed Technique aptitude. Gates RCT healing and CT Reversal.
+       Rolled innately at pawn generation or rarely awakened after surviving
+       severe hostile-combat downing (RCTAwakeningUtil). An RCT pawn who spends enough time
+       tending other people's wounds can later awaken as a soul mender
+       (MenderInsightUtil, patched off TendUtility.DoTend). -->
+  <TraitDef>
+    <defName>JJK_RCT</defName>
+    <commonality>0.02</commonality>
+    <!-- A soul mender is a strictly greater RCT talent, and grants the same tree
+         - a pawn is one or the other, never both. The awakening swaps this trait
+         out for that one. -->
+    <conflictingTraits>
+      <li>JJK_SoulMender</li>
+    </conflictingTraits>
+    <degreeDatas>
+      <li>
+        <label>reverse cursed technique</label>
+        <description>{PAWN_nameDef} has learned to multiply two streams of cursed energy into a positive output, enabling Reverse Cursed Technique: self-healing and the reversal of cursed techniques.\n\nA sorcerer with this talent who spends long enough tending other people's wounds may one day understand a body that is not their own, and awaken as a soul mender - able to turn the healing outward. It takes real skill in medicine to learn anything from the work.</description>
+        <statOffsets>
+          <JJK_CursedEnergyRegenRateMultiplier>0.1</JJK_CursedEnergyRegenRateMultiplier>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <!-- Grants the Reverse Cursed Technique ability tree. The pawn still needs a
+         cursed energy reserve (the JJK_CursedTechniques class) to cast it. -->
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_RCT</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </TraitDef>
+
+  <!-- Soul mender: the rare sorcerer who can apply Reverse Cursed Technique to
+       SOMEONE ELSE'S body (the Shoko Ieiri gift). Far rarer than ordinary RCT.
+       Grants the same tree - a mender still heals themselves normally - and
+       unlocks the outward "mend" ability, which no other trait can reach.
+       No Violent work tag: this is the colony's doctor, not a fighter.
+       Two routes in: rolled at pawn generation, or awakened from JJK_RCT by
+       tending the wounded (MenderInsightUtil). -->
+  <TraitDef>
+    <defName>JJK_SoulMender</defName>
+    <commonality>0.008</commonality>
+    <conflictingTraits>
+      <li>JJK_RCT</li>
+    </conflictingTraits>
+    <degreeDatas>
+      <li>
+        <label>soul mender</label>
+        <description>{PAWN_nameDef} can turn reversed cursed energy outward, knitting another person's wounds shut with a touch - a gift so rare that most sorcerers never meet one. Reversing cursed energy inside a body that is not their own is far harder than mending themselves: it heals less and costs much more.\n\nSome are born with it. Others earn it, one tended wound at a time.</description>
+        <statOffsets>
+          <JJK_CursedEnergyRegenRateMultiplier>0.1</JJK_CursedEnergyRegenRateMultiplier>
+          <MedicalTendQuality>0.1</MedicalTendQuality>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+    <modExtensions>
+      <li Class="TaranMagicFramework.AbilityExtension">
+        <abilityTrees>
+          <li>JJK_CT_RCT</li>
+        </abilityTrees>
+        <countAsActive>true</countAsActive>
+      </li>
+    </modExtensions>
+  </TraitDef>
+
+  <!-- Flavor / social trait: a pawn unusually attuned to curses. -->
+  <TraitDef>
+    <defName>JJK_CurseBound</defName>
+    <commonality>0.04</commonality>
+    <degreeDatas>
+      <li>
+        <label>curse-bound</label>
+        <description>{PAWN_nameDef} draws cursed energy from negative emotion with unusual ease, but is unsettled by calm.</description>
+        <statOffsets>
+          <JJK_CursedEnergyRegenRateMultiplier>0.15</JJK_CursedEnergyRegenRateMultiplier>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+  <!-- Soul-sight: improves cursed technique output, the Mahito/Geto "observer". -->
+  <TraitDef>
+    <defName>JJK_SoulObserver</defName>
+    <commonality>0.03</commonality>
+    <degreeDatas>
+      <li>
+        <label>soul observer</label>
+        <description>{PAWN_nameDef} can perceive the shape of souls, sharpening every cursed technique they perform. Their awareness of their own soul lets them resist Idle Transfiguration - they cannot be transfigured.</description>
+        <statOffsets>
+          <JJK_CTOutput>0.1</JJK_CTOutput>
+        </statOffsets>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

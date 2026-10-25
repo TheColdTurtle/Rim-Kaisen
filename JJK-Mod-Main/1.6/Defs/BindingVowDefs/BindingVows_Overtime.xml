@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_Overtime</defName>
+    <label>overtime</label>
+    <description>Restrict your cursed technique output to 80% between 08:00 and 18:00 local time. Outside those hours, release the restriction for 120% output. A permanent binding vow inspired by Nanami. Uses the local clock, regardless of the pawn's work schedule. Occupies your single binding-vow slot.</description>
+    <grantHediffs><li>JJK_Vow_Overtime</li></grantHediffs>
+  </JJKMod.BindingVowDef>
+  <HediffDef>
+    <defName>JJK_Vow_Overtime</defName>
+    <label>binding vow: overtime</label>
+    <description>From 08:00 to 18:00 local time, technique output is multiplied by 0.80. At all other hours it is multiplied by 1.20. The work schedule does not change the vow's hours.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>0.01</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps><li Class="JJKMod.HediffCompProperties_BindingVowConditional"><condition>Overtime</condition></li></comps>
+    <stages>
+      <li><label>on the clock</label><statFactors><JJK_CTOutput>0.80</JJK_CTOutput></statFactors></li>
+      <li><minSeverity>0.5</minSeverity><label>overtime</label><statFactors><JJK_CTOutput>1.20</JJK_CTOutput></statFactors></li>
+    </stages>
+  </HediffDef>
+</Defs>

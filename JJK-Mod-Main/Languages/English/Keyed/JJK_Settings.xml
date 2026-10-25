@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_Settings_Overview>Settings apply to all colonies. Defaults preserve Rim-Kaisen's original balance. Hover over an option for details.</JJK_Settings_Overview>
+  <JJK_Settings_SectionProgression>Sorcerers and progression</JJK_Settings_SectionProgression>
+  <JJK_Settings_SectionCombat>Combat and cursed energy</JJK_Settings_SectionCombat>
+  <JJK_Settings_SectionCurses>Cursed spirits and threats</JJK_Settings_SectionCurses>
+  <JJK_Settings_SectionPresentation>Interface and effects</JJK_Settings_SectionPresentation>
+  <JJK_Settings_Reset>Reset all Rim-Kaisen settings to defaults</JJK_Settings_Reset>
+  <JJK_Settings_NaturalGeneChance>Natural cursed gene chance: {0}</JJK_Settings_NaturalGeneChance>
+  <JJK_Settings_NaturalGeneChance_Tip>Chance for a newly generated ordinary humanlike pawn to receive random sorcery or heavenly restriction. Default: 7%. Keeps the original reserve distribution and random technique selection. Does not change existing pawns, dedicated sorcerer pawn kinds, or xenotypes. Zero disables this random roll.</JJK_Settings_NaturalGeneChance_Tip>
+  <JJK_Settings_GradeXpFactor_Tip>Scales newly earned sorcerer grade XP. Default: 100%. Does not change accumulated XP, grade requirements, or the daily paid-cast allowance.</JJK_Settings_GradeXpFactor_Tip>
+  <JJK_Settings_MasteryXpFactor>Technique mastery XP gain: {0}</JJK_Settings_MasteryXpFactor>
+  <JJK_Settings_MasteryXpFactor_Tip>Scales new technique mastery from casting, kills, training, study and other mastery rewards for all sorcerers. Default: 100%. Rewards round to whole XP, with a minimum of one. Existing mastery, unlock requirements and practice limits are unchanged.</JJK_Settings_MasteryXpFactor_Tip>
+  <JJK_Settings_RCTAwakeningFactor>Near-death RCT awakening chance multiplier: {0}</JJK_Settings_RCTAwakeningFactor>
+  <JJK_Settings_RCTAwakeningFactor_Tip>Scales the chance to awaken Reverse Cursed Technique after surviving a qualifying severe hostile-combat downing. Default: 100% (5% chance, or 10% with RCT research). Zero prevents success for new opportunities. Existing near-death opportunities keep their saved chance; changing this option does not reroll them.</JJK_Settings_RCTAwakeningFactor_Tip>
+  <JJK_Settings_BlackFlashChanceFactor>Black Flash chance multiplier: {0}</JJK_Settings_BlackFlashChanceFactor>
+  <JJK_Settings_BlackFlashChanceFactor_Tip>Scales random Black Flash on successful player-sorcerer melee hits, including the low-mood bonus. Default: 100% (6% normally, 10% at low mood). Zero disables random Black Flash. Damage, energy restoration and scripted Black Flash effects are unchanged.</JJK_Settings_BlackFlashChanceFactor_Tip>
+  <JJK_Settings_Manifestations>Allow cursed spirit manifestation incidents</JJK_Settings_Manifestations>
+  <JJK_Settings_Manifestations_Tip>Allows ambient cursed spirit packs sent by storytellers, including Kenjaku's manifestation schemes. Default: on. Disabling also blocks queued manifestations when they execute. Corpse curses, quests, raids and already spawned spirits are separate.</JJK_Settings_Manifestations_Tip>
+  <JJK_Settings_DisasterIncidents>Allow disaster curse incidents</JJK_Settings_DisasterIncidents>
+  <JJK_Settings_DisasterIncidents_Tip>Allows random disaster curse boss arrivals and their escorts. Default: on. Disabling also blocks queued disaster arrivals when they execute. Does not remove existing bosses or disable expedition and contract bosses.</JJK_Settings_DisasterIncidents_Tip>
+  <JJK_Settings_CorpseCurseChanceFactor>Corpse curse chance multiplier: {0}</JJK_Settings_CorpseCurseChanceFactor>
+  <JJK_Settings_CorpseCurseChanceFactor_Tip>Scales the hourly chance of corpses creating curses after exceeding the corpse score threshold. Default: 100%. The original chance is capped at 40% before this multiplier; the final chance cannot exceed 100%.</JJK_Settings_CorpseCurseChanceFactor_Tip>
+  <JJK_Settings_CorpseCurseThreshold>Corpse curse score threshold: {0}</JJK_Settings_CorpseCurseThreshold>
+  <JJK_Settings_CorpseCurseThreshold_Tip>Corpse score must exceed this value before curses can form on a home map. Default: 8. Each exposed humanlike corpse counts as 1; each animal corpse as 0.15. Buried corpses do not count. Higher values make corpse curses less likely.</JJK_Settings_CorpseCurseThreshold_Tip>
+  <JJK_Settings_CorpseCurseCooldownDays>Minimum days between corpse curses: {0}</JJK_Settings_CorpseCurseCooldownDays>
+  <JJK_Settings_CorpseCurseCooldownDays_Tip>Cooldown after a successful corpse manifestation, in in-game days. Default: 0.75. Applied to future manifestations; an existing cooldown keeps its saved end time. Hourly checks and chance rolls can make the actual gap longer.</JJK_Settings_CorpseCurseCooldownDays_Tip>
+  <JJK_Settings_CurseThreatFactor>Ambient curse pack strength: {0}</JJK_Settings_CurseThreatFactor>
+  <JJK_Settings_CurseThreatFactor_Tip>Scales the threat points used for manifestation packs, corpse curses and disaster curse escorts. Default: 100%. Higher values can produce more or stronger spirits, subject to existing pack limits. Does not scale the disaster boss itself, quests, expeditions, faction raids or existing spirits.</JJK_Settings_CurseThreatFactor_Tip>
+  <JJK_Settings_ResidueDropFactor>Exorcism residue drops: {0}</JJK_Settings_ResidueDropFactor>
+  <JJK_Settings_ResidueDropFactor_Tip>Scales cursed residue dropped by future exorcisms. Default: 100%. Amounts round to whole items; zero disables residue drops. Boss technique remnants and other loot are unchanged.</JJK_Settings_ResidueDropFactor_Tip>
+  <JJK_Settings_GizmoSize_Tip>Size of cursed technique command buttons. Default: 100%. Reduce this to fit more commands on screen.</JJK_Settings_GizmoSize_Tip>
+  <JJK_Settings_CombatSounds_Tip>Play Rim-Kaisen's added combat sound cues. Default: on.</JJK_Settings_CombatSounds_Tip>
+  <JJK_Settings_CombatOverlays_Tip>Show Rim-Kaisen's combat boundaries and warning labels. Default: on. Hiding them can make incoming attacks harder to anticipate.</JJK_Settings_CombatOverlays_Tip>
+</LanguageData>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Marker hediffs for the two anti-domain counters. Both are read by
+       MapComponent_DomainManager; Domain Amplification is additionally read by
+       InfinityUtil.CanPierceInfinity. -->
+
+  <!-- Held open by the Ability_DomainAmplification toggle - deliberately NO
+       Disappears comp: it lasts exactly as long as the pawn can pay for it, and
+       the ability's Tick() removes it when the reserve runs dry or on a seal. -->
+  <HediffDef>
+    <defName>JJK_DomainAmplification</defName>
+    <label>domain amplification</label>
+    <description>This sorcerer is sheathed in a thin layer of their own domain. Cursed techniques are nullified where they touch it: hostile domain sure-hit cannot reach them, and their own strikes pass through a Limitless user's infinity. Holding it drains cursed energy continuously.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <label>amplified</label>
+        <!-- A body wrapped in its own domain shrugs off a little ordinary force too. -->
+        <statFactors>
+          <IncomingDamageFactor>0.9</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- A primed one-shot parry. The duration is the window you have to catch the
+       incoming domain in; MapComponent_DomainManager.TryConsumeFallingBlossom
+       removes it the moment it actually turns a sure-hit aside. -->
+  <HediffDef>
+    <defName>JJK_FallingBlossomEmotion</defName>
+    <label>falling blossom emotion</label>
+    <description>Cursed energy sits coiled on this sorcerer's skin, set to burst the instant a technique touches it. The next Domain Expansion sure-hit that would strike them is turned aside completely - and the parry shatters doing it.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900~900</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>primed</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

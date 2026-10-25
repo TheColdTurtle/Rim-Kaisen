@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed spirits (curses) - the monsters jujutsu sorcerers exorcise. Born -->
+  <!-- of negative emotion, they manifest as hostile manhunters (see            -->
+  <!-- IncidentWorker_CursedSpiritManifestation) and reinforce curse-user raids.-->
+  <!-- The CursedSpiritExtension marks them so cursed tools bite harder and they -->
+  <!-- dissipate into cursed residue when exorcised (HarmonyPatches.Pawn.Kill).  -->
+  <!-- All use a generic quadruped body; visuals are placeholders.              -->
+  <!-- ===================================================================== -->
+
+  <ThingDef Name="JJK_CursedSpiritRaceBase" ParentName="AnimalThingBase" Abstract="True">
+    <statBases>
+      <MarketValue>0</MarketValue>
+      <ComfyTemperatureMin>-80</ComfyTemperatureMin>
+      <ComfyTemperatureMax>80</ComfyTemperatureMax>
+      <Wildness>1.0</Wildness>
+      <FilthRate>0</FilthRate>
+      <CaravanRidingSpeedFactor>0</CaravanRidingSpeedFactor>
+    </statBases>
+    <tradeability>None</tradeability>
+    <race>
+      <body>QuadrupedAnimalWithPawsAndTail</body>
+      <baseHungerRate>0</baseHungerRate>
+      <foodType>CarnivoreAnimal</foodType>
+      <fleshType>EntityFlesh</fleshType>
+      <trainability>None</trainability>
+      <petness>0</petness>
+      <nuzzleMtbHours>-1</nuzzleMtbHours>
+      <manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>1.0</manhunterOnTameFailChance>
+      <needsRest>false</needsRest>
+      <hasGenders>false</hasGenders>
+      <lifeExpectancy>200</lifeExpectancy>
+      <intelligence>Animal</intelligence>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+    </race>
+  </ThingDef>
+
+  <!-- ===================== Grade 4 (weakest) ===================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_GradeFour</defName>
+    <label>grade 4 curse</label>
+    <description>A small, half-formed cursed spirit, barely more than a knot of malice and teeth. The weakest curses, but they swarm.</description>
+    <statBases>
+      <MoveSpeed>4.4</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities><li>Bite</li></capacities>
+        <power>8</power>
+        <cooldownTime>1.6</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>4</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>0.5</baseBodySize>
+      <baseHealthScale>0.7</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade4</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Grade 3 ===================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_GradeThree</defName>
+    <label>grade 3 curse</label>
+    <description>A fully manifested lesser curse, the size of a large dog and twice as vicious. A trained sorcerer handles one with ease; a civilian does not.</description>
+    <statBases>
+      <MoveSpeed>4.8</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities><li>Bite</li></capacities>
+        <power>13</power>
+        <cooldownTime>1.6</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.15</armorPenetration>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>9</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHealthScale>1.1</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade3</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Grade 2 ===================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_GradeTwo</defName>
+    <label>grade 2 curse</label>
+    <description>A heavy, malformed curse with thick cursed-energy hide. Dangerous enough that a lone grade-2 sorcerer is sent to exorcise it.</description>
+    <statBases>
+      <MoveSpeed>4.6</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities><li>Bite</li></capacities>
+        <power>22</power>
+        <cooldownTime>1.8</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>15</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.4</baseBodySize>
+      <baseHealthScale>1.9</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade2</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Grade 1 ===================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_GradeOne</defName>
+    <label>grade 1 curse</label>
+    <description>A massive, powerful curse radiating dense cursed energy. It takes a grade-1 sorcerer - or several lesser ones - to bring one down.</description>
+    <statBases>
+      <MoveSpeed>5.0</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities><li>Bite</li></capacities>
+        <power>32</power>
+        <cooldownTime>1.9</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.4</armorPenetration>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>22</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>1.9</baseBodySize>
+      <baseHealthScale>3.0</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Grade1</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Special grade (strongest) ===================== -->
+  <ThingDef ParentName="JJK_CursedSpiritRaceBase">
+    <defName>JJK_Curse_Special</defName>
+    <label>special grade curse</label>
+    <description>A towering, nightmarish curse on the level of a calamity. A single special-grade curse can level a settlement; only the strongest sorcerers - or a domain - can hope to exorcise it.</description>
+    <statBases>
+      <MoveSpeed>5.4</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.55</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.4</ArmorRating_Heat>
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities><li>Bite</li></capacities>
+        <power>50</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.55</armorPenetration>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities><li>Blunt</li></capacities>
+        <power>32</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>2.6</baseBodySize>
+      <baseHealthScale>5.5</baseHealthScale>
+    </race>
+    <modExtensions>
+      <li Class="JJKMod.CursedSpiritExtension">
+        <grade>Special</grade>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ===================== Curse pawnkinds ===================== -->
+  <PawnKindDef Name="JJK_CurseKindBase" ParentName="AnimalKindBase" Abstract="True">
+    <canArriveManhunter>true</canArriveManhunter>
+    <wildGroupSize>1~1</wildGroupSize>
+    <ecoSystemWeight>0</ecoSystemWeight>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Grade4_Kind</defName>
+    <label>grade 4 curse</label>
+    <race>JJK_Curse_GradeFour</race>
+    <combatPower>35</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Grade4</texPath>
+          <drawSize>0.9</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.25, 0.25, 0.25)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Grade3_Kind</defName>
+    <label>grade 3 curse</label>
+    <race>JJK_Curse_GradeThree</race>
+    <combatPower>90</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Grade3</texPath>
+          <drawSize>1.4</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.3, 0.3, 0.3)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Grade2_Kind</defName>
+    <label>grade 2 curse</label>
+    <race>JJK_Curse_GradeTwo</race>
+    <combatPower>170</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Grade2</texPath>
+          <drawSize>2.0</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.4, 0.4, 0.4)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Grade1_Kind</defName>
+    <label>grade 1 curse</label>
+    <race>JJK_Curse_GradeOne</race>
+    <combatPower>280</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Grade1</texPath>
+          <drawSize>2.6</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.5, 0.5, 0.5)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="JJK_CurseKindBase">
+    <defName>JJK_Curse_Special_Kind</defName>
+    <label>special grade curse</label>
+    <race>JJK_Curse_Special</race>
+    <combatPower>480</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Curse/Special</texPath>
+          <drawSize>3.4</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.7, 0.7, 0.7)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

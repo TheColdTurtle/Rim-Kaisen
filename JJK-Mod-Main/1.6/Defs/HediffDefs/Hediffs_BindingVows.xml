@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Binding vow hediffs. Each carries the vow's whole bargain - the benefit  -->
+  <!-- AND the cost - in one permanent (non-disappearing, uncurable) hediff.    -->
+  <!-- Sworn at a binding-vow altar (CompBindingVowStation). More vow hediffs    -->
+  <!-- can be added and referenced from new BindingVowDefs.                      -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================== Permanent stat-trade vows ===================== -->
+
+  <HediffDef>
+    <defName>JJK_Vow_SacrificialOath</defName>
+    <label>binding vow: sacrificial oath</label>
+    <description>This sorcerer has sworn a binding vow, sacrificing the depth of their cursed energy reserve and their bodily resilience in exchange for a far sharper, faster cursed technique. The vow is absolute and permanent.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <statFactors>
+          <JJK_CTOutput>1.40</JJK_CTOutput>
+          <JJK_CursedEnergyRegenRateMultiplier>1.30</JJK_CursedEnergyRegenRateMultiplier>
+          <JJK_MaxCursedEnergy>0.75</JJK_MaxCursedEnergy>
+          <IncomingDamageFactor>1.20</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_Vow_UnbreakableBody</defName>
+    <label>binding vow: unbreakable body</label>
+    <description>This sorcerer has forsaken the finesse of their cursed technique to forge their body into a weapon. Their strikes land like sledgehammers and blows glance off them, but their technique is a shadow of its former sharpness.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeDamageFactor>1.55</MeleeDamageFactor>
+          <MoveSpeed>1.20</MoveSpeed>
+          <IncomingDamageFactor>0.72</IncomingDamageFactor>
+          <JJK_CTOutput>0.65</JJK_CTOutput>
+          <JJK_CursedEnergyRegenRateMultiplier>0.70</JJK_CursedEnergyRegenRateMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_Vow_Overflow</defName>
+    <label>binding vow: overflow</label>
+    <description>This sorcerer has vowed to hold a vast ocean of cursed energy at the cost of all restraint. Their reserve and output swell enormously, but their techniques burn through that reserve far faster.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>1.0</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <stages>
+      <li>
+        <statFactors>
+          <JJK_MaxCursedEnergy>1.55</JJK_MaxCursedEnergy>
+          <JJK_CTOutput>1.25</JJK_CTOutput>
+          <JJK_CursedEnergyUsageMultiplier>1.45</JJK_CursedEnergyUsageMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- ===================== Conditional vows (power only while a condition holds) -->
+  <!-- Two stages: dormant (minSeverity 0, no effect) and active (minSeverity 0.5, -->
+  <!-- the buff). HediffComp_BindingVowConditional raises/drops severity.           -->
+
+  <HediffDef>
+    <defName>JJK_Vow_Desperation</defName>
+    <label>binding vow: desperation</label>
+    <description>This sorcerer has vowed that their full power awakens only at death's door. While gravely wounded, their cursed technique flares to overwhelming strength; while hale, it is merely ordinary.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>0.01</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_BindingVowConditional">
+        <condition>LowHealth</condition>
+        <threshold>0.4</threshold>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>dormant</label>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>awakened</label>
+        <statFactors>
+          <JJK_CTOutput>1.70</JJK_CTOutput>
+          <MoveSpeed>1.30</MoveSpeed>
+          <JJK_CursedEnergyRegenRateMultiplier>1.40</JJK_CursedEnergyRegenRateMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_Vow_LoneSorcerer</defName>
+    <label>binding vow: lone sorcerer</label>
+    <description>This sorcerer has vowed to face their battles alone. While no ally stands near them, their cursed power surges; the moment they are reinforced, it subsides.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>0.01</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_BindingVowConditional">
+        <condition>Alone</condition>
+        <radius>12</radius>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>among allies</label>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>standing alone</label>
+        <statFactors>
+          <JJK_CTOutput>1.45</JJK_CTOutput>
+          <MoveSpeed>1.20</MoveSpeed>
+          <IncomingDamageFactor>0.88</IncomingDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>JJK_Vow_Nightstalker</defName>
+    <label>binding vow: nightstalker</label>
+    <description>This sorcerer has vowed to hunt only by night. Under darkness their technique is honed and merciless; by day it dulls to the ordinary.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <maxSeverity>1.0</maxSeverity>
+    <initialSeverity>0.01</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_BindingVowConditional">
+        <condition>NightTime</condition>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>by day</label>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>by night</label>
+        <statFactors>
+          <JJK_CTOutput>1.40</JJK_CTOutput>
+          <MoveSpeed>1.20</MoveSpeed>
+          <JJK_CursedEnergyRegenRateMultiplier>1.25</JJK_CursedEnergyRegenRateMultiplier>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

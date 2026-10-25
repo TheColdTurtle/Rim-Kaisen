@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Rim-Kaisen research. All jujutsu research lives on its own "Jujutsu" tab -->
+  <!-- in the standard research window and is unlocked with ordinary research-  -->
+  <!-- bench work, so it is always visible and accessible (no Anomaly knowledge -->
+  <!-- points required).                                                        -->
+  <!-- ===================================================================== -->
+
+  <ResearchTabDef>
+    <defName>JJK_Jujutsu</defName>
+    <label>jujutsu</label>
+    <generalTitle>Jujutsu research projects</generalTitle>
+    <generalDescription>Research the secrets of jujutsu sorcery at a research bench: cursed materials, cursed tools, sorcerer training, and the path to Domain Expansion.</generalDescription>
+  </ResearchTabDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_CursedMaterialsRefinement</defName>
+    <label>cursed materials refinement</label>
+    <description>Study the structure of cursed residue to refine it into stable, workable cursed materials. Unlocks the cursed materials bench.</description>
+    <tab>JJK_Jujutsu</tab>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>0.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_CursedToolForging</defName>
+    <label>cursed tool forging</label>
+    <description>Apply refined cursed materials to weapon-smithing, producing cursed blades that bite into spirits ordinary steel cannot harm.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_CursedMaterialsRefinement</li>
+    </prerequisites>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>1.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_SorcererTraining</defName>
+    <label>jujutsu training methods</label>
+    <description>Codify the cursed energy training a jujutsu school imparts, accelerating how quickly your sorcerers refine their techniques and climb the grades.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_CursedMaterialsRefinement</li>
+    </prerequisites>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>1.0</researchViewX>
+    <researchViewY>1.2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_ReverseCursedTechnique</defName>
+    <label>reverse cursed technique training</label>
+    <description>Study the conversion of negative cursed energy into a positive healing output. Raises the chance of awakening RCT after surviving a qualifying combat downing from 5% to 10%. Only applies to downings that happen after this research is completed; it does not grant the RCT trait automatically.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_SorcererTraining</li>
+    </prerequisites>
+    <baseCost>3000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>2.0</researchViewX>
+    <researchViewY>1.2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_SimpleDomain</defName>
+    <label>simple domain</label>
+    <description>A defensive counter-domain that neutralizes incoming sure-hit techniques within a small radius. The first step toward true domain theory.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_ReverseCursedTechnique</li>
+    </prerequisites>
+    <baseCost>4000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>3.0</researchViewX>
+    <researchViewY>1.2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_AdvancedCursedMaterials</defName>
+    <label>advanced cursed materials</label>
+    <description>Push cursed-material metallurgy to its limit, enabling the forging of high-grade cursed tools and reinforced sorcerer apparel.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_CursedToolForging</li>
+    </prerequisites>
+    <baseCost>5000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>2.0</researchViewX>
+    <researchViewY>0.0</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_DomainExpansionTheory</defName>
+    <label>domain expansion theory</label>
+    <description>The pinnacle of jujutsu research. By studying the innate domains of special-grade curses, your sorcerers learn to manifest an enclosed cursed-energy barrier of their own: a Domain Expansion.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites>
+      <li>JJK_SimpleDomain</li>
+    </prerequisites>
+    <baseCost>8000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>4.0</researchViewX>
+    <researchViewY>1.2</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>JJK_ScrollTranscription</defName>
+    <label>jujutsu scroll transcription</label>
+    <description>Record learned jujutsu skills in training scrolls at the cursed materials bench. Unlocks New Shadow Style scroll writing. Simple Domain and Falling Blossom Emotion scrolls additionally require Simple Domain research; Domain Amplification scrolls additionally require Domain Expansion Theory. Finished scrolls must still be read by a sorcerer and cannot grant innate technique genes.</description>
+    <tab>JJK_Jujutsu</tab>
+    <prerequisites><li>JJK_SorcererTraining</li></prerequisites>
+    <baseCost>1800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>2.0</researchViewX>
+    <researchViewY>2.4</researchViewY>
+  </ResearchProjectDef>
+</Defs>

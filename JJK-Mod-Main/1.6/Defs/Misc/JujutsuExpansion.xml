@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>JJK_Headquarters</defName><label>Jujutsu</label>
+    <description>School contracts, sorcerer progress, training plans, vessel decisions and curse rosters.</description>
+    <tabWindowClass>JJKMod.MainTabWindow_Jujutsu</tabWindowClass><order>85</order>
+  </MainButtonDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_TrainingPost</defName><label>jujutsu training post</label>
+    <description>A training space for controlled cursed-energy practice and supervised sparring. Configure each sorcerer's technique, mentor and daily two-hour practice window in the Jujutsu screen. Research work must be enabled for scheduled practice. Each completed session takes 1,800 ticks and costs 10 cursed energy. Practice earns at most 80 progress per day, with diminishing mastery returns. Mentors can also teach the four scroll-based learned skills they know, but cannot grant innate genes.</description>
+    <thingClass>Building</thingClass><category>Building</category>
+    <graphicData><texPath>Things/Building/Joy/HorseshoesPin</texPath><graphicClass>Graphic_Single</graphicClass></graphicData>
+    <altitudeLayer>Building</altitudeLayer><passability>PassThroughOnly</passability><fillPercent>0.15</fillPercent>
+    <statBases><MaxHitPoints>180</MaxHitPoints><WorkToBuild>1800</WorkToBuild><Mass>20</Mass><Flammability>0.3</Flammability></statBases>
+    <costList><Steel>60</Steel><JJK_CursedResidue>20</JJK_CursedResidue></costList>
+    <designationCategory>Production</designationCategory><researchPrerequisites><li>JJK_SorcererTraining</li></researchPrerequisites>
+  </ThingDef>
+  <JobDef><defName>JJK_Practice</defName><driverClass>JJKMod.JobDriver_JujutsuPractice</driverClass><reportString>Practicing jujutsu.</reportString><casualInterruptible>true</casualInterruptible></JobDef>
+  <JobDef><defName>JJK_Mentor</defName><driverClass>JJKMod.JobDriver_JujutsuMentor</driverClass><reportString>Supervising jujutsu practice.</reportString><casualInterruptible>true</casualInterruptible></JobDef>
+  <WorkGiverDef>
+    <defName>JJK_JujutsuTraining</defName><label>practice jujutsu</label><giverClass>JJKMod.WorkGiver_JujutsuTraining</giverClass>
+    <workType>Research</workType><priorityInType>110</priorityInType><verb>practice at</verb><gerund>practicing at</gerund>
+    <scanThings>true</scanThings><requiredCapacities><li>Consciousness</li></requiredCapacities>
+  </WorkGiverDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_VesselSuppressionTalisman</defName><label>vessel suppression talisman</label>
+    <description>A single-use binding talisman for a bearer of Sukuna's influence. Suppresses further possessions for one day and ends a current seizure. It neither removes fingers nor erases a bargain's unpaid possession debt: that danger returns when suppression expires. A rampaging vessel must first be subdued before they can use an item.</description>
+    <graphicData><texPath>Things/Item/Talisman/CursedEnergyTalisman</texPath><graphicClass>Graphic_Single</graphicClass><color>(0.5,0.8,1)</color></graphicData>
+    <statBases><MaxHitPoints>25</MaxHitPoints><MarketValue>480</MarketValue><Mass>0.1</Mass><WorkToMake>2400</WorkToMake><Flammability>1</Flammability></statBases>
+    <stackLimit>10</stackLimit><thingCategories><li>Items</li></thingCategories><tradeability>All</tradeability>
+    <costList><Cloth>10</Cloth><JJK_CursedResidue>40</JJK_CursedResidue></costList>
+    <recipeMaker><workSpeedStat>GeneralLaborSpeed</workSpeedStat><workSkill>Crafting</workSkill><recipeUsers><li>JJK_CursedMaterialsBench</li></recipeUsers><researchPrerequisite>JJK_ReverseCursedTechnique</researchPrerequisite><skillRequirements><Crafting>8</Crafting></skillRequirements></recipeMaker>
+    <comps><li Class="CompProperties_Usable"><useJob>UseItem</useJob><useLabel>Apply {0_label}</useLabel><useDuration>120</useDuration></li><li Class="JJKMod.CompProperties_ContainVessel"/><li Class="CompProperties_UseEffectDestroySelf"/></comps>
+  </ThingDef>
+  <HediffDef><defName>JJK_SukunaLoan</defName><label>Sukuna's borrowed power</label><description>A dangerous bargain grants temporary Shrine access, a full cursed-energy reserve and 25% extra technique output. After 6,000 ticks, Sukuna will demand control. The possession debt survives suppression.</description><hediffClass>HediffWithComps</hediffClass><isBad>false</isBad><scenarioCanAdd>false</scenarioCanAdd><initialSeverity>1</initialSeverity><stages><li><statFactors><JJK_CTOutput>1.25</JJK_CTOutput></statFactors></li></stages></HediffDef>
+  <HediffDef><defName>JJK_SukunaPossession</defName><label>Sukuna in control</label><description>Sukuna has seized this body. The vessel attacks indiscriminately with temporary Shrine access and 50% extra technique output. Subdue them or survive until the seizure passes. At high influence, a crowded battlefield can provoke Malevolent Shrine.</description><hediffClass>HediffWithComps</hediffClass><isBad>true</isBad><scenarioCanAdd>false</scenarioCanAdd><initialSeverity>1</initialSeverity><stages><li><statFactors><JJK_CTOutput>1.5</JJK_CTOutput></statFactors></li></stages></HediffDef>
+  <HediffDef><defName>JJK_BossOpening</defName><label>technique recovery opening</label><description>Recovering after a committed attack. Incoming damage is increased by 35% during this brief opening.</description><hediffClass>HediffWithComps</hediffClass><isBad>true</isBad><initialSeverity>1</initialSeverity><scenarioCanAdd>false</scenarioCanAdd><comps><li Class="HediffCompProperties_Disappears"><disappearsAfterTicks>120</disappearsAfterTicks></li></comps><stages><li><statFactors><IncomingDamageFactor>1.35</IncomingDamageFactor></statFactors></li></stages></HediffDef>
+</Defs>

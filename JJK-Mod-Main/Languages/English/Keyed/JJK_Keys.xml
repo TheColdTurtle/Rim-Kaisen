@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Settings -->
+  <JJK_Settings_RandomGenesOnPawnGen>Pawns can spawn with cursed genes</JJK_Settings_RandomGenesOnPawnGen>
+  <JJK_Settings_RandomGenesOnPawnGen_Tip>When enabled, newly generated humanlike pawns have a small chance to roll a cursed energy reserve gene (or, very rarely, a heavenly restriction) at character generation.</JJK_Settings_RandomGenesOnPawnGen_Tip>
+  <JJK_Settings_MoodScalesCE>Low mood boosts cursed energy regeneration</JJK_Settings_MoodScalesCE>
+  <JJK_Settings_MoodScalesCE_Tip>When enabled, sorcerers with low mood regenerate cursed energy faster, reflecting that curses are born of negative emotion.</JJK_Settings_MoodScalesCE_Tip>
+  <JJK_Settings_EnemyDomains>Enemy sorcerers can open domains</JJK_Settings_EnemyDomains>
+  <JJK_Settings_EnemyDomains_Tip>When enabled, non-player sorcerers of sufficient grade will manifest their Domain Expansion during combat. Disable to make domains player-only.</JJK_Settings_EnemyDomains_Tip>
+  <JJK_Settings_CorpseCurses>Corpses spawn cursed spirits</JJK_Settings_CorpseCurses>
+  <JJK_Settings_CorpseCurses_Tip>When enabled, the more corpses left lying on a home map, the more likely cursed spirits are to coalesce out of them and attack. Bury or cremate the dead to stay safe. Disable to turn this off.</JJK_Settings_CorpseCurses_Tip>
+  <JJK_Settings_GizmoSize>Cursed technique gizmo size: {0}</JJK_Settings_GizmoSize>
+  <JJK_Settings_GradeXpFactor>Sorcerer grade XP gain: {0}</JJK_Settings_GradeXpFactor>
+
+  <!-- Grade -->
+  <JJK_GradePromotion>{0} has been promoted to {1}.</JJK_GradePromotion>
+  <JJK_GradeXpProgress>Grade XP: {0} ({1} to next grade)</JJK_GradeXpProgress>
+  <JJK_GradeXpMaxed>Grade XP: {0} (maximum grade reached by training)</JJK_GradeXpMaxed>
+
+  <!-- Cursed energy -->
+  <JJK_MoodCEBonus>Negative emotion (low mood): x{0}</JJK_MoodCEBonus>
+
+  <!-- Technique feedback -->
+  <JJK_BlackFlash>Black Flash!</JJK_BlackFlash>
+  <JJK_RCTHealed>Reverse Cursed Technique</JJK_RCTHealed>
+  <JJK_RCTHealedOther>{0} mended</JJK_RCTHealedOther>
+  <JJK_RCTNothingToHeal>nothing to heal</JJK_RCTNothingToHeal>
+  <JJK_SoulMenderAwakenedLabel>A soul mender awakens</JJK_SoulMenderAwakenedLabel>
+  <JJK_SoulMenderAwakened>After countless hours over other people's wounds, {0} has finally understood a body that is not their own.\n\nTheir reverse cursed technique now reaches outward: {0} can mend another pawn's injuries at a touch. It is far more draining than healing themselves - the technique closes less of the wound for far more cursed energy - but no other sorcerer in a thousand can do it at all.</JJK_SoulMenderAwakened>
+  <JJK_BodyReconstructed>Body Reconstruction</JJK_BodyReconstructed>
+  <JJK_ShikigamiAlreadySummoned>This shikigami is already summoned.</JJK_ShikigamiAlreadySummoned>
+  <JJK_ShikigamiTamingStarted>An untamed {0} has manifested - hostile to all. Defeat it to tame it.</JJK_ShikigamiTamingStarted>
+  <JJK_ShikigamiTamed>{0} has tamed the {1}. It can now be summoned as an ally.</JJK_ShikigamiTamed>
+  <JJK_ShikigamiLost>The {0} has been destroyed and can never be summoned again.</JJK_ShikigamiLost>
+  <JJK_ShikigamiLostMessage>{0}'s {1} has been slain - it is lost forever.</JJK_ShikigamiLostMessage>
+  <JJK_MahoragaWheelTurning>Mahoraga's wheel begins studying {1}. It will fully heal when the spin completes.</JJK_MahoragaWheelTurning>
+  <JJK_MahoragaAdapting>Mahoraga's wheel turns and fully restores its body. Its resistance to {1} deepens.</JJK_MahoragaAdapting>
+  <JJK_MahoragaImmune>Mahoraga has fully adapted to {1}. This phenomenon can no longer overcome it.</JJK_MahoragaImmune>
+  <JJK_MahoragaSurvived>Mahoraga regenerates and refuses to die to {1}, a phenomenon it has already adapted to.</JJK_MahoragaSurvived>
+  <JJK_AttackTarget>Attack target</JJK_AttackTarget>
+  <JJK_AttackTargetDesc>Order this shikigami to attack a chosen enemy.</JJK_AttackTargetDesc>
+  <JJK_ShikigamiDowned>This shikigami is downed.</JJK_ShikigamiDowned>
+  <JJK_RecallShikigami>Recall to the shadows</JJK_RecallShikigami>
+  <JJK_RecallShikigamiDesc>Dismiss this shikigami, returning it to the shadows unharmed. Use this to save a wounded shikigami before it is killed - a recalled shikigami can be summoned again, but a slain one is lost forever.</JJK_RecallShikigamiDesc>
+
+  <!-- Domain Expansion -->
+  <JJK_DomainNeedsReserve>Cursed energy reserve too small to manifest a domain (needs {0}).</JJK_DomainNeedsReserve>
+  <JJK_DomainNotMastered>Technique not yet mastered ({0} / {1} mastery).</JJK_DomainNotMastered>
+  <JJK_CollapseDomain>Collapse domain</JJK_CollapseDomain>
+  <JJK_CollapseDomainDesc>Willingly dismiss this Domain Expansion. A voluntary collapse leaves a much shorter burnout (6 hours) than letting the domain run dry or break (24 hours).</JJK_CollapseDomainDesc>
+  <JJK_CollapseSimpleDomainDesc>Dismiss this Simple Domain. As a basic defensive technique it leaves no burnout at all, so you can drop it and raise it again freely.</JJK_CollapseSimpleDomainDesc>
+  <JJK_FallingBlossomShattered>Falling blossom!</JJK_FallingBlossomShattered>
+  <JJK_DomainInside>Standing within your own domain: cursed technique amplified and sure-hit.</JJK_DomainInside>
+  <JJK_DomainOutside>Holding the domain open from outside it: no personal amplification.</JJK_DomainOutside>
+
+  <!-- Cursed spirits from corpses -->
+  <JJK_CorpseCurseLabel>Cursed spirits manifest</JJK_CorpseCurseLabel>
+  <JJK_CorpseCurseText>The dead left lying on your land have festered into cursed energy. {0} cursed spirits coalesce out of the corpses and turn on the living.\n\nExorcise them - and consider burying or cremating your dead before more curses are born.</JJK_CorpseCurseText>
+
+  <!-- Domain clash -->
+  <JJK_DomainClashWon>{0}'s domain overpowers {1}'s and shatters it.</JJK_DomainClashWon>
+  <JJK_DomainClashStalemate>{0}'s and {1}'s domains clash as equals and shatter each other.</JJK_DomainClashStalemate>
+
+  <!-- Simple Domain -->
+  <JJK_SimpleDomainIntegrity>Simple Domain integrity: {0}</JJK_SimpleDomainIntegrity>
+  <JJK_SimpleDomainShattered>{0}'s Simple Domain has been shattered by a hostile domain.</JJK_SimpleDomainShattered>
+
+  <!-- Binding vows -->
+  <JJK_VowSwear>Swear binding vow: {0}</JJK_VowSwear>
+  <JJK_VowCannot>Cannot swear vow: {0}</JJK_VowCannot>
+  <JJK_VowNotSorcerer>not a sorcerer (no cursed energy)</JJK_VowNotSorcerer>
+  <JJK_VowAlreadyBound>already bound by a binding vow</JJK_VowAlreadyBound>
+  <JJK_VowSworn>{0} has sworn a binding vow: {1}.</JJK_VowSworn>
+  <JJK_VowActive>The vow's condition is met: its power is active.</JJK_VowActive>
+  <JJK_VowDormant>The vow's condition is not met: its power lies dormant.</JJK_VowDormant>
+
+  <!-- Boogie Woogie -->
+  <JJK_BoogieNeedsHands>needs two working hands to clap</JJK_BoogieNeedsHands>
+
+  <!-- Ratio Technique -->
+  <JJK_CollapseArmed>Collapse armed - clear the area!</JJK_CollapseArmed>
+  <JJK_RatioMarked>7:3 marked</JJK_RatioMarked>
+
+  <!-- Idle Transfiguration -->
+  <JJK_SoulResisted>Soul resisted!</JJK_SoulResisted>
+  <JJK_SoulTransfigured>{0} transfigured {1} into a soul.</JJK_SoulTransfigured>
+  <JJK_SoulStored>Soul stored ({0})</JJK_SoulStored>
+  <JJK_NotYourSoul>not your transfigured soul</JJK_NotYourSoul>
+  <JJK_NoStoredSouls>no stored souls</JJK_NoStoredSouls>
+
+  <!-- Straw Doll Technique -->
+  <JJK_HairpinNoNails>No cursed nails to detonate</JJK_HairpinNoNails>
+  <JJK_HairpinResonanceHit>Hairpin: Resonance detonated nails in {0} target(s)</JJK_HairpinResonanceHit>
+
+  <!-- Disaster Curse bosses -->
+  <JJK_BossPhaseLabel>The curse transforms</JJK_BossPhaseLabel>
+  <JJK_PhaseDagon>The cursed womb convulses and matures - Dagon, the Disaster Curse of the sea, has completed its metamorphosis. It rises at full strength.</JJK_PhaseDagon>
+  <JJK_PhaseMahito>Cornered, Mahito reshapes its own soul into its purest killing form - the Instant Spirit Body of Distorted Killing. It is faster and deadlier than before.</JJK_PhaseMahito>
+
+  <!-- Technique remnants -->
+  <JJK_RemnantLearned>{0} absorbed the remnant and gained the {1} technique.</JJK_RemnantLearned>
+  <JJK_RemnantNotHuman>only a humanlike pawn can absorb a technique</JJK_RemnantNotHuman>
+  <JJK_RemnantRestricted>a heavenly restriction bars all cursed techniques</JJK_RemnantRestricted>
+  <JJK_RemnantAlreadyKnown>already bears this technique</JJK_RemnantAlreadyKnown>
+
+  <!-- Deadly Sentencing -->
+  <JJK_VerdictForfeiture>Forfeiture - weapon confiscated!</JJK_VerdictForfeiture>
+  <JJK_VerdictDeathPenalty>Death Penalty!</JJK_VerdictDeathPenalty>
+  <JJK_NoVerdict>no sentence to carry out</JJK_NoVerdict>
+
+  <!-- Cursed Spirit Manipulation -->
+  <JJK_AbsorbNotCurse>not a cursed spirit</JJK_AbsorbNotCurse>
+  <JJK_AbsorbFull>Roster full ({0} curses)</JJK_AbsorbFull>
+  <JJK_AbsorbResisted>Resisted - too strong to subjugate</JJK_AbsorbResisted>
+  <JJK_CurseAbsorbed>{0} absorbed the {1} ({2}/{3} curses held).</JJK_CurseAbsorbed>
+  <JJK_UzumakiNoCurses>no absorbed curses to compress</JJK_UzumakiNoCurses>
+  <JJK_UzumakiUnleashed>{0} unleashed Maximum: Uzumaki, compressing {1} curses into a blast of {2} damage.</JJK_UzumakiUnleashed>
+
+  <!-- Talismans -->
+  <JJK_TalismanRestored>+{0} cursed energy</JJK_TalismanRestored>
+  <JJK_FingerConsumed>{0} consumed one of Sukuna's fingers. The King of Curses' influence deepens.</JJK_FingerConsumed>
+  <JJK_SukunaStirs>Sukuna's malice briefly seized them</JJK_SukunaStirs>
+
+  <!-- Technique scrolls -->
+  <JJK_ReadScroll>Read {0}</JJK_ReadScroll>
+  <JJK_CannotReadScroll>Cannot read: {0}</JJK_CannotReadScroll>
+  <JJK_CannotReadNotSorcerer>not a sorcerer (no cursed energy)</JJK_CannotReadNotSorcerer>
+  <JJK_CannotReadAlreadyLearned>already learned this technique</JJK_CannotReadAlreadyLearned>
+  <JJK_ScrollLearned>{0} has learned {1}.</JJK_ScrollLearned>
+
+  <!-- Summon dismissal -->
+  <JJK_DismissSummon>Dismiss</JJK_DismissSummon>
+  <JJK_DismissSummonDesc>Return {0} to the shadows. The summon leaves the field unharmed; it is not lost and can be summoned again.</JJK_DismissSummonDesc>
+
+  <!-- Kenjaku flavor letters -->
+  <JJK_KenjakuLetterTitle>A note from the dark</JJK_KenjakuLetterTitle>
+  <JJK_KenjakuLetter1>Somewhere beyond the world's edge, a brain wrapped in stitched flesh considers your colony with mild interest. "A promising vessel or two," it muses. "Let them ripen."</JJK_KenjakuLetter1>
+  <JJK_KenjakuLetter2>The schemer turns another page of a plan a thousand years in the writing. Your sorcerers are a variable he has already accounted for — or so he believes.</JJK_KenjakuLetter2>
+  <JJK_KenjakuLetter3>"Evolution favors the cursed," he says to no one. A new arrangement of curses drifts toward the inhabited rim, patient and inevitable.</JJK_KenjakuLetter3>
+  <JJK_KenjakuLetter4>He has worn a hundred faces and forgotten most of the names. Yours, for now, he chooses to remember.</JJK_KenjakuLetter4>
+  <JJK_KenjakuLetter5>A binding vow is whispered into the dark, its terms unknowable to you. The price, as always, will be paid by someone else.</JJK_KenjakuLetter5>
+  <JJK_KenjakuLetter6>"Grow stronger," the note seems to say. "It will be more interesting when I take it from you."</JJK_KenjakuLetter6>
+
+  <JJK_SpeechCannotSpeak>Unable to speak.</JJK_SpeechCannotSpeak>
+  <JJK_RCTAwakeningLabel>Reverse cursed technique awakened</JJK_RCTAwakeningLabel>
+  <JJK_RCTAwakeningText>After surviving a brush with death, {0} has understood how to reverse cursed energy. They can now learn to heal themselves with reverse cursed technique. They must still pay its cursed-energy cost; this awakening has not healed their injuries.</JJK_RCTAwakeningText>
+  <JJK_RCTInsightPending>Recover from being downed before this condition expires for one {0}% awakening chance. The outcome is saved; reloading does not roll again.</JJK_RCTInsightPending>
+  <JJK_RCTInsightResolved>This opportunity has been resolved. Another qualifying injury can offer insight after this condition expires.</JJK_RCTInsightResolved>
+  <JJK_VowOnClock>On the clock: 80% technique output (08:00-18:00 local time).</JJK_VowOnClock>
+  <JJK_VowOvertime>Overtime: 120% technique output (18:00-08:00 local time).</JJK_VowOvertime>
+  <JJK_ReserveRecovery>Innate reserve recovery: x{0}</JJK_ReserveRecovery>
+  <JJK_CastPracticeProgress>Casting practice: {0}/40 rewards available; window resets in {1}. Each paid cast grants 3 base grade XP and 2 mastery. Free controls grant none; successful puppet orders qualify through core costs. Kills, lessons and study have separate rewards.</JJK_CastPracticeProgress>
+</LanguageData>

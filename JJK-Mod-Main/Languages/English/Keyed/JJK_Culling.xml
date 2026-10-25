@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_Kogane>Kogane</JJK_Kogane>
+  <JJK_CullingOpen>Culling Game — Kogane</JJK_CullingOpen>
+  <JJK_CullingOpenDesc>View participants, scores, barrier colonies and rules.</JJK_CullingOpenDesc>
+  <JJK_CullingRules>Entering a barrier colony enrolls every visiting colonist. Only registered opponents award points: 5 for a sorcerer or cursed spirit, 1 otherwise. Friendly kills and unregistered summons award none.\n\nEach additional rule costs one participant 100 points. Point Transfer allows your participants to share points; Free Passage removes the retreat penalty. Leaving an undisrupted colony without Free Passage forfeits your points and strengthens later attacks on your home.\n\nAfter 19 days without earning or transferring points, a participant's cursed techniques are sealed until their score changes through combat or a transfer. Buying rules and retreating do not reset this clock. Non-technique users are exempt.\n\nRim-Kaisen adaptation: three expedition colonies, safe retreat at a score penalty, and nonlethal technique sealing replace the canon game's ten colonies, border confinement and lethal technique removal.</JJK_CullingRules>
+  <JJK_CullingEligibility>Available after day 60 with a special-grade sorcerer at the selected home colony and an existing hostile curse-user faction. Any storyteller can run the campaign; Kenjaku announces it automatically when you qualify. There is one campaign per save.</JJK_CullingEligibility>
+  <JJK_CullingBegin>Accept the Culling Game</JJK_CullingBegin>
+  <JJK_CullingConfirm>Begin a late-game campaign with three world-map barrier colonies? Bring a strong expedition party and supplies. Entering enrolls all visiting colonists. Retreat before breaking an anchor forfeits points unless Free Passage is purchased. Nineteen days without earning or transferring points seals techniques. Kenjaku sends up to three escalating attacks on your home, five days apart. Abandoning ends the campaign permanently without its reward.</JJK_CullingConfirm>
+  <JJK_CullingPhaseDormant>No campaign has begun.</JJK_CullingPhaseDormant>
+  <JJK_CullingPhaseOffered>Kenjaku's invitation is waiting.</JJK_CullingPhaseOffered>
+  <JJK_CullingPhaseActive>The Culling Game is active.</JJK_CullingPhaseActive>
+  <JJK_CullingPhaseVictory>The barrier ritual has been stopped. Return a participating special-grade sorcerer to the original home colony to claim one Calamity awakening.</JJK_CullingPhaseVictory>
+  <JJK_CullingPhaseAbandoned>The campaign ended without a reward. Participants' technique seals are removed. Occupied encounter maps remain safe to leave.</JJK_CullingPhaseAbandoned>
+  <JJK_CullingCampaign>Colony anchors broken: {0}/3. Kenjaku attacks: {1}/3. Retreat pressure: {2}/4.</JJK_CullingCampaign>
+  <JJK_CullingColony>Culling Game colony {0}</JJK_CullingColony>
+  <JJK_CullingRitual>Culling Game: barrier ritual</JJK_CullingRitual>
+  <JJK_CullingProgress>Wave {0}/{1} — {2} rivals remain — {3}</JJK_CullingProgress>
+  <JJK_CullingDisrupted>anchor disrupted</JJK_CullingDisrupted>
+  <JJK_CullingReady>ready to disrupt</JJK_CullingReady>
+  <JJK_CullingContested>barrier active</JJK_CullingContested>
+  <JJK_CullingDisrupt>Disrupt barrier anchor (10 seconds)</JJK_CullingDisrupt>
+  <JJK_CullingSecureFirst>Clear all defender waves first</JJK_CullingSecureFirst>
+  <JJK_CullingRulePointTransfer>Point Transfer</JJK_CullingRulePointTransfer>
+  <JJK_CullingRuleFreePassage>Free Passage</JJK_CullingRuleFreePassage>
+  <JJK_CullingEnabled>enabled</JJK_CullingEnabled>
+  <JJK_CullingRuleCost>cost: 100 points from one participant</JJK_CullingRuleCost>
+  <JJK_CullingChoosePayer>Add {0} — choose payer</JJK_CullingChoosePayer>
+  <JJK_CullingNoPayer>No living colonist participant has 100 points</JJK_CullingNoPayer>
+  <JJK_CullingRoster>Participant ledger</JJK_CullingRoster>
+  <JJK_CullingPlayer>{0}: {1} points — inactivity limit in {2}</JJK_CullingPlayer>
+  <JJK_CullingRival>Rival {0}: {1} points — {2}</JJK_CullingRival>
+  <JJK_CullingTransferOne>Transfer 1 point — choose recipient</JJK_CullingTransferOne>
+  <JJK_CullingTransferAll>Transfer all points — choose recipient</JJK_CullingTransferAll>
+  <JJK_CullingClaim>Awaken {0} to Calamity</JJK_CullingClaim>
+  <JJK_CullingClaimConfirm>Grant the campaign's one Calamity awakening to {0}? This reward can only be claimed once.</JJK_CullingClaimConfirm>
+  <JJK_CullingAbandon>Abandon campaign</JJK_CullingAbandon>
+  <JJK_CullingAbandonConfirm>End this campaign permanently without its reward? All Culling Game technique seals are removed. Colonists can leave their current sites safely; empty sites will be removed.</JJK_CullingAbandonConfirm>
+  <JJK_CullingNoTile>No suitable set of nearby barrier sites was found. The campaign has not started; try from another home colony.</JJK_CullingNoTile>
+  <JJK_CullingOffer>Kenjaku has prepared the Culling Game. Open Kogane through Jujutsu headquarters to review its rules and decide when to begin.</JJK_CullingOffer>
+  <JJK_CullingStarted>Three barrier colonies have appeared. Send a caravan to enter the Culling Game. Kogane is available through Jujutsu headquarters and participant gizmos.</JJK_CullingStarted>
+  <JJK_CullingWave>{0}: defender wave {1}/{2} has arrived. After a wave is defeated, the next arrives in one in-game hour while colonists are present.</JJK_CullingWave>
+  <JJK_CullingRuleAdded>Kogane added a rule: {0}.</JJK_CullingRuleAdded>
+  <JJK_CullingRetreat>{0} left an active barrier without Free Passage. Their points were forfeited; later Kenjaku attacks grow stronger.</JJK_CullingRetreat>
+  <JJK_CullingWarning>A participant has one day left before the Culling Game's inactivity seal. Earn points or use a legal transfer. Consult Kogane for individual timers.</JJK_CullingWarning>
+  <JJK_CullingSealed>{0}'s cursed techniques are sealed by the Culling Game. Earn points or receive a legal transfer to recover.</JJK_CullingSealed>
+  <JJK_CullingAnchorBroken>A colony anchor has been disrupted. Departure from this colony is now free. Break all three to expose the final barrier ritual.</JJK_CullingAnchorBroken>
+  <JJK_CullingFinale>The final barrier ritual is exposed. Defeat its three defender waves, then disrupt the anchor to stop the Culling Game.</JJK_CullingFinale>
+  <JJK_CullingVictory>The barrier ritual has been stopped. All inactivity seals are lifted. Return a participating special-grade sorcerer to the original home colony and use Kogane to claim one Calamity awakening. This finite victory is Rim-Kaisen's endgame adaptation, not a depiction of a completed canon merger.</JJK_CullingVictory>
+  <JJK_CullingReward>{0} has awakened to Calamity through the Culling Game.</JJK_CullingReward>
+  <JJK_CullingRaid>Kenjaku has sent another force against the home colony. This is attack {0} of 3; retreat pressure strengthens these attacks. These reinforcements are not registered Culling Game players and award no points.</JJK_CullingRaid>
+</LanguageData>

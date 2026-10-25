@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <HediffDef>
+    <defName>JJK_Vow_CloseRange</defName>
+    <label>close-range vow</label>
+    <description>Permanently sacrifice 40% of targeted cursed-technique range for 30% greater cursed-technique output. Self-centered areas and domains keep their own radius.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statFactors>
+          <JJK_CTOutput>1.3</JJK_CTOutput>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_CloseRange</defName>
+    <label>close-range vow</label>
+    <description>Permanently sacrifice 40% of targeted cursed-technique range for 30% greater cursed-technique output. Self-centered areas and domains keep their own radius.</description>
+    <grantHediffs>
+      <li>JJK_Vow_CloseRange</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+  <HediffDef>
+    <defName>JJK_Vow_Spoken</defName>
+    <label>spoken preparation vow</label>
+    <description>Permanently gain 25% cursed-technique output. Every cursed-energy cast requires three additional seconds of preparation and at least 50% Talking capacity. Losing your voice prevents casting.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statFactors>
+          <JJK_CTOutput>1.25</JJK_CTOutput>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_Spoken</defName>
+    <label>spoken preparation vow</label>
+    <description>Permanently gain 25% cursed-technique output. Every cursed-energy cast requires three additional seconds of preparation and at least 50% Talking capacity. Losing your voice prevents casting.</description>
+    <grantHediffs>
+      <li>JJK_Vow_Spoken</li>
+    </grantHediffs>
+  </JJKMod.BindingVowDef>
+  <HediffDef>
+    <defName>JJK_Vow_Protector</defName>
+    <label>vow of protection</label>
+    <description>Swear to protect one named colonist. Gain 30% cursed-technique output within 12 cells of them on the same map. Their death, loss from your faction, or damage you inflict on them permanently breaks the vow: 25% less output and six days of grief. Distance suspends the benefit; the target cannot be changed.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+  </HediffDef>
+  <JJKMod.BindingVowDef>
+    <defName>JJK_BindingVow_Protector</defName>
+    <label>vow of protection</label>
+    <description>Swear to protect one named colonist. Gain 30% cursed-technique output within 12 cells of them on the same map. Their death, loss from your faction, or damage you inflict on them permanently breaks the vow: 25% less output and six days of grief. Distance suspends the benefit; the target cannot be changed.</description>
+    <grantHediffs>
+      <li>JJK_Vow_Protector</li>
+    </grantHediffs>
+    <requiresProtectedPawn>true</requiresProtectedPawn>
+  </JJKMod.BindingVowDef>
+  <HediffDef>
+    <defName>JJK_VesselQuietPrice</defName>
+    <label>price of silence</label>
+    <description>Sukuna took 15% of your maximum cursed energy forever in exchange for three days of suppression.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statFactors>
+          <JJK_MaxCursedEnergy>0.85</JJK_MaxCursedEnergy>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_InheritGrip</defName>
+    <label>inherited binding grip</label>
+    <description>Landed melee hits stun for 0.75 seconds, at most once every 10 seconds.</description>
+    <hediffClass>JJKMod.Hediff_InheritedShadow</hediffClass>
+    <isBad>false</isBad>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_InheritSpark</defName>
+    <label>inherited lightning</label>
+    <description>Landed melee hits stun for 0.75 seconds, at most once every 10 seconds.</description>
+    <hediffClass>JJKMod.Hediff_InheritedShadow</hediffClass>
+    <isBad>false</isBad>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_InheritFang</defName>
+    <label>inherited fangs</label>
+    <description>Melee damage increases by 15%.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statFactors>
+          <MeleeDamageFactor>1.15</MeleeDamageFactor>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_InheritVigor</defName>
+    <label>inherited vitality</label>
+    <description>Natural healing increases by 30% and pain is reduced by 10%.</description>
+    <hediffClass>Verse.HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <statFactors>
+          <InjuryHealingFactor>1.3</InjuryHealingFactor>
+        </statFactors>
+        <painFactor>0.9</painFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  <ThoughtDef>
+    <defName>JJK_ProtectionFailed</defName>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>broken protection vow</label>
+        <description>I failed the person I swore to protect.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>JJK_AttunedToolLost</defName>
+    <durationDays>5</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>lost attuned cursed tool</label>
+        <description>Part of me is missing without my bonded weapon.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>JJK_VesselAbandoned</defName>
+    <durationDays>6</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <stages>
+      <li>
+        <label>alone against Sukuna</label>
+        <description>No one anchored my soul after the seizure.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>JJK_VesselRescued</defName>
+    <durationDays>30</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>anchored my soul</label>
+        <description>They helped me return from Sukuna.</description>
+        <baseOpinionOffset>25</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>JJK_VesselTrusted</defName>
+    <durationDays>30</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>trusted vessel</label>
+        <description>We faced the curse inside them together.</description>
+        <baseOpinionOffset>15</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>JJK_VesselHarmedMe</defName>
+    <durationDays>30</durationDays>
+    <stackLimit>1</stackLimit>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+    <stages>
+      <li>
+        <label>hurt me while possessed</label>
+        <description>I remember what Sukuna did with their body.</description>
+        <baseOpinionOffset>-20</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <JobDef>
+    <defName>JJK_FollowResidual</defName>
+    <driverClass>JJKMod.JobDriver_FollowResidual</driverClass>
+    <reportString>following residual cursed energy.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+  </JobDef>
+  <JobDef>
+    <defName>JJK_InnerConfrontation</defName>
+    <driverClass>JJKMod.JobDriver_InnerConfrontation</driverClass>
+    <reportString>confronting Sukuna within.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+  </JobDef>
+  <JobDef>
+    <defName>JJK_AnchorVessel</defName>
+    <driverClass>JJKMod.JobDriver_AnchorVessel</driverClass>
+    <reportString>anchoring a vessel’s soul.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+    <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+  </JobDef>
+  <SitePartDef>
+    <defName>JJK_ResidualCamp</defName>
+    <label>residual-energy camp</label>
+    <description>A hostile camp located by following a departed sorcerer’s residual energy.</description>
+    <workerClass>JJKMod.SitePartWorker_ResidualCamp</workerClass>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/ItemStash</expandingIconTexture>
+    <requiresFaction>false</requiresFaction>
+    <wantsThreatPoints>false</wantsThreatPoints>
+    <approachOrderString>Investigate residual camp</approachOrderString>
+    <approachingReportString>Investigating residual camp.</approachingReportString>
+    <minMapSize>(100, 1, 100)</minMapSize>
+  </SitePartDef>
+</Defs>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef Name="JJK_CurseEncounterBase" Abstract="True">
+    <workerClass>JJKMod.IncidentWorker_CurseEncounter</workerClass>
+    <category>ThreatBig</category><targetTags><li>Map_PlayerHome</li></targetTags>
+    <pointsScaleable>true</pointsScaleable><minThreatPoints>150</minThreatPoints>
+    <earliestDay>10</earliestDay><minRefireDays>12</minRefireDays><baseChance>0.25</baseChance>
+  </IncidentDef>
+  <IncidentDef ParentName="JJK_CurseEncounterBase">
+    <defName>JJK_CurseAmbush</defName><label>curse ambush</label>
+    <modExtensions><li Class="JJKMod.CurseEncounterExtension"><kind>Ambush</kind></li></modExtensions>
+  </IncidentDef>
+  <IncidentDef ParentName="JJK_CurseEncounterBase">
+    <defName>JJK_CurseStalker</defName><label>stalking curse</label>
+    <modExtensions><li Class="JJKMod.CurseEncounterExtension"><kind>Stalker</kind></li></modExtensions>
+  </IncidentDef>
+  <IncidentDef ParentName="JJK_CurseEncounterBase">
+    <defName>JJK_CursedMiasma</defName><label>cursed miasma</label>
+    <modExtensions><li Class="JJKMod.CurseEncounterExtension"><kind>Miasma</kind></li></modExtensions>
+  </IncidentDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_CursedNexus</defName><label>cursed miasma nexus</label>
+    <description>A hostile accumulation of cursed energy. Living creatures within six tiles and line of sight suffer pain and reduced movement. Cursed spirits and constructed cursed corpses are immune. Destroy the nexus to stop its pulses, or avoid it until it dissipates after one day. Exposure fades within three seconds outside the field.</description>
+    <thingClass>Building</thingClass><altitudeLayer>Building</altitudeLayer>
+    <passability>Standable</passability><fillPercent>0.15</fillPercent>
+    <graphicData><texPath>Things/Item/Resource/CursedResidue</texPath><graphicClass>Graphic_Single</graphicClass><drawSize>(1.5,1.5)</drawSize><color>(0.8,0.3,1)</color></graphicData>
+    <statBases><MaxHitPoints>180</MaxHitPoints><Flammability>0</Flammability><Beauty>-10</Beauty></statBases>
+    <size>(1,1)</size><selectable>true</selectable><useHitPoints>true</useHitPoints>
+  </ThingDef>
+  <HediffDef>
+    <defName>JJK_CursedMiasmaExposure</defName><label>cursed miasma exposure</label>
+    <description>Oppressive cursed energy causes mild pain and reduces movement by 15 percentage points. Fades within three seconds without further exposure.</description>
+    <hediffClass>HediffWithComps</hediffClass><isBad>true</isBad>
+    <comps><li Class="HediffCompProperties_Disappears"><disappearsAfterTicks>180</disappearsAfterTicks></li></comps>
+    <stages><li><painOffset>0.06</painOffset><capMods><li><capacity>Moving</capacity><offset>-0.15</offset></li></capMods></li></stages>
+  </HediffDef>
+</Defs>

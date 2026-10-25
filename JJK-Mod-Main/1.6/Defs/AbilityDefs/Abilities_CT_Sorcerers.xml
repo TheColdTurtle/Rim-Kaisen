@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Additional cursed techniques:                                            -->
+  <!--   Ratio Technique (Nanami)      - precision projectiles, armor-piercing.  -->
+  <!--   Boogie Woogie (Todo)          - swap places with a target pawn.         -->
+  <!--   Idle Transfiguration (Mahito) - armor-ignoring soul attack + self-heal. -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================================================================== -->
+  <!-- RATIO TECHNIQUE (Nanami)                                                -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Ratio</defName>
+    <label>ratio technique</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_RatioBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_Ratio</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Ratio: mark a 7:3 line on the target to force a weak point, then strike it.
+       A precise cut that cleaves through almost any armor. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_RatioBase">
+    <defName>JJK_Ratio_Strike</defName>
+    <label>ratio technique</label>
+    <description>Divide a target with a 7:3 ratio to force open a weak point, then strike it precisely at close range. The cut lands true through nearly any armor. The innate technique of Kento Nanami.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/RatioTechnique</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_RatioStrike</abilityClass>
+    <abilityTiers>
+      <li>JJK_Ratio_Strike_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Ratio_Strike_Tier1</defName>
+    <label>ratio technique</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Ratio</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>200</cooldownTicks>
+    <castDurationTicks>20</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Collapse: the finishing blow. A single overwhelming strike at the forced
+       weak point that ignores armor outright. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_RatioBase">
+    <defName>JJK_Ratio_Collapse</defName>
+    <label>collapse</label>
+    <description>Slam the forced weak point into the ground, setting off a delayed cursed-energy blast at close range. The explosion lands a few seconds after the strike - enough time to pull back before it goes off. Devastating to anything still caught in the area.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Collapse</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_Collapse</abilityClass>
+    <abilityTiers>
+      <li>JJK_Ratio_Collapse_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Ratio_Collapse_Tier1</defName>
+    <label>collapse</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Ratio</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>55</energyCost>
+    <cooldownTicks>500</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>2.5</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- BOOGIE WOOGIE (Todo)                                                    -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_BoogieWoogie</defName>
+    <label>boogie woogie</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_BoogieWoogie</defName>
+    <label>boogie woogie</label>
+    <description>Clap your hands to instantly swap places with a target pawn - friend or foe. Yank an enemy out of formation, or trade places with an ally to pull them from danger. The innate technique of Aoi Todo.\n\nThe clap needs two working hands - a pawn missing a hand cannot cast it - and nimbler hands clap again sooner: the cooldown shrinks with higher manipulation (bionic arms help) and grows if the hands are impaired.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BoogieWoogie</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_BoogieWoogie</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_BoogieWoogie</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_BoogieWoogie_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_BoogieWoogie_Tier1</defName>
+    <label>boogie woogie</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BoogieWoogie</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>30</cooldownTicks>
+    <castDurationTicks>8</castDurationTicks>
+    <effectRadius>26</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- IDLE TRANSFIGURATION (Mahito)                                           -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_IdleTransfiguration</defName>
+    <label>idle transfiguration</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_IdleBase" Abstract="True">
+    <abilityTrees>
+      <li>JJK_CT_IdleTransfiguration</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Soul Distortion: reshape a target's soul. Armor means nothing; the damage
+       strikes straight through it. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IdleBase">
+    <defName>JJK_Idle_SoulDistortion</defName>
+    <label>soul distortion</label>
+    <description>Reach out and warp a target's very soul at a touch. A hostile humanlike - standing or downed - is transfigured into a monstrous soul that fights for you. Anything that cannot be reshaped - a soul-aware sorcerer (Soul Observer trait), a non-human, or anyone not your enemy - instead takes armor-ignoring soul damage. The horrifying innate technique of the curse Mahito. Melee range.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/SoulDistortion</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SoulDistortion</abilityClass>
+    <abilityTiers>
+      <li>JJK_Idle_SoulDistortion_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Idle_SoulDistortion_Tier1</defName>
+    <label>soul distortion</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IdleTransfiguration</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>15</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Consume Soul: bank one of your own transfigured souls for later use. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IdleBase">
+    <defName>JJK_Idle_ConsumeSoul</defName>
+    <label>consume soul</label>
+    <description>Draw one of your own transfigured souls back into yourself, storing it. Stored souls can be unleashed later - redeployed as a fighting summon, or hurled at an enemy as a living projectile.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ConsumeSoul</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ConsumeSoul</abilityClass>
+    <abilityTiers>
+      <li>JJK_Idle_ConsumeSoul_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Idle_ConsumeSoul_Tier1</defName>
+    <label>consume soul</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IdleTransfiguration</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>10</energyCost>
+    <cooldownTicks>60</cooldownTicks>
+    <castDurationTicks>15</castDurationTicks>
+    <effectRadius>16</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Unleash Soul: spend a stored soul - hurl it at a hostile pawn as a heavy
+       projectile, or release it on the ground as a fighting summon. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IdleBase">
+    <defName>JJK_Idle_UnleashSoul</defName>
+    <label>unleash soul</label>
+    <description>Spend a stored transfigured soul. Target a hostile pawn to hurl the soul at it as a heavy living projectile; target the ground or an ally to release the soul there as a summon that fights for you.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/UnleashSoul</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_UnleashSoul</abilityClass>
+    <abilityTiers>
+      <li>JJK_Idle_UnleashSoul_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Idle_UnleashSoul_Tier1</defName>
+    <label>unleash soul</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IdleTransfiguration</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>120</cooldownTicks>
+    <castDurationTicks>20</castDurationTicks>
+    <effectRadius>26</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Body Reconstruction: reshape your own body back together, healing injuries. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_IdleBase">
+    <defName>JJK_Idle_BodyReconstruction</defName>
+    <label>body reconstruction</label>
+    <description>Turn the technique inward, reshaping your own body back into form and closing your wounds. The amount healed scales with your sorcerer grade.</description>
+    <uiPosition>(0.5, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BodyReconstruction</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_BodyReconstruction</abilityClass>
+    <abilityTiers>
+      <li>JJK_Idle_BodyReconstruction_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Idle_BodyReconstruction_Tier1</defName>
+    <label>body reconstruction</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IdleTransfiguration</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

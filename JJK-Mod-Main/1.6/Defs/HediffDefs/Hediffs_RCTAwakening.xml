@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>JJK_NearDeathInsight</defName>
+    <label>near-death insight</label>
+    <description>A brush with death in hostile combat has offered a fleeting glimpse of reverse cursed energy. Recover from being downed within ten days for one awakening chance: 5%, or 10% if reverse cursed technique training was researched when the injury occurred. Further downings cannot offer another chance until this condition expires. This insight does not heal injuries or restore cursed energy.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="JJKMod.HediffCompProperties_RCTAwakening" />
+      <li Class="HediffCompProperties_Disappears"><disappearsAfterTicks>600000</disappearsAfterTicks></li>
+    </comps>
+  </HediffDef>
+</Defs>

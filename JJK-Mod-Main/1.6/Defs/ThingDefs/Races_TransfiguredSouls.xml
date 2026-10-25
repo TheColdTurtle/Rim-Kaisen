@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Transfigured Soul: a human reshaped into a monster by Idle               -->
+  <!-- Transfiguration. Serves the caster's faction as a melee fighter. Shares   -->
+  <!-- the robust quadruped body / head-tools setup used by the shikigami, with  -->
+  <!-- Advanced trainability so the caster can train it to follow and attack.    -->
+  <!-- baseHungerRate 0 so a permanent summon never needs feeding.               -->
+  <!-- ===================================================================== -->
+
+  <ThingDef ParentName="AnimalThingBase">
+    <defName>JJK_TransfiguredSoulRace</defName>
+    <label>transfigured soul</label>
+    <description>A human whose soul was warped out of shape by Idle Transfiguration, reshaped into a grotesque creature of cursed flesh. It no longer remembers what it was; it obeys the sorcerer who made it.</description>
+    <statBases>
+      <MoveSpeed>5.0</MoveSpeed>
+      <MarketValue>0</MarketValue>
+      <ComfyTemperatureMin>-60</ComfyTemperatureMin>
+      <ComfyTemperatureMax>60</ComfyTemperatureMax>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <Wildness>0</Wildness>
+      <FilthRate>0</FilthRate>
+      <CaravanRidingSpeedFactor>0</CaravanRidingSpeedFactor>
+    </statBases>
+    <tools>
+      <li>
+        <label>claws</label>
+        <capacities><li>Scratch</li></capacities>
+        <power>16</power>
+        <cooldownTime>1.6</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.25</armorPenetration>
+      </li>
+      <li>
+        <label>maw</label>
+        <capacities><li>Bite</li></capacities>
+        <power>20</power>
+        <cooldownTime>2.0</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <armorPenetration>0.3</armorPenetration>
+      </li>
+    </tools>
+    <race>
+      <body>QuadrupedAnimalWithPawsAndTail</body>
+      <baseBodySize>1.0</baseBodySize>
+      <baseHealthScale>1.6</baseHealthScale>
+      <baseHungerRate>0</baseHungerRate>
+      <foodType>CarnivoreAnimal</foodType>
+      <leatherDef>Leather_Dog</leatherDef>
+      <trainability>Advanced</trainability>
+      <petness>0</petness>
+      <manhunterOnDamageChance>0</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+      <lifeExpectancy>20</lifeExpectancy>
+      <intelligence>Animal</intelligence>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef>
+    <defName>JJK_TransfiguredSoul_Kind</defName>
+    <label>transfigured soul</label>
+    <race>JJK_TransfiguredSoulRace</race>
+    <combatPower>120</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/TransfiguredSoul/TransfiguredSoul</texPath>
+          <drawSize>1.4</drawSize>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

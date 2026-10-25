@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- LIMITLESS (Gojo Clan) - Section 10.1.1. Custom C# abilities (no           -->
+  <!-- projectiles): a toggled passive (Infinity) plus targeted spatial effects  -->
+  <!-- (Blue pull, Red explosion, Hollow Purple beam, Teleport) driven by each    -->
+  <!-- Ability class's Start()/toggle. Red and Purple additionally require the     -->
+  <!-- Reverse Cursed Technique trait; Infinity, Lapse: Blue and Teleport are      -->
+  <!-- castable on Limitless alone. The Six Eyes gene is NOT required for any of   -->
+  <!-- them - it only makes their (otherwise crippling) costs trivial.            -->
+  <!-- ===================================================================== -->
+
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Limitless</defName>
+    <label>limitless</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_LimitlessBase" Abstract="True">
+    <abilityTrees>
+      <li>JJK_CT_Limitless</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- ============================== Infinity ============================= -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_LimitlessBase">
+    <defName>JJK_Infinity</defName>
+    <label>infinity</label>
+    <description>Toggle: manifest the Limitless, an unbridgeable space between you and the world. While active, no incoming attack can reach you - only the Inverted Spear of Heaven can. Holding it open bleeds cursed energy rapidly, and it collapses the instant your reserve runs dry or your technique is sealed.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Infinity</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_Infinity</abilityClass>
+    <abilityTiers>
+      <li>JJK_Infinity_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Infinity_Tier1</defName>
+    <label>infinity</label>
+    <!-- Castable by any Limitless user. Its per-tick cursed energy drain
+         (Ability_Infinity.Tick) is ruinous without the Six Eyes' 99% efficiency
+         to pay for it, so in practice only a Six Eyes bearer sustains it. -->
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Limitless</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>120</cooldownTicks>
+    <cannotBeActiveWithHediffs>
+      <li>JJK_TechniqueSealed</li>
+    </cannotBeActiveWithHediffs>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ========================= Cursed Technique Lapse: Blue ============== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_LimitlessBase">
+    <defName>JJK_LapseBlue</defName>
+    <label>cursed technique lapse: blue</label>
+    <description>Create a point of negative cursed energy that violently attracts everything around it, dragging nearby enemies to the target point and crushing them together.</description>
+    <uiPosition>(0.3, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/LapseBlue</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LapseBlue</abilityClass>
+    <abilityTiers>
+      <li>JJK_LapseBlue_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_LapseBlue_Tier1</defName>
+    <label>cursed technique lapse: blue</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Limitless</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetPawns>true</canTargetPawns>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Cursed Technique Reversal: Red ================ -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_LimitlessBase">
+    <defName>JJK_ReversalRed</defName>
+    <label>cursed technique reversal: red</label>
+    <description>Invert the Blue into a point of positive cursed energy that detonates in a violent explosion, tearing apart everything nearby and hurling survivors away.</description>
+    <uiPosition>(0.7, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ReversalRed</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ReversalRed</abilityClass>
+    <abilityTiers>
+      <li>JJK_ReversalRed_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ReversalRed_Tier1</defName>
+    <label>cursed technique reversal: red</label>
+    <!-- Requires Reverse Cursed Technique. The steep cost is trivialized only by
+         the Six Eyes' efficiency. -->
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Limitless</li>
+      </requiredGenes>
+      <requiredTraits>
+        <li>JJK_RCT</li>
+      </requiredTraits>
+    </acquireRequirement>
+    <energyCost>220</energyCost>
+    <cooldownTicks>500</cooldownTicks>
+    <effectRadius>22</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetPawns>true</canTargetPawns>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Hollow Technique: Purple ===================== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_LimitlessBase">
+    <defName>JJK_HollowPurple</defName>
+    <label>hollow technique: purple</label>
+    <description>Combine Blue and Red into an imaginary mass and hurl it forward as a devastating beam, annihilating everything in a long line.</description>
+    <uiPosition>(0.5, 0.7)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/HollowPurple</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_HollowPurple</abilityClass>
+    <abilityTiers>
+      <li>JJK_HollowPurple_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_HollowPurple_Tier1</defName>
+    <label>hollow technique: purple</label>
+    <!-- Requires Reverse Cursed Technique. Enormous cost; only the Six Eyes makes
+         it castable in practice. Long range to match the 40-cell beam. -->
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Limitless</li>
+      </requiredGenes>
+      <requiredTraits>
+        <li>JJK_RCT</li>
+      </requiredTraits>
+    </acquireRequirement>
+    <energyCost>400</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <effectRadius>40</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetPawns>true</canTargetPawns>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ============================= Teleport ============================= -->
+  <!-- Space manipulation turned to movement: blink instantly to a chosen cell.
+       Castable by any Limitless user (no Six Eyes / RCT needed). -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_LimitlessBase">
+    <defName>JJK_LimitlessTeleport</defName>
+    <label>teleport</label>
+    <description>Fold the space between here and there, stepping instantly across the distance to a chosen location.</description>
+    <uiPosition>(0.5, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Teleport</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_Teleport</abilityClass>
+    <abilityTiers>
+      <li>JJK_LimitlessTeleport_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_LimitlessTeleport_Tier1</defName>
+    <label>teleport</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Limitless</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <effectRadius>30</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetPawns>false</canTargetPawns>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

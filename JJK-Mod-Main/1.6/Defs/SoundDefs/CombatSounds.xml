@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SoundDef><defName>JJK_Cue_Energy</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Energy</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Speech</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Speech</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Nails</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Nails</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Fire</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Fire</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Ice</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Ice</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Healing</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Healing</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Slash</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Slash</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Spirit</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Spirit</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Puppet</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Puppet</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_DomainOpen</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/DomainOpen</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_DomainEnd</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/DomainEnd</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Warning</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Warning</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+  <SoundDef><defName>JJK_Cue_Impact</defName><context>MapOnly</context><maxSimultaneous>3</maxSimultaneous>
+    <subSounds><li><grains><li Class="AudioGrain_Clip"><clipPath>JJK/Combat/Impact</clipPath></li></grains>
+      <volumeRange>24~28</volumeRange><pitchRange>0.97~1.03</pitchRange><distRange>0~35</distRange></li></subSounds>
+  </SoundDef>
+</Defs>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <JJK_MahoragaNoAdaptations>Wheel: no phenomena adapted.</JJK_MahoragaNoAdaptations>
+  <JJK_MahoragaImmuneStatus>fully adapted</JJK_MahoragaImmuneStatus>
+  <JJK_MahoragaNextSpin>next spin in {0}s</JJK_MahoragaNextSpin>
+  <JJK_MahoragaDeathProtected>cannot kill</JJK_MahoragaDeathProtected>
+  <JJK_MahoragaMore>{0} more — open Wheel adaptations.</JJK_MahoragaMore>
+  <JJK_MahoragaWheelDetails>Wheel adaptations</JJK_MahoragaWheelDetails>
+  <JJK_MahoragaWheelDetailsDesc>Every spin fully restores Mahoraga's body. Basic physical attacks cannot kill it after one spin; complex phenomena must be fully adapted before they become harmless. These adaptations belong to this summon.</JJK_MahoragaWheelDetailsDesc>
+</LanguageData>

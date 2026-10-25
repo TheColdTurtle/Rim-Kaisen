@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterPlantsBase">
+    <defName>JJK_CursedBuds</defName>
+    <label>cursed buds</label>
+    <description>Embed energy-feeding buds in an enemy for 15 seconds. Each completed paid cursed-energy cast feeds the buds: they drain an extra 25% of that cast's cost (1-10 CE) and grow, at most once per second. Movement falls by 10%, then 25%, then 40%. Free controls do not feed them. Recasting refreshes duration without stacking another parasite. An enemy can stop casting and wait for the buds to wither.</description>
+    <uiPosition>(0.25, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Roots</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension">
+        <move>CursedBuds</move>
+        <radius>0</radius>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_CursedBuds_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_CursedBuds_Tier1</defName>
+    <label>cursed buds</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterPlants</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>16</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterPlantsBase">
+    <defName>JJK_FlowerField</defName>
+    <label>flower field</label>
+    <description>Bloom a distracting flower field in a fixed 4-cell area. Eight pulses one second apart reduce enemies' shooting accuracy and melee hit chance by 30%. The distraction fades 1.5 seconds after leaving the flowers. One field per caster; losing the technique or becoming unable to sustain it ends the field.</description>
+    <uiPosition>(0.75, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/HugeRoots</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension">
+        <move>FlowerField</move>
+        <radius>4</radius>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_FlowerField_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_FlowerField_Tier1</defName>
+    <label>flower field</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterPlants</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>45</castDurationTicks>
+    <effectRadius>14</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_BloodManipulationBase">
+    <defName>JJK_Convergence</defName>
+    <label>convergence</label>
+    <description>Spend one second compressing blood. For 15 seconds, your next Piercing Blood gains 40% damage and stronger penetration, or your next Supernova gains damage and radius. The preparation is consumed by one successful attack and cannot stack.</description>
+    <uiPosition>(0.7, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Supernova</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension">
+        <move>Convergence</move>
+        <radius>0</radius>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Convergence_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Convergence_Tier1</defName>
+    <label>convergence</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>15</energyCost>
+    <cooldownTicks>480</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <HediffDef>
+    <defName>JJK_RootSnare</defName>
+    <label>entangling roots</label>
+    <description>Cursed roots bind the legs, reducing movement by 55%.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>180</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.45</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_TidalDrag</defName>
+    <label>tidal drag</label>
+    <description>Cursed water throws movement off balance, reducing speed by 25%.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>150</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.75</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_FlowerDistraction</defName>
+    <label>flower distraction</label>
+    <description>The flowers dull fighting focus, reducing shooting accuracy and melee hit chance by 30%.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>90</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <ShootingAccuracyPawn>0.7</ShootingAccuracyPawn>
+          <MeleeHitChance>0.7</MeleeHitChance>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_CursedBuds</defName>
+    <label>cursed buds</label>
+    <description>These buds feed on paid cursed-energy casts, draining extra reserves and growing into a stronger movement penalty. Stop casting and wait for them to wither.</description>
+    <hediffClass>JJKMod.Hediff_CursedBuds</hediffClass>
+    <isBad>true</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>3</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <minSeverity>0</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.9</MoveSpeed>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>2</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.75</MoveSpeed>
+        </statFactors>
+      </li>
+      <li>
+        <minSeverity>3</minSeverity>
+        <statFactors>
+          <MoveSpeed>0.6</MoveSpeed>
+        </statFactors>
+      </li>
+    </stages>
+  </HediffDef>
+  <HediffDef>
+    <defName>JJK_Convergence</defName>
+    <label>convergence</label>
+    <description>Compressed blood is ready for one empowered Piercing Blood or Supernova.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>900</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
+    </comps>
+    <stages />
+  </HediffDef>
+  <ThingDef ParentName="BaseBullet">
+    <defName>JJK_Proj_SwarmFish</defName>
+    <label>swarming fish</label>
+    <thingClass>JJKMod.Projectile_LegacyFish</thingClass>
+    <graphicData>
+      <texPath>Things/Pawn/Shikigami/Fish/Fish_east</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.8</drawSize>
+      <color>(0.3, 0.75, 1.0)</color>
+    </graphicData>
+    <projectile>
+      <damageDef>Bite</damageDef>
+      <damageAmountBase>7</damageAmountBase>
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <speed>28</speed>
+    </projectile>
+  </ThingDef>
+</Defs>

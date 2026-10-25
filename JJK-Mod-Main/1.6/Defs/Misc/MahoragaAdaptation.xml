@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Authored by Tools/Generate-MahoragaCatalog.py. Per-phenomenon spins/delayTicks override race defaults. -->
+<Defs>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Ballistic</defName>
+    <label>ballistic projectiles</label>
+    <basic>true</basic>
+    <damageTypes>
+      <li>Bullet</li>
+      <li>Arrow</li>
+      <li>ArrowHighVelocity</li>
+      <li>RangedStab</li>
+    </damageTypes>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Blast</defName>
+    <label>conventional explosions</label>
+    <basic>true</basic>
+    <damageTypes>
+      <li>Bomb</li>
+      <li>Thump</li>
+    </damageTypes>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Cutting</defName>
+    <label>physical cutting</label>
+    <basic>true</basic>
+    <damageTypes>
+      <li>Cut</li>
+      <li>Scratch</li>
+    </damageTypes>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Piercing</defName>
+    <label>physical piercing</label>
+    <basic>true</basic>
+    <damageTypes>
+      <li>Stab</li>
+      <li>Bite</li>
+    </damageTypes>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Impact</defName>
+    <label>physical impact</label>
+    <basic>true</basic>
+    <damageTypes>
+      <li>Blunt</li>
+      <li>Crush</li>
+    </damageTypes>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Heat</defName>
+    <label>ordinary heat and fire</label>
+    <basic>true</basic>
+    <damageTypes>
+      <li>Flame</li>
+      <li>Burn</li>
+    </damageTypes>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Shrine</defName>
+    <label>Shrine: slashes</label>
+    <abilities>
+      <li>JJK_Dismantle</li>
+      <li>JJK_Cleave</li>
+      <li>JJK_DismantleAOE</li>
+      <li>JJK_Domain_Shrine</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_Dismantle</li>
+      <li>JJK_Proj_Cleave</li>
+      <li>JJK_Proj_DismantleAOE</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_DivineFlame</defName>
+    <label>Shrine: Divine Flame</label>
+    <abilities>
+      <li>JJK_DivineFlame</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_DivineFlame</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Blue</defName>
+    <label>Limitless: attraction</label>
+    <abilities>
+      <li>JJK_LapseBlue</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Red</defName>
+    <label>Limitless: repulsion</label>
+    <abilities>
+      <li>JJK_ReversalRed</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Purple</defName>
+    <label>Limitless: Hollow Purple</label>
+    <abilities>
+      <li>JJK_HollowPurple</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Infinity</defName>
+    <label>Limitless: Infinity</label>
+    <abilities>
+      <li>JJK_Infinity</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Void</defName>
+    <label>Unlimited Void</label>
+    <abilities>
+      <li>JJK_Domain_Limitless</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Flames</defName>
+    <label>Disaster Flames: cursed fire</label>
+    <abilities>
+      <li>JJK_DisasterFlames</li>
+      <li>JJK_LavaLaser</li>
+      <li>JJK_EmberBurst</li>
+      <li>JJK_Domain_DisasterFlames</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_DisasterFlames</li>
+      <li>JJK_Proj_LavaLaser</li>
+      <li>JJK_Proj_EmberBurst</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Meteor</defName>
+    <label>Disaster Flames: Maximum Meteor</label>
+    <abilities>
+      <li>JJK_MaximumMeteor</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_MaximumMeteor</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Blood</defName>
+    <label>Blood Manipulation: blood attacks</label>
+    <abilities>
+      <li>JJK_PiercingBlood</li>
+      <li>JJK_SlicingExorcism</li>
+      <li>JJK_BloodEdge</li>
+      <li>JJK_Supernova</li>
+      <li>JJK_Domain_BloodManipulation</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_PiercingBlood</li>
+      <li>JJK_Proj_SlicingExorcism</li>
+      <li>JJK_Proj_BloodEdge</li>
+      <li>JJK_Proj_Supernova</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Tides</defName>
+    <label>Disaster Tides: water pressure</label>
+    <abilities>
+      <li>JJK_DisasterTides</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_Tides</li>
+    </projectiles>
+    <hediffs>
+      <li>JJK_TidalDrag</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Fish</defName>
+    <label>Disaster Tides: fish shikigami</label>
+    <abilities>
+      <li>JJK_DeathSwarm</li>
+      <li>JJK_Domain_DisasterTides</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_DeathSwarm</li>
+      <li>JJK_Proj_SwarmFish</li>
+    </projectiles>
+    <pawns>
+      <li>JJK_DomainFish</li>
+    </pawns>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Roots</defName>
+    <label>Disaster Plants: roots</label>
+    <abilities>
+      <li>JJK_Roots</li>
+      <li>JJK_HugeRoots</li>
+      <li>JJK_Domain_DisasterPlants</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_Roots</li>
+      <li>JJK_Proj_HugeRoots</li>
+    </projectiles>
+    <hediffs>
+      <li>JJK_RootSnare</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Flowers</defName>
+    <label>Disaster Plants: flowers</label>
+    <abilities>
+      <li>JJK_FlowerField</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_FlowerDistraction</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Buds</defName>
+    <label>Disaster Plants: cursed buds</label>
+    <abilities>
+      <li>JJK_CursedBuds</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_CursedBuds</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Speech</defName>
+    <label>Cursed Speech</label>
+    <abilities>
+      <li>JJK_Speech_DontMove</li>
+      <li>JJK_Speech_BlastAway</li>
+      <li>JJK_Speech_Crush</li>
+      <li>JJK_Speech_Explode</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Nails</defName>
+    <label>Straw Doll: cursed nails</label>
+    <abilities>
+      <li>JJK_StrawDoll_NailVolley</li>
+      <li>JJK_StrawDoll_NailScatter</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_StrawNail</li>
+      <li>JJK_Proj_NailBurst</li>
+    </projectiles>
+    <hediffs>
+      <li>JJK_NailsEmbedded</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Resonance</defName>
+    <label>Straw Doll: Hairpin and Resonance</label>
+    <abilities>
+      <li>JJK_StrawDoll_Hairpin</li>
+      <li>JJK_StrawDoll_HairpinResonance</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Lightning</defName>
+    <label>cursed lightning</label>
+    <abilities>
+      <li>JJK_LightningDischarge</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_NueLightning</li>
+      <li>JJK_Proj_Lightning</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Toad</defName>
+    <label>Ten Shadows: binding tongue</label>
+    <projectiles>
+      <li>JJK_Proj_ToadTongue</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Soul</defName>
+    <label>Idle Transfiguration: soul alteration</label>
+    <abilities>
+      <li>JJK_Idle_SoulDistortion</li>
+      <li>JJK_Domain_IdleTransfiguration</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_SoulHurl</defName>
+    <label>Idle Transfiguration: soul projectile</label>
+    <abilities>
+      <li>JJK_Idle_UnleashSoul</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_SoulHurl</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Ratio</defName>
+    <label>Ratio Technique</label>
+    <abilities>
+      <li>JJK_Ratio_Strike</li>
+      <li>JJK_LineSegment</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_RatioMark</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Collapse</defName>
+    <label>Ratio Technique: Collapse</label>
+    <abilities>
+      <li>JJK_Ratio_Collapse</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Projection</defName>
+    <label>Projection Sorcery</label>
+    <abilities>
+      <li>JJK_FrameFreeze</li>
+      <li>JJK_TopSpeedPunch</li>
+      <li>JJK_Domain_Projection</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Boogie</defName>
+    <label>Boogie Woogie</label>
+    <abilities>
+      <li>JJK_BoogieWoogie</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Mass</defName>
+    <label>Star Rage: virtual mass</label>
+    <abilities>
+      <li>JJK_StarRage_Blow</li>
+      <li>JJK_StarRage_Impact</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_StarRage</li>
+      <li>JJK_Proj_StarImpact</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Ice</defName>
+    <label>Ice Formation</label>
+    <abilities>
+      <li>JJK_IceSpear</li>
+      <li>JJK_IceFall</li>
+      <li>JJK_Frozen</li>
+      <li>JJK_Domain_IceFormation</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_IceSpear</li>
+      <li>JJK_Proj_IceFall</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Energy</defName>
+    <label>cursed energy discharge</label>
+    <abilities>
+      <li>JJK_EnergyWave</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_EnergyWave</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Bird</defName>
+    <label>Black Bird Manipulation: Bird Strike</label>
+    <abilities>
+      <li>JJK_BirdStrike</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_BirdStrike</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Metal</defName>
+    <label>Construction: liquid metal</label>
+    <abilities>
+      <li>JJK_X_Metal</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_MetalBind</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Sphere</defName>
+    <label>Construction: Perfect Sphere</label>
+    <abilities>
+      <li>JJK_X_Sphere</li>
+      <li>JJK_Domain_ThreefoldAffliction</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_ConstructedBullet</defName>
+    <label>Construction: created ammunition</label>
+    <abilities>
+      <li>JJK_X_FireBullet</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_ConstructedBullet</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Sky</defName>
+    <label>Sky Manipulation</label>
+    <abilities>
+      <li>JJK_X_SkyDistort</li>
+      <li>JJK_X_ThinIce</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_SkyDistortion</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_ReceiptKnife</defName>
+    <label>Contractual Re-Creation: knives</label>
+    <abilities>
+      <li>JJK_X_ReceiptKnives</li>
+    </abilities>
+    <projectiles>
+      <li>JJK_Proj_ReceiptKnife</li>
+    </projectiles>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_ReceiptWeight</defName>
+    <label>Contractual Re-Creation: falling weight</label>
+    <abilities>
+      <li>JJK_X_ReceiptWeight</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Gravity</defName>
+    <label>Antigravity System: gravity reversal</label>
+    <abilities>
+      <li>JJK_X_Gravity</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_GravityCrush</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Doors</defName>
+    <label>Pachinko: train doors</label>
+    <abilities>
+      <li>JJK_X_Doors</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Stars</defName>
+    <label>Love Rendezvous</label>
+    <abilities>
+      <li>JJK_X_StarMark</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Extinguishment</defName>
+    <label>Technique Extinguishment</label>
+    <abilities>
+      <li>JJK_X_Extinguish</li>
+      <li>JJK_X_Ladder</li>
+    </abilities>
+    <hediffs>
+      <li>JJK_TechniqueSealed</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Disruption</defName>
+    <label>cursed technique disruption</label>
+    <hediffs>
+      <li>JJK_TechniqueDisrupted</li>
+    </hediffs>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_Execution</defName>
+    <label>Deadly Sentencing: executioner's sword</label>
+    <abilities>
+      <li>JJK_ExecutionersSword</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_PositiveEnergy</defName>
+    <label>positive energy</label>
+    <abilities>
+      <li>JJK_PositiveEnergyOutput</li>
+    </abilities>
+  </JJKMod.MahoragaPhenomenonDef>
+  <JJKMod.MahoragaPhenomenonDef>
+    <defName>JJK_Adapt_SoulCut</defName>
+    <label>Split Soul Katana: soul cutting</label>
+  </JJKMod.MahoragaPhenomenonDef>
+</Defs>

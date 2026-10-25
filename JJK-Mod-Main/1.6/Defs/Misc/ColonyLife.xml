@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <PawnKindDef ParentName="JJK_HumanlikeBase">
+    <defName>JJK_RecurringRival</defName><label>rival sorcerer</label><defaultFactionType>JJK_CurseUsers</defaultFactionType><combatPower>140</combatPower>
+    <modExtensions><li Class="JJKMod.PawnKindSorcererExtension"><reserve>JJK_AverageReserves</reserve><sorcererChance>1</sorcererChance><grade>Grade3</grade></li></modExtensions>
+    <apparelMoney>400~900</apparelMoney><apparelTags><li>IndustrialBasic</li></apparelTags><weaponMoney>200~500</weaponMoney><weaponTags><li>MedievalMeleeAdvanced</li></weaponTags>
+  </PawnKindDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_ContainmentVault</defName><label>cursed-object containment vault</label>
+    <description>Haul dangerous relics, Sukuna fingers and sealed mission objects here. Seals lose 12% integrity per object per day. Below 50% they cause nightmares, below 20% possession attempts, and below 5% curse outbreaks. Sorcerers assigned to Research maintain seals below 75%, spending 20 CE and 600 ticks. Right-click to maintain manually. Empty vaults do not decay.</description>
+    <thingClass>JJKMod.Building_ContainmentVault</thingClass><tickerType>Rare</tickerType>
+    <graphicData><texPath>Things/Building/Ship/ShipCryptosleepCasket</texPath><graphicClass>Graphic_Multi</graphicClass><drawSize>(1,2)</drawSize><color>(0.65,0.45,0.8)</color></graphicData>
+    <size>(1,2)</size><altitudeLayer>Building</altitudeLayer><passability>PassThroughOnly</passability><fillPercent>0.5</fillPercent>
+    <statBases><MaxHitPoints>500</MaxHitPoints><WorkToBuild>5000</WorkToBuild><Mass>100</Mass><Flammability>0</Flammability></statBases>
+    <costList><Steel>180</Steel><ComponentIndustrial>3</ComponentIndustrial><JJK_CursedResidue>60</JJK_CursedResidue></costList>
+    <designationCategory>Furniture</designationCategory><researchPrerequisites><li>JJK_SorcererTraining</li></researchPrerequisites>
+    <building>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop><maxItemsInCell>1</maxItemsInCell>
+      <fixedStorageSettings><filter><thingDefs><li>JJK_DangerousRelic</li><li>JJK_SukunaFinger</li><li>JJK_SealedMissionObject</li></thingDefs></filter></fixedStorageSettings>
+      <defaultStorageSettings><priority>Critical</priority><filter><thingDefs><li>JJK_DangerousRelic</li><li>JJK_SukunaFinger</li><li>JJK_SealedMissionObject</li></thingDefs></filter></defaultStorageSettings>
+    </building>
+    <inspectorTabs><li>ITab_Storage</li></inspectorTabs>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_CurtainAnchor</defName><label>curtain anchor</label>
+    <description>Align anchors horizontally or vertically within 40 cells. Matching channels and restrictions form destructible boundary links; four corner anchors enclose a rectangle. Raise every anchor and supply cursed residue. Curses cost 2 residue/day per anchor, hostiles 4, everyone 6. Walls, doors and occupied cells can leave gaps; inspect the perimeter. Destroying or exhausting either anchor drops its links. Physical curtains do not stop teleportation or abilities cast across them.</description>
+    <thingClass>JJKMod.Building_CurtainAnchor</thingClass><tickerType>Rare</tickerType>
+    <graphicData><texPath>Things/Building/Joy/HorseshoesPin</texPath><graphicClass>Graphic_Single</graphicClass><color>(0.45,0.25,0.8)</color></graphicData>
+    <altitudeLayer>Building</altitudeLayer><passability>Impassable</passability><fillPercent>1</fillPercent>
+    <statBases><MaxHitPoints>200</MaxHitPoints><WorkToBuild>2200</WorkToBuild><Mass>15</Mass><Flammability>0</Flammability></statBases>
+    <costList><Steel>60</Steel><JJK_CursedResidue>20</JJK_CursedResidue></costList>
+    <designationCategory>Security</designationCategory><researchPrerequisites><li>JJK_SimpleDomain</li></researchPrerequisites>
+    <comps><li Class="CompProperties_Refuelable"><fuelCapacity>30</fuelCapacity><fuelConsumptionRate>0</fuelConsumptionRate><consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed><initialFuelPercent>0</initialFuelPercent><fuelFilter><thingDefs><li>JJK_CursedResidue</li></thingDefs></fuelFilter><fuelLabel>Cursed residue</fuelLabel><fuelGizmoLabel>Seal fuel</fuelGizmoLabel></li></comps>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_PlayerCurtain</defName><label>player curtain</label>
+    <description>An anchor-supported curtain. Destroy an anchor to collapse the link.</description>
+    <thingClass>JJKMod.Building_PlayerCurtain</thingClass><tickerType>Normal</tickerType>
+    <graphicData><texPath>Things/Building/DomainBarrier</texPath><graphicClass>Graphic_Single</graphicClass><shaderType>TransparentPostLight</shaderType><color>(0.4,0.25,0.65,0.55)</color></graphicData>
+    <altitudeLayer>DoorMoveable</altitudeLayer><fillPercent>0</fillPercent><useHitPoints>false</useHitPoints><selectable>false</selectable>
+    <rotatable>false</rotatable><blockLight>false</blockLight><holdsRoof>false</holdsRoof><drawerType>RealtimeOnly</drawerType>
+    <statBases><DoorOpenSpeed>100</DoorOpenSpeed></statBases>
+    <building><isEdifice>true</isEdifice><isInert>true</isInert><deconstructible>false</deconstructible><claimable>false</claimable></building>
+  </ThingDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_SchoolDesk</defName><label>jujutsu school desk</label>
+    <description>A teaching space for group lessons. Open Jujutsu, then Colony life to enroll colonists, accept student intake, invite instructors and begin classes. A Grade 2 or stronger sorcerer teaches. Students graduate after five lesson days and two supervised expeditions. Education never grants an innate technique.</description>
+    <thingClass>Building</thingClass>
+    <graphicData><texPath>Things/Building/Production/ResearchBenchSimple</texPath><graphicClass>Graphic_Multi</graphicClass><drawSize>(2,1)</drawSize></graphicData>
+    <size>(2,1)</size><altitudeLayer>Building</altitudeLayer><passability>PassThroughOnly</passability><fillPercent>0.5</fillPercent>
+    <statBases><MaxHitPoints>250</MaxHitPoints><WorkToBuild>3000</WorkToBuild><Mass>35</Mass><Flammability>0.5</Flammability></statBases>
+    <costList><WoodLog>120</WoodLog><Steel>40</Steel><JJK_CursedResidue>20</JJK_CursedResidue></costList>
+    <designationCategory>Production</designationCategory><researchPrerequisites><li>JJK_SorcererTraining</li></researchPrerequisites>
+  </ThingDef>
+  <ThingDef Abstract="True" Name="JJK_MissionNodeBase" ParentName="BuildingBase">
+    <thingClass>JJKMod.Building_MissionClue</thingClass><useHitPoints>false</useHitPoints><rotatable>false</rotatable>
+    <graphicData><texPath>Things/Building/Joy/HorseshoesPin</texPath><graphicClass>Graphic_Single</graphicClass><color>(0.7,0.3,0.9)</color></graphicData>
+    <altitudeLayer>Building</altitudeLayer><passability>PassThroughOnly</passability><fillPercent>0.1</fillPercent>
+    <building><deconstructible>false</deconstructible><claimable>false</claimable></building>
+  </ThingDef>
+  <ThingDef ParentName="JJK_MissionNodeBase"><defName>JJK_InvestigationClue</defName><label>curse investigation clue</label><description>Select a colonist and right-click to examine the clue. Collect residual energy, survivor testimony and scene evidence before confronting the curse.</description></ThingDef>
+  <ThingDef ParentName="JJK_MissionNodeBase"><defName>JJK_HauntedWard</defName><label>haunted ward</label><description>The focus of the curse's condition. Gather all three clues to reveal the rule. Right-click with a colonist to perform the ritual once its condition is met. Confronting the curse before collecting evidence risks an ambush.</description></ThingDef>
+  <ThingDef ParentName="JJK_MissionNodeBase"><defName>JJK_ExtractionBeacon</defName><label>civilian extraction beacon</label><description>Escort or carry survivors here. Right-click the survivor with a colonist for a complete escort order, or right-click this beacon to extract a nearby or carried survivor. Two of three must leave alive. Killing all enemies is unnecessary.</description><graphicData><color>(0.2,0.9,0.6)</color></graphicData></ThingDef>
+  <ThingDef ParentName="BuildingBase"><defName>JJK_HauntedKeystone</defName><label>haunted tunnel keystone</label><description>A marked focus of the tunnel curse. Both keystones must be destroyed before the ward can be broken.</description><thingClass>Building</thingClass><graphicData><texPath>Things/Building/Joy/HorseshoesPin</texPath><graphicClass>Graphic_Single</graphicClass><color>(0.8,0.15,0.15)</color></graphicData><altitudeLayer>Building</altitudeLayer><passability>PassThroughOnly</passability><statBases><MaxHitPoints>160</MaxHitPoints><Flammability>0</Flammability></statBases><building><deconstructible>false</deconstructible><claimable>false</claimable></building></ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>JJK_DangerousRelic</defName><label>dangerous cursed relic</label>
+    <description>A relic recovered from a haunting or inheritance dispute. Store it in a maintained containment vault. Left loose on a colony map, it causes nightmares and attracts curses every two days. It cannot grant a technique.</description>
+    <graphicData><texPath>Things/Item/Talisman/SukunaFinger</texPath><graphicClass>Graphic_Single</graphicClass><color>(0.6,0.3,0.8)</color></graphicData>
+    <statBases><MaxHitPoints>120</MaxHitPoints><Mass>3</Mass><MarketValue>400</MarketValue></statBases><stackLimit>1</stackLimit><tickerType>Rare</tickerType>
+    <thingCategories><li>Items</li></thingCategories><tradeability>None</tradeability>
+    <comps><li Class="JJKMod.CompProperties_DangerousRelic"/></comps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase"><defName>JJK_StolenOffering</defName><label>stolen shrine offering</label><description>Return this specific offering to the ward to break the shrine curse. Select a colonist and right-click the ward after investigating it.</description><graphicData><texPath>Things/Item/Resource/ComponentIndustrial</texPath><graphicClass>Graphic_StackCount</graphicClass><color>(0.9,0.7,0.3)</color></graphicData><statBases><MaxHitPoints>150</MaxHitPoints><Mass>1</Mass><MarketValue>0</MarketValue></statBases><stackLimit>1</stackLimit><tradeability>None</tradeability><thingCategories><li>Items</li></thingCategories></ThingDef>
+  <HediffDef><defName>JJK_VaultNightmares</defName><label>cursed nightmares</label><description>A leaking seal disturbs sleep and concentration for one day.</description><hediffClass>HediffWithComps</hediffClass><initialSeverity>1</initialSeverity><isBad>true</isBad><comps><li Class="HediffCompProperties_Disappears"><disappearsAfterTicks>60000</disappearsAfterTicks></li></comps><stages><li><statFactors><GeneralLaborSpeed>0.85</GeneralLaborSpeed><RestRateMultiplier>0.6</RestRateMultiplier></statFactors></li></stages></HediffDef>
+  <HediffDef><defName>JJK_ExposedCurse</defName><label>investigated weakness</label><description>A thorough investigation revealed this curse's weak point. Incoming damage is increased by 30%.</description><hediffClass>HediffWithComps</hediffClass><initialSeverity>1</initialSeverity><isBad>true</isBad><stages><li><statFactors><IncomingDamageFactor>1.3</IncomingDamageFactor></statFactors></li></stages></HediffDef>
+  <JobDef><defName>JJK_MaintainVault</defName><driverClass>JJKMod.JobDriver_MaintainVault</driverClass><reportString>Maintaining containment seals.</reportString></JobDef>
+  <JobDef><defName>JJK_InvestigateClue</defName><driverClass>JJKMod.JobDriver_InvestigateClue</driverClass><reportString>Investigating the curse.</reportString></JobDef>
+  <JobDef><defName>JJK_BreakHaunting</defName><driverClass>JJKMod.JobDriver_BreakHaunting</driverClass><reportString>Breaking the curse's condition.</reportString></JobDef>
+  <JobDef><defName>JJK_ReturnOffering</defName><driverClass>JJKMod.JobDriver_ReturnOffering</driverClass><reportString>Returning the stolen offering.</reportString></JobDef>
+  <JobDef><defName>JJK_ExtractCarried</defName><driverClass>JJKMod.JobDriver_ExtractCarried</driverClass><reportString>Extracting a civilian.</reportString><carryThingAfterJob>true</carryThingAfterJob></JobDef>
+  <JobDef><defName>JJK_EscortCivilian</defName><driverClass>JJKMod.JobDriver_EscortCivilian</driverClass><reportString>Escorting a civilian to safety.</reportString><carryThingAfterJob>true</carryThingAfterJob></JobDef>
+  <JobDef><defName>JJK_TeachClass</defName><driverClass>JJKMod.JobDriver_TeachClass</driverClass><reportString>Teaching a jujutsu class.</reportString></JobDef>
+  <JobDef><defName>JJK_AttendClass</defName><driverClass>JJKMod.JobDriver_AttendClass</driverClass><reportString>Attending a jujutsu class.</reportString></JobDef>
+  <JobDef><defName>JJK_VisitingInstructor</defName><driverClass>JJKMod.JobDriver_VisitingInstructor</driverClass><reportString>Visiting the jujutsu school.</reportString><casualInterruptible>true</casualInterruptible></JobDef>
+  <JobDef><defName>JJK_RivalRetreat</defName><driverClass>JJKMod.JobDriver_RivalRetreat</driverClass><reportString>Retreating to fight another day.</reportString></JobDef>
+  <WorkGiverDef><defName>JJK_MaintainVault</defName><label>maintain cursed seals</label><giverClass>JJKMod.WorkGiver_MaintainVault</giverClass><workType>Research</workType><priorityInType>120</priorityInType><verb>maintain</verb><gerund>maintaining seals at</gerund><scanThings>true</scanThings><requiredCapacities><li>Consciousness</li><li>Manipulation</li></requiredCapacities></WorkGiverDef>
+</Defs>

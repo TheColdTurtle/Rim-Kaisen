@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Domain Expansion (Section 20), one per cursed technique. All share the   -->
+  <!-- Ability_DomainExpansion class and a DomainExtension modExtension that     -->
+  <!-- carries the technique's barrier colour, sure-hit pulse, upkeep and        -->
+  <!-- burnout. They are instant self-casts (no targetingParameters, like        -->
+  <!-- Reverse Cursed Technique) centred on the caster.                          -->
+  <!--                                                                          -->
+  <!-- Gating (acquireRequirement):                                             -->
+  <!--   minLevel 3 = Grade 1   (Standard domains)                              -->
+  <!--   minLevel 4 = Special   (Advanced domains: Shrine, Limitless, Ten Sh.)  -->
+  <!-- (CT class level is bound to grade by GameComponent_JJK.)                  -->
+  <!-- cannotBeActiveWithHediffs blocks opening a second domain or recasting     -->
+  <!-- during burnout.                                                          -->
+  <!-- ===================================================================== -->
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_DomainBase" Abstract="True">
+    <abilityClass>JJKMod.Ability_DomainExpansion</abilityClass>
+    <uiPosition>(0.9, 0.9)</uiPosition>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase" Name="JJK_DomainTierBase" Abstract="True">
+    <!-- Quicker to manifest than the 120-tick base cast (domains should snap up). -->
+    <castDurationTicks>50</castDurationTicks>
+    <cooldownTicks>1500</cooldownTicks>
+    <cannotBeActiveWithHediffs>
+      <li>JJK_DomainActive</li>
+      <li>JJK_DomainBurnout</li>
+    </cannotBeActiveWithHediffs>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Disaster Flames: Coffin of the Iron Mountain == -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_DisasterFlames</defName>
+    <label>domain expansion: coffin of the iron mountain</label>
+    <description>Manifest a sealed volcanic domain. Within it, your Disaster Flames are sure-hit, scorching every enemy inside, and your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DisasterFlames</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_DisasterFlames</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(1.0, 0.45, 0.1)</barrierColor>
+        <pulseDamage>Flame</pulseDamage>
+        <pulseAmount>22</pulseAmount>
+        <upkeepPerTick>0.04</upkeepPerTick>
+        <sureHitStrain>10</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_DisasterFlames_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_DisasterFlames_Tier1</defName>
+    <label>coffin of the iron mountain</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterFlames</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>100</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Blood Manipulation: Blood and Bond =========== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_BloodManipulation</defName>
+    <label>domain expansion: blood and bond</label>
+    <description>Manifest a domain saturated with cursed blood. Within it, your blood techniques are sure-hit, slicing every enemy inside, and your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BloodManipulation</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_BloodManipulation</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.6, 0.05, 0.1)</barrierColor>
+        <pulseDamage>Stab</pulseDamage>
+        <pulseAmount>22</pulseAmount>
+        <upkeepPerTick>0.04</upkeepPerTick>
+        <sureHitStrain>10</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_BloodManipulation_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_BloodManipulation_Tier1</defName>
+    <label>blood and bond</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>100</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Disaster Tides: Horizon of the Captivating Skandha -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_DisasterTides</defName>
+    <label>domain expansion: horizon of the captivating skandha</label>
+    <description>Manifest a boundless cursed sea. Schools of fish shikigami pour out of the water and tear into every enemy caught inside, while your own power swells as you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DisasterTides</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_DisasterTides</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.2, 0.5, 0.95)</barrierColor>
+        <!-- Sure-hit comes from the fish shikigami, not a damage pulse. -->
+        <pulseAmount>0</pulseAmount>
+        <upkeepPerTick>0.04</upkeepPerTick>
+        <sureHitStrain>10</sureHitStrain>
+        <summonKinds>
+          <li>JJK_DomainFish</li>
+        </summonKinds>
+        <summonCountEach>8</summonCountEach>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_DisasterTides_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_DisasterTides_Tier1</defName>
+    <label>horizon of the captivating skandha</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterTides</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>100</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Disaster Plants: Shining Sea of Growing Branches -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_DisasterPlants</defName>
+    <label>domain expansion: shining sea of growing branches</label>
+    <description>Manifest a domain overgrown with cursed flora. Within it, your Disaster Plants are sure-hit, impaling every enemy inside, and your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DisasterPlants</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_DisasterPlants</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.2, 0.6, 0.2)</barrierColor>
+        <pulseDamage>Cut</pulseDamage>
+        <pulseAmount>22</pulseAmount>
+        <upkeepPerTick>0.04</upkeepPerTick>
+        <sureHitStrain>10</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_DisasterPlants_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_DisasterPlants_Tier1</defName>
+    <label>shining sea of growing branches</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterPlants</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>100</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Shrine: Malevolent Shrine (Advanced) ======== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_Shrine</defName>
+    <label>domain expansion: malevolent shrine</label>
+    <description>Manifest the open shrine of the King of Curses. Within it, Cleave and Dismantle are sure-hit, flaying every enemy inside, and your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Shrine</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_Shrine</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.5, 0.0, 0.05)</barrierColor>
+        <pulseDamage>Cut</pulseDamage>
+        <pulseAmount>40</pulseAmount>
+        <upkeepPerTick>0.05</upkeepPerTick>
+        <!-- The King of Curses' shrine tears through a Simple Domain quickly. -->
+        <sureHitStrain>25</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_Shrine_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_Shrine_Tier1</defName>
+    <label>malevolent shrine</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Shrine</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>140</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Limitless: Unlimited Void (Advanced) ======== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_Limitless</defName>
+    <label>domain expansion: unlimited void</label>
+    <description>Manifest the Limitless as a domain. Within it, every enemy is flooded with infinite information, locked in place and overwhelmed, while your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/HollowPurple</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_Limitless</li>
+    </abilityTrees>
+    <modExtensions>
+      <!-- Unlimited Void does not grind enemies down - it floods them with
+           infinite information, locking everyone inside in place. Stun-only,
+           re-applied faster than it lapses so they stay frozen while it holds. -->
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.35, 0.15, 0.6)</barrierColor>
+        <pulseStun>true</pulseStun>
+        <pulseStunTicks>180</pulseStunTicks>
+        <pulseIntervalTicks>60</pulseIntervalTicks>
+        <!-- On collapse the residual stun equals how long the domain was held,
+             up to ~167s - hold it longer, they reel longer. -->
+        <maxLingerStunTicks>10000</maxLingerStunTicks>
+        <upkeepPerTick>0.05</upkeepPerTick>
+        <sureHitStrain>14</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_Limitless_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_Limitless_Tier1</defName>
+    <label>unlimited void</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Limitless</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>140</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Ten Shadows: Chimera Shadow Garden (Advanced) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_TenShadows</defName>
+    <label>domain expansion: chimera shadow garden</label>
+    <description>Manifest a domain of living shadow. Every shikigami you have tamed pours out of the dark at once and falls upon every enemy inside, while your own power swells as you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/TenShadows</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_TenShadows</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.1, 0.1, 0.15)</barrierColor>
+        <!-- Sure-hit comes from the summoned shadows, not a damage pulse. -->
+        <pulseAmount>0</pulseAmount>
+        <upkeepPerTick>0.05</upkeepPerTick>
+        <sureHitStrain>14</sureHitStrain>
+        <summonTamedShadows>true</summonTamedShadows>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_TenShadows_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_TenShadows_Tier1</defName>
+    <label>chimera shadow garden</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>140</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Simple Domain (defensive, universal) ========= -->
+  <!-- Not a Domain Expansion: a small, open, purely DEFENSIVE domain available -->
+  <!-- to EVERY sorcerer (granted by the JJK_Sorcerer trait, not a CT gene), at -->
+  <!-- low cost and no grade gate. It deals no damage; instead the caster and    -->
+  <!-- their allies within it are immune to the sure-hit of a hostile Domain     -->
+  <!-- Expansion (enforced by MapComponent_DomainManager.IsShieldedBySimpleDomain).-->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_Domain_SimpleTree</defName>
+    <label>simple domain</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_Simple</defName>
+    <label>simple domain</label>
+    <description>Manifest a small, open defensive territory around yourself. It deals no damage, but while it holds, you and your allies standing within it are immune to the sure-hit of any hostile Domain Expansion that catches you. A fundamental defensive technique taught to every sorcerer, costing little cursed energy and no grade.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/SimpleDomain</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_Domain_SimpleTree</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.55, 0.85, 0.95)</barrierColor>
+        <isSimpleDomain>true</isSimpleDomain>
+        <closed>false</closed>
+        <radius>3</radius>
+        <pulseAmount>0</pulseAmount>
+        <upkeepPerTick>0.02</upkeepPerTick>
+        <minMaxCE>30</minMaxCE>
+        <activeHediff>JJK_SimpleDomainActive</activeHediff>
+        <!-- Durability before a hostile domain's sure-hit shatters it. -->
+        <simpleDomainIntegrity>120</simpleDomainIntegrity>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_Simple_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Domain_Simple_Tier1</defName>
+    <label>simple domain</label>
+    <!-- Snaps up quickly so it can be raised reactively against an enemy domain. -->
+    <castDurationTicks>40</castDurationTicks>
+    <cooldownTicks>600</cooldownTicks>
+    <!-- Learned only by reading a Simple Domain scroll, never auto-gained. -->
+    <autoGain>false</autoGain>
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cannotBeActiveWithHediffs>
+      <li>JJK_SimpleDomainActive</li>
+    </cannotBeActiveWithHediffs>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ============ Idle Transfiguration: Self-Embodiment of Perfection ==== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_IdleTransfiguration</defName>
+    <label>domain expansion: self-embodiment of perfection</label>
+    <description>Manifest the inside of a soul. Within this domain, your transfiguring touch is sure-hit: every enemy inside is struck directly in the soul, and no armor in the world can interpose. Your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/SoulDistortion</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_IdleTransfiguration</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.55, 0.45, 0.65)</barrierColor>
+        <!-- The sure-hit reshapes souls: armor is meaningless. Lower raw damage
+             than the elemental domains - it cannot be mitigated at all. -->
+        <pulseDamage>Cut</pulseDamage>
+        <pulseAmount>16</pulseAmount>
+        <pulseIgnoresArmor>true</pulseIgnoresArmor>
+        <upkeepPerTick>0.05</upkeepPerTick>
+        <sureHitStrain>14</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_IdleTransfiguration_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_IdleTransfiguration_Tier1</defName>
+    <label>self-embodiment of perfection</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IdleTransfiguration</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>110</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ================ Projection Sorcery: Time Cell Moon Palace ========== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_Projection</defName>
+    <label>domain expansion: time cell moon palace</label>
+    <description>Manifest a lunar hall where the 24-frame rule is absolute. Anything that MOVES inside the domain is cut by the frames themselves - standing perfectly still is the only safety, and standing still means never escaping. Your own power swells while you stand at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ProjectionSorcery</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_Projection</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.75, 0.8, 0.95)</barrierColor>
+        <!-- Harder, faster pulse than other domains - but it ONLY strikes pawns
+             that are moving when it fires. Freeze or bleed. -->
+        <pulseDamage>Cut</pulseDamage>
+        <pulseAmount>26</pulseAmount>
+        <pulseIntervalTicks>60</pulseIntervalTicks>
+        <pulseOnlyMoving>true</pulseOnlyMoving>
+        <upkeepPerTick>0.05</upkeepPerTick>
+        <sureHitStrain>14</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_Projection_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_Projection_Tier1</defName>
+    <label>time cell moon palace</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Projection</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>110</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- =================== Ice Formation: Glacial Hoarfrost ================ -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_IceFormation</defName>
+    <label>domain expansion: glacial hoarfrost</label>
+    <description>Manifest a world of absolute cold. Within it, the frost is sure-hit: every enemy inside is bitten by the ice and repeatedly frozen in place, while your own power swells at its heart.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/IceSpear</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_IceFormation</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.6, 0.85, 1.0)</barrierColor>
+        <!-- Both bites AND freezes: modest damage plus a rolling stun. -->
+        <pulseDamage>Cut</pulseDamage>
+        <pulseAmount>12</pulseAmount>
+        <pulseStun>true</pulseStun>
+        <pulseStunTicks>110</pulseStunTicks>
+        <upkeepPerTick>0.05</upkeepPerTick>
+        <sureHitStrain>14</sureHitStrain>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_IceFormation_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_IceFormation_Tier1</defName>
+    <label>glacial hoarfrost</label>
+    <acquireRequirement>
+      <minLevel>4</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_IceFormation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>110</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ================= Deadly Sentencing (Higuruma's courtroom) ========== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DomainBase">
+    <defName>JJK_Domain_DeadlySentencing</defName>
+    <label>domain expansion: deadly sentencing</label>
+    <description>Convene the court itself. Everyone caught inside is bound by its proceedings - held motionless before the bench while the trial runs, with no violence permitted but yours. Higuruma's prodigious talent means this domain is mastered a full grade earlier than any other.</description>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Judgement</uiSkillIcon>
+    <abilityTrees>
+      <li>JJK_CT_DeadlySentencing</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.DomainExtension">
+        <barrierColor>(0.75, 0.7, 0.55)</barrierColor>
+        <!-- A courtroom, not an abattoir: the sure-hit binds rather than wounds
+             (like Unlimited Void), holding defendants for Judgement. -->
+        <pulseStun>true</pulseStun>
+        <pulseStunTicks>150</pulseStunTicks>
+        <pulseAmount>0</pulseAmount>
+        <upkeepPerTick>0.04</upkeepPerTick>
+        <sureHitStrain>10</sureHitStrain>
+        <!-- The prodigy: a lower mastery bar than every other domain. -->
+        <masteryToOpen>500</masteryToOpen>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Domain_DeadlySentencing_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_DomainTierBase">
+    <defName>JJK_Domain_DeadlySentencing_Tier1</defName>
+    <label>deadly sentencing</label>
+    <acquireRequirement>
+      <!-- One grade earlier than the standard domains: Grade 2. -->
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DeadlySentencing</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>90</energyCost>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

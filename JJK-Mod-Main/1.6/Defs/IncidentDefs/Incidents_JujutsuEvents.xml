@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Jujutsu world events. Both are ThreatBig but neither is a raid: the    -->
+  <!-- veil is a timed siege condition, and the finger is a temptation with   -->
+  <!-- teeth attached.                                                        -->
+  <!-- ===================================================================== -->
+
+  <!-- A curtain drops over the colony. Uses vanilla's condition worker; all the
+       behaviour (dark sky, hourly curse waves) lives in JJKMod.GameCondition_Veil. -->
+  <IncidentDef>
+    <defName>JJK_VeilDescends</defName>
+    <label>veil descends</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>IncidentWorker_MakeGameCondition</workerClass>
+    <gameCondition>JJK_VeilCondition</gameCondition>
+    <durationDays>0.35~0.75</durationDays>
+    <baseChance>0.5</baseChance>
+    <minThreatPoints>350</minThreatPoints>
+    <earliestDay>12</earliestDay>
+    <minRefireDays>15</minRefireDays>
+    <letterLabel>Veil descends</letterLabel>
+    <letterText>The sky over your colony has turned the colour of a bruise. Someone - or something - has drawn a curtain over this place, sealing it off from the world outside.\n\nCursed spirits can feel it. For as long as the veil holds they will keep pushing through, a few at a time, and no help is coming through that sky. Hold until it lifts.</letterText>
+    <letterDef>ThreatBig</letterDef>
+  </IncidentDef>
+
+  <!-- A Sukuna's Finger surfaces nearby, with an escort of curses drawn to it. -->
+  <IncidentDef>
+    <defName>JJK_SukunaFingerUnearthed</defName>
+    <label>sukuna's finger unearthed</label>
+    <category>ThreatBig</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>JJKMod.IncidentWorker_SukunaFingerUnearthed</workerClass>
+    <pointsScaleable>true</pointsScaleable>
+    <baseChance>0.4</baseChance>
+    <minThreatPoints>250</minThreatPoints>
+    <earliestDay>8</earliestDay>
+    <minRefireDays>20</minRefireDays>
+    <letterLabel>Sukuna's finger unearthed</letterLabel>
+    <letterText>Something has surfaced near your colony: a withered, blackened finger the length of a forearm, humming with more cursed energy than a whole grade 1 spirit.\n\nOne of the King of Curses' twenty fingers. Curses have already converged on it - they always do. Take it and a sorcerer can swallow it for a terrible surge of power, at a price. Leave it, and the things it called are still out there.</letterText>
+    <letterDef>ThreatBig</letterDef>
+  </IncidentDef>
+
+</Defs>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LanguageData>
+  <JJK_Yes>yes</JJK_Yes>
+  <JJK_No>no</JJK_No>
+  <JJK_RecordTitle>Mission history and sorcerer records</JJK_RecordTitle>
+  <JJK_RecordScope>Records begin with this update. Lifetime totals persist; the latest 2,000 events are kept. Existing historical events cannot be reconstructed.</JJK_RecordScope>
+  <JJK_RecordEntry>Day {0} · {1} — {2}: {3}</JJK_RecordEntry>
+  <JJK_RecordTotals>{0}: {1} contracts · {2} promotions · {3} Black Flashes · {4} shadows lost · {5} major victories</JJK_RecordTotals>
+  <JJK_RecordContract>Completed contract</JJK_RecordContract>
+  <JJK_RecordFailure>Failed contract</JJK_RecordFailure>
+  <JJK_RecordPromotion>Promotion</JJK_RecordPromotion>
+  <JJK_RecordFlash>Black Flash</JJK_RecordFlash>
+  <JJK_RecordShadow>Shikigami permanently lost</JJK_RecordShadow>
+  <JJK_RecordVictory>Major victory</JJK_RecordVictory>
+  <JJK_RecordStage>Operation advanced</JJK_RecordStage>
+  <JJK_RecordSeal>Enemy sealed</JJK_RecordSeal>
+  <JJK_RecordBounty>Bounty claimed</JJK_RecordBounty>
+  <JJK_RecordTruce>Truce negotiated</JJK_RecordTruce>
+  <JJK_SchoolCampaign>School operation: the hidden mastermind</JJK_SchoolCampaign>
+  <JJK_SchoolBrief>Tier 3 operation: investigation → civilian rescue → pursuit → boss. Complete all stages at one expedition site within 30 days, then return home. Evidence gathered before confronting the first curse weakens the final boss; saving all three civilians reduces its support.</JJK_SchoolBrief>
+  <JJK_SchoolStage>Stage: {0}. Thorough investigation: {1}. Civilians rescued: {2}/3.</JJK_SchoolStage>
+  <JJK_StageInvestigation>Investigation</JJK_StageInvestigation>
+  <JJK_StageRescue>Rescue</JJK_StageRescue>
+  <JJK_StagePursuit>Pursuit</JJK_StagePursuit>
+  <JJK_StageBoss>Boss encounter</JJK_StageBoss>
+  <JJK_StageHelpInvestigation>Gather all three clues before revealing the curse to expose the final boss. Defeat the revealed threats, then advance from headquarters with a colonist at the site.</JJK_StageHelpInvestigation>
+  <JJK_StageHelpRescue>Extract at least two survivors. You may advance after two, but saving all three halves the pursuit pack and reduces boss support. Thorough investigation delays the first rescue reinforcement wave.</JJK_StageHelpRescue>
+  <JJK_StageHelpPursuit>Clear the pursuit force before advancing and face fresh boss guards, or cut off the mastermind immediately to prevent those guards arriving. Cutting it off leaves every surviving pursuit enemy in the fight.</JJK_StageHelpPursuit>
+  <JJK_StageHelpBoss>Defeat the mastermind and every remaining threat. Return a participating colonist home to claim the operation reward.</JJK_StageHelpBoss>
+  <JJK_SchoolAdvance>Advance to the next stage</JJK_SchoolAdvance>
+  <JJK_SchoolCutOff>Cut off the mastermind now — keep surviving enemies, prevent fresh guards</JJK_SchoolCutOff>
+  <JJK_ContractSealing>Sealing operation</JJK_ContractSealing>
+  <JJK_SealBrief>Capture the overwhelming incarnation alive. Charge three anchors (20 CE each), then hold the enemy within 8 cells and line of sight of an anchor with two conscious sorcerers nearby. Complete a 15-second ritual (40 CE); damage or a broken condition interrupts it. Destroyed anchors or a dead target fail the mission.</JJK_SealBrief>
+  <JJK_SealConditions>Charged anchors: {0}/3. Two conscious sorcerers and the living hostile target must stay within 8 cells of the ritual anchor. The target must remain in line of sight. Ritual: 15 seconds, 40 CE.</JJK_SealConditions>
+  <JJK_SealActivate>Charge anchor — 10 seconds, 20 CE</JJK_SealActivate>
+  <JJK_SealRitual>Seal living enemy — 15 seconds, 40 CE</JJK_SealRitual>
+  <JJK_SealCaptured>Enemy captured alive. Choose defense or transport in Jujutsu headquarters.</JJK_SealCaptured>
+  <JJK_SealRouteHelp>Choose once: defend at this site for one day, or transport the prison home and defend for half a day. Each route brings three escalating curse waves. Time counts only while a conscious colonist is on the prison’s destination map. All guards must be defeated. Return a participant home before claiming.</JJK_SealRouteHelp>
+  <JJK_SealRouteUndecided>Choose a route in headquarters</JJK_SealRouteUndecided>
+  <JJK_SealRouteDefend>Defend the prison at the operation site</JJK_SealRouteDefend>
+  <JJK_SealRouteTransport>Transport the prison home and defend it</JJK_SealRouteTransport>
+  <JJK_SealRouteProgress>{0}. Defense waves: {1}/3. Time defended: {2} days.</JJK_SealRouteProgress>
+  <JJK_SealRaid>Enemies are attempting to reclaim the prison. Defense wave {0}/3.</JJK_SealRaid>
+  <JJK_SealDelivered>The prison is secured for school custody. Return a participating colonist home and claim the contract.</JJK_SealDelivered>
+  <JJK_SealContents>Sealed inside: {0}</JJK_SealContents>
+  <JJK_CullingRuleNegotiatedTruce>Negotiated truces</JJK_CullingRuleNegotiatedTruce>
+  <JJK_CullingRuleBounties>Bounties</JJK_CullingRuleBounties>
+  <JJK_CullingRuleProtectedAreas>Protected areas</JJK_CullingRuleProtectedAreas>
+  <JJK_RivalPressure>Rival pressure: {0}/3 extra defenders per future wave and raid.</JJK_RivalPressure>
+  <JJK_NegotiateTruce>Negotiate a truce — 20 points, skip one wave</JJK_NegotiateTruce>
+  <JJK_PostBounty>Post a bounty — 20 points, increase rival pressure</JJK_PostBounty>
+  <JJK_BountyValue>Bounty reward: {0} points</JJK_BountyValue>
+  <JJK_BountyReaction>A bounty has been posted on {0}. Rivals reinforce future waves and refuse truces at the target’s colony until the target dies.</JJK_BountyReaction>
+  <JJK_TruceReaction>The rivals accept a paid truce. One wave stands down, and further waves and home raids pause for at least a day.</JJK_TruceReaction>
+  <JJK_Sanctuary>Protected area — damage blocked for both sides</JJK_Sanctuary>
+  <JJK_PreviewArea>Impact area — allies can be hit</JJK_PreviewArea>
+  <JJK_PreviewPull>Pull area — hostiles only</JJK_PreviewPull>
+  <JJK_PreviewLine>Destructive line — other factions, structures and plants</JJK_PreviewLine>
+  <JJK_PreviewTarget>Target</JJK_PreviewTarget>
+  <JJK_CullingRuleDescNegotiatedTruce>Negotiated truces — pay 20 points after clearing a wave at a non-final colony to skip the next wave, once per site. Further waves and home raids pause for at least one day. Living bountied rivals at that site block negotiation.</JJK_CullingRuleDescNegotiatedTruce>
+  <JJK_CullingRuleDescBounties>Bounties — stake 20 points on one living hostile registered rival. A registered allied killer receives the stake plus 10 points. Environmental or enemy kills forfeit the stake. Each bounty adds one rival pressure.</JJK_CullingRuleDescBounties>
+  <JJK_CullingRuleDescProtectedAreas>Protected areas — the 6-cell circle around every active colony anchor blocks incoming and outgoing damage for both sides until disruption. Rivals respond with one extra defender per future wave and raid.</JJK_CullingRuleDescProtectedAreas>
+</LanguageData>

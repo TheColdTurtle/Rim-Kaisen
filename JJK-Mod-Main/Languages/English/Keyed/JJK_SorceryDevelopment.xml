@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LanguageData>
+  <JJK_DeepVoiceRequired>Spoken preparation requires at least 50% Talking capacity.</JJK_DeepVoiceRequired>
+  <JJK_DeepSeconds>{0} seconds</JJK_DeepSeconds>
+  <JJK_DeepTitle>Sorcery development</JJK_DeepTitle>
+  <JJK_DeepIntro>Develop your existing sorcery through costly commitments, personal refinements and bonds.</JJK_DeepIntro>
+  <JJK_DeepVows>Binding vows are sworn at a binding-vow altar. Only one vow per sorcerer; its restriction is permanent.</JJK_DeepVows>
+  <JJK_DeepProtectionBroken>{0} broke their protection vow. Output is permanently reduced by 25%.</JJK_DeepProtectionBroken>
+  <JJK_DeepOutput>Sorcery commitments: ×{0}</JJK_DeepOutput>
+  <JJK_DeepRevealed>{0} revealed their technique to {1}. Both now have an advantage for 30 seconds.</JJK_DeepRevealed>
+  <JJK_DeepReveal>Reveal your hand</JJK_DeepReveal>
+  <JJK_DeepRevealDesc>Explain your technique to a hostile human within 12 cells and line of sight. Requires 50% Talking and the listener needs 50% Hearing. For 30 seconds: +20% cursed-technique output, but that enemy takes 30% less damage from you and deals 25% more damage to you. Cooldown: 100 seconds.</JJK_DeepRevealDesc>
+  <JJK_DeepRevealInvalid>Choose a conscious hostile human within 12 cells and line of sight who can hear you.</JJK_DeepRevealInvalid>
+  <JJK_DeepRevealUnavailable>Requires a usable voice. Remaining cooldown: {0}.</JJK_DeepRevealUnavailable>
+  <JJK_DeepRevealStatus>Revealed to {0}: {1} remaining. +20% output; they resist 30% of your damage and deal +25% damage to you.</JJK_DeepRevealStatus>
+  <JJK_DeepScan>Sense residual energy</JJK_DeepScan>
+  <JJK_DeepScanDesc>Grade 2+ sorcerers spend 5 CE to detect hostile technique trails within 25 cells, or investigation clues within 50 cells. Traces last six in-game hours. Follow on foot to find a source; departed hostile sorcerers can lead to a nearby camp, at most once per five days per map. Scan cooldown: 10 seconds.</JJK_DeepScanDesc>
+  <JJK_DeepCooling>Recovering from the last scan.</JJK_DeepCooling>
+  <JJK_DeepTrace>Follow {0} residue — {1} old</JJK_DeepTrace>
+  <JJK_DeepUnknown>unknown technique</JJK_DeepUnknown>
+  <JJK_DeepHiddenTrail>Locate concealed-curse investigation trail</JJK_DeepHiddenTrail>
+  <JJK_DeepNoTrace>No recent hostile residue or investigation trail detected nearby.</JJK_DeepNoTrace>
+  <JJK_DeepTrailEnd>The trail ends here. Its source may still be nearby.</JJK_DeepTrailEnd>
+  <JJK_DeepCamp>Residual trail: enemy camp</JJK_DeepCamp>
+  <JJK_DeepCampText>The residual signature points to a nearby hostile camp. A caravan can investigate it. The site expires in five days.</JJK_DeepCampText>
+  <JJK_DeepProtectedStatus>Protected pawn: {0}. Vow: {1}.</JJK_DeepProtectedStatus>
+  <JJK_DeepMissing>missing</JJK_DeepMissing>
+  <JJK_DeepBroken>broken (−25% output)</JJK_DeepBroken>
+  <JJK_DeepActive>active (+30% output)</JJK_DeepActive>
+  <JJK_DeepDormant>dormant</JJK_DeepDormant>
+  <JJK_DeepDomains>Personal domain refinement</JJK_DeepDomains>
+  <JJK_DeepDomainRules>At 1,000 earned mastery XP in a domain’s technique, choose one permanent refinement for that technique. Choices are exclusive and apply on the next full domain opening. Collapse an active domain before choosing. Simple Domains are unaffected.</JJK_DeepDomainRules>
+  <JJK_DeepDomainNone>Unrefined</JJK_DeepDomainNone>
+  <JJK_DeepDomainCondensed>Condensed domain</JJK_DeepDomainCondensed>
+  <JJK_DeepDomainFortified>Fortified barrier</JJK_DeepDomainFortified>
+  <JJK_DeepDomainEconomical>Economical domain</JJK_DeepDomainEconomical>
+  <JJK_DeepDomainCondensedDesc>Radius −35%; sure-hit damage, stun duration and domain summon count +35%.</JJK_DeepDomainCondensedDesc>
+  <JJK_DeepDomainFortifiedDesc>Closed-domain barriers gain 25% effective mastery in domain clashes; upkeep +20%. Ordinary domain walls remain impassable. Only techniques with a closed domain can choose this refinement.</JJK_DeepDomainFortifiedDesc>
+  <JJK_DeepDomainEconomicalDesc>Upkeep −35%; sure-hit damage, stun duration and domain summon count −15%.</JJK_DeepDomainEconomicalDesc>
+  <JJK_DeepPermanent>This choice is permanent and excludes the other options.</JJK_DeepPermanent>
+  <JJK_DeepTools>Cursed-tool attunement</JJK_DeepTools>
+  <JJK_DeepToolRules>A landed hit on a standing hostile begins an exclusive weapon bond. Wield it for three days and land 20 practice hits (at most one counted per 10 seconds). The signature deals 6 additional cutting damage every 10 seconds. Losing or unequipping it causes −6 mood for five days; re-equipping it removes that memory. A living owner’s bond cannot be transferred.</JJK_DeepToolRules>
+  <JJK_DeepToolUnbound>Unattuned: land a hit on a standing hostile to begin a bond.</JJK_DeepToolUnbound>
+  <JJK_DeepToolProgress>Bond: {0} — {1}/3 days wielded, {2}/20 practice hits.</JJK_DeepToolProgress>
+  <JJK_DeepToolEffect>Signature unlocked: +6 cutting damage on a landed hit, once per 10 seconds.</JJK_DeepToolEffect>
+  <JJK_DeepInheritance>Shikigami inheritance</JJK_DeepInheritance>
+  <JJK_DeepInheritanceRules>At 500 earned Ten Shadows mastery XP, a permanently lost compatible shadow can pass one limited effect to an available, tamed heir. Maximum two inheritances per sorcerer; each donor and heir may participate once. Inherited power cannot pass on again. Dogs retain their existing Totality; Mahoraga, rabbits, other techniques and domain summons are excluded.</JJK_DeepInheritanceRules>
+  <JJK_DeepInherit>Seal this inheritance</JJK_DeepInherit>
+  <JJK_DeepVessel>Sukuna: the inner conflict</JJK_DeepVessel>
+  <JJK_DeepVesselProgress>Resolve: {0}/5. Successful rescues: {1}.</JJK_DeepVesselProgress>
+  <JJK_DeepConfront>Confront Sukuna</JJK_DeepConfront>
+  <JJK_DeepConfrontDesc>Spend 10 uninterrupted seconds in an internal confrontation, then pay 30 CE. Success chance: 55% +5% per resolve −25% × influence (30–85% bounds). Victory earns one resolve, removes 5% influence and suppresses seizures for half a day. Defeat adds 5% influence and triggers possession. Once per day; unavailable during loans, debt or a rescue crisis.</JJK_DeepConfrontDesc>
+  <JJK_DeepConfrontWon>You held your ground against Sukuna. Resolve increased; seizures are suppressed for half a day.</JJK_DeepConfrontWon>
+  <JJK_DeepQuiet>Bargain for silence</JJK_DeepQuiet>
+  <JJK_DeepQuietDesc>One-time competing bargain: permanently surrender 15% maximum CE for three days free of seizures. Grants no borrowed technique. Other bargains are unavailable during that period.</JJK_DeepQuietDesc>
+  <JJK_DeepQuietMade>Sukuna accepted the price. Three days of silence cost 15% maximum cursed energy forever.</JJK_DeepQuietMade>
+  <JJK_DeepRescue>Anchor the vessel</JJK_DeepRescue>
+  <JJK_DeepRescueText>{0} is fighting Sukuna. Within 100 seconds, end the berserk state (subdue them or wait for it to end), then have another sorcerer right-click the vessel and anchor their soul for 5 seconds at a cost of 40 CE. Success suppresses seizures for a day and builds lasting trust. Missing the deadline adds 10% influence and six days of distress.</JJK_DeepRescueText>
+  <JJK_DeepAnchor>Anchor vessel soul (40 CE, 5 seconds)</JJK_DeepAnchor>
+  <JJK_DeepRescueRemaining>Rescue objective: another sorcerer must anchor your soul. {0} remaining.</JJK_DeepRescueRemaining>
+  <JJK_DeepRescueFailed>{0} faced the aftermath alone. Sukuna’s influence increased by 10%.</JJK_DeepRescueFailed>
+  <JJK_DeepRescued>{1} anchored {0}’s soul. Both will remember the trust for 30 days.</JJK_DeepRescued>
+</LanguageData>

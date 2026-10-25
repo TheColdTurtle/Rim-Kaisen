@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Advanced / non-projectile technique types backed by custom C# Ability    -->
+  <!-- classes: a toggle self-buff, a self-heal, and a shikigami summon.         -->
+  <!-- These cast through the standard cast job (no verbProperties); the C#       -->
+  <!-- class's Start()/toggle drives the effect.                                  -->
+  <!-- ===================================================================== -->
+
+  <!-- ===== Flowing Red Scale (added to the Blood Manipulation tree) ===== -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_BloodManipulationBase">
+    <defName>JJK_FlowingRedScale</defName>
+    <label>flowing red scale</label>
+    <description>Toggle: flood the body with cursed blood, boosting melee damage and movement speed. Reserves cursed energy while active.</description>
+    <uiPosition>(0.5, 0.6)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/FlowingRedScale</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_FlowingRedScale</abilityClass>
+    <abilityTiers>
+      <li>JJK_FlowingRedScale_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_FlowingRedScale_Tier1</defName>
+    <label>flowing red scale</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <maxEnergyOffset>-20</maxEnergyOffset>
+    <cooldownTicks>60</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================== Reverse Cursed Technique ===================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_RCT</defName>
+    <label>reverse cursed technique</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_ReverseCursedTechnique</defName>
+    <label>reverse cursed technique</label>
+    <description>Multiply two flows of cursed energy into a positive output, healing your own injuries. The amount healed scales with your sorcerer grade.</description>
+    <uiPosition>(0.5, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ReverseCursedTechnique</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ReverseCursedTechnique</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_RCT</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_ReverseCursedTechnique_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ReverseCursedTechnique_Tier1</defName>
+    <label>reverse cursed technique</label>
+    <!-- No trait listed here on purpose: the RCT TREE is what a trait unlocks
+         (JJK_RCT or JJK_SoulMender), so reaching this def at all already proves
+         the pawn has one of them. Gating on JJK_RCT specifically would lock a
+         soul mender out of healing themselves. -->
+    <acquireRequirement>
+      <minLevel>0</minLevel>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- RCT turned outward: the soul mender's gift. Deliberately inefficient
+       compared to the self-heal - 20 healing for 80 energy (0.25 per point)
+       against the self heal's 25 for 50 (0.5 per point) - on a longer
+       cooldown, a slower cast, and only at a touch. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_ReverseCursedTechniqueOther</defName>
+    <label>reverse cursed technique: mend</label>
+    <description>Lay hands on another pawn and knit their wounds shut with reversed cursed energy - the rare gift of a soul mender.\n\nReversing your energy inside a body that is not your own is far harder than mending yourself: each cast closes less of the wound, costs far more cursed energy, and is slow to recover. Touch range. The amount healed scales with your sorcerer grade.</description>
+    <uiPosition>(0.7, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ReverseCursedTechniqueOther</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ReverseCursedTechniqueOther</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_RCT</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_ReverseCursedTechniqueOther_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ReverseCursedTechniqueOther_Tier1</defName>
+    <label>reverse cursed technique: mend</label>
+    <!-- Only a soul mender ever gets this one. -->
+    <acquireRequirement>
+      <requiredTraits>
+        <li>JJK_SoulMender</li>
+      </requiredTraits>
+    </acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+      <canTargetAnimals>true</canTargetAnimals>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ========================= Ten Shadows ============================= -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_TenShadows</defName>
+    <label>ten shadows</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <!-- Shared base: every Ten Shadows summon uses Ability_SummonShadow and reads
+       which shadow to summon from its ShikigamiAbilityExtension. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_TenShadowsSummonBase" Abstract="True">
+    <abilityClass>JJKMod.Ability_SummonShadow</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_TenShadows</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <!-- Divine Dog: White -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonDivineDogWhite</defName>
+    <label>divine dog: white</label>
+    <description>Summon the white Divine Dog - a fast melee hound bound to you. If the black dog has been lost, the white is summoned in its stronger Totality form. Only one of each shadow may be active at a time.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DivineDogWhite</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_DivineDogWhite</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonDivineDogWhite_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonDivineDogWhite_Tier1</defName>
+    <label>divine dog: white</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Divine Dog: Black -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonDivineDogBlack</defName>
+    <label>divine dog: black</label>
+    <description>Summon the black Divine Dog - a fast melee hound bound to you. If the white dog has been lost, the black is summoned in its stronger Totality form. Only one of each shadow may be active at a time.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DivineDogBlack</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_DivineDogBlack</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonDivineDogBlack_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonDivineDogBlack_Tier1</defName>
+    <label>divine dog: black</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>900</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Nue (tameable) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonNue</defName>
+    <label>nue</label>
+    <description>Summon the Nue. The first time, it manifests WILD and hostile to everyone - defeat it to tame it. Once tamed it fights for you, but if a tamed shikigami is killed it is lost forever.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Nue</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_Nue</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonNue_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonNue_Tier1</defName>
+    <label>nue</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>1200</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Toad (tameable) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonToad</defName>
+    <label>toad</label>
+    <description>Summon the Toad. The first time, it manifests WILD and hostile to everyone - defeat it to tame it. Once tamed it fights for you, but if a tamed shikigami is killed it is lost forever.</description>
+    <uiPosition>(0.3, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Toad</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_Toad</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonToad_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonToad_Tier1</defName>
+    <label>toad</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>1200</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Great Serpent (tameable) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonGreatSerpent</defName>
+    <label>great serpent</label>
+    <description>Summon the Great Serpent. The first time, it manifests WILD and hostile to everyone - defeat it to tame it. Once tamed it fights for you, but if a tamed shikigami is killed it is lost forever.</description>
+    <uiPosition>(0.5, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/GreatSerpent</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_GreatSerpent</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonGreatSerpent_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonGreatSerpent_Tier1</defName>
+    <label>great serpent</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>60</energyCost>
+    <cooldownTicks>1500</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Rabbit Escape (tameable swarm) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonRabbitEscape</defName>
+    <label>rabbit escape</label>
+    <description>Summon a swarm of weak rabbit shikigami to screen a retreat or scatter the enemy. First summon is hostile until defeated. Individual rabbits are expendable - losing them does not lose the technique.</description>
+    <uiPosition>(0.7, 0.5)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/RabbitEscape</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_RabbitEscape</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonRabbitEscape_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonRabbitEscape_Tier1</defName>
+    <label>rabbit escape</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>1500</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Round Deer (tameable healer) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonRoundDeer</defName>
+    <label>round deer</label>
+    <description>Summon the Round Deer, which continuously heals nearby allies through reverse cursed technique. First summon is hostile until defeated. A tamed Round Deer that dies is lost forever.</description>
+    <uiPosition>(0.3, 0.7)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/RoundDeer</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_RoundDeer</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonRoundDeer_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonRoundDeer_Tier1</defName>
+    <label>round deer</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>1800</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Max Elephant (tameable, slow & durable) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonMaxElephant</defName>
+    <label>max elephant</label>
+    <description>Summon the Max Elephant - a slow but immensely durable shikigami that anchors a battle line. First summon is hostile until defeated. A tamed Max Elephant that dies is lost forever.</description>
+    <uiPosition>(0.5, 0.7)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/MaxElephant</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_MaxElephant</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonMaxElephant_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonMaxElephant_Tier1</defName>
+    <label>max elephant</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>60</energyCost>
+    <cooldownTicks>1800</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Tiger Funeral (tameable, very strong - little is known of it) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonTigerFuneral</defName>
+    <label>tiger funeral</label>
+    <description>Summon the Tiger Funeral, a shikigami of fearsome power rivalling the merged Divine Dog. First summon is hostile until defeated. A tamed Tiger Funeral that dies is lost forever.</description>
+    <uiPosition>(0.7, 0.7)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/TigerFuneral</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_TigerFuneral</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonTigerFuneral_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonTigerFuneral_Tier1</defName>
+    <label>tiger funeral</label>
+    <acquireRequirement>
+      <minLevel>3</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>70</energyCost>
+    <cooldownTicks>2500</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- Mahoraga (Calamity-grade; the adaptive divine general) -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_TenShadowsSummonBase">
+    <defName>JJK_SummonMahoraga</defName>
+    <label>mahoraga</label>
+    <description>Summon the Eight-Handled Sword Divergent Sila Divine General Mahoraga. The first summon is hostile and must be defeated. Every wheel spin completely heals it. Basic physical attacks cannot kill it after their first adaptation, while complex techniques remain dangerous until fully adapted. It learns cursed phenomena separately from bullets, blades and explosions, and can adapt to control effects and Infinity through exposure. Adaptations reset when recalled and summoned again. Requires Calamity grade.</description>
+    <uiPosition>(0.5, 0.9)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Mahoraga</uiSkillIcon>
+    <modExtensions>
+      <li Class="JJKMod.ShikigamiAbilityExtension">
+        <shikigami>JJK_Shadow_Mahoraga</shikigami>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_SummonMahoraga_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SummonMahoraga_Tier1</defName>
+    <label>mahoraga</label>
+    <acquireRequirement>
+      <minLevel>5</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_TenShadows</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>240</energyCost>
+    <cooldownTicks>5000</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

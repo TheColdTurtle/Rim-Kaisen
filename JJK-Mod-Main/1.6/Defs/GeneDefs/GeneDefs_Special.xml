@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Heavenly Restriction (Section 11) and Six Eyes (Section 12).           -->
+  <!-- ===================================================================== -->
+
+  <!-- Heavenly Restriction: physical perfection. No cursed energy at all
+       (Maki / Toji archetype). Does NOT force the sorcerer trait and excludes
+       reserve genes. Trades all jujutsu for a superhuman body. -->
+  <GeneDef>
+    <defName>JJK_PhysicalPerfection</defName>
+    <label>heavenly restriction: physical perfection</label>
+    <description>A heavenly restriction placed on this pawn at conception: born with no cursed energy whatsoever, their body is honed to superhuman limits in exchange. They can never use a cursed technique, but they can see curses and kill them with raw physicality - their physical prowess exceeds even a special grade sorcerer's.</description>
+    <iconPath>UI/Icons/Genes/HeavenlyRestriction_Body</iconPath>
+    <displayCategory>JJK_Sorcery</displayCategory>
+    <displayOrderInCategory>60</displayOrderInCategory>
+    <biostatCpx>5</biostatCpx>
+    <biostatMet>2</biostatMet>
+    <exclusionTags>
+      <li>JJK_CursedEnergyReserve</li>
+      <li>JJK_HeavenlyRestriction</li>
+    </exclusionTags>
+    <statOffsets>
+      <JJK_MaxCursedEnergy>0</JJK_MaxCursedEnergy>
+    </statOffsets>
+    <!-- Tuned to sit just above a special-grade sorcerer but below calamity. -->
+    <statFactors>
+      <MoveSpeed>1.55</MoveSpeed>
+      <MeleeDamageFactor>1.95</MeleeDamageFactor>
+      <IncomingDamageFactor>0.66</IncomingDamageFactor>
+    </statFactors>
+    <capMods>
+      <li>
+        <capacity>Manipulation</capacity>
+        <offset>0.4</offset>
+      </li>
+      <li>
+        <capacity>Moving</capacity>
+        <offset>0.3</offset>
+      </li>
+    </capMods>
+    <painFactor>0.5</painFactor>
+  </GeneDef>
+
+  <!-- Heavenly Restriction: body fragility. The inverse trade. Keeps cursed
+       energy (still needs a reserve gene) and doubles cursed technique output,
+       but the body is frail. -->
+  <GeneDef>
+    <defName>JJK_BodyFragility</defName>
+    <label>heavenly restriction: body fragility</label>
+    <description>A heavenly restriction inverted: this pawn's frail body is the price for an overwhelming cursed technique. Cursed technique output is doubled, but their flesh is weak and slow to mend.</description>
+    <iconPath>UI/Icons/Genes/HeavenlyRestriction_Frail</iconPath>
+    <displayCategory>JJK_Sorcery</displayCategory>
+    <displayOrderInCategory>61</displayOrderInCategory>
+    <biostatCpx>4</biostatCpx>
+    <biostatMet>1</biostatMet>
+    <exclusionTags>
+      <li>JJK_HeavenlyRestriction</li>
+    </exclusionTags>
+    <statOffsets>
+      <JJK_CTOutput>1.0</JJK_CTOutput>
+    </statOffsets>
+    <statFactors>
+      <IncomingDamageFactor>1.4</IncomingDamageFactor>
+      <InjuryHealingFactor>0.7</InjuryHealingFactor>
+    </statFactors>
+  </GeneDef>
+
+  <!-- Six Eyes: archite-tier ocular kekkei genkai. The "infinitesimal cursed
+       energy loss" doctrine is implemented as a near-total cost reduction
+       (Efficiency bypass), plus +50% CT Output. It is the prerequisite token
+       for Limitless's Infinity / Hollow Purple / Unlimited Void. Quest-only. -->
+  <GeneDef>
+    <defName>JJK_SixEyes</defName>
+    <label>six eyes</label>
+    <description>The legendary ocular kekkei genkai of the Gojo clan. Its bearer perceives cursed energy in perfect detail, expending almost none of their own. Halves nothing and wastes nothing: cursed technique costs collapse to a trickle, and output sharpens. Unlocks the full Limitless technique. Cannot occur naturally.</description>
+    <iconPath>UI/Icons/Genes/SixEyes</iconPath>
+    <displayCategory>JJK_Sorcery</displayCategory>
+    <displayOrderInCategory>70</displayOrderInCategory>
+    <geneClass>JJKMod.Gene_SixEyes</geneClass>
+    <biostatCpx>6</biostatCpx>
+    <biostatMet>-2</biostatMet>
+    <biostatArc>1</biostatArc>
+    <canGenerateInGeneSet>false</canGenerateInGeneSet>
+    <selectionWeight>0</selectionWeight>
+    <statOffsets>
+      <JJK_CTOutput>0.5</JJK_CTOutput>
+      <!-- Greatly accelerated cursed energy recovery (the "infinitesimal loss"
+           doctrine: a Six Eyes bearer is always near-full). -->
+      <JJK_CursedEnergyRegenRateMultiplier>1.0</JJK_CursedEnergyRegenRateMultiplier>
+    </statOffsets>
+    <statFactors>
+      <!-- 99% efficiency: techniques (and Infinity's drain) cost only 1%. This is
+           what makes the otherwise-crippling Limitless costs trivial for Gojo. -->
+      <JJK_CursedEnergyUsageMultiplier>0.01</JJK_CursedEnergyUsageMultiplier>
+    </statFactors>
+    <!-- Striking blue eyes (the actual Six Eyes are installed as an ocular organ
+         hediff by Gene_SixEyes). Texture is a placeholder until art exists. -->
+    <renderNodeProperties>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <texPath>Things/Pawn/Humanlike/Eyes/SixEyes</texPath>
+        <color>(0.25, 0.6, 1.0)</color>
+        <anchorTag>RightEye</anchorTag>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.2</drawSize>
+        <side>Right</side>
+        <drawData>
+          <defaultData>
+            <layer>54</layer>
+            <offset>(0, 0, -0.25)</offset>
+          </defaultData>
+        </drawData>
+      </li>
+      <li Class="PawnRenderNodeProperties_Eye">
+        <texPath>Things/Pawn/Humanlike/Eyes/SixEyes</texPath>
+        <color>(0.25, 0.6, 1.0)</color>
+        <anchorTag>LeftEye</anchorTag>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <parentTagDef>Head</parentTagDef>
+        <drawSize>0.2</drawSize>
+        <side>Left</side>
+        <drawData>
+          <defaultData>
+            <layer>54</layer>
+            <offset>(0, 0, -0.25)</offset>
+            <flip>true</flip>
+          </defaultData>
+          <dataWest>
+            <flip>false</flip>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+</Defs>

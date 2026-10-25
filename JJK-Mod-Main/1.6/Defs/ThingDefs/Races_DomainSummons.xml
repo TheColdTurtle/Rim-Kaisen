@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Temporary shikigami manifested by a Domain Expansion (not part of the    -->
+  <!-- Ten Shadows roster). They are spawned as the caster's allies when the     -->
+  <!-- domain opens and destroyed when it collapses, so they carry no shikigami  -->
+  <!-- bond and never affect any roster. Reuses the shikigami race base.         -->
+  <!-- ===================================================================== -->
+
+  <!-- Fish shikigami: the swarm of Disaster Tides' Horizon of the Captivating
+       Skandha. Individually weak, summoned in numbers to flood the domain. -->
+  <ThingDef ParentName="JJK_ShikigamiRaceBase">
+    <defName>JJK_DomainFish</defName>
+    <label>fish shikigami</label>
+    <description>A darting fish of cursed water, conjured by the Horizon of the Captivating Skandha. Frail alone, but they swarm every intruder in the domain at once.</description>
+    <statBases>
+      <MoveSpeed>6.0</MoveSpeed>
+      <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities><li>Bite</li></capacities>
+        <power>10</power>
+        <cooldownTime>1.2</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <chanceFactor>1.2</chanceFactor>
+        <armorPenetration>0.1</armorPenetration>
+      </li>
+    </tools>
+    <race>
+      <baseBodySize>0.4</baseBodySize>
+      <baseHealthScale>0.5</baseHealthScale>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="JJK_ShikigamiKindBase">
+    <defName>JJK_DomainFish</defName>
+    <label>fish shikigami</label>
+    <race>JJK_DomainFish</race>
+    <combatPower>40</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Shikigami/Fish/Fish</texPath>
+          <drawSize>0.9</drawSize>
+          <color>(255, 255, 255)</color>
+          <shadowData><volume>(0.2, 0.1, 0.2)</volume></shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

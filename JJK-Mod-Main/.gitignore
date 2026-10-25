@@ -1,0 +1,23 @@
+# Local editor / assistant state and generated build caches
+.vs/
+.idea/
+.claude/
+.codex/
+**/obj/
+**/bin/
+*.user
+*.suo
+*.pdb
+__pycache__/
+
+# Local playtest evidence can contain account IDs, paths, or desktop details.
+/QA/
+*.log
+*.rws
+
+# Local credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem

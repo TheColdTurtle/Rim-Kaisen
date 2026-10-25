@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Defs>
+  <!-- ===================================================================== -->
+  <!-- Second wave of cursed techniques:                                        -->
+  <!--   Projection Sorcery (Naoya)       - toggle: 24-frames-per-second speed.  -->
+  <!--   Star Rage (Yuki)                 - virtual mass behind each blow.       -->
+  <!--   Cursed Spirit Manipulation (Geto) - release absorbed curses to fight.   -->
+  <!-- ===================================================================== -->
+  <!-- ===================================================================== -->
+  <!-- PROJECTION SORCERY (Naoya)                                              -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Projection</defName>
+    <label>projection sorcery</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_ProjectionSorcery</defName>
+    <label>projection sorcery</label>
+    <description>Toggle: divide each second into 24 frames and trace your motion between them, moving at blinding speed. While active, movement and melee speed rise sharply. Reserves cursed energy while the frames run.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ProjectionSorcery</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_ToggleHediff</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_Projection</li>
+    </abilityTrees>
+    <modExtensions>
+      <li Class="JJKMod.ToggleHediffExtension">
+        <hediff>JJK_ProjectionFrames</hediff>
+      </li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_ProjectionSorcery_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ProjectionSorcery_Tier1</defName>
+    <label>projection sorcery</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Projection</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <maxEnergyOffset>-25</maxEnergyOffset>
+    <cooldownTicks>60</cooldownTicks>
+    <castDurationTicks>10</castDurationTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <!-- ===================================================================== -->
+  <!-- STAR RAGE (Yuki)                                                        -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_StarRage</defName>
+    <label>star rage</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_StarRageBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_StarRage</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+  <!-- Virtual Mass Blow: a short-range strike carrying enormous virtual mass. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_StarRageBase">
+    <defName>JJK_StarRage_Blow</defName>
+    <label>virtual mass blow</label>
+    <description>Grant your strike virtual mass and drive it into a target at short range. The blow lands with the weight of a falling star, crushing armor and bone alike. The innate technique of Yuki Tsukumo.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/StarRage</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_StarRage_Blow_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_StarRage_Blow_Tier1</defName>
+    <label>virtual mass blow</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StarRage</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>260</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_StarRage</defaultProjectile>
+        <range>8</range>
+        <warmupTime>0.4</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>false</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+  <!-- Star Impact: slam virtual mass into the ground, a devastating area blow. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_StarRageBase">
+    <defName>JJK_StarRage_Impact</defName>
+    <label>star impact</label>
+    <description>Pour the technique's full virtual mass into a single downward blow, shattering an area with meteoric force.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/StarImpact</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_StarRage_Impact_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_StarRage_Impact_Tier1</defName>
+    <label>star impact</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_StarRage</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>70</energyCost>
+    <cooldownTicks>600</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_StarImpact</defaultProjectile>
+        <range>12</range>
+        <warmupTime>0.7</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+  <!-- ===================================================================== -->
+  <!-- CURSED SPIRIT MANIPULATION (Geto)                                       -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_SpiritManipulation</defName>
+    <label>cursed spirit manipulation</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+  <!-- Absorb Cursed Spirit: swallow a curse into the technique. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_AbsorbCurse</defName>
+    <label>absorb cursed spirit</label>
+    <description>Absorb a hostile cursed spirit when it is downed or at least two grades below you. Your own released curses can be recalled without a grade contest. Stores the actual individual, preserving its injuries and abilities in suspended time. Up to 25 curses can be held. Stored curses escape if their owner dies.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/AbsorbCurse</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_AbsorbCurse</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_SpiritManipulation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_AbsorbCurse_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_AbsorbCurse_Tier1</defName>
+    <label>absorb cursed spirit</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SpiritManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>300</cooldownTicks>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>8</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+      <canTargetAnimals>true</canTargetAnimals>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_ReleaseCurse</defName>
+    <label>release cursed spirit</label>
+    <description>Release the individual chosen in the sorcerer dossier curse roster; otherwise release the strongest stored curse. Injuries and abilities are preserved. With no stored curses, summon a lesser curse from standing stock, scaled by grade. Selecting a curse is free; casting this ability pays its normal cursed-energy cost.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/ReleaseCurse</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_SummonCurse</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_SpiritManipulation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_ReleaseCurse_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_ReleaseCurse_Tier1</defName>
+    <label>release cursed spirit</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SpiritManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>80</energyCost>
+    <cooldownTicks>2500</cooldownTicks>
+  </TaranMagicFramework.AbilityTierDef>
+  <!-- Maximum: Uzumaki - trade the whole absorbed roster for one cataclysm. -->
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase">
+    <defName>JJK_MaximumUzumaki</defName>
+    <label>maximum: uzumaki</label>
+    <description>Compress the curses selected in your dossier roster into a destructive vortex at the target point. Permanently consumes the selected individuals. All stored curses are selected by default. More and stronger sacrifices increase damage and radius; unselected curses remain stored. An empty sacrifice selection cannot be cast.</description>
+    <uiPosition>(0.5, 0.55)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/MaximumUzumaki</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_MaximumUzumaki</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_SpiritManipulation</li>
+    </abilityTrees>
+    <abilityTiers>
+      <li>JJK_MaximumUzumaki_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_MaximumUzumaki_Tier1</defName>
+    <label>maximum: uzumaki</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_SpiritManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>120</energyCost>
+    <cooldownTicks>5000</cooldownTicks>
+    <castDurationTicks>60</castDurationTicks>
+    <effectRadius>24</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns>
+      <canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+</Defs>

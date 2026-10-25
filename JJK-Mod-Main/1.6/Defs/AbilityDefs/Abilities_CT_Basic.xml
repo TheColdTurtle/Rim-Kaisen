@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ===================================================================== -->
+  <!-- Cursed technique library (basic tier). Legacy moves use custom C#   -->
+  <!-- on TaranMagicFramework.Ability + Verb_ShootAbility. Single-target moves   -->
+  <!-- fire a bullet projectile; AoE moves fire a Projectile_Explosive.          -->
+  <!--                                                                          -->
+  <!-- Each technique is one AbilityTreeDef (registered in JJK_CursedTechniques  -->
+  <!-- and granted by a CT gene). Each move within it is a separate AbilityDef   -->
+  <!-- (= one gizmo) and gates on acquireRequirement > requiredGenes.            -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================================================================== -->
+  <!-- DISASTER FLAMES (Jogo)                                                  -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_DisasterFlames</defName>
+    <label>disaster flames</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_DisasterFlamesBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_DisasterFlames</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterFlamesBase">
+    <defName>JJK_DisasterFlames</defName>
+    <label>disaster flames</label>
+    <description>Hurl a ball of cursed flame that burns whatever it strikes. The innate technique of the disaster curse Jogo.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DisasterFlames</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_DisasterFlames_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_DisasterFlames_Tier1</defName>
+    <label>disaster flames</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterFlames</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>35</energyCost>
+    <cooldownTicks>240</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_DisasterFlames</defaultProjectile>
+        <range>18</range>
+        <warmupTime>0.5</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterFlamesBase">
+    <defName>JJK_LavaLaser</defName>
+    <label>volcanic lance</label>
+    <description>Drive a narrow lance of volcanic heat through enemies along the line to the selected point. Stops at solid cover. Deals 28 base burn damage per enemy; line up targets to make the most of one cast.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/LavaLaser</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>LavaLance</move><radius>0</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_LavaLaser_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_LavaLaser_Tier1</defName>
+    <label>volcanic lance</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterFlames</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>180</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>35</castDurationTicks>
+    <effectRadius>26</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterFlamesBase">
+    <defName>JJK_EmberBurst</defName>
+    <label>ember insects</label>
+    <description>Send Ember Insects to a fixed location. Their sound briefly stuns nearby enemies for half a second, then the insects explode 1.5 seconds later for 38 base flame damage in a 3.2-cell radius. The blast can hit allies and the caster; enemies can escape the marked zone.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/EmberBurst</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>EmberInsects</move><radius>3.2</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_EmberBurst_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_EmberBurst_Tier1</defName>
+    <label>ember insects</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterFlames</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>60</energyCost>
+    <cooldownTicks>420</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>35</castDurationTicks>
+    <effectRadius>20</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- BLOOD MANIPULATION (Kamo)                                               -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_BloodManipulation</defName>
+    <label>blood manipulation</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_BloodManipulationBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_BloodManipulation</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_BloodManipulationBase">
+    <defName>JJK_PiercingBlood</defName>
+    <label>piercing blood</label>
+    <description>Fire a pressurized blood lance through enemies along the line to the chosen point, stopping at solid cover. Deals 34 base cutting damage. Consumes Convergence, if prepared, for 40% greater damage and increased armor penetration.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/PiercingBlood</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>PiercingBlood</move><radius>0</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_PiercingBlood_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_PiercingBlood_Tier1</defName>
+    <label>piercing blood</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>200</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>22</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_BloodManipulationBase">
+    <defName>JJK_SlicingExorcism</defName>
+    <label>slicing exorcism</label>
+    <description>Loose a fan of razor-thin blood discs at close range, cutting everything in a small area.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/SlicingExorcism</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_SlicingExorcism_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_SlicingExorcism_Tier1</defName>
+    <label>slicing exorcism</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>220</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_SlicingExorcism</defaultProjectile>
+        <range>10</range>
+        <warmupTime>0.4</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_BloodManipulationBase">
+    <defName>JJK_BloodEdge</defName>
+    <label>blood edge</label>
+    <description>Sweep a wide wave of cursed blood forward, cutting down a cluster of enemies.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/BloodEdge</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_BloodEdge_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_BloodEdge_Tier1</defName>
+    <label>blood edge</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_BloodManipulation</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>55</energyCost>
+    <cooldownTicks>400</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_BloodEdge</defaultProjectile>
+        <range>16</range>
+        <warmupTime>0.6</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- SHRINE (Sukuna)                                                         -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_Shrine</defName>
+    <label>shrine</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_ShrineBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_Shrine</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_ShrineBase">
+    <defName>JJK_Dismantle</defName>
+    <label>dismantle</label>
+    <description>Loose a slash of cursed energy that cuts cleanly through armor. A basic attack of Sukuna's innate technique, Shrine.</description>
+    <uiPosition>(0.3, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Dismantle</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_Dismantle_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Dismantle_Tier1</defName>
+    <label>dismantle</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Shrine</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>25</energyCost>
+    <cooldownTicks>160</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_Dismantle</defaultProjectile>
+        <range>14</range>
+        <warmupTime>0.3</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_ShrineBase">
+    <defName>JJK_Cleave</defName>
+    <label>cleave</label>
+    <description>Touch an enemy and adapt a cutting attack to its toughness. Deals 24-48 base damage depending on armor and body size, with high armor penetration. Technique output scales the result. Requires contact range and cannot guarantee a kill against stronger opponents.</description>
+    <uiPosition>(0.5, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Cleave</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>Cleave</move><radius>0</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Cleave_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Cleave_Tier1</defName>
+    <label>cleave</label>
+    <acquireRequirement>
+      <minLevel>1</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Shrine</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>220</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>18</castDurationTicks>
+    <effectRadius>1.9</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>false</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_ShrineBase">
+    <defName>JJK_DismantleAOE</defName>
+    <label>dismantle: spiderweb</label>
+    <description>Carve a lattice of cursed slashes across a target area, shredding everything caught within it.</description>
+    <uiPosition>(0.7, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DismantleAOE</uiSkillIcon>
+    <abilityTiers>
+      <li>JJK_DismantleAOE_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_DismantleAOE_Tier1</defName>
+    <label>dismantle: spiderweb</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_Shrine</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>40</energyCost>
+    <cooldownTicks>320</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <verbProperties>
+      <li Class="TaranMagicFramework.VerbPropertiesAbility">
+        <verbClass>TaranMagicFramework.Verb_ShootAbility</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>JJK_Proj_DismantleAOE</defaultProjectile>
+        <range>16</range>
+        <warmupTime>0.5</warmupTime>
+        <targetParams>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+      </li>
+    </verbProperties>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- DISASTER TIDES (Dagon)                                                  -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_DisasterTides</defName>
+    <label>disaster tides</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_DisasterTidesBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_DisasterTides</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterTidesBase">
+    <defName>JJK_DisasterTides</defName>
+    <label>water torrent</label>
+    <description>Crash a wave into a 2.5-cell area for 24 base blunt damage. Enemies are pushed up to three cells away from the caster and slowed by 25% for 2.5 seconds. Walls and occupied cells stop the push. Use the wave to peel attackers away or drive them into a waiting swarm.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DisasterTides</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>Torrent</move><radius>2.5</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_DisasterTides_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_DisasterTides_Tier1</defName>
+    <label>water torrent</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterTides</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>200</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterTidesBase">
+    <defName>JJK_DeathSwarm</defName>
+    <label>death swarm</label>
+    <description>Establish a fixed aquatic hunting ground. After 0.75 seconds, launch six volleys one second apart, each sending a visible fish at up to three nearby enemies for 7 base bite damage per fish. Fish can be evaded or intercepted by cover; this extension has no domain sure-hit. One swarm per caster; losing the technique or becoming unable to sustain it ends the swarm.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/DeathSwarm</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>DeathSwarm</move><radius>4.5</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_DeathSwarm_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_DeathSwarm_Tier1</defName>
+    <label>death swarm</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterTides</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>50</energyCost>
+    <cooldownTicks>380</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>42</castDurationTicks>
+    <effectRadius>18</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <!-- ===================================================================== -->
+  <!-- DISASTER PLANTS (Hanami)                                                -->
+  <!-- ===================================================================== -->
+  <TaranMagicFramework.AbilityTreeDef>
+    <defName>JJK_CT_DisasterPlants</defName>
+    <label>disaster plants</label>
+    <unlockedByDefault>false</unlockedByDefault>
+  </TaranMagicFramework.AbilityTreeDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_AbilityBase" Name="JJK_DisasterPlantsBase" Abstract="True">
+    <abilityClass>TaranMagicFramework.Ability</abilityClass>
+    <abilityTrees>
+      <li>JJK_CT_DisasterPlants</li>
+    </abilityTrees>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterPlantsBase">
+    <defName>JJK_Roots</defName>
+    <label>binding roots</label>
+    <description>Mark the ground, then erupt cursed roots one second later. Enemies still within 1.4 cells take 24 base stab damage and suffer 55% reduced movement for three seconds. Anticipate movement to catch a fleeing enemy.</description>
+    <uiPosition>(0.4, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/Roots</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>Roots</move><radius>1.4</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_Roots_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_Roots_Tier1</defName>
+    <label>binding roots</label>
+    <acquireRequirement>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterPlants</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>30</energyCost>
+    <cooldownTicks>200</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>30</castDurationTicks>
+    <effectRadius>14</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+  <TaranMagicFramework.AbilityDef ParentName="JJK_DisasterPlantsBase">
+    <defName>JJK_HugeRoots</defName>
+    <label>root thicket</label>
+    <description>Raise a thicket of enormous roots after a one-second warning. Six eruptions, one second apart, each deal 7 base stab damage and renew a 55% movement penalty on enemies in the 3.6-cell zone. One thicket per caster; losing the technique or becoming unable to sustain it ends the thicket.</description>
+    <uiPosition>(0.6, 0.3)</uiPosition>
+    <uiSkillIcon>UI/Icons/CursedTechniques/HugeRoots</uiSkillIcon>
+    <abilityClass>JJKMod.Ability_LegacyTechnique</abilityClass>
+    <modExtensions>
+      <li Class="JJKMod.LegacyMoveExtension"><move>HugeRoots</move><radius>3.6</radius></li>
+    </modExtensions>
+    <abilityTiers>
+      <li>JJK_HugeRoots_Tier1</li>
+    </abilityTiers>
+  </TaranMagicFramework.AbilityDef>
+
+  <TaranMagicFramework.AbilityTierDef ParentName="JJK_AbilityTierBase">
+    <defName>JJK_HugeRoots_Tier1</defName>
+    <label>root thicket</label>
+    <acquireRequirement>
+      <minLevel>2</minLevel>
+      <requiredGenes>
+        <li>JJK_CT_Gene_DisasterPlants</li>
+      </requiredGenes>
+    </acquireRequirement>
+    <energyCost>55</energyCost>
+    <cooldownTicks>400</cooldownTicks>
+    <aiAbilityWorker>TaranMagicFramework.AIAbilityWorker_TargetHostile</aiAbilityWorker>
+    <castDurationTicks>42</castDurationTicks>
+    <effectRadius>16</effectRadius>
+    <requireLineOfSight>true</requireLineOfSight>
+    <targetingParameters>
+      <canTargetPawns>true</canTargetPawns><canTargetLocations>true</canTargetLocations>
+      <canTargetSelf>false</canTargetSelf>
+    </targetingParameters>
+  </TaranMagicFramework.AbilityTierDef>
+
+</Defs>

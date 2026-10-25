@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorldObjectDef ParentName="Site">
+    <defName>JJK_CullingColony</defName><label>Culling Game colony</label>
+    <description>A barrier colony in Kenjaku's Culling Game. Entering enrolls your colonists. Defeat four waves of five rival sorcerers, then spend ten seconds disrupting the anchor. Retreat before disruption forfeits each departing participant's points unless the Free Passage rule has been purchased. Retreat preserves the encounter.</description>
+    <worldObjectClass>JJKMod.CullingSite</worldObjectClass>
+  </WorldObjectDef>
+  <SitePartDef>
+    <defName>JJK_CullingColonyPart</defName><label>Culling Game barrier</label>
+    <description>Kogane monitors this barrier colony. Enemies use their cursed techniques and cannot be cleared by merely leaving the map. The final ritual has three waves, with a special-grade leader in each. Breaking all three colony anchors reveals that ritual; disrupting its anchor ends the campaign.</description>
+    <workerClass>JJKMod.SitePartWorker_CullingColony</workerClass>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>World/WorldObjects/Expanding/Sites/ItemStash</expandingIconTexture>
+    <requiresFaction>false</requiresFaction><wantsThreatPoints>false</wantsThreatPoints>
+    <handlesWorldObjectTimeoutInspectString>true</handlesWorldObjectTimeoutInspectString>
+    <approachOrderString>Enter Culling Game colony</approachOrderString><approachingReportString>Entering Culling Game colony.</approachingReportString>
+    <minMapSize>(100, 1, 100)</minMapSize>
+  </SitePartDef>
+  <ThingDef ParentName="BuildingBase">
+    <defName>JJK_CullingAnchor</defName><label>Culling Game barrier anchor</label>
+    <description>The barrier ritual protects this anchor from ordinary damage. Clear all defender waves, then order a colonist to disrupt it. The ritual takes ten seconds beside the anchor. Killing a leader alone will not end the Culling Game.</description>
+    <thingClass>JJKMod.Building_CullingAnchor</thingClass>
+    <graphicData><texPath>Things/Item/Resource/ComponentIndustrial</texPath><graphicClass>Graphic_StackCount</graphicClass><drawSize>(2,2)</drawSize><color>(0.8,0.55,0.15)</color></graphicData>
+    <statBases><MaxHitPoints>1000</MaxHitPoints><Flammability>0</Flammability><Mass>100</Mass></statBases>
+    <destroyable>false</destroyable><useHitPoints>false</useHitPoints>
+    <altitudeLayer>Building</altitudeLayer><passability>Impassable</passability><fillPercent>1</fillPercent>
+    <building><isEdifice>true</isEdifice><isInert>true</isInert></building><selectable>true</selectable>
+  </ThingDef>
+  <JobDef><defName>JJK_DisruptCullingAnchor</defName><driverClass>JJKMod.JobDriver_DisruptCullingAnchor</driverClass><reportString>Disrupting the Culling Game barrier.</reportString></JobDef>
+  <HediffDef>
+    <defName>JJK_CullingStagnation</defName><label>Culling Game: technique sealed</label>
+    <description>Nineteen days without earning or transferring points has sealed this participant's cursed techniques. Earn points or receive a legal point transfer to recover. Ending or abandoning the campaign also removes the seal. This nonlethal penalty is Rim-Kaisen's adaptation of the Culling Game's technique-removal rule.</description>
+    <hediffClass>HediffWithComps</hediffClass><isBad>true</isBad><initialSeverity>1</initialSeverity>
+  </HediffDef>
+  <PawnKindDef Abstract="True" Name="JJK_CullingRivalBase" ParentName="JJK_HumanlikeBase">
+    <defaultFactionType>JJK_CurseUsers</defaultFactionType><combatPower>260</combatPower>
+    <apparelMoney>1500~2500</apparelMoney><apparelTags><li>IndustrialBasic</li></apparelTags>
+    <weaponMoney>200~650</weaponMoney><weaponTags><li>MedievalMeleeAdvanced</li></weaponTags>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CullingRivalBase">
+    <defName>JJK_CullingAwakened</defName><label>awakened frame sorcerer</label>
+    <modExtensions><li Class="JJKMod.PawnKindSorcererExtension"><reserve>JJK_DeepReserves</reserve><grade>Grade1</grade><techniqueCount>0</techniqueCount><guaranteedTechniques><li>JJK_CT_Gene_Projection</li></guaranteedTechniques></li></modExtensions>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CullingRivalBase">
+    <defName>JJK_CullingBrawler</defName><label>awakened mass sorcerer</label>
+    <modExtensions><li Class="JJKMod.PawnKindSorcererExtension"><reserve>JJK_DeepReserves</reserve><grade>Grade1</grade><techniqueCount>0</techniqueCount><guaranteedTechniques><li>JJK_CT_Gene_StarRage</li></guaranteedTechniques></li></modExtensions>
+  </PawnKindDef>
+  <PawnKindDef ParentName="JJK_CullingRivalBase">
+    <defName>JJK_CullingIncarnated</defName><label>incarnated frost sorcerer</label><combatPower>550</combatPower>
+    <modExtensions><li Class="JJKMod.PawnKindSorcererExtension"><reserve>JJK_DeepReserves</reserve><grade>Special</grade><techniqueCount>0</techniqueCount><guaranteedTechniques><li>JJK_CT_Gene_IceFormation</li></guaranteedTechniques></li></modExtensions>
+  </PawnKindDef>
+</Defs>
